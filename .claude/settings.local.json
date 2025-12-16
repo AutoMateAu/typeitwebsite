@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init -y)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx vite:*)",
+      "Bash(copy:*)",
+      "Bash(npx serve . -p 3000)",
+      "Bash(taskkill:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Subcall VoiceAI website\n\n- Landing page (index.html) with hero, features, integrations, and Listen Live sections\n- Platform page (features.html) with product capabilities and trust sections\n- Pricing, Enterprise, and Resources pages\n- Responsive design with DM Sans, DM Serif Display, and Inter fonts\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

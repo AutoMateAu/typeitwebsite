@@ -1,0 +1,2658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform - VoiceAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: #fafafa;
+        }
+
+        header {
+            height: 48px;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .nav-logo svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #334155;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0f172a;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-actions .sign-in {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #334155;
+            text-decoration: none;
+            padding: 6px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .sign-in:hover {
+            color: #0f172a;
+            border-color: #cbd5e1;
+        }
+
+        .nav-actions .download-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+            background: #1e293b;
+            padding: 6px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+
+        .nav-actions .download-btn:hover {
+            background: #334155;
+        }
+
+        /* Features Page Hero */
+        .features-page-hero {
+            margin-top: 48px;
+            min-height: 750px;
+            background: #dbeafe;
+            position: relative;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            padding: 80px;
+            padding-bottom: 180px;
+        }
+
+        .features-page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: #fff;
+            clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        }
+
+        /* Platform Headline Section */
+        .platform-headline-section {
+            padding: 100px 80px 80px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .platform-headline-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e293b;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .platform-headline-section .platform-image {
+            max-width: 1300px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.12);
+        }
+
+        .platform-headline-section .platform-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Product Features Section */
+        .product-features-section {
+            padding: 120px 80px;
+            background: #f8fafc;
+        }
+
+        .product-features-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-features-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .product-features-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e293b;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .product-features-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .product-features-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: stretch;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            min-height: 550px;
+        }
+
+        .features-accordion {
+            display: flex;
+            flex-direction: column;
+            padding: 50px 60px;
+            justify-content: center;
+        }
+
+        .accordion-item {
+            border-top: 1px solid #e2e8f0;
+            padding: 24px 0;
+            cursor: pointer;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #1e293b;
+            transition: color 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-header h3 {
+            color: #1e293b;
+        }
+
+        .accordion-item:not(.active) .accordion-header h3 {
+            color: #94a3b8;
+        }
+
+        .accordion-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        .accordion-item.active .accordion-icon {
+            color: #1e293b;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+            padding-top: 16px;
+        }
+
+        .accordion-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .features-panel {
+            background: #fef3c7;
+            border-radius: 0;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .panel-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .panel-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .panel-card-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        .stats-table {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .stats-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .stats-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .stats-values {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stats-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .stats-change {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .stats-change.up {
+            color: #10b981;
+        }
+
+        .stats-change.down {
+            color: #ef4444;
+        }
+
+        .panel-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1e293b;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .panel-btn:hover {
+            background: #334155;
+        }
+
+        .panel-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* What Can Sophiie Do Section */
+        .sophiie-features {
+            padding: 120px 80px;
+            background: #f8fafc;
+        }
+
+        .sophiie-features-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 100px;
+        }
+
+        .sophiie-features-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e293b;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .sophiie-features-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .sophiie-feature-row {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+        }
+
+        .sophiie-feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .sophiie-feature-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .sophiie-feature-text {
+            flex: 1;
+        }
+
+        .sophiie-feature-text h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .sophiie-feature-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .sophiie-feature-visual {
+            flex: 1;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: 24px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sophiie-feature-visual::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .sophiie-feature-visual::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .visual-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .visual-icon {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .visual-icon svg {
+            width: 36px;
+            height: 36px;
+            color: #3b82f6;
+        }
+
+        .visual-bubble {
+            background: #fff;
+            padding: 16px 24px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #1e293b;
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 28px;
+            z-index: 2;
+        }
+
+        .floating-emoji.wave { top: 20%; right: 25%; }
+        .floating-emoji.phone { top: 35%; right: 10%; }
+        .floating-emoji.sparkle { top: 40%; left: 15%; }
+
+        /* Voice AI OS Section */
+        .voice-ai-os {
+            padding: 100px 80px;
+            background: #fff;
+        }
+
+        .voice-ai-os-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .voice-ai-os-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .voice-ai-os-header-left {
+            flex: 1;
+        }
+
+        .voice-ai-os-header-left h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 44px;
+            font-weight: 500;
+            color: #1e293b;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .voice-ai-os-header-right {
+            flex: 1;
+        }
+
+        .voice-ai-os-header-right p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .voice-ai-os-content {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .voice-ai-os-features {
+            flex: 0 0 400px;
+        }
+
+        .os-feature-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .os-feature-item:first-child {
+            padding-top: 0;
+        }
+
+        .os-feature-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .os-feature-icon {
+            width: 24px;
+            height: 24px;
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+
+        .os-feature-item.active .os-feature-icon {
+            color: #6366f1;
+        }
+
+        .os-feature-header h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+
+        .os-feature-item.active .os-feature-header h4 {
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .os-feature-description {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding-left: 40px;
+        }
+
+        .os-feature-item.active .os-feature-description {
+            max-height: 200px;
+            padding-top: 16px;
+        }
+
+        .os-feature-description p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .voice-ai-os-diagram {
+            flex: 1;
+            background: #fafafa;
+            border-radius: 20px;
+            min-height: 450px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .diagram-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .diagram-node {
+            position: absolute;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1e293b;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .diagram-node-icon {
+            width: 32px;
+            height: 32px;
+            background: #6366f1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .diagram-node.purple .diagram-node-icon {
+            background: #6366f1;
+        }
+
+        .diagram-node.gray .diagram-node-icon {
+            background: #64748b;
+        }
+
+        .industry-preview {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .industry-preview-header {
+            margin-bottom: 32px;
+        }
+
+        .industry-tag {
+            display: inline-block;
+            background: #ede9fe;
+            color: #6366f1;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .industry-preview-header h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .industry-features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .industry-feature-check {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #475569;
+        }
+
+        .industry-feature-check svg {
+            width: 20px;
+            height: 20px;
+            color: #10b981;
+            flex-shrink: 0;
+        }
+
+        /* Trust & Security Section */
+        .trust-section {
+            padding: 100px 80px;
+            background: #1e293b;
+        }
+
+        .trust-section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trust-section h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 52px;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .trust-section .trust-subtitle {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #94a3b8;
+            letter-spacing: -0.01em;
+            margin-bottom: 70px;
+        }
+
+        .trust-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .trust-card {
+            text-align: left;
+        }
+
+        .trust-card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 28px;
+            color: #64748b;
+        }
+
+        .trust-card-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .trust-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .trust-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #94a3b8;
+            line-height: 1.65;
+            letter-spacing: 0.01em;
+        }
+
+        .trust-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .trust-cta:hover {
+            background: #334155;
+            border-color: #64748b;
+        }
+
+        .trust-cta svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .features-page-hero-inner {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-hero-left {
+            flex: 1;
+            max-width: 550px;
+        }
+
+        .features-hero-left h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .features-hero-left p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .hero-cta-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #3b82f6;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background 0.2s;
+        }
+
+        .hero-cta-btn:hover {
+            background: #2563eb;
+        }
+
+        .features-hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            background: #fff;
+            border-radius: 32px;
+            padding: 12px;
+            box-shadow:
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 10px 20px rgba(0, 0, 0, 0.08),
+                0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .phone-screen {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 20px;
+            min-height: 400px;
+        }
+
+        .phone-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 0 4px;
+        }
+
+        .phone-time {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .phone-icons {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .phone-icons svg {
+            width: 16px;
+            height: 16px;
+            color: #1e293b;
+        }
+
+        .phone-content {
+            text-align: center;
+        }
+
+        .phone-icon-main {
+            width: 48px;
+            height: 48px;
+            background: #dbeafe;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .phone-icon-main svg {
+            width: 24px;
+            height: 24px;
+            color: #3b82f6;
+        }
+
+        .phone-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .phone-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        .demo-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            text-align: left;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-card-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .demo-waveform {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .play-btn {
+            width: 32px;
+            height: 32px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .play-btn svg {
+            width: 14px;
+            height: 14px;
+            color: #fff;
+            margin-left: 2px;
+        }
+
+        .waveform-bars {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 24px;
+        }
+
+        .waveform-bar {
+            width: 3px;
+            background: #93c5fd;
+            border-radius: 2px;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 80px 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .how-it-works-inner {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .how-it-works-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .how-it-works-text {
+            max-width: 500px;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .how-it-works-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .how-it-works-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .section-nav {
+            display: none;
+        }
+
+        .nav-arrow {
+            display: none;
+        }
+
+        /* Step Cards */
+        .steps-container {
+            width: 100%;
+        }
+
+        .steps-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .step-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.04),
+                0 4px 8px rgba(0, 0, 0, 0.04),
+                0 8px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.04),
+                0 8px 16px rgba(0, 0, 0, 0.06),
+                0 16px 32px rgba(0, 0, 0, 0.06),
+                0 24px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-card-preview {
+            height: 180px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card-preview.build {
+            background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
+        }
+
+        .step-card-preview.evaluate {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .step-card-preview.launch {
+            background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+        }
+
+        .step-card-preview.learn {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* Preview content styling */
+        .preview-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 12px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .preview-box.light {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .preview-header.light {
+            border-bottom-color: #e2e8f0;
+        }
+
+        .preview-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .preview-dot.light {
+            background: #cbd5e1;
+        }
+
+        .preview-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .preview-title.light {
+            color: #1e293b;
+        }
+
+        .preview-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .preview-line {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+
+        .preview-line.light {
+            background: #e2e8f0;
+        }
+
+        .preview-line.short {
+            width: 60%;
+        }
+
+        .preview-line.medium {
+            width: 80%;
+        }
+
+        .preview-btn {
+            padding: 8px 14px;
+            background: #1e293b;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            width: fit-content;
+        }
+
+        .preview-btn svg {
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Flow diagram preview */
+        .flow-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .flow-node {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .flow-node svg {
+            width: 10px;
+            height: 10px;
+            color: #7c3aed;
+        }
+
+        .flow-connector {
+            width: 2px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            position: relative;
+        }
+
+        .flow-connector::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .flow-branches {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Dashboard preview */
+        .dashboard-preview {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-header {
+            display: none;
+        }
+
+        .dashboard-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .live-calls-badge {
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .dashboard-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .dashboard-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Step card content */
+        .step-card-content {
+            padding: 20px;
+        }
+
+        .step-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .step-label.purple {
+            color: #7c3aed;
+        }
+
+        .step-label.green {
+            color: #10b981;
+        }
+
+        .step-card-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .step-card-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.55;
+        }
+
+        /* Features Hero Section */
+        .features-hero {
+            padding: 80px 80px 100px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+            border-radius: 30px;
+            transform: rotate(15deg);
+            opacity: 0.5;
+        }
+
+        .features-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #93c5fd, #60a5fa);
+            border-radius: 20px;
+            transform: rotate(-10deg);
+            opacity: 0.5;
+        }
+
+        .features-hero .decor-shape-1 {
+            position: absolute;
+            top: 30%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .features-hero .decor-shape-2 {
+            position: absolute;
+            bottom: 20%;
+            right: 25%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #34d399, #10b981);
+            border-radius: 12px;
+            transform: rotate(20deg);
+            opacity: 0.4;
+        }
+
+        .features-hero-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-hero-header {
+            margin-bottom: 50px;
+        }
+
+        .features-hero-label {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .features-hero-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            max-width: 600px;
+        }
+
+        .features-hero-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #64748b;
+            max-width: 500px;
+        }
+
+        /* Feature Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 24px;
+        }
+
+        .feature-card-large {
+            grid-row: span 1;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.04),
+                0 4px 8px rgba(0, 0, 0, 0.04),
+                0 8px 16px rgba(0, 0, 0, 0.04);
+            display: flex;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card-large:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.06),
+                0 8px 16px rgba(0, 0, 0, 0.06),
+                0 16px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card-preview {
+            flex: 1.2;
+            padding: 24px;
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+        }
+
+        .feature-card-content {
+            flex: 1;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-card-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .feature-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .feature-link:hover {
+            gap: 10px;
+        }
+
+        .feature-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Small Feature Cards */
+        .feature-cards-row {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .feature-card-small {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.04),
+                0 4px 8px rgba(0, 0, 0, 0.04),
+                0 8px 16px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card-small:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.06),
+                0 8px 16px rgba(0, 0, 0, 0.06),
+                0 16px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card-small.dark {
+            background: #1e293b;
+        }
+
+        .feature-card-small .feature-card-preview {
+            min-height: 200px;
+            border-right: none;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .feature-card-small.dark .feature-card-preview {
+            background: #0f172a;
+            border-bottom-color: #334155;
+        }
+
+        .feature-card-small .feature-card-content {
+            padding: 24px;
+        }
+
+        .feature-card-small.dark .feature-card-content h3 {
+            color: #fff;
+        }
+
+        .feature-card-small.dark .feature-card-content p {
+            color: #94a3b8;
+        }
+
+        /* Chat Preview UI */
+        .chat-preview {
+            width: 100%;
+            max-width: 320px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .chat-messages {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .chat-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .chat-bubble {
+            background: #f1f5f9;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.4;
+            max-width: 200px;
+        }
+
+        .chat-action {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-left: 38px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-action-icon {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-action-icon svg {
+            width: 12px;
+            height: 12px;
+            color: #fff;
+        }
+
+        .chat-action-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #3b82f6;
+        }
+
+        /* Workflow Preview */
+        .workflow-preview {
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .workflow-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .workflow-node {
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .workflow-node.start {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .workflow-node.process {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .workflow-node.review {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .workflow-node.done {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .workflow-arrow {
+            color: #94a3b8;
+        }
+
+        /* Dark Card Preview */
+        .dark-preview {
+            width: 100%;
+            max-width: 300px;
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid #334155;
+        }
+
+        .dark-preview-header {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .dark-preview-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        .dark-preview-item:last-child {
+            border-bottom: none;
+        }
+
+        .dark-preview-icon {
+            width: 24px;
+            height: 24px;
+            background: #3b82f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-preview-icon svg {
+            width: 14px;
+            height: 14px;
+            color: #fff;
+        }
+
+        .dark-preview-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .dark-preview-btn {
+            margin-top: 16px;
+            padding: 10px 16px;
+            background: #fbbf24;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e293b;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="nav-logo">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            VOICEAI
+        </a>
+        <nav class="nav-links">
+            <a href="features.html" class="active">Platform</a>
+            <a href="enterprise.html">Enterprise</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="resources.html">Resources</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="#" class="sign-in">Sign in</a>
+            <a href="#" class="download-btn">Download</a>
+        </div>
+    </header>
+
+    <!-- Features Page Hero -->
+    <section class="features-page-hero">
+        <div class="features-page-hero-inner">
+            <div class="features-hero-left">
+                <h1>AI Answering Service for Your Business</h1>
+                <p>Stop missing calls and start converting more leads. Set up your AI answering assistant - no developer required.</p>
+                <a href="#" class="hero-cta-btn">Contact Sales</a>
+            </div>
+            <div class="features-hero-right">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-status-bar">
+                            <span class="phone-time">9:41</span>
+                            <div class="phone-icons">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0a.75.75 0 010 1.061l-.53.53a.75.75 0 01-1.06 0c-4.98-4.979-13.053-4.979-18.032 0a.75.75 0 01-1.06 0l-.53-.53a.75.75 0 010-1.06zm3.182 3.182c4.1-4.1 10.749-4.1 14.85 0a.75.75 0 010 1.061l-.53.53a.75.75 0 01-1.062 0 8.25 8.25 0 00-11.667 0 .75.75 0 01-1.06 0l-.53-.53a.75.75 0 010-1.06zm3.204 3.182a6 6 0 018.486 0 .75.75 0 010 1.061l-.53.53a.75.75 0 01-1.061 0 3.75 3.75 0 00-5.304 0 .75.75 0 01-1.06 0l-.53-.53a.75.75 0 010-1.06zm3.182 3.182a1.5 1.5 0 012.122 0 .75.75 0 010 1.061l-.53.53a.75.75 0 01-1.061 0l-.53-.53a.75.75 0 010-1.06z" clip-rule="evenodd"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3.75 6.75a3 3 0 00-3 3v6a3 3 0 003 3h15a3 3 0 003-3v-.037c.856-.174 1.5-.93 1.5-1.838v-2.25c0-.907-.644-1.664-1.5-1.837V9.75a3 3 0 00-3-3h-15zm15 1.5a1.5 1.5 0 011.5 1.5v6a1.5 1.5 0 01-1.5 1.5h-15a1.5 1.5 0 01-1.5-1.5v-6a1.5 1.5 0 011.5-1.5h15z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="phone-content">
+                            <div class="phone-icon-main">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                </svg>
+                            </div>
+                            <h3>Hear It In Action:</h3>
+                            <p>AI Agent Demos</p>
+
+                            <div class="demo-card">
+                                <div class="demo-card-title">Appointment Scheduling</div>
+                                <div class="demo-waveform">
+                                    <div class="play-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="waveform-bars">
+                                        <div class="waveform-bar" style="height: 8px;"></div>
+                                        <div class="waveform-bar" style="height: 12px;"></div>
+                                        <div class="waveform-bar" style="height: 6px;"></div>
+                                        <div class="waveform-bar" style="height: 16px;"></div>
+                                        <div class="waveform-bar" style="height: 10px;"></div>
+                                        <div class="waveform-bar" style="height: 20px;"></div>
+                                        <div class="waveform-bar" style="height: 14px;"></div>
+                                        <div class="waveform-bar" style="height: 8px;"></div>
+                                        <div class="waveform-bar" style="height: 18px;"></div>
+                                        <div class="waveform-bar" style="height: 12px;"></div>
+                                        <div class="waveform-bar" style="height: 6px;"></div>
+                                        <div class="waveform-bar" style="height: 14px;"></div>
+                                        <div class="waveform-bar" style="height: 10px;"></div>
+                                        <div class="waveform-bar" style="height: 16px;"></div>
+                                        <div class="waveform-bar" style="height: 8px;"></div>
+                                        <div class="waveform-bar" style="height: 12px;"></div>
+                                        <div class="waveform-bar" style="height: 18px;"></div>
+                                        <div class="waveform-bar" style="height: 10px;"></div>
+                                        <div class="waveform-bar" style="height: 6px;"></div>
+                                        <div class="waveform-bar" style="height: 14px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="demo-card">
+                                <div class="demo-card-title">Customer Support</div>
+                                <div class="demo-waveform">
+                                    <div class="play-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="waveform-bars">
+                                        <div class="waveform-bar" style="height: 10px;"></div>
+                                        <div class="waveform-bar" style="height: 6px;"></div>
+                                        <div class="waveform-bar" style="height: 14px;"></div>
+                                        <div class="waveform-bar" style="height: 8px;"></div>
+                                        <div class="waveform-bar" style="height: 18px;"></div>
+                                        <div class="waveform-bar" style="height: 12px;"></div>
+                                        <div class="waveform-bar" style="height: 6px;"></div>
+                                        <div class="waveform-bar" style="height: 16px;"></div>
+                                        <div class="waveform-bar" style="height: 10px;"></div>
+                                        <div class="waveform-bar" style="height: 20px;"></div>
+                                        <div class="waveform-bar" style="height: 8px;"></div>
+                                        <div class="waveform-bar" style="height: 14px;"></div>
+                                        <div class="waveform-bar" style="height: 12px;"></div>
+                                        <div class="waveform-bar" style="height: 6px;"></div>
+                                        <div class="waveform-bar" style="height: 16px;"></div>
+                                        <div class="waveform-bar" style="height: 10px;"></div>
+                                        <div class="waveform-bar" style="height: 8px;"></div>
+                                        <div class="waveform-bar" style="height: 14px;"></div>
+                                        <div class="waveform-bar" style="height: 18px;"></div>
+                                        <div class="waveform-bar" style="height: 12px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Headline Section -->
+    <section class="platform-headline-section">
+        <h2>One central hub to manage<br>all your enquiries</h2>
+        <div class="platform-image">
+            <img src="dashboard.png" alt="VoiceAI Platform Dashboard">
+        </div>
+    </section>
+
+    <!-- What Can Sophiie Do Section -->
+    <section class="sophiie-features">
+        <div class="sophiie-features-header">
+            <h2>why subcall voice?</h2>
+            <p>Callers only wait 30 seconds on hold before hanging up. With Subcall handling call center automation, you can deliver instant support and real-time resolutions—all in effortless conversation.</p>
+        </div>
+
+        <div class="sophiie-feature-row">
+            <div class="sophiie-feature-text">
+                <h3>Friendly Greetings</h3>
+                <p>Sophiie greets every caller with a customised script that reflects your brand's tone and personality. Make every first impression count.</p>
+            </div>
+            <div class="sophiie-feature-visual">
+                <span class="floating-emoji wave">👋</span>
+                <span class="floating-emoji phone">📞</span>
+                <span class="floating-emoji sparkle">✨</span>
+                <div class="visual-content">
+                    <div class="visual-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                        </svg>
+                    </div>
+                    <div class="visual-bubble">This is Sophiie, how can I help you today?</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sophiie-feature-row reverse">
+            <div class="sophiie-feature-text">
+                <h3>Smart Call Routing</h3>
+                <p>Automatically route calls to the right department or team member based on caller needs. No more endless transfers or frustrated customers.</p>
+            </div>
+            <div class="sophiie-feature-visual">
+                <div class="visual-content">
+                    <div class="visual-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                        </svg>
+                    </div>
+                    <div class="visual-bubble">Connecting you to the right person...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sophiie-feature-row">
+            <div class="sophiie-feature-text">
+                <h3>24/7 Availability</h3>
+                <p>Never miss a call again. Sophiie works around the clock, handling enquiries even when your team is off the clock or busy with other tasks.</p>
+            </div>
+            <div class="sophiie-feature-visual">
+                <div class="visual-content">
+                    <div class="visual-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="visual-bubble">Available 24 hours a day, 7 days a week</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Security Section -->
+    <section class="trust-section">
+        <div class="trust-section-inner">
+            <h2>Battle-tested AI with<br>enterprise-level rigor</h2>
+            <p class="trust-subtitle">Trusted by leading businesses across Australia</p>
+
+            <div class="trust-cards">
+                <div class="trust-card">
+                    <div class="trust-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <h3>Industry-leading compliance</h3>
+                    <p>HIPAA, SOC2, GDPR ready. Enterprise-grade compliance safeguards sensitive data with industry-leading security practices.</p>
+                </div>
+
+                <div class="trust-card">
+                    <div class="trust-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                        </svg>
+                    </div>
+                    <h3>Safety and accuracy controls</h3>
+                    <p>Built-in safeguards to minimize hallucinations, with continuous monitoring to ensure accuracy, alignment, and safe responses.</p>
+                </div>
+
+                <div class="trust-card">
+                    <div class="trust-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                        </svg>
+                    </div>
+                    <h3>Privacy-by-design</h3>
+                    <p>High standards for data protection, and zero data retention policies with LLM providers. Your data stays yours.</p>
+                </div>
+
+                <div class="trust-card">
+                    <div class="trust-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                    </div>
+                    <h3>Enterprise-grade security</h3>
+                    <p>Independent annual penetration testing, disaster recovery, and business continuity planning built into every deployment.</p>
+                </div>
+            </div>
+
+            <a href="#" class="trust-cta">
+                Learn more about our trust & safety
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Product Features Section -->
+    <section class="product-features-section">
+        <div class="product-features-inner">
+            <div class="product-features-header">
+                <h2>product features<br>and capabilities</h2>
+                <p>Learn how AI transforms voice interactions, automating support and enhancing customer satisfaction.</p>
+            </div>
+            <div class="product-features-content">
+                <div class="features-accordion">
+                    <div class="accordion-item active">
+                        <div class="accordion-header">
+                            <h3>Data-driven optimization</h3>
+                            <span class="accordion-icon">−</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Use conversational insights to identify trends, improve accuracy, and continuously optimize performance through advanced natural language coaching.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Speed to value</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Get up and running in minutes, not months. Our pre-built templates and intuitive setup mean you can start handling calls from day one.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Organic, low-latency conversations</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Natural-sounding AI responses with minimal delay. Your callers won't even realize they're talking to an AI receptionist.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Seamless telephony integrations</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Connect with your existing phone systems, CRMs, and business tools. Works with Twilio, RingCentral, and all major providers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="features-panel">
+                    <div class="panel-card">
+                        <h4>Conversation Topics</h4>
+                        <p class="panel-card-subtitle">Learn what your customers are asking your AI Agent about</p>
+                        <div class="stats-table">
+                            <div class="stats-row">
+                                <span class="stats-label">Automated resolution opportunity</span>
+                                <div class="stats-values">
+                                    <span class="stats-value">6.6%</span>
+                                </div>
+                            </div>
+                            <div class="stats-row">
+                                <span class="stats-label">Conversations</span>
+                                <div class="stats-values">
+                                    <span class="stats-value">648</span>
+                                    <span class="stats-change down">↓ 9%</span>
+                                </div>
+                            </div>
+                            <div class="stats-row">
+                                <span class="stats-label">Automated resolution rate</span>
+                                <div class="stats-values">
+                                    <span class="stats-value">83%</span>
+                                    <span class="stats-change up">↑ 12%</span>
+                                </div>
+                            </div>
+                            <div class="stats-row">
+                                <span class="stats-label">Contained</span>
+                                <div class="stats-values">
+                                    <span class="stats-value">96%</span>
+                                    <span class="stats-change up">↑ 2%</span>
+                                </div>
+                            </div>
+                            <div class="stats-row">
+                                <span class="stats-label">CSAT</span>
+                                <div class="stats-values">
+                                    <span class="stats-value">82%</span>
+                                    <span class="stats-change up">↑ 5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="panel-btn">
+                            see more
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="voice-ai-os">
+        <div class="voice-ai-os-inner">
+            <div class="voice-ai-os-header">
+                <div class="voice-ai-os-header-left">
+                    <h2>Industries that<br>love Subcall</h2>
+                </div>
+                <div class="voice-ai-os-header-right">
+                    <p>Pre-built AI receptionist templates tailored for your industry. Get started in minutes with scripts, workflows, and integrations designed specifically for how your business operates.</p>
+                </div>
+            </div>
+
+            <div class="voice-ai-os-content">
+                <div class="voice-ai-os-features">
+                    <div class="os-feature-item active" data-feature="0">
+                        <div class="os-feature-header">
+                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <h4>Dental Practices</h4>
+                        </div>
+                        <div class="os-feature-description">
+                            <p>Appointment booking, reminder calls, insurance verification, and new patient intake—all handled automatically with HIPAA compliance built-in.</p>
+                        </div>
+                    </div>
+
+                    <div class="os-feature-item" data-feature="1">
+                        <div class="os-feature-header">
+                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>
+                            <h4>Real Estate</h4>
+                        </div>
+                        <div class="os-feature-description">
+                            <p>Capture leads 24/7, qualify buyers and sellers, schedule property viewings, and never miss a hot prospect again.</p>
+                        </div>
+                    </div>
+
+                    <div class="os-feature-item" data-feature="2">
+                        <div class="os-feature-header">
+                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
+                            </svg>
+                            <h4>Trades & Services</h4>
+                        </div>
+                        <div class="os-feature-description">
+                            <p>Book jobs, provide quotes, dispatch technicians, and handle emergency calls—even when you're on the tools.</p>
+                        </div>
+                    </div>
+
+                    <div class="os-feature-item" data-feature="3">
+                        <div class="os-feature-header">
+                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.97zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.97z" />
+                            </svg>
+                            <h4>Legal Firms</h4>
+                        </div>
+                        <div class="os-feature-description">
+                            <p>Screen potential clients, schedule consultations, handle intake forms, and maintain confidentiality with secure call handling.</p>
+                        </div>
+                    </div>
+
+                    <div class="os-feature-item" data-feature="4">
+                        <div class="os-feature-header">
+                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                            <h4>Healthcare</h4>
+                        </div>
+                        <div class="os-feature-description">
+                            <p>Patient scheduling, prescription refill requests, appointment reminders, and after-hours triage with full HIPAA compliance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voice-ai-os-diagram">
+                    <div class="industry-preview">
+                        <div class="industry-preview-header">
+                            <span class="industry-tag">Dental Template</span>
+                            <h3>Ready to use in minutes</h3>
+                        </div>
+                        <div class="industry-features-list">
+                            <div class="industry-feature-check">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>Appointment booking & rescheduling</span>
+                            </div>
+                            <div class="industry-feature-check">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>Insurance verification scripts</span>
+                            </div>
+                            <div class="industry-feature-check">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>New patient intake forms</span>
+                            </div>
+                            <div class="industry-feature-check">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>Emergency call routing</span>
+                            </div>
+                            <div class="industry-feature-check">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>HIPAA compliant by default</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="how-it-works-inner">
+            <div class="how-it-works-header">
+                <div class="how-it-works-text">
+                    <span class="section-label">HOW IT WORKS</span>
+                    <h2>Launch an AI Receptionist in 4 Simple Steps</h2>
+                    <p>The BELL Framework powers every VoiceAI deployment — from designing your first AI receptionist to scaling complex, multi-agent systems. Build, Evaluate, Launch, and Learn — so you can create, test, and optimize voice agents in one seamless, no-code environment.</p>
+                </div>
+            </div>
+
+            <div class="steps-container">
+                <div class="steps-cards">
+                    <!-- BUILD -->
+                    <div class="step-card">
+                        <div class="step-card-preview build">
+                            <div class="flow-preview">
+                                <div class="flow-node">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
+                                    </svg>
+                                    Entry Triggers
+                                </div>
+                                <div class="flow-connector"></div>
+                                <div class="flow-branches">
+                                    <div class="flow-node">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                        </svg>
+                                        Escalate to Human
+                                    </div>
+                                    <div class="flow-node">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                                        </svg>
+                                        Data Protection
+                                    </div>
+                                </div>
+                                <div class="flow-connector"></div>
+                                <div class="flow-branches">
+                                    <div class="flow-node">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                                        </svg>
+                                        Call Transfer
+                                    </div>
+                                    <div class="flow-node">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                                        </svg>
+                                        Speak
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-card-content">
+                            <span class="step-label purple">BUILD</span>
+                            <h3>Design Voice Flows</h3>
+                            <p>Use the no-code builder to map logic, set variables, and define call behaviors. Every prompt, path, and action is fully controlled — so agents act predictably, every time.</p>
+                        </div>
+                    </div>
+
+                    <!-- EVALUATE -->
+                    <div class="step-card">
+                        <div class="step-card-preview evaluate">
+                            <div class="preview-box light">
+                                <div class="preview-header light">
+                                    <span class="preview-title light">Customer Support Escalation</span>
+                                </div>
+                                <div style="margin-bottom: 8px;">
+                                    <span style="font-size: 11px; color: #64748b; font-weight: 500;">Scenario Prompt</span>
+                                </div>
+                                <div class="preview-lines">
+                                    <div class="preview-line light"></div>
+                                    <div class="preview-line light medium"></div>
+                                    <div class="preview-line light short"></div>
+                                </div>
+                                <div style="margin: 12px 0 8px;">
+                                    <span style="font-size: 11px; color: #64748b; font-weight: 500;">Success Criteria</span>
+                                </div>
+                                <div class="preview-lines">
+                                    <div class="preview-line light medium"></div>
+                                    <div class="preview-line light short"></div>
+                                </div>
+                                <div class="preview-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    Run
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-card-content">
+                            <span class="step-label green">EVALUATE</span>
+                            <h3>Simulate Real Calls</h3>
+                            <p>Test every agent automatically. Simulated calls measure accuracy, response quality, and compliance against your KPIs, ensuring performance before calls go live.</p>
+                        </div>
+                    </div>
+
+                    <!-- LAUNCH -->
+                    <div class="step-card">
+                        <div class="step-card-preview launch">
+                            <div class="dashboard-preview">
+                                <div class="dashboard-header">
+                                    <span>Duration</span>
+                                    <span>Call ID</span>
+                                    <span>Contact</span>
+                                    <span>Agent</span>
+                                </div>
+                                <div class="dashboard-body">
+                                    <div class="live-calls-badge">Live Calls (100+)</div>
+                                </div>
+                                <div class="dashboard-rows">
+                                    <div class="dashboard-row">
+                                        <span>05:04</span>
+                                        <span>456...789</span>
+                                        <span>+1 (303) 987-654</span>
+                                        <span>Virtual AI Agent</span>
+                                    </div>
+                                    <div class="dashboard-row">
+                                        <span>02:12</span>
+                                        <span>789...012</span>
+                                        <span>+1 (303) 876-543</span>
+                                        <span>Clinic Agent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-card-content">
+                            <span class="step-label purple">LAUNCH</span>
+                            <h3>Deploy with Guaranteed Reliability</h3>
+                            <p>Deploy your agent through secure telephony integrations or APIs. Built-in observability and low-latency infrastructure ensure every call connects smoothly.</p>
+                        </div>
+                    </div>
+
+                    <!-- LEARN -->
+                    <div class="step-card">
+                        <div class="step-card-preview learn">
+                            <div class="preview-box light">
+                                <div class="preview-header light">
+                                    <span class="preview-title light">Call Details</span>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 16px; padding: 8px 0;">
+                                    <div>
+                                        <span style="font-size: 11px; color: #7c3aed; font-weight: 600;">Overview</span>
+                                        <div class="preview-line light" style="margin-top: 8px;"></div>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 11px; color: #64748b; font-weight: 500;">Status</span>
+                                        <div class="preview-line light short" style="margin-top: 8px;"></div>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 11px; color: #64748b; font-weight: 500;">Success Rate</span>
+                                        <div class="preview-line light medium" style="margin-top: 8px;"></div>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 11px; color: #64748b; font-weight: 500;">Deploy History</span>
+                                        <div class="preview-line light" style="margin-top: 8px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-card-content">
+                            <span class="step-label green">LEARN</span>
+                            <h3>Monitor and Improve</h3>
+                            <p>Once live, automatically capture every conversation insight, intent feedback, and performance metric to continuously improve your agents over time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-hero">
+        <div class="decor-shape-1"></div>
+        <div class="decor-shape-2"></div>
+        <div class="features-hero-inner">
+            <div class="features-hero-header">
+                <span class="features-hero-label">COLLABORATE AND LAUNCH</span>
+                <h1>Where your team and AI come together</h1>
+                <p>VoiceAI helps teams drive better outcomes faster with intelligent voice agents</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Large Feature Card -->
+                <div class="feature-card-large">
+                    <div class="feature-card-preview">
+                        <div class="chat-preview">
+                            <div class="chat-header">#sales-team</div>
+                            <div class="chat-messages">
+                                <div class="chat-message">
+                                    <div class="chat-avatar">BL</div>
+                                    <div class="chat-bubble">Just got an awesome lead from the AI agent! Already booked for tomorrow.</div>
+                                </div>
+                                <div class="chat-message">
+                                    <div class="chat-avatar">VR</div>
+                                    <div class="chat-bubble">Amazing! The booking integration is working perfectly.</div>
+                                </div>
+                                <div class="chat-action">
+                                    <div class="chat-action-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </div>
+                                    <span class="chat-action-text">Create task from this conversation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Jumpstart planning</h3>
+                        <p>Create tasks from your favorite tools, then use VoiceAI to break down big ideas, polish descriptions, and link relevant resources in a snap.</p>
+                        <a href="#" class="feature-link">
+                            View all features
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Small Cards Row -->
+                <div class="feature-cards-row">
+                    <!-- Focus Card -->
+                    <div class="feature-card-small">
+                        <div class="feature-card-preview">
+                            <div class="workflow-preview">
+                                <div class="workflow-row">
+                                    <span class="workflow-node start">Start</span>
+                                    <span class="workflow-arrow">→</span>
+                                    <span class="workflow-node process">Not Started</span>
+                                    <span class="workflow-arrow">→</span>
+                                    <span class="workflow-node process">To Do</span>
+                                </div>
+                                <div class="workflow-row">
+                                    <span class="workflow-node review">In Review</span>
+                                    <span class="workflow-arrow">→</span>
+                                    <span class="workflow-node process">Ready</span>
+                                    <span class="workflow-arrow">→</span>
+                                    <span class="workflow-node process">In Progress</span>
+                                </div>
+                                <div class="workflow-row">
+                                    <span class="workflow-node done">Done</span>
+                                    <span class="workflow-arrow">→</span>
+                                    <span class="workflow-node start">Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3>Focus on impact</h3>
+                            <p>Cut down on admin with AI agents that make it easier to create project plans, identify trends, and flag potential risks.</p>
+                            <a href="#" class="feature-link">
+                                Meet voice agents
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dark Card -->
+                    <div class="feature-card-small dark">
+                        <div class="feature-card-preview">
+                            <div class="dark-preview">
+                                <div class="dark-preview-header">Add mobile checkout flow</div>
+                                <div class="dark-preview-item">
+                                    <div class="dark-preview-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                                        </svg>
+                                    </div>
+                                    <span class="dark-preview-text">Project requirements document</span>
+                                </div>
+                                <div class="dark-preview-item">
+                                    <div class="dark-preview-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                        </svg>
+                                    </div>
+                                    <span class="dark-preview-text">User research on behaviors</span>
+                                </div>
+                                <div class="dark-preview-btn">Accept all suggestions</div>
+                            </div>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3>Stay in sync</h3>
+                            <p>Surface related work, summarize lengthy comments, and connect work to company goals to give your team the details they need.</p>
+                            <a href="#" class="feature-link">
+                                Explore AI features
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // OS Feature Items Interactivity
+        document.querySelectorAll('.os-feature-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.os-feature-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Product Features Accordion
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const wasActive = this.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-icon').textContent = '+';
+                });
+
+                // Open clicked item if it wasn't active
+                if (!wasActive) {
+                    this.classList.add('active');
+                    this.querySelector('.accordion-icon').textContent = '−';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

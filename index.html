@@ -1,0 +1,3505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+
+        header {
+            height: 48px;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-logo svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #334155;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: #0f172a;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-actions .sign-in {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #334155;
+            text-decoration: none;
+            padding: 6px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .sign-in:hover {
+            color: #0f172a;
+            border-color: #cbd5e1;
+        }
+
+        .nav-actions .download-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+            background: #1e293b;
+            padding: 6px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+
+        .nav-actions .download-btn:hover {
+            background: #334155;
+        }
+
+        main {
+            margin-top: 48px;
+            background:
+                radial-gradient(ellipse 400px 450px at 8% 30%, rgba(59, 130, 246, 0.14) 0%, transparent 70%),
+                radial-gradient(ellipse 320px 400px at 15% 25%, rgba(80, 150, 255, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 250px 300px at 5% 40%, rgba(99, 160, 255, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 350px 500px at 3% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 380px 430px at 92% 28%, rgba(59, 130, 246, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 300px 350px at 88% 35%, rgba(80, 140, 255, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 320px 450px at 97% 45%, rgba(59, 130, 246, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 280px 380px at 95% 55%, rgba(80, 150, 255, 0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 600px 300px at 45% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 250px at 35% 22%, rgba(59, 130, 246, 0.09) 0%, transparent 70%),
+                radial-gradient(ellipse 450px 220px at 55% 20%, rgba(80, 150, 255, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 350px 200px at 60% 25%, rgba(100, 160, 255, 0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 300px 180px at 25% 28%, rgba(59, 130, 246, 0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 250px 250px at 18% 22%, rgba(80, 150, 255, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 220px 220px at 82% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 70%),
+                #fafafa;
+            padding-top: 30px;
+            padding-bottom: 0;
+            position: relative;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding-top: 5vh;
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-bottom: 0;
+            max-width: 700px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: #1e1b4b;
+            margin-bottom: 16px;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-text h1 span {
+            font-style: italic;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            padding-right: 10px;
+        }
+
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -4px;
+            width: calc(100% + 8px);
+            height: 14px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M4 9 Q40 6, 80 8 Q120 10, 160 7 Q180 6, 196 8' stroke='%23fbbf24' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+            background-size: 100% 100%;
+            z-index: -1;
+        }
+
+        .hero-text p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #555;
+            max-width: 820px;
+            margin: 0 auto;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .email-form input {
+            width: 280px;
+            padding: 14px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .email-form input:focus {
+            border-color: #3b82f6;
+        }
+
+        .email-form button {
+            padding: 14px 24px;
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .email-form button:hover {
+            background: #2563eb;
+        }
+
+        .glass-background-2 {
+            display: none;
+        }
+
+        .glass-background {
+            display: none;
+        }
+
+        .glass-wrapper {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow:
+                0 8px 60px rgba(59, 130, 246, 0.12),
+                0 4px 30px rgba(100, 150, 255, 0.08);
+            position: relative;
+            overflow: visible;
+            z-index: 4;
+            margin: 8vh auto 40px;
+            width: fit-content;
+        }
+
+        .glass-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent 0%, #fafafa 100%);
+            pointer-events: none;
+            border-radius: 0 0 24px 24px;
+        }
+
+        .box {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px;
+            width: 80vw;
+            max-width: 1400px;
+            position: relative;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            filter: drop-shadow(0 4px 20px rgba(99, 102, 241, 0.4));
+        }
+
+        .video-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            filter: drop-shadow(0 6px 28px rgba(99, 102, 241, 0.5));
+        }
+
+        .video-play-btn::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 70px solid #6366f1;
+            border-top: 45px solid transparent;
+            border-bottom: 45px solid transparent;
+        }
+
+        .dashboard-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .sidebar {
+            width: 200px;
+            padding: 20px 12px;
+            border-right: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .sidebar-item:hover {
+            background: #f8fafc;
+        }
+
+        .sidebar-item.active {
+            background: #eff6ff;
+        }
+
+        .sidebar-item.active .sidebar-icon {
+            color: #3b82f6;
+        }
+
+        .sidebar-item.active .sidebar-text {
+            color: #3b82f6;
+            font-weight: 500;
+        }
+
+        .sidebar-icon {
+            width: 20px;
+            height: 20px;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .sidebar-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .center-demo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+        }
+
+        .feature-text {
+            margin-bottom: 20px;
+        }
+
+        .feature-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-text h2 em {
+            font-style: italic;
+        }
+
+        .feature-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .image-container {
+            flex: 1;
+            background: #f8fafc;
+            border-radius: 12px;
+            min-height: 280px;
+        }
+
+        .calls-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            width: fit-content;
+        }
+
+        .calls-header .phone-icon {
+            width: 32px;
+            height: 32px;
+            background: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calls-header .phone-icon svg {
+            width: 18px;
+            height: 18px;
+            color: #3b82f6;
+        }
+
+        .calls-header .calls-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .calls-header .calls-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .calls-header .calls-count {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .call-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            width: fit-content;
+        }
+
+        .call-card .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .call-card .caller-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .call-card .caller-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .call-card .call-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .call-card .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
+
+        .call-card .status-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #22c55e;
+            font-weight: 500;
+        }
+
+        .call-card .call-time {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #3b82f6;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .call-card .end-call {
+            width: 32px;
+            height: 32px;
+            background: #fee2e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+        }
+
+        .call-card .end-call svg {
+            width: 16px;
+            height: 16px;
+            color: #ef4444;
+        }
+
+        .transcript-card {
+            padding: 14px 16px;
+            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            width: fit-content;
+            max-width: 280px;
+        }
+
+        .transcript-card .transcript-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .transcript-card .transcript-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #a855f7;
+        }
+
+        .transcript-card .transcript-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .transcript-card .transcript-icons svg {
+            width: 14px;
+            height: 14px;
+            color: #a855f7;
+        }
+
+        .transcript-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .transcript-line .time {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            color: #a855f7;
+            min-width: 28px;
+        }
+
+        .transcript-line .text {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #6b21a8;
+            line-height: 1.4;
+        }
+
+        .transcript-line .text.ai {
+            color: #3b82f6;
+        }
+
+        .ai-visual {
+            position: absolute;
+            right: 0;
+            top: 20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .soundwave {
+            position: absolute;
+            right: -20px;
+            top: 50px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            padding: 8px 12px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .soundwave span {
+            width: 3px;
+            background: #22c55e;
+            border-radius: 2px;
+        }
+
+        .soundwave span:nth-child(1) { height: 8px; }
+        .soundwave span:nth-child(2) { height: 14px; }
+        .soundwave span:nth-child(3) { height: 20px; }
+        .soundwave span:nth-child(4) { height: 12px; }
+        .soundwave span:nth-child(5) { height: 16px; }
+        .soundwave span:nth-child(6) { height: 10px; }
+
+        .calendar-mini {
+            position: absolute;
+            right: 10px;
+            bottom: 20px;
+            padding: 10px 12px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .calendar-mini .cal-icon {
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .calendar-mini .cal-icon .cal-top {
+            width: 100%;
+            height: 8px;
+            background: #ef4444;
+        }
+
+        .calendar-mini .cal-icon .cal-day {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .calendar-mini .cal-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        .calendar-mini .cal-text strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .benefits-section {
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .benefits-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .benefit-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            letter-spacing: -0.01em;
+        }
+
+        .benefit-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        .floating-badge {
+            display: none;
+        }
+
+        .badge-pill {
+            display: flex;
+            align-items: center;
+            background: #d4f5d4;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.15),
+                0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge-label {
+            padding: 14px 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a5c1a;
+            letter-spacing: 0.02em;
+        }
+
+        .badge-value {
+            padding: 14px 18px;
+            background: #86efac;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #166534;
+        }
+
+        .badge-lines {
+            margin-left: 6px;
+            width: 28px;
+            height: 50px;
+        }
+
+        .badge-lines svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.15));
+        }
+
+        .bottom-cta {
+            display: none;
+        }
+
+        .bottom-cta .icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bottom-cta .icon svg {
+            width: 20px;
+            height: 20px;
+            color: #6366f1;
+        }
+
+        .bottom-cta span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .bottom-cta .arrow-btn {
+            width: 40px;
+            height: 40px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .bottom-cta .arrow-btn:hover {
+            background: #2563eb;
+        }
+
+        .bottom-cta .arrow-btn svg {
+            width: 20px;
+            height: 20px;
+            color: #fff;
+        }
+
+        .page-bottom-decor {
+            width: 100%;
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-bottom-decor img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .handwriting-note {
+            position: absolute;
+            left: 60px;
+            top: 620px;
+            z-index: 10;
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+        }
+
+        .handwriting-note .note-text {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #3b5998;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .handwriting-note .note-arrow {
+            width: 70px;
+            height: 40px;
+            margin-top: 10px;
+        }
+
+        .handwriting-note .note-arrow svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .section-two {
+            padding: 140px 80px 120px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-two-inner {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .section-two-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-two-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .section-two-header p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 20px;
+        }
+
+        .tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 32px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            background: transparent;
+            border: 2px solid transparent;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: #1e293b;
+        }
+
+        .tab.active {
+            border-color: #e2e8f0;
+            color: #1e293b;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .tab-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .features-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            flex: 1;
+        }
+
+        .feature-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-card .feature-icon {
+            width: 52px;
+            height: 52px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-card .feature-icon svg {
+            width: 26px;
+            height: 26px;
+            color: #3b82f6;
+        }
+
+        .feature-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .features-image {
+            flex: 1;
+            max-width: 500px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+        }
+
+        .features-image-placeholder {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        .section-three {
+            padding: 80px 80px 100px;
+            background: #f8fafc;
+        }
+
+        .section-three-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .logo-bar span {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #9ca3af;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-bar .logo-pinterest {
+            font-weight: 700;
+        }
+
+        .logo-bar .logo-canva {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+        }
+
+        .logo-bar .logo-monday {
+            font-weight: 400;
+        }
+
+        .logo-bar .logo-barnes {
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .section-three h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e1b4b;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 4px 12px 12px 4px;
+            padding: 32px;
+            min-height: 280px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-left: 10px solid;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .stat-card.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Appear left to right - one by one */
+        .stat-card:nth-child(1) { transition-delay: 0s; }
+        .stat-card:nth-child(2) { transition-delay: 0.2s; }
+        .stat-card:nth-child(3) { transition-delay: 0.4s; }
+        .stat-card:nth-child(4) { transition-delay: 0.6s; }
+
+        .stat-card.green { border-left-color: #6b9e8a; }
+        .stat-card.pink { border-left-color: #d4a5b9; }
+        .stat-card.blue { border-left-color: #9bb8d4; }
+        .stat-card.yellow { border-left-color: #d4c78a; }
+
+        .stat-card .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 56px;
+            font-weight: 400;
+            color: #1e1b4b;
+            line-height: 1;
+        }
+
+        .stat-card .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.5;
+            position: absolute;
+            bottom: 32px;
+        }
+
+        /* Features Showcase Section */
+        .features-showcase {
+            padding: 100px 80px;
+            background: #fafafa;
+        }
+
+        .features-showcase-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-showcase-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-showcase-header h2 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e1b4b;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .features-showcase-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #374151;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .features-showcase-content {
+            display: grid;
+            grid-template-columns: 35% 62%;
+            gap: 3%;
+            align-items: stretch;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+        }
+
+        .feature-item:first-child {
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .feature-item-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-item-dot {
+            display: none;
+        }
+
+        .feature-item.active .feature-item-dot {
+            display: none;
+        }
+
+        .feature-item h3 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #b8bcc4;
+            transition: color 0.3s;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-item.active h3 {
+            color: #1e1b4b;
+        }
+
+        .feature-item-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+
+        .feature-item.active .feature-item-desc {
+            max-height: 100px;
+            padding-top: 12px;
+        }
+
+        .features-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            background: #1e293b;
+            color: #fff;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: background 0.2s;
+        }
+
+        .features-cta:hover {
+            background: #334155;
+        }
+
+        .features-cta svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .features-showcase-image {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .features-showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .features-showcase-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #6366f1;
+        }
+
+        /* Section Four - Integrations */
+        .section-four {
+            padding: 80px 0;
+            background: #f8fafc;
+            overflow: hidden;
+        }
+
+        .section-four-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 80px;
+        }
+
+        .section-four-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 46px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .section-four-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .integrations-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border: 2px solid #1e293b;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e293b;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .integrations-btn:hover {
+            background: #1e293b;
+            color: #fff;
+        }
+
+        .carousel-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            animation: scroll 35s linear infinite;
+        }
+
+        .carousel-track.reverse {
+            animation: scroll-reverse 35s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scroll-reverse {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .integration-card {
+            min-width: 260px;
+            height: 320px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.04),
+                0 4px 8px rgba(0, 0, 0, 0.04),
+                0 8px 16px rgba(0, 0, 0, 0.04),
+                0 16px 32px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .integration-card:hover {
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.04),
+                0 8px 16px rgba(0, 0, 0, 0.06),
+                0 16px 32px rgba(0, 0, 0, 0.06),
+                0 24px 48px rgba(0, 0, 0, 0.08);
+            transform: translateY(-6px);
+        }
+
+        .integration-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .integration-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .integration-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Insights Section */
+        .insights-section {
+            padding: 120px 80px;
+            background: #fafafa;
+        }
+
+        .insights-section-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .insights-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 70px;
+            letter-spacing: -0.01em;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .insight-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-card-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 12px;
+        }
+
+        .insight-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 14px;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .insight-card-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .insight-card-image {
+            width: 100%;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+        }
+
+        .insight-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .insights-cta {
+            display: flex;
+            justify-content: center;
+        }
+
+        .insights-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1e293b;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .insights-cta a:hover {
+            background: #334155;
+            transform: translateY(-2px);
+        }
+
+        .insights-cta a svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Section Five */
+        .section-five {
+            padding: 40px;
+            background: #fff;
+        }
+
+        .section-five-inner {
+            background: linear-gradient(135deg, #7ba3b8 0%, #5d8aa8 50%, #4a7c9b 100%);
+            border-radius: 32px;
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-five-content {
+            padding: 80px 80px 60px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-five h2 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 72px;
+            font-weight: 400;
+            font-style: italic;
+            color: #1a2e3d;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+        }
+
+        .section-five-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #1a2e3d;
+            color: #fff;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .section-five-cta:hover {
+            background: #0f1f2d;
+            transform: scale(1.03);
+        }
+
+        .section-five-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section-five-image {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        .section-five-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 -10px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-five-links {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 3;
+        }
+
+        .section-five-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a2e3d;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .section-five-links a:hover {
+            opacity: 0.7;
+        }
+
+        .site-footer {
+            padding: 30px 80px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #1e293b;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Never Lose Business Section */
+        .never-lose-section {
+            padding: 140px 80px 160px;
+            background: #fafafa;
+        }
+
+        .never-lose-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 50% 45%;
+            gap: 5%;
+            align-items: stretch;
+        }
+
+        .never-lose-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .never-lose-content h2 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 46px;
+            font-weight: 400;
+            color: #1a1a2e;
+            line-height: 1.3;
+            margin-bottom: 0;
+        }
+
+        .never-lose-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .never-lose-item {
+            padding: 10px 0;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .never-lose-item h3 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-bottom: 0;
+            transition: all 0.5s ease;
+        }
+
+        .never-lose-item.active h3 {
+            color: #1a1a2e;
+            margin-bottom: 14px;
+        }
+
+        .never-lose-item p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #64748b;
+            line-height: 1.6;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+
+        .never-lose-item.active p {
+            max-height: 120px;
+            opacity: 1;
+        }
+
+        .chat-mockup {
+            background: url('Gemini_Generated_Image_huahxohuahxohuah.png') center center / cover no-repeat;
+            border-radius: 24px;
+            padding: 50px;
+            position: relative;
+            min-height: 680px;
+        }
+
+        .chat-window {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            right: 50px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            pointer-events: none;
+        }
+
+        .chat-window.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+        }
+
+        .chat-status {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1a1a2e;
+            font-weight: 500;
+        }
+
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .chat-bubble.ai {
+            background: #f1f5f9;
+            color: #1a1a2e;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-bubble.user {
+            background: #e2e8f0;
+            color: #1a1a2e;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-action {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .chat-action-icon {
+            width: 24px;
+            height: 24px;
+            background: #8b5cf6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .chat-action span {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .chat-input {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            outline: none;
+        }
+
+        .chat-input-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        /* Listen Live Section */
+        .listen-live {
+            padding: 120px 80px 140px;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .listen-live-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .listen-live-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .listen-live-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e293b;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .listen-live-box {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            min-height: 650px;
+        }
+
+        .listen-live-accordion {
+            padding: 60px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .listen-accordion-item {
+            border-top: 1px solid #e2e8f0;
+            padding: 24px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .listen-accordion-item:last-child {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .listen-accordion-item:hover .accordion-header h3 {
+            color: #64748b;
+        }
+
+        .listen-accordion-item .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .listen-accordion-item .accordion-header h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+
+        .listen-accordion-item.active .accordion-header h3 {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .listen-accordion-item.active:hover .accordion-header h3 {
+            color: #3b82f6;
+        }
+
+        .listen-accordion-item .accordion-icon {
+            color: #94a3b8;
+            font-size: 20px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .listen-accordion-item:hover .accordion-icon {
+            color: #64748b;
+        }
+
+        .listen-accordion-item.active .accordion-icon {
+            color: #3b82f6;
+        }
+
+        .listen-accordion-item.active:hover .accordion-icon {
+            color: #3b82f6;
+        }
+
+        .accordion-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #94a3b8;
+            flex: 1;
+            text-align: right;
+            padding-right: 16px;
+        }
+
+        .listen-accordion-item.active .accordion-subtitle {
+            color: #3b82f6;
+        }
+
+        .listen-live-panel {
+            transition: background-color 0.4s ease;
+            background: #fed7aa;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .conversation-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            min-height: 320px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .conversation-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+        }
+
+        .conversation-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .conversation-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fbbf24;
+        }
+
+        .conversation-participant {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+
+        .participant-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .participant-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .participant-avatar.ai {
+            background: #1e293b;
+            color: #fff;
+        }
+
+        .participant-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .panel-controls {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .panel-control-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #1e293b;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .panel-control-btn:hover {
+            background: #334155;
+            transform: scale(1.05);
+        }
+
+        .panel-control-btn svg {
+            width: 18px;
+            height: 18px;
+            color: #fff;
+        }
+
+        .live-demo-card {
+            flex: 0 0 440px;
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 38px 32px;
+        }
+
+        .demo-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .demo-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .demo-logo svg {
+            width: 28px;
+            height: 28px;
+            color: #fff;
+        }
+
+        .demo-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .demo-info span {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #3b82f6;
+        }
+
+        .demo-player {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .play-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: border-color 0.2s ease;
+        }
+
+        .play-button:hover {
+            border-color: #cbd5e1;
+        }
+
+        .play-button svg {
+            width: 16px;
+            height: 16px;
+            color: #64748b;
+            margin-left: 3px;
+        }
+
+        .waveform {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 1px;
+            height: 40px;
+        }
+
+        .wave-bar {
+            width: 2px;
+            background: #94a3b8;
+            border-radius: 1px;
+        }
+
+        .duration {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-logo">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            VOICEAI
+        </div>
+        <nav class="nav-links">
+            <a href="features.html">Platform</a>
+            <a href="enterprise.html">Enterprise</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="resources.html">Resources</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="#" class="sign-in">Sign in</a>
+            <a href="#" class="download-btn">Download</a>
+        </div>
+    </header>
+    <main>
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1><span>AI-Powered</span> Phone Agents for Sales and Service Teams</h1>
+                <p>Answer every call, book appointments, and support your customers 24/7 — on voice, SMS, or chat. Win more deals and reduce churn with instant responses, even after hours, thanks to AI agents that sound completely human.</p>
+            </div>
+            <div class="email-form">
+                <input type="email" placeholder="Work email address">
+                <button>Start Free Trial</button>
+            </div>
+        </div>
+        <div class="handwriting-note">
+            <div class="note-text">Click here to<br>explore</div>
+            <div class="note-arrow">
+                <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Curved line -->
+                    <path d="M10 10 C30 10, 40 30, 50 50 C55 60, 70 70, 85 65" stroke="#3b5998" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- Arrowhead -->
+                    <path d="M78 55 L88 65 L78 72" stroke="#3b5998" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="glass-background-2"></div>
+        <div class="glass-background"></div>
+        <div class="glass-wrapper">
+            <div class="floating-badge">
+                <div class="badge-pill">
+                    <span class="badge-label">ON TRACK</span>
+                    <span class="badge-value">0.8</span>
+                </div>
+                <div class="badge-lines">
+                    <svg viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 8 L20 2" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M6 16 L22 12" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M5 25 L24 25" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M6 34 L22 38" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M8 42 L20 48" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="box">
+                <img src="dashboard.png" alt="Dashboard" class="dashboard-img">
+                <div class="video-play-btn"></div>
+            </div>
+        </div>
+        <div class="bottom-cta">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                </svg>
+            </div>
+            <span>Create your business voice agent instantly</span>
+            <div class="arrow-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+            </div>
+        </div>
+    </main>
+
+    <!-- Never Lose Business Section -->
+    <section class="never-lose-section">
+        <div class="never-lose-inner">
+            <div class="never-lose-content">
+                <h2>Set up your AI receptionist in minutes</h2>
+                <div class="never-lose-features">
+                    <div class="never-lose-item active">
+                        <h3>Connect your phone system</h3>
+                        <p>Link your existing business number or get a new one. Works with any phone provider - no hardware required.</p>
+                    </div>
+                    <div class="never-lose-item">
+                        <h3>Customize your AI voice</h3>
+                        <p>Choose from natural-sounding voices and set your business tone. Train it with your FAQs, services, and brand personality.</p>
+                    </div>
+                    <div class="never-lose-item">
+                        <h3>Go live instantly</h3>
+                        <p>Start answering calls 24/7 within minutes. Monitor conversations in real-time and refine responses as you grow.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-mockup">
+                <!-- Chat Window 1: Connect phone system -->
+                <div class="chat-window active" data-chat="1">
+                    <div class="chat-header">
+                        <div class="chat-avatar"></div>
+                        <span class="chat-status">Connecting...</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="chat-bubble ai">Welcome! Let's connect your phone system.</div>
+                        <div class="chat-bubble user">I want to use my existing business number.</div>
+                        <div class="chat-bubble ai">Perfect. What's your current number?</div>
+                        <div class="chat-bubble user">+1 (555) 987-6543</div>
+                        <div class="chat-bubble ai">Great! I've linked that number. Calls will now route to your AI receptionist.</div>
+                    </div>
+                    <div class="chat-action">
+                        <div class="chat-action-icon">P</div>
+                        <span>Phone system connected</span>
+                    </div>
+                </div>
+
+                <!-- Chat Window 2: Customize AI voice -->
+                <div class="chat-window" data-chat="2">
+                    <div class="chat-header">
+                        <div class="chat-avatar"></div>
+                        <span class="chat-status">Customizing...</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="chat-bubble ai">Let's personalize your AI voice. What tone fits your brand?</div>
+                        <div class="chat-bubble user">Professional but friendly.</div>
+                        <div class="chat-bubble ai">Got it! I'll use a warm, professional tone. What's your business name?</div>
+                        <div class="chat-bubble user">Anderson Dental Care</div>
+                        <div class="chat-bubble ai">Perfect! I'll greet callers with "Thank you for calling Anderson Dental Care."</div>
+                    </div>
+                    <div class="chat-action">
+                        <div class="chat-action-icon">V</div>
+                        <span>Voice profile saved</span>
+                    </div>
+                </div>
+
+                <!-- Chat Window 3: Go live -->
+                <div class="chat-window" data-chat="3">
+                    <div class="chat-header">
+                        <div class="chat-avatar"></div>
+                        <span class="chat-status">Live now!</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="chat-bubble ai">Your AI receptionist is now live and answering calls!</div>
+                        <div class="chat-bubble user">That was fast! What happens when someone calls?</div>
+                        <div class="chat-bubble ai">I'll answer, help with their request, and send you a summary. You can monitor everything in real-time.</div>
+                        <div class="chat-bubble user">Can I adjust the responses later?</div>
+                        <div class="chat-bubble ai">Absolutely! You can refine my responses anytime from your dashboard.</div>
+                    </div>
+                    <div class="chat-action">
+                        <div class="chat-action-icon">✓</div>
+                        <span>Receptionist active 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listen Live Section -->
+    <section class="listen-live">
+        <div class="listen-live-inner">
+            <div class="listen-live-header">
+                <h2>hear our AI agents in action</h2>
+            </div>
+            <div class="listen-live-box">
+                <div class="listen-live-accordion">
+                    <div class="listen-accordion-item active" data-color="#fed7aa">
+                        <div class="accordion-header">
+                            <h3>Anderson Heating & Air</h3>
+                            <span class="accordion-subtitle">HVAC Services</span>
+                            <span class="accordion-icon">−</span>
+                        </div>
+                    </div>
+                    <div class="listen-accordion-item" data-color="#cbd5e1">
+                        <div class="accordion-header">
+                            <h3>Clarity Tax Group</h3>
+                            <span class="accordion-subtitle">Tax & Accounting</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="listen-accordion-item" data-color="#fef3c7">
+                        <div class="accordion-header">
+                            <h3>Tri-State Electric</h3>
+                            <span class="accordion-subtitle">Electrical Contractor</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="listen-accordion-item" data-color="#d1fae5">
+                        <div class="accordion-header">
+                            <h3>Lakeside Family Dental</h3>
+                            <span class="accordion-subtitle">Family Dentistry</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="listen-accordion-item" data-color="#f5d0fe">
+                        <div class="accordion-header">
+                            <h3>ColorPro Painters</h3>
+                            <span class="accordion-subtitle">Residential Painting</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="listen-live-panel">
+                    <div class="conversation-card">
+                        <div class="conversation-header">
+                            <div class="conversation-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="conversation-participant">
+                            <div class="participant-avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                </svg>
+                            </div>
+                            <span class="participant-name">Caller</span>
+                        </div>
+                        <div class="conversation-participant">
+                            <div class="participant-avatar ai">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                                </svg>
+                            </div>
+                            <span class="participant-name">AI Agent</span>
+                        </div>
+                    </div>
+                    <div class="panel-controls">
+                        <button class="panel-control-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                        <button class="panel-control-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="old-listen-live-hidden" style="display:none;">
+        <div>
+                    <!-- Old carousel removed -->
+                    <div style="display:none;">
+                        <div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
+                                </svg>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Anderson Heating & Air</h4>
+                                <span>HVAC Services</span>
+                            </div>
+                        </div>
+                        <div class="demo-player">
+                            <button class="play-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            <div class="waveform">
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                            </div>
+                            <span class="duration">1:24</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="live-demo-card">
+                        <div class="demo-card-header">
+                            <div class="demo-logo" style="background: #1e293b;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                                </svg>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Clarity Tax Group</h4>
+                                <span>Tax & Accounting</span>
+                            </div>
+                        </div>
+                        <div class="demo-player">
+                            <button class="play-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            <div class="waveform">
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                            </div>
+                            <span class="duration">2:08</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="live-demo-card">
+                        <div class="demo-card-header">
+                            <div class="demo-logo" style="background: #f59e0b;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                                </svg>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Tri-State Electric</h4>
+                                <span>Electrical Contractor</span>
+                            </div>
+                        </div>
+                        <div class="demo-player">
+                            <button class="play-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            <div class="waveform">
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 26px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 26px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                            </div>
+                            <span class="duration">1:52</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="live-demo-card">
+                        <div class="demo-card-header">
+                            <div class="demo-logo" style="background: #10b981;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Lakeside Family Dental</h4>
+                                <span>Family Dentistry</span>
+                            </div>
+                        </div>
+                        <div class="demo-player">
+                            <button class="play-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            <div class="waveform">
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                            </div>
+                            <span class="duration">2:15</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="live-demo-card">
+                        <div class="demo-card-header">
+                            <div class="demo-logo" style="background: #8b5cf6;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+                                </svg>
+                            </div>
+                            <div class="demo-info">
+                                <h4>ColorPro Painters</h4>
+                                <span>Residential Painting</span>
+                            </div>
+                        </div>
+                        <div class="demo-player">
+                            <button class="play-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            <div class="waveform">
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                                <div class="wave-bar" style="height: 8px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 10px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 12px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 6px;"></div>
+                                <div class="wave-bar" style="height: 14px;"></div>
+                            </div>
+                            <span class="duration">1:36</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-two">
+        <div class="section-two-inner">
+            <div class="section-two-header">
+                <h2>What Does Your AI<br>Receptionist Do?</h2>
+                <p>Your AI handles day-to-day reception tasks, making life easier for you and your team</p>
+            </div>
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab active">
+                        <div class="tab-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="16" fill="#dbeafe"/>
+                                <path d="M24 16v16M16 24h16" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="32" cy="16" r="6" fill="#fbbf24"/>
+                                <circle cx="16" cy="32" r="5" fill="#10b981"/>
+                            </svg>
+                        </div>
+                        Answers calls
+                    </button>
+                    <button class="tab">
+                        <div class="tab-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="28" r="8" fill="#10b981"/>
+                                <circle cx="32" cy="20" r="6" fill="#fbbf24"/>
+                                <path d="M30 32c0-2 2-4 6-4" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M36 26v-4M34 24h4" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        After hours
+                    </button>
+                    <button class="tab">
+                        <div class="tab-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="20" r="10" fill="#fbbf24"/>
+                                <path d="M24 12v8l5 3" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                                <rect x="20" y="32" width="8" height="6" rx="2" fill="#f59e0b"/>
+                            </svg>
+                        </div>
+                        Books appointments
+                    </button>
+                    <button class="tab">
+                        <div class="tab-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 20h24v4H12z" fill="#3b82f6"/>
+                                <path d="M12 28h24v4H12z" fill="#1d4ed8"/>
+                                <path d="M28 12l8 8-8 8" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        Website queries
+                    </button>
+                </div>
+            </div>
+            <div class="features-content">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                            </svg>
+                        </div>
+                        <h3>Lead Capturing Pro</h3>
+                        <p>Gathers essential details from callers, like names, contact info, and service needs, so you never miss an opportunity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                            </svg>
+                        </div>
+                        <h3>Real-Time Call Summaries</h3>
+                        <p>Sends detailed summaries straight to your inbox or CRM, so you always know what's happening.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
+                        </div>
+                        <h3>Efficient Call Handling</h3>
+                        <p>Whether it's booking appointments, answering FAQs, or taking messages, your AI gets it done without breaking a sweat.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                            </svg>
+                        </div>
+                        <h3>Smart Call Transfers</h3>
+                        <p>Seamlessly routes callers to the right person, team, or department. No confusion, no delays.</p>
+                    </div>
+                </div>
+                <div class="features-image">
+                    <span class="features-image-placeholder">Product Screenshot</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-three">
+        <div class="section-three-inner">
+            <h2>Elevate your CX with AI agents<br>proven to outperform humans</h2>
+            <div class="stats-grid">
+                <div class="stat-card green">
+                    <div class="stat-number" data-target="8" data-suffix="X">4X</div>
+                    <div class="stat-label">more productive<br>than human agents</div>
+                </div>
+                <div class="stat-card pink">
+                    <div class="stat-number" data-target="162" data-suffix="%">97%</div>
+                    <div class="stat-label">increase in<br>CSAT scores</div>
+                </div>
+                <div class="stat-card blue">
+                    <div class="stat-number" data-target="357" data-suffix="%">214%</div>
+                    <div class="stat-label">ROI on<br>AI investment</div>
+                </div>
+                <div class="stat-card yellow">
+                    <div class="stat-number" data-target="84" data-suffix="%">50%</div>
+                    <div class="stat-label">automated<br>resolution rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features-showcase">
+        <div class="features-showcase-inner">
+            <div class="features-showcase-header">
+                <h2>From calls to conversions</h2>
+                <p>Our AI receptionist handles every interaction with precision, turning routine calls into business opportunities.</p>
+            </div>
+            <div class="features-showcase-content">
+                <div class="features-list">
+                    <div class="feature-item active">
+                        <div class="feature-item-header">
+                            <div class="feature-item-dot"></div>
+                            <h3>Natural conversations</h3>
+                        </div>
+                        <div class="feature-item-desc">Handle complex inquiries with human-like understanding and responses.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item-header">
+                            <div class="feature-item-dot"></div>
+                            <h3>24/7 availability</h3>
+                        </div>
+                        <div class="feature-item-desc">Never miss a call, even outside business hours.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item-header">
+                            <div class="feature-item-dot"></div>
+                            <h3>Smart scheduling</h3>
+                        </div>
+                        <div class="feature-item-desc">Automatically book appointments and manage your calendar.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item-header">
+                            <div class="feature-item-dot"></div>
+                            <h3>Instant summaries</h3>
+                        </div>
+                        <div class="feature-item-desc">Get detailed call summaries delivered to your inbox or CRM.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item-header">
+                            <div class="feature-item-dot"></div>
+                            <h3>Seamless transfers</h3>
+                        </div>
+                        <div class="feature-item-desc">Route calls to the right team member when needed.</div>
+                    </div>
+                    <a href="#" class="features-cta">
+                        Get started now
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="features-showcase-image">
+                    <span class="features-showcase-image-placeholder">Product Screenshot</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-four">
+        <div class="section-four-header">
+            <h2>Works with all your favorite tools</h2>
+            <p>Connect your favorite apps and build workflows to power your business</p>
+            <a href="#" class="integrations-btn">See All Integrations</a>
+        </div>
+        <div class="carousel-rows">
+            <!-- Row 1 - scrolls left -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fff4e6;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff6b35">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                        </div>
+                        <h3>HubSpot</h3>
+                        <p>Unlock seamless call experience and improve your agent productivity.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e8f4fd;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#0176d3">
+                                <path d="M12.5 2C7.81 2 4 5.81 4 10.5c0 2.89 1.44 5.43 3.63 6.97L7 22l4.5-2.5L16 22l-.63-4.53C17.56 15.93 21 12.89 21 10.5 21 5.81 17.19 2 12.5 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Salesforce</h3>
+                        <p>Boost your sales pipeline and streamline customer relationships.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e6f7e6;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#34a853">
+                                <path d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8h14v10z"/>
+                            </svg>
+                        </div>
+                        <h3>Google Calendar</h3>
+                        <p>Automatically sync appointments and manage your schedule.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fff0f0;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#e01e5a">
+                                <path d="M6 15a2 2 0 01-2-2 2 2 0 012-2h2v2a2 2 0 01-2 2zm1-6a2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2v2H7z"/>
+                            </svg>
+                        </div>
+                        <h3>Slack</h3>
+                        <p>Get instant notifications right in your team channels.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #f0e6ff;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#7c3aed">
+                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18.5L4 16V8.5l8 4v8z"/>
+                            </svg>
+                        </div>
+                        <h3>Pipedrive</h3>
+                        <p>Streamline your lead management and sales process.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e6f3ff;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#2563eb">
+                                <circle cx="12" cy="12" r="10"/>
+                            </svg>
+                        </div>
+                        <h3>Zoho CRM</h3>
+                        <p>Get a unified platform for your sales and marketing.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e6fffa;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#03a87c">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3>Zendesk</h3>
+                        <p>Enhance your customer service experience.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e8f5e9;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#25d366">
+                                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.12-1.33A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+                            </svg>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Connect with customers on their preferred platform.</p>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fff4e6;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff6b35">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                        </div>
+                        <h3>HubSpot</h3>
+                        <p>Unlock seamless call experience and improve your agent productivity.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e8f4fd;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#0176d3">
+                                <path d="M12.5 2C7.81 2 4 5.81 4 10.5c0 2.89 1.44 5.43 3.63 6.97L7 22l4.5-2.5L16 22l-.63-4.53C17.56 15.93 21 12.89 21 10.5 21 5.81 17.19 2 12.5 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Salesforce</h3>
+                        <p>Boost your sales pipeline and streamline customer relationships.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e6f7e6;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#34a853">
+                                <path d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8h14v10z"/>
+                            </svg>
+                        </div>
+                        <h3>Google Calendar</h3>
+                        <p>Automatically sync appointments and manage your schedule.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fff0f0;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#e01e5a">
+                                <path d="M6 15a2 2 0 01-2-2 2 2 0 012-2h2v2a2 2 0 01-2 2zm1-6a2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2v2H7z"/>
+                            </svg>
+                        </div>
+                        <h3>Slack</h3>
+                        <p>Get instant notifications right in your team channels.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #f0e6ff;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#7c3aed">
+                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18.5L4 16V8.5l8 4v8z"/>
+                            </svg>
+                        </div>
+                        <h3>Pipedrive</h3>
+                        <p>Streamline your lead management and sales process.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e6f3ff;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#2563eb">
+                                <circle cx="12" cy="12" r="10"/>
+                            </svg>
+                        </div>
+                        <h3>Zoho CRM</h3>
+                        <p>Get a unified platform for your sales and marketing.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e6fffa;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#03a87c">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3>Zendesk</h3>
+                        <p>Enhance your customer service experience.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e8f5e9;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#25d366">
+                                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.12-1.33A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+                            </svg>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Connect with customers on their preferred platform.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 2 - scrolls right (reverse) -->
+            <div class="carousel-container">
+                <div class="carousel-track reverse">
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fef3c7;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/>
+                            </svg>
+                        </div>
+                        <h3>Freshdesk</h3>
+                        <p>Build a central contact HQ to boost customer service.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #dbeafe;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3b82f6">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Outlook</h3>
+                        <p>Sync emails and calendar events seamlessly.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fee2e2;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ef4444">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Intercom</h3>
+                        <p>Engage customers with personalized messaging.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #d1fae5;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#10b981">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Notion</h3>
+                        <p>Keep your team's knowledge base up to date.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #ede9fe;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#8b5cf6">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            </svg>
+                        </div>
+                        <h3>ActiveCampaign</h3>
+                        <p>Automate your marketing campaigns and improve ROI.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fce7f3;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ec4899">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <h3>Monday.com</h3>
+                        <p>Manage projects and workflows efficiently.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e0e7ff;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#6366f1">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Airtable</h3>
+                        <p>Organize data and automate workflows easily.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #ccfbf1;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#14b8a6">
+                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18l-8-4V8l8 4v8zm0-10L4.5 6 12 2l7.5 4L12 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Stripe</h3>
+                        <p>Process payments and manage subscriptions.</p>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fef3c7;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/>
+                            </svg>
+                        </div>
+                        <h3>Freshdesk</h3>
+                        <p>Build a central contact HQ to boost customer service.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #dbeafe;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3b82f6">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Outlook</h3>
+                        <p>Sync emails and calendar events seamlessly.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fee2e2;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ef4444">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Intercom</h3>
+                        <p>Engage customers with personalized messaging.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #d1fae5;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#10b981">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Notion</h3>
+                        <p>Keep your team's knowledge base up to date.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #ede9fe;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#8b5cf6">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            </svg>
+                        </div>
+                        <h3>ActiveCampaign</h3>
+                        <p>Automate your marketing campaigns and improve ROI.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #fce7f3;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ec4899">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <h3>Monday.com</h3>
+                        <p>Manage projects and workflows efficiently.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #e0e7ff;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#6366f1">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Airtable</h3>
+                        <p>Organize data and automate workflows easily.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon" style="background: #ccfbf1;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#14b8a6">
+                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18l-8-4V8l8 4v8zm0-10L4.5 6 12 2l7.5 4L12 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Stripe</h3>
+                        <p>Process payments and manage subscriptions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="insights-section">
+        <div class="insights-section-inner">
+            <h2>Research and Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <span class="insight-card-date">December 10, 2024</span>
+                    <h3>The Future of Voice AI in Customer Service</h3>
+                    <p class="insight-card-desc">How conversational AI is transforming the way businesses handle customer enquiries and support calls.</p>
+                    <div class="insight-card-image" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <span class="insight-card-date">November 28, 2024</span>
+                    <h3>5 Ways AI Receptionists Reduce No-Shows</h3>
+                    <p class="insight-card-desc">Discover how automated appointment reminders and smart scheduling can dramatically improve attendance rates.</p>
+                    <div class="insight-card-image" style="background: linear-gradient(135deg, #fae8ff 0%, #e9d5ff 100%);">
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <span class="insight-card-date">November 15, 2024</span>
+                    <h3>Building Trust with AI-Powered Phone Systems</h3>
+                    <p class="insight-card-desc">Why transparency and natural conversation flow are key to customer acceptance of voice AI technology.</p>
+                    <div class="insight-card-image" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+                    </div>
+                </div>
+            </div>
+            <div class="insights-cta">
+                <a href="#">
+                    Read more
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-five">
+        <div class="section-five-inner">
+            <nav class="section-five-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#demo">Demo</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="section-five-content">
+                <h2>Ready to transform<br>your customer experience?</h2>
+                <a href="#" class="section-five-cta">
+                    Get started
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            VoiceAI
+        </div>
+        <div class="footer-copyright">
+            © 2025 VoiceAI. All rights reserved.<br>
+            Privacy Policy · Terms of Service
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+    <script>
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Industry cards navigation
+        const industryCards = document.querySelector('.industry-cards');
+        const navArrows = document.querySelectorAll('.nav-arrow');
+
+        if (navArrows.length >= 2) {
+            navArrows[0].addEventListener('click', () => {
+                industryCards.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+
+            navArrows[1].addEventListener('click', () => {
+                industryCards.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+        }
+
+        // Listen Live Accordion
+        const listenPanel = document.querySelector('.listen-live-panel');
+        document.querySelectorAll('.listen-accordion-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const wasActive = this.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.listen-accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-icon').textContent = '+';
+                });
+
+                // Open clicked item if it wasn't active
+                if (!wasActive) {
+                    this.classList.add('active');
+                    this.querySelector('.accordion-icon').textContent = '−';
+
+                    // Change panel color
+                    const newColor = this.getAttribute('data-color');
+                    if (newColor && listenPanel) {
+                        listenPanel.style.backgroundColor = newColor;
+                    }
+                }
+            });
+        });
+
+        // Features showcase - clickable items
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.feature-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Never lose business - clickable items with chat window switching
+        document.querySelectorAll('.never-lose-item').forEach((item, index) => {
+            item.addEventListener('click', function() {
+                // Update active item
+                document.querySelectorAll('.never-lose-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+
+                // Switch chat window
+                document.querySelectorAll('.chat-window').forEach(w => w.classList.remove('active'));
+                const chatWindow = document.querySelector(`.chat-window[data-chat="${index + 1}"]`);
+                if (chatWindow) {
+                    chatWindow.classList.add('active');
+                }
+            });
+        });
+
+        // Stat cards fade-in animation on scroll with counting
+        const statCards = document.querySelectorAll('.stat-card');
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        function easeOutExpo(t) {
+            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        }
+
+        function animateCount(element, target, suffix, duration) {
+            const start = Math.floor(target * 0.6);
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutExpo(progress);
+                const current = Math.floor(start + (target - start) * easedProgress);
+
+                element.textContent = current + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target + suffix;
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statCards.forEach(card => card.classList.add('visible'));
+
+                    // Start counting after cards appear
+                    setTimeout(() => {
+                        statNumbers.forEach(num => {
+                            const target = parseInt(num.dataset.target);
+                            const suffix = num.dataset.suffix || '';
+                            animateCount(num, target, suffix, 2000);
+                        });
+                    }, 400);
+
+                    statsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const statsGrid = document.querySelector('.stats-grid');
+        if (statsGrid) {
+            statsObserver.observe(statsGrid);
+        }
+    </script>
+</body>
+</html>
