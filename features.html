@@ -18,6 +18,11 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
             background: #fafafa;
+            transition: opacity 0.2s ease-out;
+        }
+
+        body.fade-out {
+            opacity: 0;
         }
 
         header {
@@ -2650,6 +2655,17 @@
                     this.classList.add('active');
                     this.querySelector('.accordion-icon').textContent = '−';
                 }
+            });
+        });
+
+        // Page transition for download button
+        document.querySelectorAll('a[href="onboarding.html"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = 'onboarding.html';
+                }, 200);
             });
         });
     </script>
