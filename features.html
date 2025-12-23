@@ -120,14 +120,14 @@
         /* Features Page Hero */
         .features-page-hero {
             margin-top: 48px;
-            min-height: 750px;
-            background: #dbeafe;
+            min-height: 900px;
+            background: #4640BF;
             position: relative;
             overflow: visible;
             display: flex;
             align-items: center;
-            padding: 80px;
-            padding-bottom: 180px;
+            padding: 120px 80px;
+            padding-bottom: 220px;
         }
 
         .features-page-hero::after {
@@ -136,7 +136,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 80px;
+            height: 150px;
             background: #fff;
             clip-path: polygon(0 100%, 100% 0, 100% 100%);
         }
@@ -175,12 +175,12 @@
 
         /* Product Features Section */
         .product-features-section {
-            padding: 120px 80px;
+            padding: 140px 80px;
             background: #f8fafc;
         }
 
         .product-features-inner {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
@@ -191,19 +191,19 @@
 
         .product-features-header h2 {
             font-family: 'DM Serif Display', serif;
-            font-size: 52px;
+            font-size: 56px;
             font-weight: 400;
             color: #1e293b;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             letter-spacing: -0.01em;
         }
 
         .product-features-header p {
             font-family: 'Inter', sans-serif;
-            font-size: 18px;
+            font-size: 19px;
             color: #64748b;
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
             line-height: 1.6;
         }
@@ -214,22 +214,22 @@
             gap: 0;
             align-items: stretch;
             background: #fff;
-            border-radius: 24px;
+            border-radius: 28px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            min-height: 550px;
+            min-height: 620px;
         }
 
         .features-accordion {
             display: flex;
             flex-direction: column;
-            padding: 50px 60px;
+            padding: 60px 70px;
             justify-content: center;
         }
 
         .accordion-item {
             border-top: 1px solid #e2e8f0;
-            padding: 24px 0;
+            padding: 28px 0;
             cursor: pointer;
         }
 
@@ -245,7 +245,7 @@
 
         .accordion-header h3 {
             font-family: 'DM Sans', sans-serif;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 500;
             color: #1e293b;
             transition: color 0.3s ease;
@@ -288,15 +288,26 @@
 
         .accordion-content p {
             font-family: 'Inter', sans-serif;
-            font-size: 15px;
+            font-size: 16px;
             color: #64748b;
             line-height: 1.7;
         }
 
         .features-panel {
-            background: #fef3c7;
+            background: linear-gradient(135deg, #4640BF 0%, #5b54d4 100%);
             border-radius: 0;
-            padding: 50px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-cards-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -304,39 +315,69 @@
 
         .panel-card {
             background: #fff;
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 380px;
+            position: absolute;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .panel-card.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+            position: relative;
         }
 
         .panel-card h4 {
             font-family: 'DM Sans', sans-serif;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             color: #1e293b;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .panel-card-subtitle {
             font-family: 'Inter', sans-serif;
             font-size: 14px;
             color: #64748b;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .stats-table {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .stats-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 12px;
+            padding-bottom: 14px;
             border-bottom: 1px solid #f1f5f9;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: slideInRow 0.4s ease forwards;
+        }
+
+        .stats-row:nth-child(1) { animation-delay: 0.1s; }
+        .stats-row:nth-child(2) { animation-delay: 0.2s; }
+        .stats-row:nth-child(3) { animation-delay: 0.3s; }
+        .stats-row:nth-child(4) { animation-delay: 0.4s; }
+        .stats-row:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInRow {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .stats-row:last-child {
@@ -358,8 +399,8 @@
 
         .stats-value {
             font-family: 'DM Sans', sans-serif;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 600;
             color: #1e293b;
         }
 
@@ -394,11 +435,109 @@
 
         .panel-btn:hover {
             background: #334155;
+            transform: translateY(-2px);
         }
 
         .panel-btn svg {
             width: 18px;
             height: 18px;
+        }
+
+        /* Panel card specific styles */
+        .demo-conversation {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .demo-msg {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .demo-msg:last-child {
+            margin-bottom: 0;
+        }
+
+        .demo-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #4640BF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .demo-avatar.caller {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .demo-bubble {
+            background: #fff;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1e293b;
+            line-height: 1.5;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .integration-logos {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .integration-logo {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .integration-logo svg {
+            width: 24px;
+            height: 24px;
+            color: #4640BF;
+        }
+
+        .speed-metric {
+            text-align: center;
+            padding: 24px;
+            background: #f0fdf4;
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+
+        .speed-metric .big-number {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: #10b981;
+            line-height: 1;
+        }
+
+        .speed-metric .metric-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #64748b;
+            margin-top: 8px;
         }
 
         /* What Can Sophiie Do Section */
@@ -865,7 +1004,7 @@
         }
 
         .features-page-hero-inner {
-            max-width: 1400px;
+            max-width: 1200px;
             width: 100%;
             margin: 0 auto;
             display: flex;
@@ -882,46 +1021,370 @@
         }
 
         .features-hero-left h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 48px;
-            font-weight: 600;
-            color: #1e293b;
-            line-height: 1.15;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 58px;
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.2;
             letter-spacing: -0.02em;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
+        }
+
+        .features-hero-left h1 .rotating-text-wrapper {
+            display: inline-block;
+            height: 1.2em;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+
+        .features-hero-left h1 .rotating-text {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            display: block;
+            white-space: nowrap;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .rotating-text.slide-up {
+            transform: translateY(-100%);
+        }
+
+        .rotating-text.slide-reset {
+            transition: none;
+            transform: translateY(100%);
         }
 
         .features-hero-left p {
             font-family: 'Inter', sans-serif;
             font-size: 18px;
-            color: #475569;
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
+            max-width: 400px;
         }
 
         .hero-cta-btn {
-            display: inline-block;
-            padding: 14px 28px;
-            background: #3b82f6;
-            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 8px 8px 24px;
+            background: #fce7f3;
+            color: #1e293b;
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: background 0.2s;
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+
+        .hero-cta-btn .btn-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #1e293b;
+            border-radius: 50%;
+            color: #fff;
         }
 
         .hero-cta-btn:hover {
-            background: #2563eb;
+            background: #fbcfe8;
+            transform: translateY(-2px);
         }
 
         .features-hero-right {
-            flex: 1;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-conversation-card {
+            width: 520px;
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow:
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 10px 20px rgba(0, 0, 0, 0.08),
+                0 25px 50px rgba(0, 0, 0, 0.12);
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .card-icon {
             display: flex;
             justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .conversation-flow {
+            position: relative;
+        }
+
+        /* Chat bubble styles */
+        .chat-bubble {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(12px);
+            max-height: 0;
+            overflow: hidden;
+            transition:
+                opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                margin-bottom 0.4s ease;
+        }
+
+        .chat-bubble.show {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 150px;
+        }
+
+        .chat-bubble.caller {
+            /* Caller specific styles if needed */
+        }
+
+        .chat-bubble.ai {
+            /* AI specific styles if needed */
+        }
+
+        .bubble-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bubble-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-bubble.ai .bubble-avatar {
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-bubble.ai .bubble-avatar svg {
+            width: 18px;
+            height: 18px;
+            color: #fff;
+        }
+
+        .bubble-content {
+            flex: 1;
+        }
+
+        .bubble-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #94a3b8;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .bubble-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .bubble-text .word {
+            color: #cbd5e1;
+            transition: color 0.2s ease;
+        }
+
+        .bubble-text .word.spoken {
+            color: #1e293b;
+        }
+
+        .action-list {
+            position: relative;
+            display: flex;
+            margin-left: 22px;
+            padding: 10px 0 10px 28px;
+            min-height: 0;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition:
+                opacity 0.5s ease,
+                max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .action-list.show {
+            opacity: 1;
+            max-height: 60px;
+        }
+
+        .action-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                #a5b4fc 0px,
+                #a5b4fc 4px,
+                transparent 4px,
+                transparent 8px
+            );
+            transition: height 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .action-line.animate {
+            height: 100%;
+        }
+
+        .action-items {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-start;
+        }
+
+        .action-item {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #94a3b8;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition:
+                opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .action-item.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .chat-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chat-message .msg-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .chat-message .msg-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-message .msg-avatar.ai {
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-message .msg-avatar.ai svg {
+            width: 20px;
+            height: 20px;
+            color: #fff;
+        }
+
+        .chat-message .msg-content {
+            flex: 1;
+        }
+
+        .chat-message .msg-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #1e293b;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .chat-message .msg-text .word {
+            color: #cbd5e1;
+            transition: color 0.15s ease;
+        }
+
+        .chat-message .msg-text .word.spoken {
+            color: #1e293b;
+        }
+
+        .typing-indicator {
+            display: none;
+            gap: 4px;
+            padding: 8px 12px;
+            background: #e2e8f0;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .typing-indicator.show {
+            display: inline-flex;
+        }
+
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            background: #94a3b8;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        #aiText {
+            transition: opacity 0.3s ease;
+            min-height: 1.5em;
+        }
+
+        .caller-msg {
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .caller-msg.hidden {
+            opacity: 0;
+            transform: translateY(10px);
         }
 
         .phone-mockup {
@@ -1858,6 +2321,141 @@
             color: #1e293b;
             display: inline-block;
         }
+
+        /* Section Five - CTA */
+        .section-five {
+            padding: 40px;
+            background: #fff;
+        }
+
+        .section-five-inner {
+            background: linear-gradient(135deg, #7ba3b8 0%, #5d8aa8 50%, #4a7c9b 100%);
+            border-radius: 32px;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-five-content {
+            padding: 80px 80px 60px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-five h2 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 64px;
+            font-weight: 400;
+            font-style: italic;
+            color: #1a2e3d;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .section-five-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #1a2e3d;
+            color: #fff;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .section-five-cta:hover {
+            background: #0f1f2d;
+            transform: scale(1.03);
+        }
+
+        .section-five-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section-five-links {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 3;
+        }
+
+        .section-five-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a2e3d;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .section-five-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: 30px 80px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #1e293b;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
+        }
     </style>
 </head>
 <body>
@@ -1884,100 +2482,81 @@
     <section class="features-page-hero">
         <div class="features-page-hero-inner">
             <div class="features-hero-left">
-                <h1>AI Answering Service for Your Business</h1>
-                <p>Stop missing calls and start converting more leads. Set up your AI answering assistant - no developer required.</p>
-                <a href="#" class="hero-cta-btn">Contact Sales</a>
+                <h1>AI receptionist for <span class="rotating-text-wrapper"><span class="rotating-text">every missed call</span></span></h1>
+                <p>Never miss another call. Your AI receptionist answers instantly, books appointments, and handles enquiries—while you focus on your business.</p>
+                <a href="#" class="hero-cta-btn">Get a demo <span class="btn-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></span></a>
             </div>
             <div class="features-hero-right">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-status-bar">
-                            <span class="phone-time">9:41</span>
-                            <div class="phone-icons">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0a.75.75 0 010 1.061l-.53.53a.75.75 0 01-1.06 0c-4.98-4.979-13.053-4.979-18.032 0a.75.75 0 01-1.06 0l-.53-.53a.75.75 0 010-1.06zm3.182 3.182c4.1-4.1 10.749-4.1 14.85 0a.75.75 0 010 1.061l-.53.53a.75.75 0 01-1.062 0 8.25 8.25 0 00-11.667 0 .75.75 0 01-1.06 0l-.53-.53a.75.75 0 010-1.06zm3.204 3.182a6 6 0 018.486 0 .75.75 0 010 1.061l-.53.53a.75.75 0 01-1.061 0 3.75 3.75 0 00-5.304 0 .75.75 0 01-1.06 0l-.53-.53a.75.75 0 010-1.06zm3.182 3.182a1.5 1.5 0 012.122 0 .75.75 0 010 1.061l-.53.53a.75.75 0 01-1.061 0l-.53-.53a.75.75 0 010-1.06z" clip-rule="evenodd"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M3.75 6.75a3 3 0 00-3 3v6a3 3 0 003 3h15a3 3 0 003-3v-.037c.856-.174 1.5-.93 1.5-1.838v-2.25c0-.907-.644-1.664-1.5-1.837V9.75a3 3 0 00-3-3h-15zm15 1.5a1.5 1.5 0 011.5 1.5v6a1.5 1.5 0 01-1.5 1.5h-15a1.5 1.5 0 01-1.5-1.5v-6a1.5 1.5 0 011.5-1.5h15z"/>
-                                </svg>
+                <div class="hero-conversation-card">
+                    <div class="card-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44">
+                            <circle cx="12" cy="22" r="4" fill="#facc15"/>
+                            <circle cx="22" cy="12" r="4" fill="#facc15"/>
+                            <circle cx="22" cy="32" r="4" fill="#facc15"/>
+                            <circle cx="32" cy="22" r="4" fill="#facc15"/>
+                            <line x1="12" y1="22" x2="22" y2="12" stroke="#facc15" stroke-width="2.5"/>
+                            <line x1="22" y1="12" x2="32" y2="22" stroke="#facc15" stroke-width="2.5"/>
+                            <line x1="12" y1="22" x2="22" y2="32" stroke="#facc15" stroke-width="2.5"/>
+                            <line x1="22" y1="32" x2="32" y2="22" stroke="#facc15" stroke-width="2.5"/>
+                        </svg>
+                    </div>
+
+                    <div class="conversation-flow" id="conversationFlow">
+                        <!-- Message 1: Caller -->
+                        <div class="chat-bubble caller" id="msg1">
+                            <div class="bubble-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Caller" id="callerImg">
+                            </div>
+                            <div class="bubble-content">
+                                <span class="bubble-name" id="callerName">Emma</span>
+                                <p class="bubble-text" id="text1"></p>
                             </div>
                         </div>
-                        <div class="phone-content">
-                            <div class="phone-icon-main">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+
+                        <!-- Action processing indicator -->
+                        <div class="action-list" id="actionList">
+                            <div class="action-line" id="actionLine"></div>
+                            <div class="action-items" id="actionItems">
+                                <span class="action-item" id="action1"></span>
+                                <span class="action-item" id="action2"></span>
+                                <span class="action-item" id="action3"></span>
+                                <span class="action-item" id="action4"></span>
+                            </div>
+                        </div>
+
+                        <!-- Message 2: AI -->
+                        <div class="chat-bubble ai" id="msg2">
+                            <div class="bubble-avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="8" cy="16" r="3"/><circle cx="16" cy="16" r="3"/>
                                 </svg>
                             </div>
-                            <h3>Hear It In Action:</h3>
-                            <p>AI Agent Demos</p>
-
-                            <div class="demo-card">
-                                <div class="demo-card-title">Appointment Scheduling</div>
-                                <div class="demo-waveform">
-                                    <div class="play-btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="waveform-bars">
-                                        <div class="waveform-bar" style="height: 8px;"></div>
-                                        <div class="waveform-bar" style="height: 12px;"></div>
-                                        <div class="waveform-bar" style="height: 6px;"></div>
-                                        <div class="waveform-bar" style="height: 16px;"></div>
-                                        <div class="waveform-bar" style="height: 10px;"></div>
-                                        <div class="waveform-bar" style="height: 20px;"></div>
-                                        <div class="waveform-bar" style="height: 14px;"></div>
-                                        <div class="waveform-bar" style="height: 8px;"></div>
-                                        <div class="waveform-bar" style="height: 18px;"></div>
-                                        <div class="waveform-bar" style="height: 12px;"></div>
-                                        <div class="waveform-bar" style="height: 6px;"></div>
-                                        <div class="waveform-bar" style="height: 14px;"></div>
-                                        <div class="waveform-bar" style="height: 10px;"></div>
-                                        <div class="waveform-bar" style="height: 16px;"></div>
-                                        <div class="waveform-bar" style="height: 8px;"></div>
-                                        <div class="waveform-bar" style="height: 12px;"></div>
-                                        <div class="waveform-bar" style="height: 18px;"></div>
-                                        <div class="waveform-bar" style="height: 10px;"></div>
-                                        <div class="waveform-bar" style="height: 6px;"></div>
-                                        <div class="waveform-bar" style="height: 14px;"></div>
-                                    </div>
-                                </div>
+                            <div class="bubble-content">
+                                <span class="bubble-name">AI Agent</span>
+                                <p class="bubble-text" id="text2"></p>
                             </div>
+                        </div>
 
-                            <div class="demo-card">
-                                <div class="demo-card-title">Customer Support</div>
-                                <div class="demo-waveform">
-                                    <div class="play-btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="waveform-bars">
-                                        <div class="waveform-bar" style="height: 10px;"></div>
-                                        <div class="waveform-bar" style="height: 6px;"></div>
-                                        <div class="waveform-bar" style="height: 14px;"></div>
-                                        <div class="waveform-bar" style="height: 8px;"></div>
-                                        <div class="waveform-bar" style="height: 18px;"></div>
-                                        <div class="waveform-bar" style="height: 12px;"></div>
-                                        <div class="waveform-bar" style="height: 6px;"></div>
-                                        <div class="waveform-bar" style="height: 16px;"></div>
-                                        <div class="waveform-bar" style="height: 10px;"></div>
-                                        <div class="waveform-bar" style="height: 20px;"></div>
-                                        <div class="waveform-bar" style="height: 8px;"></div>
-                                        <div class="waveform-bar" style="height: 14px;"></div>
-                                        <div class="waveform-bar" style="height: 12px;"></div>
-                                        <div class="waveform-bar" style="height: 6px;"></div>
-                                        <div class="waveform-bar" style="height: 16px;"></div>
-                                        <div class="waveform-bar" style="height: 10px;"></div>
-                                        <div class="waveform-bar" style="height: 8px;"></div>
-                                        <div class="waveform-bar" style="height: 14px;"></div>
-                                        <div class="waveform-bar" style="height: 18px;"></div>
-                                        <div class="waveform-bar" style="height: 12px;"></div>
-                                    </div>
-                                </div>
+                        <!-- Message 3: Caller reply -->
+                        <div class="chat-bubble caller" id="msg3">
+                            <div class="bubble-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Caller" id="callerImg2">
+                            </div>
+                            <div class="bubble-content">
+                                <p class="bubble-text" id="text3"></p>
+                            </div>
+                        </div>
+
+                        <!-- Message 4: AI final -->
+                        <div class="chat-bubble ai" id="msg4">
+                            <div class="bubble-avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="8" cy="16" r="3"/><circle cx="16" cy="16" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="bubble-content">
+                                <span class="bubble-name">AI Agent</span>
+                                <p class="bubble-text" id="text4"></p>
                             </div>
                         </div>
                     </div>
@@ -2117,101 +2696,202 @@
     <section class="product-features-section">
         <div class="product-features-inner">
             <div class="product-features-header">
-                <h2>product features<br>and capabilities</h2>
-                <p>Learn how AI transforms voice interactions, automating support and enhancing customer satisfaction.</p>
+                <h2>Built for businesses<br>that never miss a call</h2>
+                <p>Powerful features that help you capture every opportunity, automate bookings, and delight your customers 24/7.</p>
             </div>
             <div class="product-features-content">
                 <div class="features-accordion">
-                    <div class="accordion-item active">
+                    <div class="accordion-item active" data-panel="0">
                         <div class="accordion-header">
-                            <h3>Data-driven optimization</h3>
+                            <h3>Real-time call analytics</h3>
                             <span class="accordion-icon">−</span>
                         </div>
                         <div class="accordion-content">
-                            <p>Use conversational insights to identify trends, improve accuracy, and continuously optimize performance through advanced natural language coaching.</p>
+                            <p>Track every call, measure resolution rates, and understand what your customers need. Get actionable insights to continuously improve your service.</p>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item" data-panel="1">
                         <div class="accordion-header">
-                            <h3>Speed to value</h3>
+                            <h3>Instant appointment booking</h3>
                             <span class="accordion-icon">+</span>
                         </div>
                         <div class="accordion-content">
-                            <p>Get up and running in minutes, not months. Our pre-built templates and intuitive setup mean you can start handling calls from day one.</p>
+                            <p>Your AI receptionist checks your calendar in real-time and books appointments instantly. No back-and-forth, no missed opportunities.</p>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item" data-panel="2">
                         <div class="accordion-header">
-                            <h3>Organic, low-latency conversations</h3>
+                            <h3>Natural conversations</h3>
                             <span class="accordion-icon">+</span>
                         </div>
                         <div class="accordion-content">
-                            <p>Natural-sounding AI responses with minimal delay. Your callers won't even realize they're talking to an AI receptionist.</p>
+                            <p>Ultra-low latency responses that feel human. Handles interruptions, understands context, and responds naturally to complex queries.</p>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item" data-panel="3">
                         <div class="accordion-header">
-                            <h3>Seamless telephony integrations</h3>
+                            <h3>Works with your tools</h3>
                             <span class="accordion-icon">+</span>
                         </div>
                         <div class="accordion-content">
-                            <p>Connect with your existing phone systems, CRMs, and business tools. Works with Twilio, RingCentral, and all major providers.</p>
+                            <p>Seamlessly integrates with your CRM, calendar, and phone system. Works with Google Calendar, Calendly, HubSpot, and more.</p>
                         </div>
                     </div>
                 </div>
                 <div class="features-panel">
-                    <div class="panel-card">
-                        <h4>Conversation Topics</h4>
-                        <p class="panel-card-subtitle">Learn what your customers are asking your AI Agent about</p>
-                        <div class="stats-table">
-                            <div class="stats-row">
-                                <span class="stats-label">Automated resolution opportunity</span>
-                                <div class="stats-values">
-                                    <span class="stats-value">6.6%</span>
+                    <div class="panel-cards-container">
+                        <!-- Panel 1: Analytics -->
+                        <div class="panel-card active" data-panel-id="0">
+                            <h4>Call Performance</h4>
+                            <p class="panel-card-subtitle">Real-time metrics from your AI receptionist</p>
+                            <div class="stats-table">
+                                <div class="stats-row">
+                                    <span class="stats-label">Calls handled today</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">247</span>
+                                        <span class="stats-change up">↑ 18%</span>
+                                    </div>
+                                </div>
+                                <div class="stats-row">
+                                    <span class="stats-label">Resolution rate</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">94%</span>
+                                        <span class="stats-change up">↑ 7%</span>
+                                    </div>
+                                </div>
+                                <div class="stats-row">
+                                    <span class="stats-label">Appointments booked</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">52</span>
+                                        <span class="stats-change up">↑ 24%</span>
+                                    </div>
+                                </div>
+                                <div class="stats-row">
+                                    <span class="stats-label">Avg. call duration</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">2:34</span>
+                                    </div>
+                                </div>
+                                <div class="stats-row">
+                                    <span class="stats-label">Customer satisfaction</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">4.8/5</span>
+                                        <span class="stats-change up">↑ 0.3</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stats-row">
-                                <span class="stats-label">Conversations</span>
-                                <div class="stats-values">
-                                    <span class="stats-value">648</span>
-                                    <span class="stats-change down">↓ 9%</span>
+                            <a href="#" class="panel-btn">
+                                View dashboard
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Panel 2: Booking Demo -->
+                        <div class="panel-card" data-panel-id="1">
+                            <h4>Live Booking Demo</h4>
+                            <p class="panel-card-subtitle">See how appointments get booked automatically</p>
+                            <div class="demo-conversation">
+                                <div class="demo-msg">
+                                    <div class="demo-avatar caller">J</div>
+                                    <div class="demo-bubble">"I need a haircut for Saturday afternoon"</div>
+                                </div>
+                                <div class="demo-msg">
+                                    <div class="demo-avatar">AI</div>
+                                    <div class="demo-bubble">"I have 2pm and 4pm available on Saturday. Which works better?"</div>
+                                </div>
+                                <div class="demo-msg">
+                                    <div class="demo-avatar caller">J</div>
+                                    <div class="demo-bubble">"2pm is perfect"</div>
+                                </div>
+                                <div class="demo-msg">
+                                    <div class="demo-avatar">AI</div>
+                                    <div class="demo-bubble">"Done! You're booked for Saturday at 2pm. I'll send a confirmation text."</div>
                                 </div>
                             </div>
-                            <div class="stats-row">
-                                <span class="stats-label">Automated resolution rate</span>
-                                <div class="stats-values">
-                                    <span class="stats-value">83%</span>
-                                    <span class="stats-change up">↑ 12%</span>
-                                </div>
+                            <a href="#" class="panel-btn">
+                                Try it yourself
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Panel 3: Speed Metric -->
+                        <div class="panel-card" data-panel-id="2">
+                            <h4>Response Speed</h4>
+                            <p class="panel-card-subtitle">Lightning-fast, human-like conversations</p>
+                            <div class="speed-metric">
+                                <div class="big-number">&lt;500ms</div>
+                                <div class="metric-label">Average response time</div>
                             </div>
-                            <div class="stats-row">
-                                <span class="stats-label">Contained</span>
-                                <div class="stats-values">
-                                    <span class="stats-value">96%</span>
-                                    <span class="stats-change up">↑ 2%</span>
+                            <div class="stats-table">
+                                <div class="stats-row">
+                                    <span class="stats-label">Handles interruptions</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">Yes</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="stats-row">
-                                <span class="stats-label">CSAT</span>
-                                <div class="stats-values">
-                                    <span class="stats-value">82%</span>
-                                    <span class="stats-change up">↑ 5%</span>
+                                <div class="stats-row">
+                                    <span class="stats-label">Understands accents</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">50+ languages</span>
+                                    </div>
+                                </div>
+                                <div class="stats-row">
+                                    <span class="stats-label">Context awareness</span>
+                                    <div class="stats-values">
+                                        <span class="stats-value">Full conversation</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="panel-btn">
-                            see more
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
+
+                        <!-- Panel 4: Integrations -->
+                        <div class="panel-card" data-panel-id="3">
+                            <h4>Integrations</h4>
+                            <p class="panel-card-subtitle">Connect with tools you already use</p>
+                            <div class="integration-logos">
+                                <div class="integration-logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                                    </svg>
+                                    Google Calendar
+                                </div>
+                                <div class="integration-logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                    </svg>
+                                    Twilio
+                                </div>
+                                <div class="integration-logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                    </svg>
+                                    HubSpot
+                                </div>
+                                <div class="integration-logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Calendly
+                                </div>
+                            </div>
+                            <a href="#" class="panel-btn">
+                                See all integrations
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Industries Section -->
+    <!-- Industries Section - COMMENTED OUT FOR NOW
     <section class="voice-ai-os">
         <div class="voice-ai-os-inner">
             <div class="voice-ai-os-header">
@@ -2222,415 +2902,287 @@
                     <p>Pre-built AI receptionist templates tailored for your industry. Get started in minutes with scripts, workflows, and integrations designed specifically for how your business operates.</p>
                 </div>
             </div>
+            ...
+        </div>
+    </section>
+    -->
 
-            <div class="voice-ai-os-content">
-                <div class="voice-ai-os-features">
-                    <div class="os-feature-item active" data-feature="0">
-                        <div class="os-feature-header">
-                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <h4>Dental Practices</h4>
-                        </div>
-                        <div class="os-feature-description">
-                            <p>Appointment booking, reminder calls, insurance verification, and new patient intake—all handled automatically with HIPAA compliance built-in.</p>
-                        </div>
-                    </div>
-
-                    <div class="os-feature-item" data-feature="1">
-                        <div class="os-feature-header">
-                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                            </svg>
-                            <h4>Real Estate</h4>
-                        </div>
-                        <div class="os-feature-description">
-                            <p>Capture leads 24/7, qualify buyers and sellers, schedule property viewings, and never miss a hot prospect again.</p>
-                        </div>
-                    </div>
-
-                    <div class="os-feature-item" data-feature="2">
-                        <div class="os-feature-header">
-                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
-                            </svg>
-                            <h4>Trades & Services</h4>
-                        </div>
-                        <div class="os-feature-description">
-                            <p>Book jobs, provide quotes, dispatch technicians, and handle emergency calls—even when you're on the tools.</p>
-                        </div>
-                    </div>
-
-                    <div class="os-feature-item" data-feature="3">
-                        <div class="os-feature-header">
-                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.97zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.97z" />
-                            </svg>
-                            <h4>Legal Firms</h4>
-                        </div>
-                        <div class="os-feature-description">
-                            <p>Screen potential clients, schedule consultations, handle intake forms, and maintain confidentiality with secure call handling.</p>
-                        </div>
-                    </div>
-
-                    <div class="os-feature-item" data-feature="4">
-                        <div class="os-feature-header">
-                            <svg class="os-feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                            </svg>
-                            <h4>Healthcare</h4>
-                        </div>
-                        <div class="os-feature-description">
-                            <p>Patient scheduling, prescription refill requests, appointment reminders, and after-hours triage with full HIPAA compliance.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="voice-ai-os-diagram">
-                    <div class="industry-preview">
-                        <div class="industry-preview-header">
-                            <span class="industry-tag">Dental Template</span>
-                            <h3>Ready to use in minutes</h3>
-                        </div>
-                        <div class="industry-features-list">
-                            <div class="industry-feature-check">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Appointment booking & rescheduling</span>
-                            </div>
-                            <div class="industry-feature-check">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Insurance verification scripts</span>
-                            </div>
-                            <div class="industry-feature-check">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>New patient intake forms</span>
-                            </div>
-                            <div class="industry-feature-check">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Emergency call routing</span>
-                            </div>
-                            <div class="industry-feature-check">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>HIPAA compliant by default</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- CTA Section -->
+    <section class="section-five">
+        <div class="section-five-inner">
+            <nav class="section-five-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Platform</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#demo">Demo</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="section-five-content">
+                <h2>Ready to transform<br>your customer experience?</h2>
+                <a href="onboarding.html" class="section-five-cta">
+                    Get started
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="how-it-works">
-        <div class="how-it-works-inner">
-            <div class="how-it-works-header">
-                <div class="how-it-works-text">
-                    <span class="section-label">HOW IT WORKS</span>
-                    <h2>Launch an AI Receptionist in 4 Simple Steps</h2>
-                    <p>The BELL Framework powers every VoiceAI deployment — from designing your first AI receptionist to scaling complex, multi-agent systems. Build, Evaluate, Launch, and Learn — so you can create, test, and optimize voice agents in one seamless, no-code environment.</p>
-                </div>
-            </div>
-
-            <div class="steps-container">
-                <div class="steps-cards">
-                    <!-- BUILD -->
-                    <div class="step-card">
-                        <div class="step-card-preview build">
-                            <div class="flow-preview">
-                                <div class="flow-node">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
-                                    </svg>
-                                    Entry Triggers
-                                </div>
-                                <div class="flow-connector"></div>
-                                <div class="flow-branches">
-                                    <div class="flow-node">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                        </svg>
-                                        Escalate to Human
-                                    </div>
-                                    <div class="flow-node">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                                        </svg>
-                                        Data Protection
-                                    </div>
-                                </div>
-                                <div class="flow-connector"></div>
-                                <div class="flow-branches">
-                                    <div class="flow-node">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-                                        </svg>
-                                        Call Transfer
-                                    </div>
-                                    <div class="flow-node">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
-                                        </svg>
-                                        Speak
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-card-content">
-                            <span class="step-label purple">BUILD</span>
-                            <h3>Design Voice Flows</h3>
-                            <p>Use the no-code builder to map logic, set variables, and define call behaviors. Every prompt, path, and action is fully controlled — so agents act predictably, every time.</p>
-                        </div>
-                    </div>
-
-                    <!-- EVALUATE -->
-                    <div class="step-card">
-                        <div class="step-card-preview evaluate">
-                            <div class="preview-box light">
-                                <div class="preview-header light">
-                                    <span class="preview-title light">Customer Support Escalation</span>
-                                </div>
-                                <div style="margin-bottom: 8px;">
-                                    <span style="font-size: 11px; color: #64748b; font-weight: 500;">Scenario Prompt</span>
-                                </div>
-                                <div class="preview-lines">
-                                    <div class="preview-line light"></div>
-                                    <div class="preview-line light medium"></div>
-                                    <div class="preview-line light short"></div>
-                                </div>
-                                <div style="margin: 12px 0 8px;">
-                                    <span style="font-size: 11px; color: #64748b; font-weight: 500;">Success Criteria</span>
-                                </div>
-                                <div class="preview-lines">
-                                    <div class="preview-line light medium"></div>
-                                    <div class="preview-line light short"></div>
-                                </div>
-                                <div class="preview-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                    Run
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-card-content">
-                            <span class="step-label green">EVALUATE</span>
-                            <h3>Simulate Real Calls</h3>
-                            <p>Test every agent automatically. Simulated calls measure accuracy, response quality, and compliance against your KPIs, ensuring performance before calls go live.</p>
-                        </div>
-                    </div>
-
-                    <!-- LAUNCH -->
-                    <div class="step-card">
-                        <div class="step-card-preview launch">
-                            <div class="dashboard-preview">
-                                <div class="dashboard-header">
-                                    <span>Duration</span>
-                                    <span>Call ID</span>
-                                    <span>Contact</span>
-                                    <span>Agent</span>
-                                </div>
-                                <div class="dashboard-body">
-                                    <div class="live-calls-badge">Live Calls (100+)</div>
-                                </div>
-                                <div class="dashboard-rows">
-                                    <div class="dashboard-row">
-                                        <span>05:04</span>
-                                        <span>456...789</span>
-                                        <span>+1 (303) 987-654</span>
-                                        <span>Virtual AI Agent</span>
-                                    </div>
-                                    <div class="dashboard-row">
-                                        <span>02:12</span>
-                                        <span>789...012</span>
-                                        <span>+1 (303) 876-543</span>
-                                        <span>Clinic Agent</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-card-content">
-                            <span class="step-label purple">LAUNCH</span>
-                            <h3>Deploy with Guaranteed Reliability</h3>
-                            <p>Deploy your agent through secure telephony integrations or APIs. Built-in observability and low-latency infrastructure ensure every call connects smoothly.</p>
-                        </div>
-                    </div>
-
-                    <!-- LEARN -->
-                    <div class="step-card">
-                        <div class="step-card-preview learn">
-                            <div class="preview-box light">
-                                <div class="preview-header light">
-                                    <span class="preview-title light">Call Details</span>
-                                </div>
-                                <div style="display: flex; flex-direction: column; gap: 16px; padding: 8px 0;">
-                                    <div>
-                                        <span style="font-size: 11px; color: #7c3aed; font-weight: 600;">Overview</span>
-                                        <div class="preview-line light" style="margin-top: 8px;"></div>
-                                    </div>
-                                    <div>
-                                        <span style="font-size: 11px; color: #64748b; font-weight: 500;">Status</span>
-                                        <div class="preview-line light short" style="margin-top: 8px;"></div>
-                                    </div>
-                                    <div>
-                                        <span style="font-size: 11px; color: #64748b; font-weight: 500;">Success Rate</span>
-                                        <div class="preview-line light medium" style="margin-top: 8px;"></div>
-                                    </div>
-                                    <div>
-                                        <span style="font-size: 11px; color: #64748b; font-weight: 500;">Deploy History</span>
-                                        <div class="preview-line light" style="margin-top: 8px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-card-content">
-                            <span class="step-label green">LEARN</span>
-                            <h3>Monitor and Improve</h3>
-                            <p>Once live, automatically capture every conversation insight, intent feedback, and performance metric to continuously improve your agents over time.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            VoiceAI
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-hero">
-        <div class="decor-shape-1"></div>
-        <div class="decor-shape-2"></div>
-        <div class="features-hero-inner">
-            <div class="features-hero-header">
-                <span class="features-hero-label">COLLABORATE AND LAUNCH</span>
-                <h1>Where your team and AI come together</h1>
-                <p>VoiceAI helps teams drive better outcomes faster with intelligent voice agents</p>
-            </div>
-
-            <div class="features-grid">
-                <!-- Large Feature Card -->
-                <div class="feature-card-large">
-                    <div class="feature-card-preview">
-                        <div class="chat-preview">
-                            <div class="chat-header">#sales-team</div>
-                            <div class="chat-messages">
-                                <div class="chat-message">
-                                    <div class="chat-avatar">BL</div>
-                                    <div class="chat-bubble">Just got an awesome lead from the AI agent! Already booked for tomorrow.</div>
-                                </div>
-                                <div class="chat-message">
-                                    <div class="chat-avatar">VR</div>
-                                    <div class="chat-bubble">Amazing! The booking integration is working perfectly.</div>
-                                </div>
-                                <div class="chat-action">
-                                    <div class="chat-action-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                        </svg>
-                                    </div>
-                                    <span class="chat-action-text">Create task from this conversation</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-card-content">
-                        <h3>Jumpstart planning</h3>
-                        <p>Create tasks from your favorite tools, then use VoiceAI to break down big ideas, polish descriptions, and link relevant resources in a snap.</p>
-                        <a href="#" class="feature-link">
-                            View all features
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Small Cards Row -->
-                <div class="feature-cards-row">
-                    <!-- Focus Card -->
-                    <div class="feature-card-small">
-                        <div class="feature-card-preview">
-                            <div class="workflow-preview">
-                                <div class="workflow-row">
-                                    <span class="workflow-node start">Start</span>
-                                    <span class="workflow-arrow">→</span>
-                                    <span class="workflow-node process">Not Started</span>
-                                    <span class="workflow-arrow">→</span>
-                                    <span class="workflow-node process">To Do</span>
-                                </div>
-                                <div class="workflow-row">
-                                    <span class="workflow-node review">In Review</span>
-                                    <span class="workflow-arrow">→</span>
-                                    <span class="workflow-node process">Ready</span>
-                                    <span class="workflow-arrow">→</span>
-                                    <span class="workflow-node process">In Progress</span>
-                                </div>
-                                <div class="workflow-row">
-                                    <span class="workflow-node done">Done</span>
-                                    <span class="workflow-arrow">→</span>
-                                    <span class="workflow-node start">Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="feature-card-content">
-                            <h3>Focus on impact</h3>
-                            <p>Cut down on admin with AI agents that make it easier to create project plans, identify trends, and flag potential risks.</p>
-                            <a href="#" class="feature-link">
-                                Meet voice agents
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Dark Card -->
-                    <div class="feature-card-small dark">
-                        <div class="feature-card-preview">
-                            <div class="dark-preview">
-                                <div class="dark-preview-header">Add mobile checkout flow</div>
-                                <div class="dark-preview-item">
-                                    <div class="dark-preview-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                                        </svg>
-                                    </div>
-                                    <span class="dark-preview-text">Project requirements document</span>
-                                </div>
-                                <div class="dark-preview-item">
-                                    <div class="dark-preview-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                        </svg>
-                                    </div>
-                                    <span class="dark-preview-text">User research on behaviors</span>
-                                </div>
-                                <div class="dark-preview-btn">Accept all suggestions</div>
-                            </div>
-                        </div>
-                        <div class="feature-card-content">
-                            <h3>Stay in sync</h3>
-                            <p>Surface related work, summarize lengthy comments, and connect work to company goals to give your team the details they need.</p>
-                            <a href="#" class="feature-link">
-                                Explore AI features
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-copyright">
+            © 2025 VoiceAI. All rights reserved.<br>
+            Privacy Policy · Terms of Service
         </div>
-    </section>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
 
     <script>
+        // Rotating Text Carousel Animation
+        const rotatingText = document.querySelector('.rotating-text');
+        if (rotatingText) {
+            const phrases = ['every missed call', 'booking appointments', 'answering enquiries', '24/7 availability'];
+            let currentIndex = 0;
+
+            function rotateText() {
+                // Slide up and out
+                rotatingText.classList.add('slide-up');
+
+                setTimeout(() => {
+                    // Change text while hidden
+                    currentIndex = (currentIndex + 1) % phrases.length;
+                    rotatingText.textContent = phrases[currentIndex];
+
+                    // Reset to bottom without animation
+                    rotatingText.classList.remove('slide-up');
+                    rotatingText.classList.add('slide-reset');
+
+                    // Force reflow
+                    rotatingText.offsetHeight;
+
+                    // Slide up into view
+                    rotatingText.classList.remove('slide-reset');
+                }, 500);
+            }
+
+            // Removed interval - now controlled by conversation animation
+        }
+
+        // Conversation Card Animation - Multi-turn with smooth animations
+        (function() {
+            // Get HTML elements
+            const callerImg = document.getElementById('callerImg');
+            const callerImg2 = document.getElementById('callerImg2');
+            const callerName = document.getElementById('callerName');
+            const msg1 = document.getElementById('msg1');
+            const msg2 = document.getElementById('msg2');
+            const msg3 = document.getElementById('msg3');
+            const msg4 = document.getElementById('msg4');
+            const text1 = document.getElementById('text1');
+            const text2 = document.getElementById('text2');
+            const text3 = document.getElementById('text3');
+            const text4 = document.getElementById('text4');
+            const actionList = document.getElementById('actionList');
+            const actionLine = document.getElementById('actionLine');
+            const action1 = document.getElementById('action1');
+            const action2 = document.getElementById('action2');
+            const action3 = document.getElementById('action3');
+            const action4 = document.getElementById('action4');
+            const rotatingTextEl = document.querySelector('.rotating-text');
+
+            if (!msg1 || !text1) {
+                console.log('Conversation elements not found');
+                return;
+            }
+
+            const scenarios = [
+                {
+                    phrase: 'booking appointments',
+                    callerImgSrc: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face',
+                    name: 'Emma',
+                    messages: [
+                        "Hi, I'd like to book a haircut for Saturday please.",
+                        "Of course! I have slots at 10am, 2pm and 4pm. Which works best?",
+                        "2pm would be perfect, thanks.",
+                        "You're all set for Saturday at 2pm. Confirmation sent!"
+                    ],
+                    actions: ['check availability', 'find open slots', 'book appointment', 'send confirmation']
+                },
+                {
+                    phrase: 'answering enquiries',
+                    callerImgSrc: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
+                    name: 'James',
+                    messages: [
+                        "What are your opening hours?",
+                        "We're open Mon-Fri 9am-6pm, Sat 10am-4pm.",
+                        "Great, do you offer home consultations?",
+                        "Yes! Free home consultations available. Want me to book one?"
+                    ],
+                    actions: ['retrieve hours', 'check services', 'compile info']
+                },
+                {
+                    phrase: '24/7 availability',
+                    callerImgSrc: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face',
+                    name: 'Sarah',
+                    messages: [
+                        "My heating stopped working! It's 11pm.",
+                        "I understand. Let me check emergency availability.",
+                        "Can someone come tonight?",
+                        "Yes! Technician arriving in 30 minutes. Details sent."
+                    ],
+                    actions: ['identify emergency', 'check availability', 'dispatch tech', 'send details']
+                },
+                {
+                    phrase: 'every missed call',
+                    callerImgSrc: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
+                    name: 'Michael',
+                    messages: [
+                        "I need to reschedule my appointment.",
+                        "No problem! When would work better for you?",
+                        "Tuesday afternoon if possible.",
+                        "Done! Moved to Tuesday 3pm. See you then!"
+                    ],
+                    actions: ['find booking', 'check calendar', 'reschedule', 'confirm']
+                }
+            ];
+
+            let currentIndex = 0;
+            const msgs = [msg1, msg2, msg3, msg4];
+            const texts = [text1, text2, text3, text4];
+            const actionItems = [action1, action2, action3, action4];
+
+            async function speakWords(element, text) {
+                const words = text.split(' ');
+                let html = '';
+                for (let i = 0; i < words.length; i++) {
+                    html += '<span class="word">' + words[i] + '</span> ';
+                }
+                element.innerHTML = html.trim();
+
+                const spans = element.querySelectorAll('.word');
+                for (let i = 0; i < spans.length; i++) {
+                    spans[i].classList.add('spoken');
+                    await new Promise(r => setTimeout(r, 85));
+                }
+            }
+
+            function resetAll() {
+                msgs.forEach(m => m.classList.remove('show'));
+                actionList.classList.remove('show');
+                actionLine.classList.remove('animate');
+                actionItems.forEach(item => {
+                    item.classList.remove('show');
+                    item.textContent = '';
+                });
+                texts.forEach(t => t.innerHTML = '');
+            }
+
+            async function runScenario() {
+                const scenario = scenarios[currentIndex];
+
+                resetAll();
+                await new Promise(r => setTimeout(r, 400));
+
+                // Update rotating text
+                if (rotatingTextEl) {
+                    rotatingTextEl.textContent = scenario.phrase;
+                }
+
+                // Update caller images and name
+                if (callerImg) callerImg.src = scenario.callerImgSrc;
+                if (callerImg2) callerImg2.src = scenario.callerImgSrc;
+                if (callerName) callerName.textContent = scenario.name;
+
+                // Set action texts
+                scenario.actions.forEach((action, i) => {
+                    if (actionItems[i]) actionItems[i].textContent = action;
+                });
+
+                // === MESSAGE 1: Caller ===
+                msg1.classList.add('show');
+                await new Promise(r => setTimeout(r, 500));
+                await speakWords(text1, scenario.messages[0]);
+                await new Promise(r => setTimeout(r, 700));
+
+                // === ACTION LIST ===
+                actionList.classList.add('show');
+                await new Promise(r => setTimeout(r, 300));
+                actionLine.classList.add('animate');
+
+                for (let i = 0; i < scenario.actions.length; i++) {
+                    await new Promise(r => setTimeout(r, 350));
+                    if (actionItems[i]) actionItems[i].classList.add('show');
+                }
+                await new Promise(r => setTimeout(r, 600));
+
+                // === MESSAGE 2: AI ===
+                msg2.classList.add('show');
+                await new Promise(r => setTimeout(r, 500));
+                await speakWords(text2, scenario.messages[1]);
+                await new Promise(r => setTimeout(r, 900));
+
+                // === MESSAGE 3: Caller ===
+                msg3.classList.add('show');
+                await new Promise(r => setTimeout(r, 500));
+                await speakWords(text3, scenario.messages[2]);
+                await new Promise(r => setTimeout(r, 900));
+
+                // === MESSAGE 4: AI ===
+                msg4.classList.add('show');
+                await new Promise(r => setTimeout(r, 500));
+                await speakWords(text4, scenario.messages[3]);
+
+                // Hold
+                await new Promise(r => setTimeout(r, 3500));
+
+                // Fade out smoothly
+                msg4.classList.remove('show');
+                await new Promise(r => setTimeout(r, 200));
+                msg3.classList.remove('show');
+                await new Promise(r => setTimeout(r, 200));
+                msg2.classList.remove('show');
+                actionItems.forEach(a => a.classList.remove('show'));
+                actionLine.classList.remove('animate');
+                await new Promise(r => setTimeout(r, 200));
+                actionList.classList.remove('show');
+                msg1.classList.remove('show');
+
+                await new Promise(r => setTimeout(r, 700));
+
+                currentIndex = (currentIndex + 1) % scenarios.length;
+                runScenario();
+            }
+
+            setTimeout(runScenario, 1000);
+        })();
+
         // OS Feature Items Interactivity
         document.querySelectorAll('.os-feature-item').forEach(item => {
             item.addEventListener('click', function() {
@@ -2639,10 +3191,11 @@
             });
         });
 
-        // Product Features Accordion
+        // Product Features Accordion with Panel Switching
         document.querySelectorAll('.accordion-item').forEach(item => {
             item.addEventListener('click', function() {
                 const wasActive = this.classList.contains('active');
+                const panelId = this.getAttribute('data-panel');
 
                 // Close all items
                 document.querySelectorAll('.accordion-item').forEach(i => {
@@ -2650,10 +3203,23 @@
                     i.querySelector('.accordion-icon').textContent = '+';
                 });
 
+                // Hide all panels
+                document.querySelectorAll('.panel-card').forEach(panel => {
+                    panel.classList.remove('active');
+                });
+
                 // Open clicked item if it wasn't active
                 if (!wasActive) {
                     this.classList.add('active');
                     this.querySelector('.accordion-icon').textContent = '−';
+
+                    // Show corresponding panel with animation
+                    const targetPanel = document.querySelector(`.panel-card[data-panel-id="${panelId}"]`);
+                    if (targetPanel) {
+                        setTimeout(() => {
+                            targetPanel.classList.add('active');
+                        }, 100);
+                    }
                 }
             });
         });

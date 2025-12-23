@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - VoiceAI</title>
+    <title>Pricing - Subcall</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,18 +17,13 @@
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
-            transition: opacity 0.2s ease-out;
-        }
-
-        body.fade-out {
-            opacity: 0;
+            background: #fff;
         }
 
         header {
             height: 48px;
-            background: rgba(250, 250, 250, 0.9);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -38,6 +33,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .nav-logo {
@@ -48,7 +44,6 @@
             font-size: 15px;
             font-weight: 700;
             color: #1e293b;
-            letter-spacing: 0.02em;
             text-decoration: none;
         }
 
@@ -90,99 +85,744 @@
             color: #334155;
             text-decoration: none;
             padding: 6px 14px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e5e5e5;
             border-radius: 20px;
             transition: all 0.15s;
         }
 
         .nav-actions .sign-in:hover {
-            color: #0f172a;
-            border-color: #cbd5e1;
+            border-color: #ccc;
         }
 
         .nav-actions .download-btn {
             font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             color: #fff;
             background: #1e293b;
-            padding: 6px 18px;
-            border-radius: 20px;
             text-decoration: none;
-            transition: background 0.15s;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: all 0.15s;
         }
 
         .nav-actions .download-btn:hover {
             background: #334155;
         }
 
-        .hero {
-            min-height: 100vh;
-            margin-top: 48px;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        /* Pricing Page */
+        .pricing-page {
+            padding: 100px 80px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            margin-bottom: 40px;
+        }
+
+        .pricing-header h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .pricing-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Controls Row */
+        .pricing-controls {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 32px;
+            gap: 16px;
+        }
+
+        /* Toggle */
+        .billing-toggle {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 80px;
+            gap: 12px;
         }
 
-        .hero-content {
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: #e5e5e5;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .toggle-switch.active {
+            background: #6366f1;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
+
+        .billing-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .billing-badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #059669;
+            background: #d1fae5;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Plans Grid */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .plan-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            min-height: 520px;
+            position: relative;
+        }
+
+        .plan-card.featured {
+            border: 2px solid #6366f1;
+            padding-top: 52px;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #6366f1;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             text-align: center;
-            max-width: 800px;
+            padding: 8px;
+            border-radius: 10px 10px 0 0;
         }
 
-        .hero h1 {
+        .plan-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .plan-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.5;
+            min-height: 42px;
+        }
+
+        .plan-usage {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+        }
+
+        .plan-price {
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        .price-amount {
+            font-family: 'Inter', sans-serif;
+            font-size: 42px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .plan-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1a1a1a;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 14px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .plan-btn:hover {
+            background: #f5f5f5;
+            border-color: #ccc;
+        }
+
+        .plan-btn.primary {
+            background: #6366f1;
+            color: #fff;
+            border-color: #6366f1;
+        }
+
+        .plan-btn.primary:hover {
+            background: #4f46e5;
+        }
+
+        .plan-includes {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .plan-features {
+            list-style: none;
+            flex: 1;
+        }
+
+        .plan-features li {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1a1a1a;
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .view-more {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #6366f1;
+            text-decoration: underline;
+            margin-top: 12px;
+            cursor: pointer;
+        }
+
+        .view-more:hover {
+            color: #4f46e5;
+        }
+
+        /* Comparison Table */
+        .compare-section {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .compare-section h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .compare-table thead th {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: left;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e5e5;
+            background: #fafafa;
+        }
+
+        .compare-table thead th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .compare-table thead th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .compare-table thead th .plan-header {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .compare-table thead th .plan-header .price {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .compare-table thead th .plan-header .price span {
+            font-size: 13px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .compare-table thead th.featured {
+            background: #6366f1;
+            color: #fff;
+        }
+
+        .compare-table thead th.featured .price span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .table-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+
+        .table-btn.outline {
+            color: #1a1a1a;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+        }
+
+        .table-btn.outline:hover {
+            background: #f5f5f5;
+        }
+
+        .table-btn.primary {
+            color: #1a1a1a;
+            background: #fff;
+            border: 1px solid #fff;
+        }
+
+        .table-btn.primary:hover {
+            background: #f0f0f0;
+        }
+
+        .compare-table tbody td {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1a1a1a;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+
+        .compare-table tbody td:first-child {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .compare-table tbody td.featured {
+            background: #f5f5ff;
+        }
+
+        .compare-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #10b981;
+        }
+
+        .x-icon {
+            color: #d1d5db;
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: 30px 80px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
             font-family: 'Poppins', sans-serif;
-            font-size: 56px;
+            font-size: 20px;
             font-weight: 600;
             color: #1e293b;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .hero p {
+        .footer-copyright {
             font-family: 'Inter', sans-serif;
-            font-size: 20px;
+            font-size: 13px;
             color: #64748b;
-            line-height: 1.6;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #1e293b;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
         }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="nav-logo">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
             </svg>
-            VOICEAI
+            Subcall
         </a>
         <nav class="nav-links">
             <a href="features.html">Platform</a>
-            <a href="enterprise.html">Enterprise</a>
             <a href="pricing.html" class="active">Pricing</a>
-            <a href="resources.html">Resources</a>
+            <a href="#">Enterprise</a>
+            <a href="#">Resources</a>
         </nav>
         <div class="nav-actions">
-            <a href="#" class="sign-in">Sign in</a>
-            <a href="onboarding.html" class="download-btn">Download</a>
+            <a href="#" class="sign-in">Sign In</a>
+            <a href="onboarding.html" class="download-btn">Get Started</a>
         </div>
     </header>
-    <main class="hero">
-        <div class="hero-content">
+
+    <main class="pricing-page">
+        <div class="pricing-header">
             <h1>Pricing</h1>
-            <p>Simple, transparent pricing that scales with your business. No hidden fees, cancel anytime.</p>
+            <p>Plans built for creators and businesses of all sizes</p>
         </div>
+
+        <div class="pricing-controls">
+            <div class="billing-toggle">
+                <div class="toggle-switch" id="billingToggle"></div>
+                <span class="billing-label">Annual Billing</span>
+                <span class="billing-badge">2 Months Free</span>
+            </div>
+        </div>
+
+        <!-- Plans Grid -->
+        <div class="plans-grid">
+            <!-- Free -->
+            <div class="plan-card">
+                <h3 class="plan-name">Free</h3>
+                <p class="plan-description">For individuals who want to try out Subcall</p>
+                <p class="plan-usage">50 minutes/month</p>
+                <div class="plan-price">
+                    <span class="price-amount">$0</span>
+                    <span class="price-period">per month</span>
+                </div>
+                <a href="onboarding.html" class="plan-btn">Get Started</a>
+                <ul class="plan-features">
+                    <li>Basic call handling</li>
+                    <li>Standard voice</li>
+                    <li>Call logs</li>
+                    <li>Email support</li>
+                </ul>
+                <span class="view-more">View more</span>
+            </div>
+
+            <!-- Starter -->
+            <div class="plan-card">
+                <h3 class="plan-name">Starter</h3>
+                <p class="plan-description">For solopreneurs handling regular calls</p>
+                <p class="plan-usage">200 minutes/month</p>
+                <div class="plan-price">
+                    <span class="price-amount" data-monthly="19" data-yearly="15">$19</span>
+                    <span class="price-period">per month</span>
+                </div>
+                <a href="#" class="plan-btn">Get Started</a>
+                <p class="plan-includes">Everything in Free, plus</p>
+                <ul class="plan-features">
+                    <li>Custom greetings</li>
+                    <li>Call recordings</li>
+                    <li>Basic integrations</li>
+                    <li>SMS notifications</li>
+                </ul>
+                <span class="view-more">View more</span>
+            </div>
+
+            <!-- Pro (Featured) -->
+            <div class="plan-card featured">
+                <div class="popular-badge">Most Popular</div>
+                <h3 class="plan-name">Pro</h3>
+                <p class="plan-description">For professionals and small teams</p>
+                <p class="plan-usage">1,000 minutes/month</p>
+                <div class="plan-price">
+                    <span class="price-amount" data-monthly="49" data-yearly="39">$49</span>
+                    <span class="price-period">per month</span>
+                </div>
+                <a href="#" class="plan-btn primary">Get Started</a>
+                <p class="plan-includes">Everything in Starter, plus</p>
+                <ul class="plan-features">
+                    <li>Advanced AI training</li>
+                    <li>Calendar integrations</li>
+                    <li>Multiple phone numbers</li>
+                    <li>Priority support</li>
+                </ul>
+                <span class="view-more">View more</span>
+            </div>
+
+            <!-- Business -->
+            <div class="plan-card">
+                <h3 class="plan-name">Business</h3>
+                <p class="plan-description">For growing businesses scaling operations</p>
+                <p class="plan-usage">5,000 minutes/month</p>
+                <div class="plan-price">
+                    <span class="price-amount" data-monthly="149" data-yearly="119">$149</span>
+                    <span class="price-period">per month</span>
+                </div>
+                <a href="#" class="plan-btn">Get Started</a>
+                <p class="plan-includes">Everything in Pro, plus</p>
+                <ul class="plan-features">
+                    <li>Team management</li>
+                    <li>Advanced analytics</li>
+                    <li>API access</li>
+                    <li>Custom integrations</li>
+                </ul>
+                <span class="view-more">View more</span>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <section class="compare-section">
+            <h2>Compare our plans<br>and find the right fit</h2>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <div class="plan-header">
+                                <span>Free</span>
+                                <span class="price">$0<span>/mo</span></span>
+                                <a href="onboarding.html" class="table-btn outline">Get Started</a>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="plan-header">
+                                <span>Starter</span>
+                                <span class="price">$19<span>/mo</span></span>
+                                <a href="#" class="table-btn outline">Get Started</a>
+                            </div>
+                        </th>
+                        <th class="featured">
+                            <div class="plan-header">
+                                <span>Pro</span>
+                                <span class="price">$49<span>/mo</span></span>
+                                <a href="#" class="table-btn primary">Get Started</a>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="plan-header">
+                                <span>Business</span>
+                                <span class="price">$149<span>/mo</span></span>
+                                <a href="#" class="table-btn outline">Get Started</a>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Minutes included</td>
+                        <td>50</td>
+                        <td>200</td>
+                        <td class="featured">1,000</td>
+                        <td>5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Additional minutes</td>
+                        <td class="x-icon">✕</td>
+                        <td>$0.15/min</td>
+                        <td class="featured">$0.10/min</td>
+                        <td>$0.08/min</td>
+                    </tr>
+                    <tr>
+                        <td>Phone numbers</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td class="featured">3</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Custom greetings</td>
+                        <td class="x-icon">✕</td>
+                        <td class="check-icon">✓</td>
+                        <td class="featured check-icon">✓</td>
+                        <td class="check-icon">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Call recordings</td>
+                        <td class="x-icon">✕</td>
+                        <td class="check-icon">✓</td>
+                        <td class="featured check-icon">✓</td>
+                        <td class="check-icon">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Calendar integrations</td>
+                        <td class="x-icon">✕</td>
+                        <td class="x-icon">✕</td>
+                        <td class="featured check-icon">✓</td>
+                        <td class="check-icon">✓</td>
+                    </tr>
+                    <tr>
+                        <td>AI training</td>
+                        <td>Basic</td>
+                        <td>Basic</td>
+                        <td class="featured">Advanced</td>
+                        <td>Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Team members</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td class="featured">5</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>API access</td>
+                        <td class="x-icon">✕</td>
+                        <td class="x-icon">✕</td>
+                        <td class="featured x-icon">✕</td>
+                        <td class="check-icon">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Priority support</td>
+                        <td class="x-icon">✕</td>
+                        <td class="x-icon">✕</td>
+                        <td class="featured check-icon">✓</td>
+                        <td class="check-icon">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            Subcall
+        </div>
+        <div class="footer-copyright">
+            &copy; 2025 Subcall. All rights reserved.<br>
+            Privacy Policy · Terms of Service
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
     <script>
-        // Page transition for download button
-        document.querySelectorAll('a[href="onboarding.html"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.body.classList.add('fade-out');
-                setTimeout(() => {
-                    window.location.href = 'onboarding.html';
-                }, 200);
+        // Toggle functionality
+        const toggleSwitch = document.getElementById('billingToggle');
+        const priceAmounts = document.querySelectorAll('.price-amount[data-monthly]');
+
+        toggleSwitch.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const isYearly = this.classList.contains('active');
+
+            priceAmounts.forEach(el => {
+                const price = el.getAttribute(isYearly ? 'data-yearly' : 'data-monthly');
+                if (price) {
+                    el.textContent = `$${price}`;
+                }
             });
         });
     </script>
