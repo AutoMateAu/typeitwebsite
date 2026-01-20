@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hear Your Receptionist - Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            animation: fadeIn 0.18s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Stripe-style diagonal background */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -3;
+            background: #fff;
+            overflow: hidden;
+        }
+
+
+        .gradient-bg {
+            position: fixed;
+            bottom: -45%;
+            left: -10%;
+            right: -10%;
+            height: 65%;
+            transform: skewY(-5deg);
+            transform-origin: bottom left;
+            background: linear-gradient(135deg, #1e3a8a 0%, #581c87 100%);
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle 700px at 0% 20%, rgba(30, 64, 175, 1) 0%, transparent 55%),
+                radial-gradient(circle 600px at 20% 70%, rgba(67, 56, 202, 0.95) 0%, transparent 50%),
+                radial-gradient(circle 550px at 40% 25%, rgba(109, 40, 217, 0.95) 0%, transparent 50%),
+                radial-gradient(circle 500px at 60% 60%, rgba(147, 51, 234, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 480px at 80% 35%, rgba(190, 24, 93, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 420px at 95% 20%, rgba(185, 28, 28, 0.85) 0%, transparent 45%),
+                radial-gradient(circle 400px at 55% 85%, rgba(234, 88, 12, 0.8) 0%, transparent 45%),
+                radial-gradient(circle 380px at 15% 90%, rgba(99, 102, 241, 0.75) 0%, transparent 45%);
+            animation: flowColors1 70s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle 650px at 10% 45%, rgba(29, 78, 216, 0.95) 0%, transparent 55%),
+                radial-gradient(circle 580px at 35% 80%, rgba(88, 28, 135, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 520px at 55% 20%, rgba(126, 34, 206, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 500px at 75% 55%, rgba(157, 23, 77, 0.85) 0%, transparent 50%),
+                radial-gradient(circle 450px at 90% 75%, rgba(153, 27, 27, 0.8) 0%, transparent 45%),
+                radial-gradient(circle 420px at 100% 45%, rgba(194, 65, 12, 0.75) 0%, transparent 45%),
+                radial-gradient(circle 400px at 5% 65%, rgba(79, 70, 229, 0.7) 0%, transparent 45%),
+                radial-gradient(circle 380px at 70% 95%, rgba(217, 119, 6, 0.7) 0%, transparent 45%);
+            animation: flowColors2 70s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation-delay: -35s;
+        }
+
+        @keyframes flowColors1 {
+            0% {
+                transform: scale(1) translate(-15%, -10%);
+                filter: hue-rotate(0deg);
+                opacity: 0.9;
+            }
+            8% {
+                transform: scale(1.15) translate(10%, 5%);
+                filter: hue-rotate(15deg);
+                opacity: 1;
+            }
+            16% {
+                transform: scale(1.08) translate(20%, -8%);
+                filter: hue-rotate(30deg);
+                opacity: 0.95;
+            }
+            24% {
+                transform: scale(1.2) translate(-5%, 15%);
+                filter: hue-rotate(45deg);
+                opacity: 1;
+            }
+            32% {
+                transform: scale(1.05) translate(15%, 10%);
+                filter: hue-rotate(270deg);
+                opacity: 0.9;
+            }
+            40% {
+                transform: scale(1.18) translate(-20%, -5%);
+                filter: hue-rotate(285deg);
+                opacity: 1;
+            }
+            48% {
+                transform: scale(1.1) translate(8%, -15%);
+                filter: hue-rotate(300deg);
+                opacity: 0.95;
+            }
+            56% {
+                transform: scale(1.22) translate(-10%, 12%);
+                filter: hue-rotate(315deg);
+                opacity: 1;
+            }
+            64% {
+                transform: scale(1.05) translate(18%, 5%);
+                filter: hue-rotate(330deg);
+                opacity: 0.9;
+            }
+            72% {
+                transform: scale(1.15) translate(-12%, -12%);
+                filter: hue-rotate(345deg);
+                opacity: 1;
+            }
+            80% {
+                transform: scale(1.08) translate(5%, 18%);
+                filter: hue-rotate(355deg);
+                opacity: 0.95;
+            }
+            88% {
+                transform: scale(1.2) translate(-18%, 8%);
+                filter: hue-rotate(358deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) translate(-15%, -10%);
+                filter: hue-rotate(360deg);
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes flowColors2 {
+            0% {
+                transform: scale(1.1) translate(20%, 15%);
+                filter: hue-rotate(200deg);
+                opacity: 0.85;
+            }
+            8% {
+                transform: scale(1) translate(-12%, -8%);
+                filter: hue-rotate(220deg);
+                opacity: 0.95;
+            }
+            16% {
+                transform: scale(1.18) translate(-18%, 10%);
+                filter: hue-rotate(240deg);
+                opacity: 0.9;
+            }
+            24% {
+                transform: scale(1.05) translate(15%, -12%);
+                filter: hue-rotate(260deg);
+                opacity: 1;
+            }
+            32% {
+                transform: scale(1.15) translate(-8%, 18%);
+                filter: hue-rotate(280deg);
+                opacity: 0.85;
+            }
+            40% {
+                transform: scale(1.08) translate(20%, 5%);
+                filter: hue-rotate(300deg);
+                opacity: 0.95;
+            }
+            48% {
+                transform: scale(1.2) translate(-15%, -15%);
+                filter: hue-rotate(320deg);
+                opacity: 0.9;
+            }
+            56% {
+                transform: scale(1) translate(10%, 12%);
+                filter: hue-rotate(340deg);
+                opacity: 1;
+            }
+            64% {
+                transform: scale(1.12) translate(-20%, 8%);
+                filter: hue-rotate(355deg);
+                opacity: 0.85;
+            }
+            72% {
+                transform: scale(1.05) translate(12%, -18%);
+                filter: hue-rotate(10deg);
+                opacity: 0.95;
+            }
+            80% {
+                transform: scale(1.18) translate(-5%, 20%);
+                filter: hue-rotate(25deg);
+                opacity: 0.9;
+            }
+            88% {
+                transform: scale(1.08) translate(18%, -5%);
+                filter: hue-rotate(40deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.1) translate(20%, 15%);
+                filter: hue-rotate(200deg);
+                opacity: 0.85;
+            }
+        }
+
+        /* Vertical border lines */
+        .vertical-line {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 110px;
+            width: 1px;
+            background: #e0e0e0;
+            z-index: -2;
+        }
+
+        .vertical-line-right {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 110px;
+            width: 1px;
+            background: #e0e0e0;
+            z-index: -2;
+        }
+
+        /* Logo in top left */
+        .logo {
+            position: fixed;
+            top: 24px;
+            left: 125px;
+            z-index: 10;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Main content wrapper */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+            padding: 80px 20px 60px;
+            z-index: 1;
+        }
+
+        .header-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            text-align: center;
+            letter-spacing: -0.3px;
+        }
+
+        .page-title span {
+            color: #2563eb;
+        }
+
+        .page-subtitle {
+            font-size: 15px;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .voice-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .voice-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .voice-btn svg {
+            width: 18px;
+            height: 18px;
+            color: #64748b;
+        }
+
+        .voice-btn span {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .voice-btn:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .voice-btn.selected {
+            background: #2563eb;
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+        }
+
+        .voice-btn.selected svg {
+            color: #fff;
+        }
+
+        .voice-btn.selected span {
+            color: #fff;
+        }
+
+        .voice-bars {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 16px;
+        }
+
+        .voice-bars span {
+            width: 3px;
+            height: 14px;
+            border-radius: 2px;
+            background: #cbd5e1;
+            opacity: 0.6;
+            transform: scaleY(0.3);
+            transition: transform 0.4s ease, background 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Active animated state */
+        .voice-btn.selected .voice-bars span {
+            background: rgba(255, 255, 255, 0.9);
+            opacity: 1;
+            animation: voiceWave 1.4s ease-in-out infinite;
+        }
+
+        .voice-btn.selected .voice-bars span:nth-child(1) { animation-delay: 0s; }
+        .voice-btn.selected .voice-bars span:nth-child(2) { animation-delay: 0.2s; }
+        .voice-btn.selected .voice-bars span:nth-child(3) { animation-delay: 0.4s; }
+        .voice-btn.selected .voice-bars span:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes voiceWave {
+            0%, 100% { transform: scaleY(0.4); }
+            50% { transform: scaleY(1); }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e6e6e6;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 520px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .audio-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .audio-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .audio-item:hover {
+            background: #f1f5f9;
+        }
+
+        .audio-item.expanded {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .audio-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #2563eb;
+        }
+
+        .audio-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2;
+        }
+
+        .audio-info {
+            flex: 1;
+        }
+
+        .audio-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+
+        .audio-duration {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #2563eb;
+            background: #f5f5ff;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .play-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .play-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .play-btn svg {
+            width: 14px;
+            height: 14px;
+            color: #475569;
+            margin-left: 2px;
+        }
+
+        .expand-btn {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .expand-btn svg {
+            width: 16px;
+            height: 16px;
+            color: #94a3b8;
+        }
+
+        .audio-item.expanded .expand-btn {
+            transform: rotate(180deg);
+        }
+
+        .audio-transcript {
+            display: none;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 14px;
+            color: #475569;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .audio-item.expanded .audio-transcript {
+            display: block;
+        }
+
+        .step-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .step-text {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .step-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .step-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e1;
+        }
+
+        .step-dots span.active {
+            background: #2563eb;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 24px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+
+        .back-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .next-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #2563eb;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+
+        .next-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .next-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 125px !important;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 12px;
+            color: #8898aa;
+            z-index: 1;
+        }
+
+        .footer a {
+            color: #8898aa;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .footer a:hover {
+            color: #5e6977;
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 60px 16px 80px;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+
+            .card-body {
+                padding: 16px;
+            }
+
+            .page-title {
+                font-size: 24px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .back-btn {
+                width: 100%;
+            }
+
+            .logo {
+                top: 16px;
+                left: 16px;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .footer {
+                left: 20px !important;
+                padding: 16px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="vertical-line"></div>
+    <div class="vertical-line-right"></div>
+    <div class="gradient-bg"></div>
+
+    <div class="logo">
+        <img src="entry-final-clean.png" alt="Entry" class="logo-img">
+    </div>
+
+    <div class="main-content">
+        <div class="header-section">
+            <h1 class="page-title">Hear Entry in <span>action</span></h1>
+            <p class="page-subtitle">Listen to how Entry handles your customers</p>
+        </div>
+
+        <div class="voice-selector">
+            <button class="voice-btn selected" data-voice="claire" onclick="selectVoice(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                </svg>
+                <span>Claire</span>
+                <div class="voice-bars">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </button>
+            <button class="voice-btn" data-voice="tom" onclick="selectVoice(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                </svg>
+                <span>Tom</span>
+                <div class="voice-bars">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="audio-item expanded" onclick="toggleExpand(this)">
+                <div class="audio-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002" />
+                    </svg>
+                </div>
+                <div class="audio-info">
+                    <div class="audio-title">Greeting</div>
+                    <div class="audio-duration">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="12" height="12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        0:05
+                    </div>
+                </div>
+                <div class="audio-controls">
+                    <button class="play-btn" onclick="event.stopPropagation()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="expand-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="audio-transcript">
+                    "Hello and thank you for calling Whitecrow. This is Entry. How can I help you today?"
+                </div>
+            </div>
+
+            <div class="audio-item" onclick="toggleExpand(this)">
+                <div class="audio-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                    </svg>
+                </div>
+                <div class="audio-info">
+                    <div class="audio-title">Service Inquiry</div>
+                    <div class="audio-duration">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="12" height="12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        0:20
+                    </div>
+                </div>
+                <div class="audio-controls">
+                    <button class="play-btn" onclick="event.stopPropagation()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="expand-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="audio-transcript">
+                    "I'd be happy to help you with that. We offer a range of services including consultations, installations, and ongoing support. Would you like me to tell you more about any specific service?"
+                </div>
+            </div>
+
+            <div class="audio-item" onclick="toggleExpand(this)">
+                <div class="audio-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+                </div>
+                <div class="audio-info">
+                    <div class="audio-title">Taking a Message</div>
+                    <div class="audio-duration">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="12" height="12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        0:10
+                    </div>
+                </div>
+                <div class="audio-controls">
+                    <button class="play-btn" onclick="event.stopPropagation()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="expand-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="audio-transcript">
+                    "Of course, I'll take a message for you. Can I get your name and the best number to reach you?"
+                </div>
+            </div>
+
+            <div class="audio-item" onclick="toggleExpand(this)">
+                <div class="audio-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                    </svg>
+                </div>
+                <div class="audio-info">
+                    <div class="audio-title">Unwanted Calls</div>
+                    <div class="audio-duration">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="12" height="12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        0:09
+                    </div>
+                </div>
+                <div class="audio-controls">
+                    <button class="play-btn" onclick="event.stopPropagation()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="expand-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="audio-transcript">
+                    "I appreciate you reaching out, but we're not interested at this time. Thank you for understanding. Goodbye."
+                </div>
+            </div>
+
+            <div class="audio-item" onclick="toggleExpand(this)">
+                <div class="audio-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </div>
+                <div class="audio-info">
+                    <div class="audio-title">Goodbye</div>
+                    <div class="audio-duration">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="12" height="12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        0:06
+                    </div>
+                </div>
+                <div class="audio-controls">
+                    <button class="play-btn" onclick="event.stopPropagation()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="expand-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="audio-transcript">
+                    "Thank you for calling Whitecrow. Have a wonderful day!"
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="button-row">
+            <button class="back-btn" onclick="window.location.href='building.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+                Back
+            </button>
+            <button class="next-btn" onclick="window.location.href='contact.html'">
+                Get Entry Working for You Now
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <span>© Entry</span>
+        <a href="#">Privacy & terms</a>
+    </div>
+
+    <script>
+        function toggleExpand(element) {
+            // Close all other expanded items
+            document.querySelectorAll('.audio-item.expanded').forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('expanded');
+                }
+            });
+            // Toggle current item
+            element.classList.toggle('expanded');
+        }
+
+        function selectVoice(button) {
+            // Remove selected from all voice buttons
+            document.querySelectorAll('.voice-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            // Add selected to clicked button
+            button.classList.add('selected');
+        }
+    </script>
+</body>
+</html>

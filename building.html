@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Your AI Assistant - Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 60px;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            animation: fadeIn 0.18s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Background - similar but different angle */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -3;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: -30%;
+            left: -10%;
+            right: -10%;
+            height: 65%;
+            transform: skewY(-5deg);
+            transform-origin: top right;
+            background: linear-gradient(135deg, #1e3a8a 0%, #581c87 100%);
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle 700px at 0% 20%, rgba(30, 64, 175, 1) 0%, transparent 55%),
+                radial-gradient(circle 600px at 20% 70%, rgba(67, 56, 202, 0.95) 0%, transparent 50%),
+                radial-gradient(circle 550px at 40% 25%, rgba(109, 40, 217, 0.95) 0%, transparent 50%),
+                radial-gradient(circle 500px at 60% 60%, rgba(147, 51, 234, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 480px at 80% 35%, rgba(190, 24, 93, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 420px at 95% 20%, rgba(185, 28, 28, 0.85) 0%, transparent 45%),
+                radial-gradient(circle 400px at 55% 85%, rgba(234, 88, 12, 0.8) 0%, transparent 45%),
+                radial-gradient(circle 380px at 15% 90%, rgba(99, 102, 241, 0.75) 0%, transparent 45%);
+            animation: flowColors1 70s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle 650px at 10% 45%, rgba(29, 78, 216, 0.95) 0%, transparent 55%),
+                radial-gradient(circle 580px at 35% 80%, rgba(88, 28, 135, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 520px at 55% 20%, rgba(126, 34, 206, 0.9) 0%, transparent 50%),
+                radial-gradient(circle 500px at 75% 55%, rgba(157, 23, 77, 0.85) 0%, transparent 50%),
+                radial-gradient(circle 450px at 90% 75%, rgba(153, 27, 27, 0.8) 0%, transparent 45%),
+                radial-gradient(circle 420px at 100% 45%, rgba(194, 65, 12, 0.75) 0%, transparent 45%),
+                radial-gradient(circle 400px at 5% 65%, rgba(79, 70, 229, 0.7) 0%, transparent 45%),
+                radial-gradient(circle 380px at 70% 95%, rgba(217, 119, 6, 0.7) 0%, transparent 45%);
+            animation: flowColors2 70s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation-delay: -35s;
+        }
+
+        @keyframes flowColors1 {
+            0% {
+                transform: scale(1) translate(-15%, -10%);
+                filter: hue-rotate(0deg);
+                opacity: 0.9;
+            }
+            8% {
+                transform: scale(1.15) translate(10%, 5%);
+                filter: hue-rotate(15deg);
+                opacity: 1;
+            }
+            16% {
+                transform: scale(1.08) translate(20%, -8%);
+                filter: hue-rotate(30deg);
+                opacity: 0.95;
+            }
+            24% {
+                transform: scale(1.2) translate(-5%, 15%);
+                filter: hue-rotate(45deg);
+                opacity: 1;
+            }
+            32% {
+                transform: scale(1.05) translate(15%, 10%);
+                filter: hue-rotate(270deg);
+                opacity: 0.9;
+            }
+            40% {
+                transform: scale(1.18) translate(-20%, -5%);
+                filter: hue-rotate(285deg);
+                opacity: 1;
+            }
+            48% {
+                transform: scale(1.1) translate(8%, -15%);
+                filter: hue-rotate(300deg);
+                opacity: 0.95;
+            }
+            56% {
+                transform: scale(1.22) translate(-10%, 12%);
+                filter: hue-rotate(315deg);
+                opacity: 1;
+            }
+            64% {
+                transform: scale(1.05) translate(18%, 5%);
+                filter: hue-rotate(330deg);
+                opacity: 0.9;
+            }
+            72% {
+                transform: scale(1.15) translate(-12%, -12%);
+                filter: hue-rotate(345deg);
+                opacity: 1;
+            }
+            80% {
+                transform: scale(1.08) translate(5%, 18%);
+                filter: hue-rotate(355deg);
+                opacity: 0.95;
+            }
+            88% {
+                transform: scale(1.2) translate(-18%, 8%);
+                filter: hue-rotate(358deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) translate(-15%, -10%);
+                filter: hue-rotate(360deg);
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes flowColors2 {
+            0% {
+                transform: scale(1.1) translate(20%, 15%);
+                filter: hue-rotate(200deg);
+                opacity: 0.85;
+            }
+            8% {
+                transform: scale(1) translate(-12%, -8%);
+                filter: hue-rotate(220deg);
+                opacity: 0.95;
+            }
+            16% {
+                transform: scale(1.18) translate(-18%, 10%);
+                filter: hue-rotate(240deg);
+                opacity: 0.9;
+            }
+            24% {
+                transform: scale(1.05) translate(15%, -12%);
+                filter: hue-rotate(260deg);
+                opacity: 1;
+            }
+            32% {
+                transform: scale(1.15) translate(-8%, 18%);
+                filter: hue-rotate(280deg);
+                opacity: 0.85;
+            }
+            40% {
+                transform: scale(1.08) translate(20%, 5%);
+                filter: hue-rotate(300deg);
+                opacity: 0.95;
+            }
+            48% {
+                transform: scale(1.2) translate(-15%, -15%);
+                filter: hue-rotate(320deg);
+                opacity: 0.9;
+            }
+            56% {
+                transform: scale(1) translate(10%, 12%);
+                filter: hue-rotate(340deg);
+                opacity: 1;
+            }
+            64% {
+                transform: scale(1.12) translate(-20%, 8%);
+                filter: hue-rotate(355deg);
+                opacity: 0.85;
+            }
+            72% {
+                transform: scale(1.05) translate(12%, -18%);
+                filter: hue-rotate(10deg);
+                opacity: 0.95;
+            }
+            80% {
+                transform: scale(1.18) translate(-5%, 20%);
+                filter: hue-rotate(25deg);
+                opacity: 0.9;
+            }
+            88% {
+                transform: scale(1.08) translate(18%, -5%);
+                filter: hue-rotate(40deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.1) translate(20%, 15%);
+                filter: hue-rotate(200deg);
+                opacity: 0.85;
+            }
+        }
+
+        /* Vertical border lines */
+        .vertical-line {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 110px;
+            width: 1px;
+            background: #e0e0e0;
+            z-index: -2;
+        }
+
+        .vertical-line-right {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 110px;
+            width: 1px;
+            background: #e0e0e0;
+            z-index: -2;
+        }
+
+        .header-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            text-align: center;
+            letter-spacing: -0.3px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Progress bar */
+        .progress-bar-container {
+            width: 200px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #2563eb;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.05),
+                0 4px 8px rgba(0, 0, 0, 0.05),
+                0 8px 16px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 32px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-item.active {
+            background: #d1fae5;
+            border: 1px solid #6ee7b7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        }
+
+        .step-item.completed {
+            background: #d1fae5;
+            border: 1px solid transparent;
+            transform: translateY(0);
+        }
+
+        .step-item.pending {
+            opacity: 0.5;
+        }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1);
+        }
+
+        .step-item.active .step-icon {
+            background: #10b981;
+            transform: scale(1.05);
+        }
+
+        .step-item.completed .step-icon {
+            background: #10b981;
+            transform: scale(1);
+        }
+
+        .step-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #64748b;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-item.completed .step-icon svg,
+        .step-item.active .step-icon svg {
+            color: #fff;
+        }
+
+        .step-text {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-item.completed .step-text {
+            color: #10b981;
+        }
+
+        .step-item.active .step-text {
+            color: #10b981;
+        }
+
+        /* Loading dots animation */
+        .loading-dots {
+            display: flex;
+            gap: 4px;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .loading-dots.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background: #2563eb;
+            border-radius: 50%;
+            animation: dotPulse 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dotPulse {
+            0%, 80%, 100% {
+                transform: scale(0.6);
+                opacity: 0.5;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Checkmark animation */
+        @keyframes checkmarkPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .step-icon .checkmark-svg {
+            animation: checkmarkPop 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .time-estimate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .time-estimate svg {
+            width: 16px;
+            height: 16px;
+            color: #94a3b8;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 24px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+
+        .back-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .next-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 24px;
+            background: #2563eb;
+            border: 1px solid #2563eb;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+
+        .next-btn:hover:not(:disabled) {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+        .next-btn:disabled {
+            background: #94a3b8;
+            border-color: #94a3b8;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 125px !important;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 12px;
+            color: #8898aa;
+            z-index: 1;
+        }
+
+        .footer a {
+            color: #8898aa;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .footer a:hover {
+            color: #5e6977;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px;
+                padding-top: 20px;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .page-title {
+                font-size: 22px;
+            }
+
+            .step-item {
+                padding: 12px;
+            }
+
+            .step-text {
+                font-size: 14px;
+            }
+
+            .footer {
+                left: 20px !important;
+                padding: 16px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="vertical-line"></div>
+    <div class="vertical-line-right"></div>
+    <div class="gradient-bg"></div>
+
+    <div class="header-section">
+        <div class="logo">
+            <img src="entry-white-text.png" alt="Entry" class="logo-img">
+        </div>
+        <h1 class="page-title">Building Your AI Assistant</h1>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="step-item" id="step1">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                    </svg>
+                </div>
+                <span class="step-text">Scanning Website</span>
+                <div class="loading-dots" id="dots1">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="step-item pending" id="step2">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                    </svg>
+                </div>
+                <span class="step-text">Gathering Business Details & Locations</span>
+                <div class="loading-dots" id="dots2">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="step-item pending" id="step3">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                    </svg>
+                </div>
+                <span class="step-text">Analyzing Your Products or Services</span>
+                <div class="loading-dots" id="dots3">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="step-item pending" id="step4">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                    </svg>
+                </div>
+                <span class="step-text">Building Your FAQs</span>
+                <div class="loading-dots" id="dots4">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="time-estimate">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                This usually takes less than 20 seconds
+            </div>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button class="back-btn" onclick="window.location.href='onboarding.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+            Back
+        </button>
+        <button class="next-btn" id="nextBtn" disabled>
+            Next
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="footer">
+        <span>© Entry</span>
+        <a href="#">Privacy & terms</a>
+    </div>
+
+    <script>
+        // Checkmark SVG with animation class
+        const checkmarkSVG = `<svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+        </svg>`;
+
+        const steps = [
+            { id: 'step1', dots: 'dots1', duration: 2000 },
+            { id: 'step2', dots: 'dots2', duration: 3000 },
+            { id: 'step3', dots: 'dots3', duration: 2500 },
+            { id: 'step4', dots: 'dots4', duration: 2000 }
+        ];
+
+        const progressBar = document.getElementById('progressBar');
+        let currentStep = 0;
+
+        function activateStep(index) {
+            const step = steps[index];
+            const stepEl = document.getElementById(step.id);
+            const dotsEl = document.getElementById(step.dots);
+
+            // Remove pending, add active
+            stepEl.classList.remove('pending');
+            stepEl.classList.add('active');
+
+            // Show loading dots with smooth transition
+            setTimeout(() => {
+                dotsEl.classList.add('visible');
+            }, 100);
+
+            // Update progress bar
+            progressBar.style.width = ((index + 0.5) / steps.length * 100) + '%';
+        }
+
+        function completeStep(index) {
+            const step = steps[index];
+            const stepEl = document.getElementById(step.id);
+            const dotsEl = document.getElementById(step.dots);
+
+            // Hide loading dots first with smooth transition
+            dotsEl.classList.remove('visible');
+
+            // Wait for dots to fade out, then complete the step
+            setTimeout(() => {
+                // Remove active, add completed
+                stepEl.classList.remove('active');
+                stepEl.classList.add('completed');
+
+                // Replace icon with animated checkmark
+                stepEl.querySelector('.step-icon').innerHTML = checkmarkSVG;
+
+                // Update progress bar
+                progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
+            }, 200);
+        }
+
+        function runSteps() {
+            if (currentStep >= steps.length) {
+                // All done - enable the next button
+                const nextBtn = document.getElementById('nextBtn');
+                nextBtn.disabled = false;
+                nextBtn.onclick = () => window.location.href = 'demo.html';
+                return;
+            }
+
+            activateStep(currentStep);
+
+            setTimeout(() => {
+                completeStep(currentStep);
+                currentStep++;
+                setTimeout(() => runSteps(), 400);
+            }, steps[currentStep].duration);
+        }
+
+        // Start the animation
+        setTimeout(runSteps, 700);
+    </script>
+</body>
+</html>

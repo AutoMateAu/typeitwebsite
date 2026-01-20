@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>Entry - AI Receptionist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,17 +48,11 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: #1e293b;
-            letter-spacing: 0.02em;
         }
 
-        .nav-logo svg {
-            width: 20px;
-            height: 20px;
+        .nav-logo img {
+            height: 28px;
+            width: auto;
         }
 
         .nav-links {
@@ -1689,10 +1683,22 @@
             height: 22px;
         }
 
-        /* Never Lose Business Section */
+        /* Never Lose Business Section - Scroll-driven animation */
         .never-lose-section {
-            padding: 140px 80px 160px;
+            position: relative;
             background: #fafafa;
+            /* Height creates scroll distance for 3 sections */
+            min-height: 300vh;
+        }
+
+        .never-lose-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            overflow: hidden;
         }
 
         .never-lose-inner {
@@ -1701,13 +1707,14 @@
             display: grid;
             grid-template-columns: 50% 45%;
             gap: 5%;
-            align-items: stretch;
+            align-items: center;
+            width: 100%;
         }
 
         .never-lose-content {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 40px;
         }
 
         .never-lose-content h2 {
@@ -1728,7 +1735,7 @@
         .never-lose-item {
             padding: 10px 0;
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .never-lose-item h3 {
@@ -1737,7 +1744,7 @@
             font-weight: 400;
             color: #94a3b8;
             margin-bottom: 0;
-            transition: all 0.5s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .never-lose-item.active h3 {
@@ -1753,12 +1760,105 @@
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: all 0.6s ease;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .never-lose-item.active p {
             max-height: 120px;
             opacity: 1;
+        }
+
+        /* Progress indicator */
+        .scroll-progress {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 200px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-left: 30px;
+        }
+
+        .scroll-progress-bar {
+            width: 100%;
+            background: linear-gradient(180deg, #6366f1, #ec4899);
+            border-radius: 3px;
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Mobile responsive styles for scroll section */
+        @media (max-width: 1024px) {
+            .never-lose-section {
+                min-height: 250vh;
+            }
+
+            .never-lose-sticky {
+                padding: 0 40px;
+            }
+
+            .never-lose-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .never-lose-content h2 {
+                font-size: 36px;
+            }
+
+            .never-lose-item h3 {
+                font-size: 24px;
+            }
+
+            .chat-mockup {
+                min-height: 500px;
+                padding: 30px;
+            }
+
+            .scroll-progress {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .never-lose-section {
+                min-height: 220vh;
+            }
+
+            .never-lose-sticky {
+                padding: 0 20px;
+            }
+
+            .never-lose-content h2 {
+                font-size: 28px;
+            }
+
+            .never-lose-item h3 {
+                font-size: 20px;
+            }
+
+            .never-lose-item p {
+                font-size: 15px;
+            }
+
+            .chat-mockup {
+                min-height: 420px;
+                padding: 20px;
+            }
+
+            .chat-window {
+                top: 20px;
+                left: 20px;
+                right: 20px;
+                padding: 16px;
+            }
+
+            .chat-bubble {
+                font-size: 13px;
+                padding: 10px 14px;
+            }
         }
 
         .chat-mockup {
@@ -1779,15 +1879,21 @@
             left: 50px;
             right: 50px;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(30px) scale(0.96);
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
         }
 
         .chat-window.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
             pointer-events: auto;
+        }
+
+        .chat-window.exiting {
+            opacity: 0;
+            transform: translateY(-30px) scale(0.96);
         }
 
         .chat-header {
@@ -2221,16 +2327,12 @@
 <body>
     <header>
         <div class="nav-logo">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-            VOICEAI
+            <img src="entry-final-clean.png" alt="Entry">
         </div>
         <nav class="nav-links">
             <a href="features.html">Platform</a>
             <a href="enterprise.html">Enterprise</a>
             <a href="pricing.html">Pricing</a>
-            <a href="resources.html">Resources</a>
         </nav>
         <div class="nav-actions">
             <a href="#" class="sign-in">Sign in</a>
@@ -2299,25 +2401,29 @@
 
     <!-- Never Lose Business Section -->
     <section class="never-lose-section">
-        <div class="never-lose-inner">
-            <div class="never-lose-content">
-                <h2>Set up your AI receptionist in minutes</h2>
-                <div class="never-lose-features">
-                    <div class="never-lose-item active">
-                        <h3>Connect your phone system</h3>
-                        <p>Link your existing business number or get a new one. Works with any phone provider - no hardware required.</p>
-                    </div>
-                    <div class="never-lose-item">
-                        <h3>Customize your AI voice</h3>
-                        <p>Choose from natural-sounding voices and set your business tone. Train it with your FAQs, services, and brand personality.</p>
-                    </div>
-                    <div class="never-lose-item">
-                        <h3>Go live instantly</h3>
-                        <p>Start answering calls 24/7 within minutes. Monitor conversations in real-time and refine responses as you grow.</p>
+        <div class="never-lose-sticky">
+            <div class="scroll-progress">
+                <div class="scroll-progress-bar" style="height: 33%;"></div>
+            </div>
+            <div class="never-lose-inner">
+                <div class="never-lose-content">
+                    <h2>Set up your AI receptionist in minutes</h2>
+                    <div class="never-lose-features">
+                        <div class="never-lose-item active" data-step="1">
+                            <h3>Connect your phone system</h3>
+                            <p>Link your existing business number or get a new one. Works with any phone provider - no hardware required.</p>
+                        </div>
+                        <div class="never-lose-item" data-step="2">
+                            <h3>Customize your AI voice</h3>
+                            <p>Choose from natural-sounding voices and set your business tone. Train it with your FAQs, services, and brand personality.</p>
+                        </div>
+                        <div class="never-lose-item" data-step="3">
+                            <h3>Go live instantly</h3>
+                            <p>Start answering calls 24/7 within minutes. Monitor conversations in real-time and refine responses as you grow.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="chat-mockup">
+                <div class="chat-mockup">
                 <!-- Chat Window 1: Connect phone system -->
                 <div class="chat-window active" data-chat="1">
                     <div class="chat-header">
@@ -2374,6 +2480,7 @@
                         <span>Receptionist active 24/7</span>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>
@@ -3436,19 +3543,94 @@
             });
         });
 
-        // Never lose business - clickable items with chat window switching
-        document.querySelectorAll('.never-lose-item').forEach((item, index) => {
-            item.addEventListener('click', function() {
-                // Update active item
-                document.querySelectorAll('.never-lose-item').forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
+        // Never lose business - scroll-driven animation
+        const neverLoseSection = document.querySelector('.never-lose-section');
+        const neverLoseItems = document.querySelectorAll('.never-lose-item');
+        const chatWindows = document.querySelectorAll('.chat-window');
+        const progressBar = document.querySelector('.scroll-progress-bar');
+        let currentStep = 1;
+        let isScrollAnimating = false;
 
-                // Switch chat window
-                document.querySelectorAll('.chat-window').forEach(w => w.classList.remove('active'));
-                const chatWindow = document.querySelector(`.chat-window[data-chat="${index + 1}"]`);
-                if (chatWindow) {
-                    chatWindow.classList.add('active');
+        function setActiveStep(step) {
+            if (step === currentStep) return;
+
+            const oldStep = currentStep;
+            currentStep = step;
+
+            // Update items
+            neverLoseItems.forEach((item, index) => {
+                const itemStep = index + 1;
+                if (itemStep === step) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
                 }
+            });
+
+            // Update chat windows with direction-aware animation
+            chatWindows.forEach(window => {
+                const windowStep = parseInt(window.dataset.chat);
+                if (windowStep === step) {
+                    window.classList.remove('exiting');
+                    window.classList.add('active');
+                } else if (windowStep === oldStep) {
+                    window.classList.add('exiting');
+                    window.classList.remove('active');
+                    // Remove exiting class after animation
+                    setTimeout(() => {
+                        window.classList.remove('exiting');
+                    }, 500);
+                } else {
+                    window.classList.remove('active', 'exiting');
+                }
+            });
+
+            // Update progress bar
+            const progress = ((step - 1) / 2) * 100 + 33;
+            progressBar.style.height = `${Math.min(progress, 100)}%`;
+        }
+
+        function handleScroll() {
+            if (!neverLoseSection) return;
+
+            const rect = neverLoseSection.getBoundingClientRect();
+            const sectionTop = rect.top;
+            const sectionHeight = rect.height;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate scroll progress within the section (0 to 1)
+            const scrollProgress = Math.max(0, Math.min(1, -sectionTop / (sectionHeight - viewportHeight)));
+
+            // Determine which step based on scroll progress
+            let newStep;
+            if (scrollProgress < 0.33) {
+                newStep = 1;
+            } else if (scrollProgress < 0.66) {
+                newStep = 2;
+            } else {
+                newStep = 3;
+            }
+
+            setActiveStep(newStep);
+        }
+
+        // Throttled scroll handler for performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) return;
+            scrollTimeout = setTimeout(() => {
+                handleScroll();
+                scrollTimeout = null;
+            }, 16); // ~60fps
+        }, { passive: true });
+
+        // Initial check
+        handleScroll();
+
+        // Click handlers still work for direct interaction
+        neverLoseItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                setActiveStep(index + 1);
             });
         });
 
