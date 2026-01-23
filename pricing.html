@@ -105,9 +105,32 @@
             background: #334155;
         }
 
+        /* Pricing Hero Section */
+        .pricing-hero {
+            padding: 120px 80px 60px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .pricing-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 56px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .pricing-hero .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
         /* Pricing Page */
         .pricing-page {
-            padding: 100px 80px 60px;
+            padding: 0 80px 60px;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -157,7 +180,7 @@
         }
 
         .toggle-switch.active {
-            background: #6366f1;
+            background: #3341FF;
         }
 
         .toggle-switch::after {
@@ -189,33 +212,61 @@
             font-family: 'Inter', sans-serif;
             font-size: 11px;
             font-weight: 600;
-            color: #059669;
-            background: #d1fae5;
+            color: #3341FF;
+            background: #e8eaff;
             padding: 4px 10px;
             border-radius: 4px;
+        }
+
+        /* Plans Grid Container */
+        .plans-grid-container {
+            position: relative;
+            padding-top: 32px;
         }
 
         /* Plans Grid */
         .plans-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 0;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: visible;
+            position: relative;
         }
 
         .plan-card {
             background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            padding: 28px;
+            border-right: 2px solid #e5e5e5;
+            padding: 32px 28px;
             display: flex;
             flex-direction: column;
-            min-height: 520px;
             position: relative;
         }
 
+        .plan-card:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .plan-card:last-child {
+            border-right: none;
+            border-radius: 0 10px 10px 0;
+        }
+
         .plan-card.featured {
-            border: 2px solid #6366f1;
+            background: #fff;
+            border: 2px solid #3341FF;
+            border-radius: 12px;
+            margin: -34px -2px 0 -2px;
             padding-top: 52px;
+            padding-bottom: 32px;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(51, 65, 255, 0.15);
+        }
+
+        /* Ensure consistent heights for alignment */
+        .plan-card.featured .plan-name {
+            margin-top: 0;
         }
 
         .popular-badge {
@@ -223,7 +274,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: #6366f1;
+            background: #3341FF;
             color: #fff;
             font-family: 'Inter', sans-serif;
             font-size: 11px;
@@ -237,58 +288,55 @@
 
         .plan-name {
             font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: 700;
             color: #1a1a1a;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            height: 29px;
         }
 
         .plan-description {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             color: #666;
-            margin-bottom: 16px;
-            line-height: 1.5;
-            min-height: 42px;
-        }
-
-        .plan-usage {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a1a1a;
             margin-bottom: 24px;
+            line-height: 1.5;
+            height: 69px;
+            overflow: hidden;
         }
 
         .plan-price {
-            margin-bottom: 20px;
-            min-height: 60px;
+            margin-bottom: 8px;
+            height: 48px;
         }
 
         .price-amount {
             font-family: 'Inter', sans-serif;
-            font-size: 42px;
-            font-weight: 600;
+            font-size: 48px;
+            font-weight: 700;
             color: #1a1a1a;
             line-height: 1;
         }
 
-        .price-period {
+        .price-subtext {
             font-family: 'Inter', sans-serif;
             font-size: 14px;
             font-weight: 400;
             color: #666;
+            display: block;
+            margin-bottom: 24px;
+            height: 21px;
         }
 
         .plan-btn {
             font-family: 'Inter', sans-serif;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             color: #1a1a1a;
             background: #fff;
-            border: 1px solid #e5e5e5;
+            border: 2px solid #e5e5e5;
             padding: 14px 24px;
             border-radius: 8px;
             cursor: pointer;
@@ -296,7 +344,6 @@
             text-decoration: none;
             display: block;
             text-align: center;
-            margin-bottom: 24px;
         }
 
         .plan-btn:hover {
@@ -305,24 +352,20 @@
         }
 
         .plan-btn.primary {
-            background: #6366f1;
+            background: #3341FF;
             color: #fff;
-            border-color: #6366f1;
+            border-color: #3341FF;
         }
 
         .plan-btn.primary:hover {
-            background: #4f46e5;
-        }
-
-        .plan-includes {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 12px;
+            background: #2832cc;
         }
 
         .plan-features {
             list-style: none;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e5e5;
             flex: 1;
         }
 
@@ -330,30 +373,19 @@
             font-family: 'Inter', sans-serif;
             font-size: 14px;
             color: #1a1a1a;
-            padding: 6px 0;
+            padding: 8px 0;
             display: flex;
             align-items: flex-start;
-            gap: 8px;
+            gap: 10px;
+            height: 38px;
         }
 
         .plan-features li::before {
             content: '✓';
             color: #10b981;
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 600;
             flex-shrink: 0;
-        }
-
-        .view-more {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: #6366f1;
-            text-decoration: underline;
-            margin-top: 12px;
-            cursor: pointer;
-        }
-
-        .view-more:hover {
-            color: #4f46e5;
         }
 
         /* Comparison Table */
@@ -374,7 +406,10 @@
 
         .compare-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
         }
 
         .compare-table thead th {
@@ -384,16 +419,21 @@
             color: #1a1a1a;
             text-align: left;
             padding: 16px 20px;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 2px solid #d1d5db;
+            border-right: 2px solid #d1d5db;
             background: #fafafa;
         }
 
+        .compare-table thead th:last-child {
+            border-right: none;
+        }
+
         .compare-table thead th:first-child {
-            border-radius: 8px 0 0 0;
+            border-radius: 10px 0 0 0;
         }
 
         .compare-table thead th:last-child {
-            border-radius: 0 8px 0 0;
+            border-radius: 0 10px 0 0;
         }
 
         .compare-table thead th .plan-header {
@@ -414,7 +454,7 @@
         }
 
         .compare-table thead th.featured {
-            background: #6366f1;
+            background: #3341FF;
             color: #fff;
         }
 
@@ -462,8 +502,13 @@
             font-size: 14px;
             color: #1a1a1a;
             padding: 16px 20px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 2px solid #e5e5e5;
+            border-right: 2px solid #e5e5e5;
             vertical-align: middle;
+        }
+
+        .compare-table tbody td:last-child {
+            border-right: none;
         }
 
         .compare-table tbody td:first-child {
@@ -472,11 +517,19 @@
         }
 
         .compare-table tbody td.featured {
-            background: #f5f5ff;
+            background: #f0f2ff;
         }
 
         .compare-table tbody tr:last-child td {
             border-bottom: none;
+        }
+
+        .compare-table tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 10px;
+        }
+
+        .compare-table tbody tr:last-child td:last-child {
+            border-radius: 0 0 10px 0;
         }
 
         .check-icon {
@@ -552,100 +605,88 @@
         </div>
     </header>
 
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <h1>Never miss another call.</h1>
+        <p class="subtitle">Or start with the basics for free, and upgrade at any time.</p>
+    </section>
+
     <main class="pricing-page">
-        <div class="pricing-header">
-            <h1>Pricing</h1>
-            <p>Plans built for creators and businesses of all sizes</p>
-        </div>
-
-        <div class="pricing-controls">
-            <div class="billing-toggle">
-                <div class="toggle-switch" id="billingToggle"></div>
-                <span class="billing-label">Annual Billing</span>
-                <span class="billing-badge">2 Months Free</span>
-            </div>
-        </div>
-
         <!-- Plans Grid -->
-        <div class="plans-grid">
-            <!-- Free -->
-            <div class="plan-card">
-                <h3 class="plan-name">Free</h3>
-                <p class="plan-description">For individuals who want to try out Entry</p>
-                <p class="plan-usage">50 minutes/month</p>
-                <div class="plan-price">
-                    <span class="price-amount">$0</span>
-                    <span class="price-period">per month</span>
+        <div class="plans-grid-container">
+            <div class="plans-grid">
+                <!-- Free -->
+                <div class="plan-card">
+                    <h3 class="plan-name">Free</h3>
+                    <p class="plan-description">For business owners who want to learn how it works.</p>
+                    <div class="plan-price">
+                        <span class="price-amount">$0</span>
+                    </div>
+                    <span class="price-subtext">Free forever</span>
+                    <a href="onboarding.html" class="plan-btn">Get Started</a>
+                    <ul class="plan-features">
+                        <li>100 minutes/month</li>
+                        <li>Basic call handling</li>
+                        <li>Standard voice</li>
+                        <li>Call logs</li>
+                        <li>Email support</li>
+                    </ul>
                 </div>
-                <a href="onboarding.html" class="plan-btn">Get Started</a>
-                <ul class="plan-features">
-                    <li>Basic call handling</li>
-                    <li>Standard voice</li>
-                    <li>Call logs</li>
-                    <li>Email support</li>
-                </ul>
-                <span class="view-more">View more</span>
-            </div>
 
-            <!-- Starter -->
-            <div class="plan-card">
-                <h3 class="plan-name">Starter</h3>
-                <p class="plan-description">For solopreneurs handling regular calls</p>
-                <p class="plan-usage">200 minutes/month</p>
-                <div class="plan-price">
-                    <span class="price-amount" data-monthly="19" data-yearly="15">$19</span>
-                    <span class="price-period">per month</span>
+                <!-- After Hours -->
+                <div class="plan-card">
+                    <h3 class="plan-name">After Hours</h3>
+                    <p class="plan-description">For businesses needing coverage outside office hours.</p>
+                    <div class="plan-price">
+                        <span class="price-amount" data-monthly="99" data-yearly="79">$99</span>
+                    </div>
+                    <span class="price-subtext">per month</span>
+                    <a href="#" class="plan-btn">Get Started</a>
+                    <ul class="plan-features">
+                        <li>200 minutes/month</li>
+                        <li>Everything in Free</li>
+                        <li>Custom greetings</li>
+                        <li>Call recordings</li>
+                        <li>SMS notifications</li>
+                    </ul>
                 </div>
-                <a href="#" class="plan-btn">Get Started</a>
-                <p class="plan-includes">Everything in Free, plus</p>
-                <ul class="plan-features">
-                    <li>Custom greetings</li>
-                    <li>Call recordings</li>
-                    <li>Basic integrations</li>
-                    <li>SMS notifications</li>
-                </ul>
-                <span class="view-more">View more</span>
-            </div>
 
-            <!-- Pro (Featured) -->
-            <div class="plan-card featured">
-                <div class="popular-badge">Most Popular</div>
-                <h3 class="plan-name">Pro</h3>
-                <p class="plan-description">For professionals and small teams</p>
-                <p class="plan-usage">1,000 minutes/month</p>
-                <div class="plan-price">
-                    <span class="price-amount" data-monthly="49" data-yearly="39">$49</span>
-                    <span class="price-period">per month</span>
+                <!-- Overflow (Featured) -->
+                <div class="plan-card featured">
+                    <div class="popular-badge">Best Value</div>
+                    <h3 class="plan-name">Overflow</h3>
+                    <p class="plan-description">For businesses with high call volume where staff can't catch every ring.</p>
+                    <div class="plan-price">
+                        <span class="price-amount" data-monthly="299" data-yearly="239">$299</span>
+                    </div>
+                    <span class="price-subtext">per month</span>
+                    <a href="#" class="plan-btn primary">Get Started</a>
+                    <ul class="plan-features">
+                        <li>700 minutes/month</li>
+                        <li>Everything in After Hours</li>
+                        <li>Advanced AI training</li>
+                        <li>Calendar integrations</li>
+                        <li>Priority support</li>
+                    </ul>
                 </div>
-                <a href="#" class="plan-btn primary">Get Started</a>
-                <p class="plan-includes">Everything in Starter, plus</p>
-                <ul class="plan-features">
-                    <li>Advanced AI training</li>
-                    <li>Calendar integrations</li>
-                    <li>Multiple phone numbers</li>
-                    <li>Priority support</li>
-                </ul>
-                <span class="view-more">View more</span>
-            </div>
 
-            <!-- Business -->
-            <div class="plan-card">
-                <h3 class="plan-name">Business</h3>
-                <p class="plan-description">For growing businesses scaling operations</p>
-                <p class="plan-usage">5,000 minutes/month</p>
-                <div class="plan-price">
-                    <span class="price-amount" data-monthly="149" data-yearly="119">$149</span>
-                    <span class="price-period">per month</span>
+                <!-- Pro -->
+                <div class="plan-card">
+                    <h3 class="plan-name">Pro</h3>
+                    <p class="plan-description">Zero missed calls. The complete front-desk solution for high-volume businesses.</p>
+                    <div class="plan-price">
+                        <span class="price-amount" data-monthly="599" data-yearly="479">$599</span>
+                    </div>
+                    <span class="price-subtext">per month</span>
+                    <a href="#" class="plan-btn">Get Started</a>
+                    <ul class="plan-features">
+                        <li>2,000 minutes/month</li>
+                        <li>Everything in Overflow</li>
+                        <li>Team management</li>
+                        <li>Advanced analytics</li>
+                        <li>API access</li>
+                    </ul>
                 </div>
-                <a href="#" class="plan-btn">Get Started</a>
-                <p class="plan-includes">Everything in Pro, plus</p>
-                <ul class="plan-features">
-                    <li>Team management</li>
-                    <li>Advanced analytics</li>
-                    <li>API access</li>
-                    <li>Custom integrations</li>
-                </ul>
-                <span class="view-more">View more</span>
             </div>
         </div>
 
@@ -666,22 +707,22 @@
                         </th>
                         <th>
                             <div class="plan-header">
-                                <span>Starter</span>
-                                <span class="price">$19<span>/mo</span></span>
+                                <span>After Hours</span>
+                                <span class="price">$99<span>/mo</span></span>
                                 <a href="#" class="table-btn outline">Get Started</a>
                             </div>
                         </th>
                         <th class="featured">
                             <div class="plan-header">
-                                <span>Pro</span>
-                                <span class="price">$49<span>/mo</span></span>
+                                <span>Overflow</span>
+                                <span class="price">$299<span>/mo</span></span>
                                 <a href="#" class="table-btn primary">Get Started</a>
                             </div>
                         </th>
                         <th>
                             <div class="plan-header">
-                                <span>Business</span>
-                                <span class="price">$149<span>/mo</span></span>
+                                <span>Pro</span>
+                                <span class="price">$599<span>/mo</span></span>
                                 <a href="#" class="table-btn outline">Get Started</a>
                             </div>
                         </th>
@@ -690,17 +731,17 @@
                 <tbody>
                     <tr>
                         <td>Minutes included</td>
-                        <td>50</td>
+                        <td>100</td>
                         <td>200</td>
-                        <td class="featured">1,000</td>
-                        <td>5,000</td>
+                        <td class="featured">700</td>
+                        <td>2,000</td>
                     </tr>
                     <tr>
                         <td>Additional minutes</td>
                         <td class="x-icon">✕</td>
-                        <td>$0.15/min</td>
-                        <td class="featured">$0.10/min</td>
-                        <td>$0.08/min</td>
+                        <td>$0.65/min</td>
+                        <td class="featured">$0.55/min</td>
+                        <td>$0.45/min</td>
                     </tr>
                     <tr>
                         <td>Phone numbers</td>
@@ -766,7 +807,7 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-logo">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3341FF" stroke-width="2">
                 <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
                 <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
                 <line x1="12" y1="19" x2="12" y2="23"></line>
@@ -775,7 +816,7 @@
             Entry
         </div>
         <div class="footer-copyright">
-            &copy; 2025 Entry. All rights reserved.<br>
+            &copy; 2026 Entry. All rights reserved.<br>
             Privacy Policy · Terms of Service
         </div>
         <div class="footer-social">
