@@ -594,8 +594,18 @@
     <script>
         lucide.createIcons();
 
+        // Check for website parameter in URL and pre-fill the input
+        const urlParams = new URLSearchParams(window.location.search);
+        const websiteParam = urlParams.get('website');
+
         // Typing animation for input placeholder
         const input = document.getElementById('websiteInput');
+
+        // If website was passed from homepage, pre-fill and skip animation
+        if (websiteParam) {
+            input.value = websiteParam;
+            input.placeholder = 'www.yourbusiness.com';
+        }
         const urls = [
             'www.johnsplumbing.com.au',
             'www.eliteautomotiveservice.com.au',
@@ -645,8 +655,10 @@
             setTimeout(typeAnimation, speed);
         }
 
-        // Start the animation
-        typeAnimation();
+        // Start the animation only if no website was pre-filled
+        if (!websiteParam) {
+            typeAnimation();
+        }
 
         // Stop animation when user focuses
         input.addEventListener('focus', () => {
