@@ -2464,8 +2464,8 @@
             <a href="pricing.html">Pricing</a>
         </nav>
         <div class="nav-actions">
-            <a href="/app/login" class="sign-in">Sign in</a>
-            <a href="/app" class="download-btn">Sign Up</a>
+            <a href="https://receptionist-ui-murex.vercel.app/login" class="sign-in">Sign in</a>
+            <a href="onboarding.html" class="download-btn">Sign Up</a>
         </div>
     </header>
 
@@ -2475,7 +2475,7 @@
             <div class="features-hero-left">
                 <h1>AI receptionist for <span class="rotating-text-wrapper"><span class="rotating-text">every missed call</span></span></h1>
                 <p>Never miss another call. Your AI receptionist answers instantly, books appointments, and handles enquiries—while you focus on your business.</p>
-                <a href="/app" class="hero-cta-btn">Get a demo <span class="btn-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></span></a>
+                <a href="onboarding.html" class="hero-cta-btn">Get a demo <span class="btn-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></span></a>
             </div>
             <div class="features-hero-right">
                 <div class="hero-conversation-card">
@@ -2674,7 +2674,7 @@
                 </div>
             </div>
 
-            <a href="/app" class="trust-cta">
+            <a href="onboarding.html" class="trust-cta">
                 Learn more about our trust & safety
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -2771,7 +2771,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="/app" class="panel-btn">
+                            <a href="onboarding.html" class="panel-btn">
                                 View dashboard
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -2801,7 +2801,7 @@
                                     <div class="demo-bubble">"Done! You're booked for Saturday at 2pm. I'll send a confirmation text."</div>
                                 </div>
                             </div>
-                            <a href="/app" class="panel-btn">
+                            <a href="onboarding.html" class="panel-btn">
                                 Try it yourself
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -2869,7 +2869,7 @@
                                     Calendly
                                 </div>
                             </div>
-                            <a href="/app" class="panel-btn">
+                            <a href="onboarding.html" class="panel-btn">
                                 See all integrations
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -2910,7 +2910,7 @@
             </nav>
             <div class="section-five-content">
                 <h2>Ready to transform<br>your customer experience?</h2>
-                <a href="/app" class="section-five-cta">
+                <a href="onboarding.html" class="section-five-cta">
                     Get started
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -3216,12 +3216,12 @@
         });
 
         // Page transition for download button
-        document.querySelectorAll('a[href="/app"]').forEach(link => {
+        document.querySelectorAll('a[href="onboarding.html"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
-                    window.location.href = '/app';
+                    window.location.href = 'onboarding.html';
                 }, 200);
             });
         });
