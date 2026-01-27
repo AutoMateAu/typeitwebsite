@@ -11,9 +11,9 @@ function trainAgent() {
     const websiteInput = document.getElementById('heroWebsiteInput');
     const website = websiteInput.value.trim();
     if (website) {
-        window.location.href = 'onboarding.html?website=' + encodeURIComponent(website);
+        window.location.href = '/app?website=' + encodeURIComponent(website);
     } else {
-        window.location.href = 'onboarding.html';
+        window.location.href = '/app';
     }
 }
 
@@ -253,12 +253,12 @@ if (statsGrid) {
 // 8. Page Transition for Download Button
 // ==========================================================================
 
-document.querySelectorAll('a[href="onboarding.html"]').forEach(link => {
+document.querySelectorAll('a[href="/app"]').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         document.body.classList.add('fade-out');
         setTimeout(() => {
-            window.location.href = 'onboarding.html';
+            window.location.href = '/app';
         }, 200);
     });
 });

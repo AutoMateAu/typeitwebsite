@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise - Entry</title>
+    <link rel="icon" type="image/png" href="notextlogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -154,8 +155,8 @@
             <a href="pricing.html">Pricing</a>
         </nav>
         <div class="nav-actions">
-            <a href="#" class="sign-in">Sign in</a>
-            <a href="onboarding.html" class="download-btn">Sign Up</a>
+            <a href="/app/login" class="sign-in">Sign in</a>
+            <a href="/app" class="download-btn">Sign Up</a>
         </div>
     </header>
     <main class="hero">
@@ -166,12 +167,12 @@
     </main>
     <script>
         // Page transition for download button
-        document.querySelectorAll('a[href="onboarding.html"]').forEach(link => {
+        document.querySelectorAll('a[href="/app"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
-                    window.location.href = 'onboarding.html';
+                    window.location.href = '/app';
                 }, 200);
             });
         });
