@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/app/:path*",
+      "destination": "https://receptionist-ui-murex.vercel.app/:path*"
+    }
+  ]
+}
