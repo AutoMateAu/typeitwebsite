@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Started - Entry</title>
+    <link rel="icon" type="image/png" href="notextlogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         * {
@@ -21,8 +22,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding-top: 60px;
+            justify-content: center;
+            padding: 40px 20px;
             position: relative;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -39,7 +40,7 @@
             }
         }
 
-        /* Stripe-style diagonal background */
+        /* WebGL gradient background with dithering */
         .background-container {
             position: fixed;
             top: 0;
@@ -47,218 +48,25 @@
             right: 0;
             bottom: 0;
             z-index: -3;
-            background: #fff;
             overflow: hidden;
         }
 
-        .gradient-bg {
+        .background-container canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Top logo */
+        .top-logo {
             position: fixed;
-            top: -30%;
-            left: -10%;
-            right: -10%;
-            height: 65%;
-            transform: skewY(-5deg);
-            transform-origin: top right;
-            background: linear-gradient(135deg, #1e3a8a 0%, #581c87 100%);
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
+            top: 16px;
+            left: 72px;
+            z-index: 10;
         }
 
-        .gradient-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle 700px at 0% 20%, rgba(30, 64, 175, 1) 0%, transparent 55%),
-                radial-gradient(circle 600px at 20% 70%, rgba(67, 56, 202, 0.95) 0%, transparent 50%),
-                radial-gradient(circle 550px at 40% 25%, rgba(109, 40, 217, 0.95) 0%, transparent 50%),
-                radial-gradient(circle 500px at 60% 60%, rgba(147, 51, 234, 0.9) 0%, transparent 50%),
-                radial-gradient(circle 480px at 80% 35%, rgba(190, 24, 93, 0.9) 0%, transparent 50%),
-                radial-gradient(circle 420px at 95% 20%, rgba(185, 28, 28, 0.85) 0%, transparent 45%),
-                radial-gradient(circle 400px at 55% 85%, rgba(234, 88, 12, 0.8) 0%, transparent 45%),
-                radial-gradient(circle 380px at 15% 90%, rgba(99, 102, 241, 0.75) 0%, transparent 45%);
-            animation: flowColors1 70s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-
-        .gradient-bg::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle 650px at 10% 45%, rgba(29, 78, 216, 0.95) 0%, transparent 55%),
-                radial-gradient(circle 580px at 35% 80%, rgba(88, 28, 135, 0.9) 0%, transparent 50%),
-                radial-gradient(circle 520px at 55% 20%, rgba(126, 34, 206, 0.9) 0%, transparent 50%),
-                radial-gradient(circle 500px at 75% 55%, rgba(157, 23, 77, 0.85) 0%, transparent 50%),
-                radial-gradient(circle 450px at 90% 75%, rgba(153, 27, 27, 0.8) 0%, transparent 45%),
-                radial-gradient(circle 420px at 100% 45%, rgba(194, 65, 12, 0.75) 0%, transparent 45%),
-                radial-gradient(circle 400px at 5% 65%, rgba(79, 70, 229, 0.7) 0%, transparent 45%),
-                radial-gradient(circle 380px at 70% 95%, rgba(217, 119, 6, 0.7) 0%, transparent 45%);
-            animation: flowColors2 70s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            animation-delay: -35s;
-        }
-
-        @keyframes flowColors1 {
-            0% {
-                transform: scale(1) translate(-15%, -10%);
-                filter: hue-rotate(0deg);
-                opacity: 0.9;
-            }
-            8% {
-                transform: scale(1.15) translate(10%, 5%);
-                filter: hue-rotate(15deg);
-                opacity: 1;
-            }
-            16% {
-                transform: scale(1.08) translate(20%, -8%);
-                filter: hue-rotate(30deg);
-                opacity: 0.95;
-            }
-            24% {
-                transform: scale(1.2) translate(-5%, 15%);
-                filter: hue-rotate(45deg);
-                opacity: 1;
-            }
-            32% {
-                transform: scale(1.05) translate(15%, 10%);
-                filter: hue-rotate(270deg);
-                opacity: 0.9;
-            }
-            40% {
-                transform: scale(1.18) translate(-20%, -5%);
-                filter: hue-rotate(285deg);
-                opacity: 1;
-            }
-            48% {
-                transform: scale(1.1) translate(8%, -15%);
-                filter: hue-rotate(300deg);
-                opacity: 0.95;
-            }
-            56% {
-                transform: scale(1.22) translate(-10%, 12%);
-                filter: hue-rotate(315deg);
-                opacity: 1;
-            }
-            64% {
-                transform: scale(1.05) translate(18%, 5%);
-                filter: hue-rotate(330deg);
-                opacity: 0.9;
-            }
-            72% {
-                transform: scale(1.15) translate(-12%, -12%);
-                filter: hue-rotate(345deg);
-                opacity: 1;
-            }
-            80% {
-                transform: scale(1.08) translate(5%, 18%);
-                filter: hue-rotate(355deg);
-                opacity: 0.95;
-            }
-            88% {
-                transform: scale(1.2) translate(-18%, 8%);
-                filter: hue-rotate(358deg);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1) translate(-15%, -10%);
-                filter: hue-rotate(360deg);
-                opacity: 0.9;
-            }
-        }
-
-        @keyframes flowColors2 {
-            0% {
-                transform: scale(1.1) translate(20%, 15%);
-                filter: hue-rotate(200deg);
-                opacity: 0.85;
-            }
-            8% {
-                transform: scale(1) translate(-12%, -8%);
-                filter: hue-rotate(220deg);
-                opacity: 0.95;
-            }
-            16% {
-                transform: scale(1.18) translate(-18%, 10%);
-                filter: hue-rotate(240deg);
-                opacity: 0.9;
-            }
-            24% {
-                transform: scale(1.05) translate(15%, -12%);
-                filter: hue-rotate(260deg);
-                opacity: 1;
-            }
-            32% {
-                transform: scale(1.15) translate(-8%, 18%);
-                filter: hue-rotate(280deg);
-                opacity: 0.85;
-            }
-            40% {
-                transform: scale(1.08) translate(20%, 5%);
-                filter: hue-rotate(300deg);
-                opacity: 0.95;
-            }
-            48% {
-                transform: scale(1.2) translate(-15%, -15%);
-                filter: hue-rotate(320deg);
-                opacity: 0.9;
-            }
-            56% {
-                transform: scale(1) translate(10%, 12%);
-                filter: hue-rotate(340deg);
-                opacity: 1;
-            }
-            64% {
-                transform: scale(1.12) translate(-20%, 8%);
-                filter: hue-rotate(355deg);
-                opacity: 0.85;
-            }
-            72% {
-                transform: scale(1.05) translate(12%, -18%);
-                filter: hue-rotate(10deg);
-                opacity: 0.95;
-            }
-            80% {
-                transform: scale(1.18) translate(-5%, 20%);
-                filter: hue-rotate(25deg);
-                opacity: 0.9;
-            }
-            88% {
-                transform: scale(1.08) translate(18%, -5%);
-                filter: hue-rotate(40deg);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.1) translate(20%, 15%);
-                filter: hue-rotate(200deg);
-                opacity: 0.85;
-            }
-        }
-
-        /* Vertical border lines */
-        .vertical-line {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
-        }
-
-        .vertical-line-right {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
+        .top-logo img {
+            height: 32px;
+            width: auto;
         }
 
         .header-section {
@@ -299,17 +107,16 @@
         .page-title {
             font-size: 32px;
             font-weight: 700;
-            color: #fff;
+            color: #1e293b;
             margin-top: 16px;
             margin-bottom: 12px;
             text-align: center;
             letter-spacing: -0.3px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .page-subtitle {
             font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
+            color: #64748b;
             text-align: center;
             margin-bottom: 16px;
         }
@@ -348,18 +155,6 @@
         .input-icon {
             width: 40px;
             height: 40px;
-            background:
-                radial-gradient(ellipse 60% 80% at 5% 50%, rgba(49, 46, 129, 0.9) 0%, transparent 55%),
-                radial-gradient(ellipse 50% 70% at 20% 30%, rgba(30, 64, 175, 0.85) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 60% at 40% 40%, rgba(14, 116, 144, 0.75) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 70% at 60% 25%, rgba(3, 105, 161, 0.7) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 80% at 80% 35%, rgba(109, 40, 217, 0.7) 0%, transparent 55%),
-                radial-gradient(ellipse 50% 70% at 95% 40%, rgba(67, 56, 202, 0.75) 0%, transparent 55%),
-                linear-gradient(135deg, #312e81 0%, #1e40af 15%, #0e7490 30%, #0369a1 45%, #0284c7 55%, #6d28d9 70%, #4338ca 85%, #312e81 100%);
-            background-size: 200% 200%;
-            background-attachment: fixed;
-            animation: gradientFlow 14.4s ease infinite;
-            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -367,16 +162,22 @@
         }
 
         .input-icon svg {
-            width: 20px;
-            height: 20px;
-            color: #fff;
+            width: 24px;
+            height: 24px;
+            color: #000;
+            stroke-width: 2.2;
+        }
+
+        .input-header-text {
+            text-align: center;
+            margin-bottom: 24px;
         }
 
         .input-header-text h3 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: #30313d;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .input-header-text p {
@@ -510,7 +311,8 @@
         @media (max-width: 480px) {
             body {
                 padding: 20px;
-                padding-top: 40px;
+                justify-content: flex-start;
+                padding-top: 60px;
             }
 
             .card-body {
@@ -530,14 +332,12 @@
 </head>
 <body>
     <div class="background-container"></div>
-    <div class="vertical-line"></div>
-    <div class="vertical-line-right"></div>
-    <div class="gradient-bg"></div>
+
+    <a href="/" class="top-logo">
+        <img src="Entry1.png" alt="Entry">
+    </a>
 
     <div class="header-section">
-        <div class="logo">
-            <img src="entry-white-text.png" alt="Entry" class="logo-img">
-        </div>
         <h1 class="page-title">Let's get started</h1>
         <p class="page-subtitle">Set up your AI receptionist in minutes</p>
     </div>
@@ -545,21 +345,16 @@
     <div class="card">
         <div class="card-body">
 
-            <div class="input-header">
-                <div class="input-icon">
-                    <i data-lucide="globe" style="width: 20px; height: 20px; color: #fff;"></i>
-                </div>
-                <div class="input-header-text">
-                    <h3>Enter your business website</h3>
-                    <p>Let our AI scan and learn about your business</p>
-                </div>
+            <div class="input-header-text">
+                <h3>Enter your business website</h3>
+                <p>Let our AI scan and learn about your business</p>
             </div>
 
             <div class="form-group">
                 <input type="url" placeholder="" id="websiteInput">
             </div>
 
-            <button class="enter-btn" type="button" onclick="window.location.href='/building'">
+            <button class="enter-btn" type="button" onclick="window.location.href='building.html'">
                 Enter
             </button>
 
@@ -592,20 +387,157 @@
     </div>
 
     <script>
-        lucide.createIcons();
+        // WebGL Gradient Background with Dithering
+        (function() {
+            const canvas = document.createElement('canvas');
+            const container = document.querySelector('.background-container');
+            container.appendChild(canvas);
 
-        // Check for website parameter in URL and pre-fill the input
-        const urlParams = new URLSearchParams(window.location.search);
-        const websiteParam = urlParams.get('website');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (!gl) {
+                // Fallback to CSS gradient if WebGL not available
+                container.style.background = 'radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.15), transparent), #fafafa';
+                return;
+            }
+
+            const vertexShaderSource = `
+                attribute vec2 a_position;
+                varying vec2 v_uv;
+                void main() {
+                    v_uv = a_position * 0.5 + 0.5;
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                }
+            `;
+
+            const fragmentShaderSource = `
+                precision highp float;
+                varying vec2 v_uv;
+                uniform vec2 u_resolution;
+
+                // Pseudo-random noise function
+                float random(vec2 st) {
+                    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+                }
+
+                // Soft ellipse gradient
+                float ellipse(vec2 uv, vec2 center, vec2 radius) {
+                    vec2 d = (uv - center) / radius;
+                    return 1.0 - smoothstep(0.0, 1.0, length(d));
+                }
+
+                void main() {
+                    vec2 uv = v_uv;
+
+                    // Base color (off-white)
+                    vec3 baseColor = vec3(0.98, 0.98, 0.98);
+
+                    // Blue gradient colors
+                    vec3 blue1 = vec3(0.231, 0.510, 0.965);  // #3b82f6
+                    vec3 blue2 = vec3(0.314, 0.588, 1.0);    // #5096ff
+                    vec3 blue3 = vec3(0.388, 0.627, 1.0);    // #63a0ff
+
+                    // Accumulate gradient contributions
+                    float gradient = 0.0;
+
+                    // Left side ellipses
+                    gradient += ellipse(uv, vec2(0.08, 0.5), vec2(0.25, 0.35)) * 0.16;
+                    gradient += ellipse(uv, vec2(0.15, 0.45), vec2(0.22, 0.30)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.05, 0.55), vec2(0.18, 0.28)) * 0.10;
+
+                    // Center ellipses
+                    gradient += ellipse(uv, vec2(0.50, 0.50), vec2(0.30, 0.32)) * 0.10;
+                    gradient += ellipse(uv, vec2(0.45, 0.45), vec2(0.22, 0.24)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.30, 0.50), vec2(0.32, 0.24)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.70, 0.50), vec2(0.32, 0.24)) * 0.08;
+
+                    // Right side ellipses
+                    gradient += ellipse(uv, vec2(0.92, 0.5), vec2(0.25, 0.35)) * 0.16;
+                    gradient += ellipse(uv, vec2(0.85, 0.45), vec2(0.22, 0.30)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.95, 0.55), vec2(0.18, 0.28)) * 0.10;
+
+                    // Mix blue tones based on position
+                    vec3 blueColor = mix(blue1, mix(blue2, blue3, uv.x), uv.y * 0.5 + 0.25);
+
+                    // Combine base with gradient
+                    vec3 color = mix(baseColor, blueColor, gradient);
+
+                    // Apply dithering to reduce banding
+                    // Use gl_FragCoord for per-pixel noise
+                    float noise = random(gl_FragCoord.xy) / 255.0;
+                    color += noise - 0.5 / 255.0;
+
+                    gl_FragColor = vec4(color, 1.0);
+                }
+            `;
+
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+                    gl.deleteShader(shader);
+                    return null;
+                }
+                return shader;
+            }
+
+            function createProgram(gl, vertexShader, fragmentShader) {
+                const program = gl.createProgram();
+                gl.attachShader(program, vertexShader);
+                gl.attachShader(program, fragmentShader);
+                gl.linkProgram(program);
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    console.error('Program link error:', gl.getProgramInfoLog(program));
+                    gl.deleteProgram(program);
+                    return null;
+                }
+                return program;
+            }
+
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+            const program = createProgram(gl, vertexShader, fragmentShader);
+
+            const positionLocation = gl.getAttribLocation(program, 'a_position');
+            const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                -1, -1,  1, -1,  -1, 1,
+                -1,  1,  1, -1,   1, 1
+            ]), gl.STATIC_DRAW);
+
+            function render() {
+                const dpr = window.devicePixelRatio || 1;
+                const width = canvas.clientWidth * dpr;
+                const height = canvas.clientHeight * dpr;
+
+                if (canvas.width !== width || canvas.height !== height) {
+                    canvas.width = width;
+                    canvas.height = height;
+                    gl.viewport(0, 0, width, height);
+                }
+
+                gl.useProgram(program);
+                gl.uniform2f(resolutionLocation, width, height);
+
+                gl.enableVertexAttribArray(positionLocation);
+                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
+
+            render();
+            window.addEventListener('resize', render);
+        })();
+
+        lucide.createIcons();
 
         // Typing animation for input placeholder
         const input = document.getElementById('websiteInput');
-
-        // If website was passed from homepage, pre-fill and skip animation
-        if (websiteParam) {
-            input.value = websiteParam;
-            input.placeholder = 'www.yourbusiness.com';
-        }
         const urls = [
             'www.johnsplumbing.com.au',
             'www.eliteautomotiveservice.com.au',
@@ -655,10 +587,8 @@
             setTimeout(typeAnimation, speed);
         }
 
-        // Start the animation only if no website was pre-filled
-        if (!websiteParam) {
-            typeAnimation();
-        }
+        // Start the animation
+        typeAnimation();
 
         // Stop animation when user focuses
         input.addEventListener('focus', () => {
