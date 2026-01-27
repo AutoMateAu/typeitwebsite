@@ -51,32 +51,38 @@ if (navArrows.length >= 2) {
 }
 
 // ==========================================================================
-// 4. Listen Live Accordion
+// 4. Audio Player / Waveform Animation for Voice Showcase
 // ==========================================================================
 
-const listenPanel = document.querySelector('.listen-live-panel');
+function toggleAudioPlayback(button) {
+    const audioPlayer = button.closest('.audio-player');
+    const playIcon = button.querySelector('.play-icon');
+    const pauseIcon = button.querySelector('.pause-icon');
 
-document.querySelectorAll('.listen-accordion-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const wasActive = this.classList.contains('active');
-
-        // Close all items
-        document.querySelectorAll('.listen-accordion-item').forEach(i => {
-            i.classList.remove('active');
-            i.querySelector('.accordion-icon').textContent = '+';
+    if (audioPlayer.classList.contains('playing')) {
+        // Stop playing
+        audioPlayer.classList.remove('playing');
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+    } else {
+        // Stop any other playing audio first
+        document.querySelectorAll('.audio-player.playing').forEach(player => {
+            player.classList.remove('playing');
+            player.querySelector('.play-icon').style.display = 'block';
+            player.querySelector('.pause-icon').style.display = 'none';
         });
 
-        // Open clicked item if it wasn't active
-        if (!wasActive) {
-            this.classList.add('active');
-            this.querySelector('.accordion-icon').textContent = '−';
+        // Start playing this one
+        audioPlayer.classList.add('playing');
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+    }
+}
 
-            // Change panel color
-            const newColor = this.getAttribute('data-color');
-            if (newColor && listenPanel) {
-                listenPanel.style.backgroundColor = newColor;
-            }
-        }
+// Add click handlers to all play buttons
+document.querySelectorAll('.play-pause-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        toggleAudioPlayback(this);
     });
 });
 

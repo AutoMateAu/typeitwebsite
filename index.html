@@ -35,10 +35,13 @@
         <div class="hero-section">
             <div class="hero-text">
                 <h1>The Best Performing<br><span>AI Receptionist</span></h1>
+                <p class="hero-subtext">Easy-to-use AI voice agents,<br>email management, lead follow up, and a whole lot more. All in one place.</p>
             </div>
             <div class="email-form">
-                <input type="url" id="heroWebsiteInput" placeholder="Enter your website URL">
-                <button onclick="trainAgent()">Try for Free Forever</button>
+                <div class="email-form-wrapper">
+                    <input type="url" id="heroWebsiteInput" placeholder="Enter your website URL">
+                    <button onclick="trainAgent()">Try Free Forever</button>
+                </div>
             </div>
         </div>
 
@@ -96,91 +99,159 @@
         </div>
     </main>
 
-    <!-- ========== Listen Live Section ========== -->
+    <!-- ========== Listen Live Section - Voice Agent Showcase ========== -->
     <section class="listen-live">
         <div class="listen-live-inner">
             <div class="listen-live-header">
-                <h2>hear our AI agents in action</h2>
+                <h2>Hear our AI agents in action</h2>
+                <p>Listen to real conversations powered by Entry's voice AI</p>
             </div>
-            <div class="listen-live-box">
-                <!-- Accordion -->
-                <div class="listen-live-accordion">
-                    <div class="listen-accordion-item active" data-color="#fed7aa">
-                        <div class="accordion-header">
-                            <h3>Anderson Heating & Air</h3>
-                            <span class="accordion-subtitle">HVAC Services</span>
-                            <span class="accordion-icon">−</span>
-                        </div>
+
+            <!-- Business Cards Grid -->
+            <div class="voice-showcase-grid">
+                <!-- Card 1: Anderson Heating & Air -->
+                <div class="voice-card">
+                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.5">
+                            <path d="M12 3c-1.5 0-3 1.5-3 3.5 0 3 3 5.5 3 5.5s3-2.5 3-5.5c0-2-1.5-3.5-3-3.5z"/>
+                            <path d="M12 21c-4 0-7-2-7-5 0-2 1.5-3.5 3-4.5"/>
+                            <path d="M12 21c4 0 7-2 7-5 0-2-1.5-3.5-3-4.5"/>
+                            <path d="M9 17h6"/>
+                        </svg>
                     </div>
-                    <div class="listen-accordion-item" data-color="#cbd5e1">
-                        <div class="accordion-header">
-                            <h3>Clarity Tax Group</h3>
-                            <span class="accordion-subtitle">Tax & Accounting</span>
-                            <span class="accordion-icon">+</span>
+                    <h3 class="voice-card-name">Anderson Heating & Air</h3>
+                    <span class="voice-card-industry">HVAC Services</span>
+                    <div class="audio-player" data-audio="anderson">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 20%"></span><span style="height: 45%"></span><span style="height: 70%"></span><span style="height: 50%"></span><span style="height: 85%"></span><span style="height: 60%"></span><span style="height: 40%"></span><span style="height: 75%"></span><span style="height: 55%"></span><span style="height: 90%"></span><span style="height: 65%"></span><span style="height: 45%"></span><span style="height: 80%"></span><span style="height: 50%"></span><span style="height: 35%"></span><span style="height: 60%"></span><span style="height: 75%"></span><span style="height: 45%"></span><span style="height: 55%"></span><span style="height: 40%"></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="listen-accordion-item" data-color="#fef3c7">
-                        <div class="accordion-header">
-                            <h3>Tri-State Electric</h3>
-                            <span class="accordion-subtitle">Electrical Contractor</span>
-                            <span class="accordion-icon">+</span>
-                        </div>
-                    </div>
-                    <div class="listen-accordion-item" data-color="#d1fae5">
-                        <div class="accordion-header">
-                            <h3>Lakeside Family Dental</h3>
-                            <span class="accordion-subtitle">Family Dentistry</span>
-                            <span class="accordion-icon">+</span>
-                        </div>
-                    </div>
-                    <div class="listen-accordion-item" data-color="#f5d0fe">
-                        <div class="accordion-header">
-                            <h3>ColorPro Painters</h3>
-                            <span class="accordion-subtitle">Residential Painting</span>
-                            <span class="accordion-icon">+</span>
-                        </div>
+                        <span class="audio-duration">1:24</span>
                     </div>
                 </div>
 
-                <!-- Panel with Conversation Card -->
-                <div class="listen-live-panel">
-                    <div class="conversation-card">
-                        <div class="conversation-header">
-                            <div class="conversation-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="conversation-participant">
-                            <div class="participant-avatar">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                </svg>
-                            </div>
-                            <span class="participant-name">Caller</span>
-                        </div>
-                        <div class="conversation-participant">
-                            <div class="participant-avatar ai">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                                </svg>
-                            </div>
-                            <span class="participant-name">AI Agent</span>
-                        </div>
+                <!-- Card 2: Clarity Tax Group -->
+                <div class="voice-card">
+                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.5">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <path d="M9 9h6M9 12h6M9 15h4"/>
+                            <path d="M4 8h16"/>
+                        </svg>
                     </div>
-                    <div class="panel-controls">
-                        <button class="panel-control-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <h3 class="voice-card-name">Clarity Tax Group</h3>
+                    <span class="voice-card-industry">Tax & Accounting</span>
+                    <div class="audio-player" data-audio="clarity">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </button>
-                        <button class="panel-control-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
                             </svg>
                         </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 35%"></span><span style="height: 55%"></span><span style="height: 40%"></span><span style="height: 80%"></span><span style="height: 60%"></span><span style="height: 45%"></span><span style="height: 90%"></span><span style="height: 55%"></span><span style="height: 70%"></span><span style="height: 45%"></span><span style="height: 85%"></span><span style="height: 50%"></span><span style="height: 65%"></span><span style="height: 40%"></span><span style="height: 75%"></span><span style="height: 55%"></span><span style="height: 35%"></span><span style="height: 80%"></span><span style="height: 60%"></span><span style="height: 45%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">2:08</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tri-State Electric -->
+                <div class="voice-card">
+                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="1.5">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="voice-card-name">Tri-State Electric</h3>
+                    <span class="voice-card-industry">Electrical Contractor</span>
+                    <div class="audio-player" data-audio="tristate">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 50%"></span><span style="height: 30%"></span><span style="height: 65%"></span><span style="height: 45%"></span><span style="height: 80%"></span><span style="height: 55%"></span><span style="height: 70%"></span><span style="height: 40%"></span><span style="height: 90%"></span><span style="height: 60%"></span><span style="height: 35%"></span><span style="height: 75%"></span><span style="height: 50%"></span><span style="height: 85%"></span><span style="height: 45%"></span><span style="height: 60%"></span><span style="height: 70%"></span><span style="height: 35%"></span><span style="height: 55%"></span><span style="height: 80%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">1:52</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Lakeside Family Dental -->
+                <div class="voice-card">
+                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="1.5">
+                            <path d="M12 2C8 2 6 5 6 8c0 2 1 4 2 6l2 6c.5 1.5 1 2 2 2s1.5-.5 2-2l2-6c1-2 2-4 2-6 0-3-2-6-6-6z"/>
+                            <path d="M10 8h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="voice-card-name">Lakeside Family Dental</h3>
+                    <span class="voice-card-industry">Family Dentistry</span>
+                    <div class="audio-player" data-audio="lakeside">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 40%"></span><span style="height: 70%"></span><span style="height: 55%"></span><span style="height: 85%"></span><span style="height: 45%"></span><span style="height: 60%"></span><span style="height: 35%"></span><span style="height: 80%"></span><span style="height: 50%"></span><span style="height: 75%"></span><span style="height: 40%"></span><span style="height: 90%"></span><span style="height: 55%"></span><span style="height: 65%"></span><span style="height: 45%"></span><span style="height: 80%"></span><span style="height: 35%"></span><span style="height: 70%"></span><span style="height: 50%"></span><span style="height: 60%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">1:36</span>
+                    </div>
+                </div>
+
+                <!-- Card 5: ColorPro Painters -->
+                <div class="voice-card">
+                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #f5d0fe 0%, #e9d5ff 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="1.5">
+                            <path d="M19 3H5a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/>
+                            <path d="M12 11v8"/>
+                            <path d="M8 19h8"/>
+                            <circle cx="8" cy="7" r="1.5" fill="#9333ea"/>
+                            <circle cx="12" cy="7" r="1.5" fill="#9333ea"/>
+                            <circle cx="16" cy="7" r="1.5" fill="#9333ea"/>
+                        </svg>
+                    </div>
+                    <h3 class="voice-card-name">ColorPro Painters</h3>
+                    <span class="voice-card-industry">Residential Painting</span>
+                    <div class="audio-player" data-audio="colorpro">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 60%"></span><span style="height: 40%"></span><span style="height: 75%"></span><span style="height: 50%"></span><span style="height: 65%"></span><span style="height: 85%"></span><span style="height: 45%"></span><span style="height: 70%"></span><span style="height: 35%"></span><span style="height: 80%"></span><span style="height: 55%"></span><span style="height: 90%"></span><span style="height: 45%"></span><span style="height: 60%"></span><span style="height: 75%"></span><span style="height: 40%"></span><span style="height: 85%"></span><span style="height: 50%"></span><span style="height: 65%"></span><span style="height: 35%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">1:45</span>
                     </div>
                 </div>
             </div>
