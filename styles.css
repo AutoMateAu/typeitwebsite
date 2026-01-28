@@ -63,9 +63,9 @@ body:has(.launch-banner) header {
 
 header {
     height: 56px;
-    background: rgba(250, 250, 250, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(250, 250, 250, 0.7);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1116,9 +1116,7 @@ main {
    ========================================================================== */
 
 .features-content {
-    display: flex;
-    gap: 60px;
-    align-items: center;
+    /* Container for tab panels - layout handled by .features-panel.active */
 }
 
 .features-grid {
@@ -1167,6 +1165,7 @@ main {
 
 .features-image {
     flex: 1;
+    min-width: 400px;
     max-width: 500px;
     background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%);
     border-radius: 20px;
@@ -1181,6 +1180,40 @@ main {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #64748b;
+}
+
+/* Features Panels - Tab Content */
+.features-panel {
+    display: none;
+}
+
+.features-panel.active {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 5-column grid for Tab 4 (Everything in One Place) */
+.features-grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.features-grid-5 .feature-card:nth-child(4),
+.features-grid-5 .feature-card:nth-child(5) {
+    grid-column: span 1;
 }
 
 /* ==========================================================================
@@ -2001,7 +2034,7 @@ body:has(.launch-banner) .never-lose-sticky {
     overflow: hidden;
 }
 
-.feature-card {
+.feature-cards-container .feature-card {
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     border-radius: 24px;
     position: absolute;
@@ -2020,18 +2053,18 @@ body:has(.launch-banner) .never-lose-sticky {
     overflow: hidden;
 }
 
-.feature-card.active {
+.feature-cards-container .feature-card.active {
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: auto;
 }
 
-.feature-card.exiting {
+.feature-cards-container .feature-card.exiting {
     opacity: 0;
     transform: translateY(-30px) scale(0.96);
 }
 
-.feature-card img {
+.feature-cards-container .feature-card img {
     max-width: calc(100% - 40px);
     max-height: calc(100% - 40px);
     object-fit: contain;
@@ -2416,7 +2449,7 @@ body:has(.launch-banner) .never-lose-sticky {
         min-height: 350px;
     }
 
-    .feature-card {
+    .feature-cards-container .feature-card {
         border-radius: 20px;
     }
 
@@ -2450,6 +2483,52 @@ body:has(.launch-banner) .never-lose-sticky {
 
     .voice-card-name {
         font-size: 16px;
+    }
+
+    /* Section Two - Tabs responsive */
+    .section-two {
+        padding: 100px 40px 80px;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .tab {
+        padding: 14px 20px;
+        font-size: 13px;
+    }
+
+    .tab-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .tab-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .features-panel.active {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .features-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-image {
+        min-width: unset;
+        max-width: 100%;
+        height: 350px;
     }
 }
 
@@ -2518,7 +2597,7 @@ body:has(.launch-banner) .never-lose-sticky {
         min-height: 280px;
     }
 
-    .feature-card {
+    .feature-cards-container .feature-card {
         border-radius: 16px;
     }
 
@@ -2607,6 +2686,83 @@ body:has(.launch-banner) .never-lose-sticky {
         min-width: 30px;
     }
 
+    /* Section Two - Tabs Mobile */
+    .section-two {
+        padding: 80px 20px 60px;
+    }
+
+    .section-two-header h2 {
+        font-size: 32px;
+    }
+
+    .section-two-header p {
+        font-size: 16px;
+    }
+
+    .tabs-container {
+        margin-bottom: 40px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+    }
+
+    .tabs {
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding: 0 10px;
+        min-width: max-content;
+    }
+
+    .tab {
+        padding: 12px 16px;
+        font-size: 12px;
+        min-width: 120px;
+        white-space: nowrap;
+    }
+
+    .tab-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .tab-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .features-panel.active {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .features-grid-5 {
+        grid-template-columns: 1fr;
+    }
+
+    .section-two .feature-card {
+        padding: 0;
+    }
+
+    .section-two .feature-card h3 {
+        font-size: 18px;
+    }
+
+    .section-two .feature-card p {
+        font-size: 14px;
+    }
+
+    .features-image {
+        height: 280px;
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+    }
+
     .email-form-wrapper {
         flex-direction: column;
         padding: 12px;
@@ -2659,7 +2815,7 @@ body:has(.launch-banner) .never-lose-sticky {
         min-height: 220px;
     }
 
-    .feature-card {
+    .feature-cards-container .feature-card {
         border-radius: 12px;
     }
 }

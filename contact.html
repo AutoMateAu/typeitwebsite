@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account - Entry</title>
+    <link rel="icon" type="image/png" href="notextlogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -775,16 +776,49 @@
         });
 
         document.getElementById('createAccountBtn').addEventListener('click', function() {
-            const email = document.getElementById('emailInput').value;
+            const email = document.getElementById('emailInput').value.trim();
             const password = document.getElementById('passwordInput').value;
+            const firstName = document.getElementById('firstNameInput').value.trim();
+            const phone = document.getElementById('phoneInput').value.trim();
+
+            if (!firstName) {
+                alert('Please enter your first name');
+                return;
+            }
 
             if (!email || !password) {
                 alert('Please enter your email and password');
                 return;
             }
 
-            // TODO: Implement Firebase email/password sign up
-            alert('Account creation will be implemented with Firebase');
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Validate password strength
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long');
+                return;
+            }
+            if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
+                alert('Password must contain at least one letter and one number');
+                return;
+            }
+
+            // Store user data in sessionStorage
+            const userData = {
+                email: email,
+                password: password,
+                name: firstName,
+                phone: phone ? '+61' + phone.replace(/\s/g, '') : null
+            };
+            sessionStorage.setItem('user_data', JSON.stringify(userData));
+
+            // Navigate to review page
+            window.location.href = '/review';
         });
     </script>
 </body>

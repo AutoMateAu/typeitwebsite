@@ -354,7 +354,7 @@
                 <input type="url" placeholder="" id="websiteInput">
             </div>
 
-            <button class="enter-btn" type="button" onclick="window.location.href='building.html'">
+            <button class="enter-btn" type="button" id="enterBtn">
                 Enter
             </button>
 
@@ -601,6 +601,70 @@
             if (input.value === '') {
                 isUserTyping = false;
                 typeAnimation();
+            }
+        });
+
+        // URL validation and navigation
+        function normalizeUrl(input) {
+            let url = input.trim();
+            // Add protocol if missing
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+            try {
+                const parsed = new URL(url);
+                if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+                    return null;
+                }
+                return parsed.toString();
+            } catch {
+                return null;
+            }
+        }
+
+        function showError(message) {
+            // Remove existing error if any
+            const existingError = document.querySelector('.url-error');
+            if (existingError) existingError.remove();
+
+            const error = document.createElement('div');
+            error.className = 'url-error';
+            error.style.cssText = 'color: #ef4444; font-size: 13px; margin-top: 8px; text-align: center;';
+            error.textContent = message;
+            input.parentElement.appendChild(error);
+
+            input.style.borderColor = '#ef4444';
+            setTimeout(() => {
+                input.style.borderColor = '';
+                error.remove();
+            }, 3000);
+        }
+
+        document.getElementById('enterBtn').addEventListener('click', () => {
+            const urlValue = input.value.trim();
+
+            if (!urlValue) {
+                showError('Please enter your business website URL');
+                input.focus();
+                return;
+            }
+
+            const normalizedUrl = normalizeUrl(urlValue);
+            if (!normalizedUrl) {
+                showError('Please enter a valid website URL');
+                input.focus();
+                return;
+            }
+
+            // Store URL in sessionStorage and navigate
+            sessionStorage.setItem('onboarding_url', normalizedUrl);
+            window.location.href = '/building';
+        });
+
+        // Allow Enter key to submit
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('enterBtn').click();
             }
         });
     </script>

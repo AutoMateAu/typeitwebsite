@@ -16,6 +16,7 @@ function trainAgent() {
         window.location.href = '/onboarding';
     }
 }
+window.trainAgent = trainAgent;
 
 // ==========================================================================
 // 2. Header Scroll Behavior - Hide on scroll down, show on scroll up
@@ -98,17 +99,43 @@ document.querySelectorAll('.feature-item').forEach(item => {
 });
 
 // ==========================================================================
+// 5b. Section Two - Tab Switching for "What Does Your AI Receptionist Do?"
+// ==========================================================================
+
+const sectionTwoTabs = document.querySelectorAll('.section-two .tab');
+const featuresPanels = document.querySelectorAll('.section-two .features-panel');
+
+sectionTwoTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+        const tabId = this.dataset.tab;
+
+        // Update active tab
+        sectionTwoTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+
+        // Update active panel
+        featuresPanels.forEach(panel => {
+            if (panel.dataset.panel === tabId) {
+                panel.classList.add('active');
+            } else {
+                panel.classList.remove('active');
+            }
+        });
+    });
+});
+
+// ==========================================================================
 // 6. Never Lose Business - Scroll-driven Animation
 // ==========================================================================
 
 const neverLoseSection = document.querySelector('.never-lose-section');
 const neverLoseItems = document.querySelectorAll('.never-lose-item');
-const chatWindows = document.querySelectorAll('.chat-window');
+const featureCards = document.querySelectorAll('.feature-card');
 const progressBar = document.querySelector('.scroll-progress-bar');
 let currentStep = 1;
 
-function setActiveStep(step) {
-    if (step === currentStep) return;
+function setActiveStep(step, force = false) {
+    if (step === currentStep && !force) return;
 
     const oldStep = currentStep;
     currentStep = step;
@@ -123,32 +150,32 @@ function setActiveStep(step) {
         }
     });
 
-    // Update chat windows with direction-aware animation
-    chatWindows.forEach(window => {
-        const windowStep = parseInt(window.dataset.chat);
-        if (windowStep === step) {
-            window.classList.remove('exiting');
-            window.classList.add('active');
-        } else if (windowStep === oldStep) {
-            window.classList.add('exiting');
-            window.classList.remove('active');
+    // Update feature cards with direction-aware animation
+    featureCards.forEach(card => {
+        const cardStep = parseInt(card.dataset.chat);
+        if (cardStep === step) {
+            card.classList.remove('exiting');
+            card.classList.add('active');
+        } else if (cardStep === oldStep) {
+            card.classList.add('exiting');
+            card.classList.remove('active');
             // Remove exiting class after animation
             setTimeout(() => {
-                window.classList.remove('exiting');
+                card.classList.remove('exiting');
             }, 500);
         } else {
-            window.classList.remove('active', 'exiting');
+            card.classList.remove('active', 'exiting');
         }
     });
 
-    // Update progress bar
-    const progress = ((step - 1) / 2) * 100 + 33;
+    // Update progress bar - smooth transition from 0% to 100%
+    const progress = ((step - 1) / 2) * 100 + 16.5;
     if (progressBar) {
         progressBar.style.height = `${Math.min(progress, 100)}%`;
     }
 }
 
-function handleScroll() {
+function handleNeverLoseScroll() {
     if (!neverLoseSection) return;
 
     const rect = neverLoseSection.getBoundingClientRect();
@@ -156,36 +183,60 @@ function handleScroll() {
     const sectionHeight = rect.height;
     const viewportHeight = window.innerHeight;
 
-    // Calculate scroll progress within the section (0 to 1)
-    const scrollProgress = Math.max(0, Math.min(1, -sectionTop / (sectionHeight - viewportHeight)));
+    // Only process when section is in view
+    if (sectionTop > viewportHeight || rect.bottom < 0) return;
 
-    // Determine which step based on scroll progress
+    // Calculate scroll progress within the section (0 to 1)
+    // Account for the sticky element taking up the viewport
+    const scrollableDistance = sectionHeight - viewportHeight;
+    const scrollProgress = Math.max(0, Math.min(1, -sectionTop / scrollableDistance));
+
+    // Update progress bar continuously for smooth effect
+    if (progressBar) {
+        const barProgress = Math.max(5, Math.min(100, scrollProgress * 100));
+        progressBar.style.height = `${barProgress}%`;
+    }
+
+    // Determine which step based on scroll progress with slight overlap zones
     let newStep;
-    if (scrollProgress < 0.33) {
+    if (scrollProgress < 0.30) {
         newStep = 1;
-    } else if (scrollProgress < 0.66) {
+    } else if (scrollProgress < 0.65) {
         newStep = 2;
     } else {
         newStep = 3;
     }
 
-    setActiveStep(newStep);
+    if (newStep !== currentStep) {
+        setActiveStep(newStep);
+    }
 }
 
-// Throttled scroll handler for performance
-let scrollTimeout;
+// Use requestAnimationFrame for smoother scroll handling
+let ticking = false;
 window.addEventListener('scroll', () => {
-    if (scrollTimeout) return;
-    scrollTimeout = setTimeout(() => {
-        handleScroll();
-        scrollTimeout = null;
-    }, 16); // ~60fps
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            handleNeverLoseScroll();
+            ticking = false;
+        });
+        ticking = true;
+    }
 }, { passive: true });
 
-// Initial check
-handleScroll();
+// Initial setup
+document.addEventListener('DOMContentLoaded', () => {
+    setActiveStep(1, true);
+    handleNeverLoseScroll();
+});
 
-// Click handlers still work for direct interaction
+// Also run on load in case DOMContentLoaded already fired
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setActiveStep(1, true);
+    handleNeverLoseScroll();
+}
+
+// Click handlers for direct interaction (useful on mobile)
 neverLoseItems.forEach((item, index) => {
     item.addEventListener('click', function() {
         setActiveStep(index + 1);

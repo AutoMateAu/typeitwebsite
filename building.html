@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Building Your AI Assistant - Entry</title>
+    <link rel="icon" type="image/png" href="notextlogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -52,15 +53,14 @@
 
         .gradient-bg {
             position: fixed;
-            top: -30%;
-            left: -10%;
-            right: -10%;
-            height: 65%;
-            transform: skewY(-5deg);
-            transform-origin: top right;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
         }
 
         .gradient-bg canvas {
@@ -73,26 +73,6 @@
             height: 100%;
         }
 
-        /* Vertical border lines */
-        .vertical-line {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
-        }
-
-        .vertical-line-right {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
-        }
 
         .header-section {
             display: flex;
@@ -446,8 +426,6 @@
 </head>
 <body>
     <div class="background-container"></div>
-    <div class="vertical-line"></div>
-    <div class="vertical-line-right"></div>
     <div id="gradient-root" class="gradient-bg"></div>
     <script type="module" src="/src/main.jsx"></script>
 
@@ -547,30 +525,30 @@
         </svg>`;
 
         const steps = [
-            { id: 'step1', dots: 'dots1', duration: 2000 },
-            { id: 'step2', dots: 'dots2', duration: 3000 },
-            { id: 'step3', dots: 'dots3', duration: 2500 },
-            { id: 'step4', dots: 'dots4', duration: 2000 }
+            { id: 'step1', dots: 'dots1' },
+            { id: 'step2', dots: 'dots2' },
+            { id: 'step3', dots: 'dots3' },
+            { id: 'step4', dots: 'dots4' }
         ];
 
         const progressBar = document.getElementById('progressBar');
-        let currentStep = 0;
+        let currentStepIndex = 0;
+        let extractionComplete = false;
+        let extractedData = null;
+        let extractionError = null;
 
         function activateStep(index) {
             const step = steps[index];
             const stepEl = document.getElementById(step.id);
             const dotsEl = document.getElementById(step.dots);
 
-            // Remove pending, add active
             stepEl.classList.remove('pending');
             stepEl.classList.add('active');
 
-            // Show loading dots with smooth transition
             setTimeout(() => {
                 dotsEl.classList.add('visible');
             }, 100);
 
-            // Update progress bar
             progressBar.style.width = ((index + 0.5) / steps.length * 100) + '%';
         }
 
@@ -579,43 +557,131 @@
             const stepEl = document.getElementById(step.id);
             const dotsEl = document.getElementById(step.dots);
 
-            // Hide loading dots first with smooth transition
             dotsEl.classList.remove('visible');
 
-            // Wait for dots to fade out, then complete the step
             setTimeout(() => {
-                // Remove active, add completed
                 stepEl.classList.remove('active');
                 stepEl.classList.add('completed');
-
-                // Replace icon with animated checkmark
                 stepEl.querySelector('.step-icon').innerHTML = checkmarkSVG;
-
-                // Update progress bar
                 progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
             }, 200);
         }
 
-        function runSteps() {
-            if (currentStep >= steps.length) {
-                // All done - enable the next button
-                const nextBtn = document.getElementById('nextBtn');
-                nextBtn.disabled = false;
-                nextBtn.onclick = () => window.location.href = 'demo.html';
+        function showError(message) {
+            const card = document.querySelector('.card-body');
+            card.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 48px; height: 48px; color: #ef4444; margin-bottom: 16px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                    </svg>
+                    <h3 style="font-size: 18px; font-weight: 600; color: #1f2937; margin-bottom: 8px;">Something went wrong</h3>
+                    <p style="font-size: 14px; color: #6b7280; margin-bottom: 20px;">${message}</p>
+                    <button onclick="retryExtraction()" style="padding: 10px 24px; background: #2563eb; color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; margin-right: 8px;">Try Again</button>
+                    <button onclick="window.location.href='/onboarding'" style="padding: 10px 24px; background: white; color: #374151; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Change URL</button>
+                </div>
+            `;
+        }
+
+        async function runExtraction() {
+            const url = sessionStorage.getItem('onboarding_url');
+
+            if (!url) {
+                window.location.href = '/onboarding';
                 return;
             }
 
-            activateStep(currentStep);
+            // Start visual animation
+            activateStep(0);
 
-            setTimeout(() => {
-                completeStep(currentStep);
-                currentStep++;
-                setTimeout(() => runSteps(), 400);
-            }, steps[currentStep].duration);
+            try {
+                // Call the extraction API
+                const response = await fetch('/api/extract', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url })
+                });
+
+                const result = await response.json();
+
+                if (!result.success) {
+                    extractionError = result.error || 'Failed to extract data';
+                    showError(extractionError);
+                    return;
+                }
+
+                extractedData = result.data;
+                extractionComplete = true;
+
+                // Store extracted data
+                sessionStorage.setItem('extracted_data', JSON.stringify(extractedData));
+
+            } catch (error) {
+                console.error('Extraction error:', error);
+                extractionError = 'Network error. Please check your connection and try again.';
+                showError(extractionError);
+            }
         }
 
-        // Start the animation
-        setTimeout(runSteps, 700);
+        function retryExtraction() {
+            window.location.reload();
+        }
+
+        // Animate through steps while extraction is happening
+        function animateSteps() {
+            if (extractionError) return;
+
+            if (currentStepIndex < steps.length) {
+                if (currentStepIndex > 0) {
+                    completeStep(currentStepIndex - 1);
+                }
+
+                setTimeout(() => {
+                    if (extractionError) return;
+
+                    if (currentStepIndex < steps.length) {
+                        activateStep(currentStepIndex);
+                        currentStepIndex++;
+
+                        // Time between steps
+                        const stepDuration = extractionComplete ? 300 : 2500;
+                        setTimeout(animateSteps, stepDuration);
+                    }
+                }, currentStepIndex === 0 ? 0 : 400);
+            } else {
+                // All steps shown, complete the last one
+                completeStep(steps.length - 1);
+
+                setTimeout(() => {
+                    if (extractionComplete) {
+                        // Enable next button and navigate to contact
+                        const nextBtn = document.getElementById('nextBtn');
+                        nextBtn.disabled = false;
+                        nextBtn.onclick = () => window.location.href = '/contact';
+                    } else if (!extractionError) {
+                        // Still waiting for extraction, show waiting state
+                        waitForExtraction();
+                    }
+                }, 500);
+            }
+        }
+
+        function waitForExtraction() {
+            // Poll until extraction completes
+            const checkInterval = setInterval(() => {
+                if (extractionComplete) {
+                    clearInterval(checkInterval);
+                    const nextBtn = document.getElementById('nextBtn');
+                    nextBtn.disabled = false;
+                    nextBtn.onclick = () => window.location.href = '/contact';
+                } else if (extractionError) {
+                    clearInterval(checkInterval);
+                }
+            }, 500);
+        }
+
+        // Start extraction and animation
+        runExtraction();
+        setTimeout(animateSteps, 700);
     </script>
 </body>
 </html>
