@@ -114,11 +114,12 @@ export default async function handler(
 
     // Handle response
     if (externalResponse.ok) {
+      const responseData = (await externalResponse.json()) as { redirectUrl?: string };
       console.log(`[Submit API] Successfully submitted for: ${body.firstName} ${body.lastName}`);
 
       res.status(200).json({
         success: true,
-        redirectUrl: 'https://app.askentry.com/claim',
+        redirectUrl: responseData.redirectUrl || 'https://app.askentry.com/claim',
       } as SubmitResponse);
       return;
     }
