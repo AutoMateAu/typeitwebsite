@@ -7,10 +7,10 @@ import { z } from 'zod';
 
 // Social media links schema
 export const SocialsSchema = z.object({
-  instagram: z.string().url().nullable(),
-  facebook: z.string().url().nullable(),
-  linkedin: z.string().url().nullable(),
-  twitter_x: z.string().url().nullable(),
+  instagram: z.string().nullable(),
+  facebook: z.string().nullable(),
+  linkedin: z.string().nullable(),
+  twitter_x: z.string().nullable(),
 });
 
 // Day hours schema
@@ -114,9 +114,9 @@ export const MobileDetailsSchema = z.object({
 export const BusinessExtractionSchema = z.object({
   // Basic business info
   company_name: z.string(),
-  public_email: z.string().email().nullable(),
+  public_email: z.string().nullable(),
   business_phone: z.string().nullable(),
-  website: z.string().url().nullable(),
+  website: z.string().nullable(),
 
   // Location and currency
   country: z.string().nullable(), // ISO 3166-1 alpha-2 code (e.g., "AU")
