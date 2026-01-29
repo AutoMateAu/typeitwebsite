@@ -431,7 +431,7 @@
 
     <div class="header-section">
         <div class="logo">
-            <img src="Entry1.png" alt="Entry" class="logo-img">
+            <img src="entry-white-text.png" alt="Entry" class="logo-img">
         </div>
         <h1 class="page-title">Building Your AI Assistant</h1>
         <div class="progress-bar-container">
@@ -656,7 +656,7 @@
                         // Enable next button and navigate to contact
                         const nextBtn = document.getElementById('nextBtn');
                         nextBtn.disabled = false;
-                        nextBtn.onclick = () => window.location.href = '/contact';
+                        nextBtn.onclick = () => window.location.href = '/review';
                     } else if (!extractionError) {
                         // Still waiting for extraction, show waiting state
                         waitForExtraction();
@@ -672,7 +672,7 @@
                     clearInterval(checkInterval);
                     const nextBtn = document.getElementById('nextBtn');
                     nextBtn.disabled = false;
-                    nextBtn.onclick = () => window.location.href = '/contact';
+                    nextBtn.onclick = () => window.location.href = '/review';
                 } else if (extractionError) {
                     clearInterval(checkInterval);
                 }
