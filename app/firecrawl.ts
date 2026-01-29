@@ -66,7 +66,7 @@ export async function mapWebsite(url: string): Promise<string[]> {
       return [];
     }
 
-    const data: FirecrawlMapResponse = await response.json();
+    const data = (await response.json()) as FirecrawlMapResponse;
 
     if (!data.success || !data.links) {
       console.error('Firecrawl map returned no links');
@@ -124,7 +124,7 @@ export async function scrapePage(url: string, retries: number = 2): Promise<{ ur
         return null;
       }
 
-      const data: FirecrawlScrapeResponse = await response.json();
+      const data = (await response.json()) as FirecrawlScrapeResponse;
 
       if (!data.success || !data.data?.markdown) {
         console.error(`No markdown content for ${url}`);

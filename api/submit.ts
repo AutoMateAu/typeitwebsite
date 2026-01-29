@@ -158,7 +158,7 @@ export default async function handler(
 
     // Handle response
     if (externalResponse.ok) {
-      const responseData = await externalResponse.json();
+      const responseData = (await externalResponse.json()) as { redirectUrl?: string };
       console.log(`[Submit API] Successfully created account for: ${body.user.email}`);
 
       res.status(200).json({
