@@ -14,7 +14,7 @@ export default defineConfig({
         features: resolve(__dirname, 'features.html'),
         enterprise: resolve(__dirname, 'enterprise.html'),
         demo: resolve(__dirname, 'demo.html'),
-        review: resolve(__dirname, 'review.html'),
+        details: resolve(__dirname, 'details.html'),
       },
     },
   },

@@ -1,9 +1,9 @@
 /**
  * Vercel Serverless Function: /api/submit
- * Forwards user + business data to external API
+ * Forwards user details + business data to external API
  *
  * POST /api/submit
- * Input: { user: { email, password, name, phone? }, businessData: {...} }
+ * Input: { firstName, lastName, phone, businessData: {...} }
  * Output: { success: boolean, redirectUrl?: string, error?: string, errorCode?: string }
  */
 
@@ -15,39 +15,16 @@ const EXTERNAL_API_URL = process.env.RECEPTIONIST_API_URL || 'https://www.askent
 const ONBOARDING_API_KEY = process.env.ONBOARDING_API_KEY;
 
 /**
- * Validate password meets minimum requirements
- */
-function validatePassword(password: string): { valid: boolean; error?: string } {
-  if (password.length < 8) {
-    return { valid: false, error: 'Password must be at least 8 characters long' };
-  }
-  // Check for at least one letter and one number
-  if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
-    return { valid: false, error: 'Password must contain at least one letter and one number' };
-  }
-  return { valid: true };
-}
-
-/**
- * Validate email format
- */
-function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-/**
  * Transform internal data structure to external API format
  */
 function transformToExternalPayload(request: SubmitRequest): ExternalAPIPayload {
-  const { user, businessData } = request;
+  const { firstName, lastName, phone, businessData } = request;
 
   return {
     user: {
-      email: user.email,
-      password: user.password,
-      name: user.name,
-      phone: user.phone,
+      firstName,
+      lastName,
+      phone,
     },
     business: {
       company_name: businessData.company_name,
@@ -100,32 +77,11 @@ export default async function handler(
   try {
     const body = req.body as SubmitRequest;
 
-    // Validate user data
-    if (!body.user || !body.user.email || !body.user.password || !body.user.name) {
+    // Validate required fields
+    if (!body.firstName || !body.lastName || !body.phone) {
       res.status(400).json({
         success: false,
-        error: 'Missing required user information',
-        errorCode: 'VALIDATION_ERROR',
-      } as SubmitResponse);
-      return;
-    }
-
-    // Validate email format
-    if (!validateEmail(body.user.email)) {
-      res.status(400).json({
-        success: false,
-        error: 'Please enter a valid email address',
-        errorCode: 'VALIDATION_ERROR',
-      } as SubmitResponse);
-      return;
-    }
-
-    // Validate password strength
-    const passwordValidation = validatePassword(body.user.password);
-    if (!passwordValidation.valid) {
-      res.status(400).json({
-        success: false,
-        error: passwordValidation.error,
+        error: 'Missing required fields: first name, last name, and phone number',
         errorCode: 'VALIDATION_ERROR',
       } as SubmitResponse);
       return;
@@ -141,7 +97,7 @@ export default async function handler(
       return;
     }
 
-    console.log(`[Submit API] Processing submission for: ${body.user.email}`);
+    console.log(`[Submit API] Processing submission for: ${body.firstName} ${body.lastName}`);
 
     // Transform data for external API
     const payload = transformToExternalPayload(body);
@@ -158,23 +114,11 @@ export default async function handler(
 
     // Handle response
     if (externalResponse.ok) {
-      const responseData = (await externalResponse.json()) as { redirectUrl?: string };
-      console.log(`[Submit API] Successfully created account for: ${body.user.email}`);
+      console.log(`[Submit API] Successfully submitted for: ${body.firstName} ${body.lastName}`);
 
       res.status(200).json({
         success: true,
-        redirectUrl: responseData.redirectUrl || `${EXTERNAL_API_URL}/dashboard`,
-      } as SubmitResponse);
-      return;
-    }
-
-    // Handle specific error codes
-    if (externalResponse.status === 409) {
-      console.log(`[Submit API] User already exists: ${body.user.email}`);
-      res.status(409).json({
-        success: false,
-        error: 'An account with this email already exists. Sign in instead.',
-        errorCode: 'USER_EXISTS',
+        redirectUrl: 'https://app.askentry.com/claim',
       } as SubmitResponse);
       return;
     }

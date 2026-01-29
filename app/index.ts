@@ -25,7 +25,6 @@ export {
   type ExtractResponse,
   type SubmitRequest,
   type SubmitResponse,
-  type UserCredentials,
   type ExternalAPIPayload,
   mapToIndustry,
   INDUSTRY_MAP,

@@ -15,17 +15,11 @@ export interface ExtractResponse {
   error?: string;
 }
 
-// User credentials for account creation
-export interface UserCredentials {
-  email: string;
-  password: string;
-  name: string;
-  phone?: string;
-}
-
 // Submit API types
 export interface SubmitRequest {
-  user: UserCredentials;
+  firstName: string;
+  lastName: string;
+  phone: string;
   businessData: BusinessExtraction;
 }
 
@@ -57,10 +51,9 @@ export function mapToIndustry(mainCategory: string): string {
 // External API payload structure (what we send to askentry.com)
 export interface ExternalAPIPayload {
   user: {
-    email: string;
-    password: string;
-    name: string;
-    phone?: string;
+    firstName: string;
+    lastName: string;
+    phone: string;
   };
   business: {
     company_name: string;

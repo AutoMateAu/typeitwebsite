@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Details - Entry</title>
+    <link rel="icon" type="image/png" href="notextlogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 60px;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            animation: fadeIn 0.18s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -3;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+        }
+
+        .gradient-bg canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .gradient-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .header-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            text-align: center;
+            letter-spacing: -0.3px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-subtitle {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.05),
+                0 4px 8px rgba(0, 0, 0, 0.05),
+                0 8px 16px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            height: 44px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0 14px;
+            font-size: 15px;
+            font-family: inherit;
+            color: #1e293b;
+            background: #fff;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .form-input.error {
+            border-color: #ef4444;
+        }
+
+        .form-error {
+            font-size: 12px;
+            color: #ef4444;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-error.visible {
+            display: block;
+        }
+
+        .name-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .name-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .continue-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 24px;
+            margin-top: 24px;
+            background: #2563eb;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.15s;
+            font-family: inherit;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        .continue-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .continue-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 24px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+
+        .back-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 125px !important;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 12px;
+            color: #8898aa;
+            z-index: 1;
+        }
+
+        .footer a {
+            color: #8898aa;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .footer a:hover {
+            color: #5e6977;
+        }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-overlay.hidden {
+            display: none;
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid #e2e8f0;
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                left: 20px !important;
+            }
+            .card {
+                max-width: 100%;
+            }
+            .card-body {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px;
+                padding-top: 20px;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .page-title {
+                font-size: 22px;
+            }
+
+            .name-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                left: 20px !important;
+                padding: 16px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div id="gradient-root" class="gradient-bg"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Setting up your account...</div>
+    </div>
+
+    <div class="header-section">
+        <div class="logo">
+            <img src="entry-white-text.png" alt="Entry" class="logo-img">
+        </div>
+        <h1 class="page-title">Almost there!</h1>
+        <p class="page-subtitle">Enter your details to claim your AI assistant.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="name-row" style="margin-bottom: 20px;">
+                <div class="form-group">
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input type="text" class="form-input" id="firstName" placeholder="Jane" autocomplete="given-name" required>
+                    <div class="form-error" id="firstNameError">First name is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="lastName">Last Name</label>
+                    <input type="text" class="form-input" id="lastName" placeholder="Smith" autocomplete="family-name" required>
+                    <div class="form-error" id="lastNameError">Last name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="phone">Business Phone Number</label>
+                <input type="tel" class="form-input" id="phone" placeholder="+61 400 000 000" autocomplete="tel" required>
+                <div class="form-error" id="phoneError">Phone number is required</div>
+            </div>
+            <button class="continue-btn" id="continueBtn" onclick="handleSubmit()">
+                Continue
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button class="back-btn" onclick="window.location.href='onboarding.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+            Back
+        </button>
+    </div>
+
+    <div class="footer">
+        <span>&copy; Entry</span>
+        <a href="#">Privacy &amp; terms</a>
+    </div>
+
+    <script>
+        // Ensure extracted data exists
+        const extractedDataStr = sessionStorage.getItem('extracted_data');
+        if (!extractedDataStr) {
+            window.location.href = '/onboarding';
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.form-input').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.form-error').forEach(el => el.classList.remove('visible'));
+        }
+
+        async function handleSubmit() {
+            clearErrors();
+
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            let hasError = false;
+
+            if (!firstName) {
+                document.getElementById('firstName').classList.add('error');
+                document.getElementById('firstNameError').classList.add('visible');
+                hasError = true;
+            }
+            if (!lastName) {
+                document.getElementById('lastName').classList.add('error');
+                document.getElementById('lastNameError').classList.add('visible');
+                hasError = true;
+            }
+            if (!phone) {
+                document.getElementById('phone').classList.add('error');
+                document.getElementById('phoneError').classList.add('visible');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            const businessData = JSON.parse(sessionStorage.getItem('extracted_data'));
+
+            // Show loading
+            document.getElementById('loadingOverlay').classList.remove('hidden');
+            document.getElementById('continueBtn').disabled = true;
+
+            try {
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ firstName, lastName, phone, businessData })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    sessionStorage.removeItem('onboarding_url');
+                    sessionStorage.removeItem('extracted_data');
+                    window.location.href = result.redirectUrl || 'https://app.askentry.com/claim';
+                } else {
+                    document.getElementById('loadingOverlay').classList.add('hidden');
+                    document.getElementById('continueBtn').disabled = false;
+                    alert(result.error || 'Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                console.error('Submit error:', error);
+                document.getElementById('loadingOverlay').classList.add('hidden');
+                document.getElementById('continueBtn').disabled = false;
+                alert('Network error. Please check your connection and try again.');
+            }
+        }
+    </script>
+</body>
+</html>
