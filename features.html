@@ -2451,6 +2451,176 @@
             width: 22px;
             height: 22px;
         }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #334155;
+        }
+
+        @media (max-width: 1024px) {
+            .features-page-hero {
+                padding: 80px 40px;
+                padding-bottom: 180px;
+                min-height: auto;
+            }
+            .features-page-hero-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .features-hero-left {
+                max-width: 100%;
+            }
+            .features-hero-left p {
+                max-width: 100%;
+            }
+            .hero-conversation-card {
+                width: 100%;
+                max-width: 480px;
+            }
+            .product-features-content {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            .features-panel {
+                min-height: 400px;
+            }
+            .voice-ai-os-content {
+                flex-direction: column;
+            }
+            .voice-ai-os-features {
+                flex: 1;
+                width: 100%;
+            }
+            .voice-ai-os-header {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .sophiie-feature-row {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .sophiie-feature-row.reverse {
+                flex-direction: column;
+            }
+            .trust-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .sign-in {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .features-page-hero {
+                padding: 60px 20px;
+                padding-bottom: 140px;
+            }
+            .features-hero-left h1 {
+                font-size: 36px;
+            }
+            .platform-headline-section {
+                padding: 60px 20px 40px;
+            }
+            .platform-headline-section h2 {
+                font-size: 32px;
+            }
+            .product-features-section {
+                padding: 60px 20px;
+            }
+            .product-features-header h2 {
+                font-size: 32px;
+            }
+            .features-accordion {
+                padding: 32px 24px;
+            }
+            .features-panel {
+                padding: 32px;
+            }
+            .sophiie-features {
+                padding: 60px 20px;
+            }
+            .sophiie-features-header h2 {
+                font-size: 32px;
+            }
+            .sophiie-feature-text h3 {
+                font-size: 24px;
+            }
+            .sophiie-feature-visual {
+                min-height: 300px;
+            }
+            .voice-ai-os {
+                padding: 60px 20px;
+            }
+            .voice-ai-os-header-left h2 {
+                font-size: 32px;
+            }
+            .trust-section {
+                padding: 60px 20px;
+            }
+            .trust-section h2 {
+                font-size: 32px;
+            }
+            .trust-cards {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .site-footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .section-five {
+                padding: 60px 20px;
+            }
+            .section-five h2 {
+                font-size: 36px;
+            }
+            .section-five-links {
+                position: static;
+                transform: none;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-hero-left h1 {
+                font-size: 28px;
+            }
+            .features-hero-left p {
+                font-size: 15px;
+            }
+            .hero-conversation-card {
+                padding: 24px;
+            }
+            .phone-mockup {
+                width: 260px;
+            }
+            .platform-headline-section h2 {
+                font-size: 26px;
+            }
+            .product-features-header h2 {
+                font-size: 26px;
+            }
+            .site-footer {
+                padding: 20px 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2467,6 +2637,11 @@
             <a href="https://app.askentry.com" class="sign-in">Sign in</a>
             <a href="/onboarding" class="download-btn">Sign Up</a>
         </div>
+        <button class="hamburger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
     </header>
 
     <!-- Features Page Hero -->

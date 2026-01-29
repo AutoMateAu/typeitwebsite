@@ -142,6 +142,46 @@
             color: #94a3b8;
             line-height: 1.6;
         }
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #334155;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .sign-in {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero {
+                padding: 40px 20px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 32px 16px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -158,6 +198,11 @@
             <a href="https://app.askentry.com" class="sign-in">Sign in</a>
             <a href="/onboarding" class="download-btn">Sign Up</a>
         </div>
+        <button class="hamburger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
     </header>
     <main class="hero">
         <div class="hero-content">

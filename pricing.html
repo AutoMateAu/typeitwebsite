@@ -588,6 +588,129 @@
             width: 22px;
             height: 22px;
         }
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #334155;
+        }
+
+        @media (max-width: 1024px) {
+            .plans-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .plan-card:nth-child(2) {
+                border-right: none;
+            }
+            .plan-card:nth-child(3) {
+                border-radius: 0;
+            }
+            .plan-card:first-child {
+                border-radius: 10px 0 0 0;
+            }
+            .plan-card:last-child {
+                border-radius: 0 0 10px 0;
+            }
+            .plan-card.featured {
+                margin: -2px -2px 0 -2px;
+            }
+            .compare-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .compare-table {
+                min-width: 700px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .sign-in {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .pricing-hero {
+                padding: 100px 20px 40px;
+            }
+            .pricing-hero h1 {
+                font-size: 32px;
+            }
+            .pricing-hero .subtitle {
+                font-size: 16px;
+            }
+            .pricing-page {
+                padding: 0 20px 40px;
+            }
+            .plans-grid {
+                grid-template-columns: 1fr;
+                border: none;
+                gap: 16px;
+            }
+            .plan-card {
+                border: 2px solid #e5e5e5;
+                border-radius: 12px !important;
+                border-right: 2px solid #e5e5e5;
+            }
+            .plan-card.featured {
+                margin: 0;
+                padding-top: 52px;
+            }
+            .plan-features li {
+                height: auto;
+            }
+            .plan-description {
+                height: auto;
+            }
+            .compare-section h2 {
+                font-size: 24px;
+            }
+            .site-footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .pricing-controls {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-hero {
+                padding: 80px 16px 32px;
+            }
+            .pricing-hero h1 {
+                font-size: 28px;
+            }
+            .pricing-page {
+                padding: 0 16px 32px;
+            }
+            .plan-card {
+                padding: 24px 20px;
+            }
+            .plan-name {
+                font-size: 20px;
+                height: auto;
+            }
+            .price-amount {
+                font-size: 36px;
+            }
+            .compare-section {
+                margin-top: 40px;
+                padding-top: 40px;
+            }
+            .site-footer {
+                padding: 20px 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -604,6 +727,11 @@
             <a href="https://app.askentry.com" class="sign-in">Sign In</a>
             <a href="/onboarding" class="download-btn">Get Started</a>
         </div>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
     </header>
 
     <!-- Pricing Hero -->
@@ -693,6 +821,7 @@
         <section class="compare-section">
             <h2>Compare our plans<br>and find the right fit</h2>
 
+            <div class="compare-table-wrapper">
             <table class="compare-table">
                 <thead>
                     <tr>
@@ -800,6 +929,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </section>
     </main>
 

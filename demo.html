@@ -650,6 +650,26 @@
             color: #5e6977;
         }
 
+        @media (max-width: 768px) {
+            .vertical-line, .vertical-line-right {
+                display: none;
+            }
+            .logo {
+                top: 20px;
+                left: 20px;
+            }
+            .footer {
+                left: 20px !important;
+            }
+            .main-content {
+                padding: 70px 20px 60px;
+            }
+            .voice-selector {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 480px) {
             .main-content {
                 padding: 60px 16px 80px;

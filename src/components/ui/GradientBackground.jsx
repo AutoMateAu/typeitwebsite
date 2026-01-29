@@ -5,8 +5,8 @@ export const GradientBackground = ({ children }) => {
     <div className="gradient-container">
       <GradFlow config={{
         color1: { r: 59, g: 130, b: 246 },
-        color2: { r: 147, g: 197, b: 253 },
-        color3: { r: 235, g: 240, b: 250 },
+        color2: { r: 75, g: 197, b: 253 },
+        color3: { r: 230, g: 230, b: 250 },
         speed: 0.15,
         scale: 1,
         type: 'stripe',
