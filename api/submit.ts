@@ -11,7 +11,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import type { SubmitRequest, SubmitResponse, ExternalAPIPayload } from '../app/types';
 import { mapToIndustry } from '../app/types';
 
-const EXTERNAL_API_URL = process.env.RECEPTIONIST_API_URL || 'https://www.askentry.com/app';
+const EXTERNAL_API_URL = process.env.RECEPTIONIST_API_URL || 'https://app.askentry.com';
 const ONBOARDING_API_KEY = process.env.ONBOARDING_API_KEY;
 
 /**
