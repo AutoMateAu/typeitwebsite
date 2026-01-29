@@ -26,7 +26,7 @@
   "rewrites": [
     {
       "source": "/app/:path*",
-      "destination": "https://receptionist-ui-murex.vercel.app/:path*"
+      "destination": "https://receptionist-ui-murex.vercel.app/app/:path*"
     },
     {
       "source": "/_next/:path*",
