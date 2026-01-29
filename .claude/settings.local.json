@@ -13,7 +13,21 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Subcall VoiceAI website\n\n- Landing page (index.html) with hero, features, integrations, and Listen Live sections\n- Platform page (features.html) with product capabilities and trust sections\n- Pricing, Enterprise, and Resources pages\n- Responsive design with DM Sans, DM Serif Display, and Inter fonts\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git commit:*)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(git push:*)",
+      "Bash(vercel:*)",
+      "Bash(git restore:*)",
+      "Bash(git -C \"C:\\\\Users\\\\tenzi\\\\EntryWebsite\\\\ReceptionistWebsite\" log --oneline -20)",
+      "Bash(git -C \"C:\\\\Users\\\\tenzi\\\\EntryWebsite\\\\ReceptionistWebsite\" show 7e863a0 --stat)",
+      "Bash(git -C:*)",
+      "Bash(git checkout:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(npm run build:*)",
+      "Bash(curl:*)",
+      "Bash(npx vercel:*)",
+      "Bash(git rm:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []
