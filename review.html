@@ -992,7 +992,7 @@
             document.getElementById('errorTitle').textContent = title;
 
             if (showSignIn) {
-                document.getElementById('errorMessage').innerHTML = message + ' <a class="error-link" href="/app">Sign in instead</a>';
+                document.getElementById('errorMessage').innerHTML = message + ' <a class="error-link" href="https://app.askentry.com">Sign in instead</a>';
             } else {
                 document.getElementById('errorMessage').textContent = message;
             }
@@ -1040,7 +1040,7 @@
                     sessionStorage.removeItem('user_data');
 
                     // Redirect to the app
-                    window.location.href = result.redirectUrl || '/app';
+                    window.location.href = result.redirectUrl || 'https://app.askentry.com';
                 } else {
                     document.getElementById('loadingOverlay').classList.add('hidden');
                     document.getElementById('submitBtn').disabled = false;
