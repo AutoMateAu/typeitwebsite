@@ -64,27 +64,16 @@ For Trades & Services businesses (plumbers, electricians, painters, HVAC, etc.),
 10. For policies, look for cancellation, refund, privacy, or terms of service content
 11. Use Australian timezone format if in Australia (e.g., "Australia/Sydney")
 12. For main_category, choose ONE of these exact categories that best describes the business:
-    - "Artificial Intelligence Or Machine Learning Companies"
-    - "Technology & Software"
-    - "Professional Services"
-    - "Healthcare"
-    - "Finance & Banking"
-    - "Retail & E-commerce"
-    - "Education & Training"
-    - "Real Estate"
-    - "Manufacturing"
-    - "Hospitality & Tourism"
-    - "Marketing & Advertising"
-    - "Legal Services"
-    - "Consulting"
-    - "Construction"
-    - "Automotive Repair & Maintenance"
-    - "Food & Beverage"
-    - "Beauty & Personal Care"
-    - "Home Services"
-    - "Transportation & Logistics"
-    - "Entertainment & Recreation"
-    - "Other"
+    - "Healthcare" — physiotherapy, psychology, occupational therapy, speech pathology, podiatry, GP/medical clinics
+    - "Trades & Services" — carpentry, plumbing, electricians, fire safety, painting, HVAC, etc.
+    - "Financial Services" — financial planning, SMSF administration, mortgage broking, tax/accounting, insurance broking
+    - "General (Lead Capture)" — anything that does not fit the above three categories
+
+13. For sub_niche, pick the most specific match from the allowed list for the chosen main_category, or null if none match:
+    - Healthcare: "physiotherapy", "psychology", "occupational_therapy", "speech_pathology", "podiatry", "general_practice"
+    - Trades & Services: "carpentry", "plumbing", "electrician", "fire_safety"
+    - Financial Services: "financial_planning", "smsf_administration", "mortgage_broking", "tax_accounting", "insurance_broking"
+    - General (Lead Capture): always null
 
 **Critical: Finding Business Phone Number**
 Phone numbers are CRITICAL and commonly appear in:
@@ -128,13 +117,12 @@ Look for patterns like:
 **Main Category Inference:**
 If the main category is not explicitly stated on the website:
 1. Analyze the services offered and their descriptions
-2. Look at the business name for industry hints (e.g., "ProCar Racing" → Automotive Repair & Maintenance)
+2. Look at the business name for industry hints
 3. Consider common industry patterns:
-   - Mentions of "repair", "service", "maintenance" + car/vehicle → Automotive Repair & Maintenance
-   - Mentions of "AI", "machine learning", "automation" → Artificial Intelligence Or Machine Learning Companies
-   - Mentions of "web", "app", "software development" → Technology & Software
-   - Mentions of "clinic", "medical", "health" → Healthcare
-   - Mentions of "legal", "accounting", "consulting" → Professional Services or Consulting or Legal Services (choose most specific)
+   - Mentions of "clinic", "medical", "health", "physio", "psychology", "therapy", "podiatry", "GP" → Healthcare
+   - Mentions of "plumber", "electrician", "carpenter", "tradesman", "fire safety", "painting", "HVAC" → Trades & Services
+   - Mentions of "financial planning", "SMSF", "superannuation", "mortgage", "tax", "accounting", "insurance broking" → Financial Services
+   - Anything else → General (Lead Capture)
 4. Choose the most specific and accurate category that represents their core business
 
 **Default Location Settings:**
@@ -231,6 +219,7 @@ export async function extractBusinessData(
     console.log(`  Address: ${validated.fixed_address || 'NOT FOUND'}`);
     console.log(`  Location Type: ${validated.location_type}`);
     console.log(`  Category: ${validated.main_category}`);
+    console.log(`  Sub-niche: ${validated.sub_niche || 'NONE'}`);
     console.log(`  Services: ${validated.services.length} found`);
     console.log(`  FAQs: ${validated.faqs.length} found`);
     console.log(`  Trading Hours Timezone: ${validated.trading_hours.timezone || 'NOT FOUND'}`);

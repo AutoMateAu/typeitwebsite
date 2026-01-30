@@ -36,6 +36,7 @@ function transformToExternalPayload(request: SubmitRequest): ExternalAPIPayload 
       business_description: businessData.business_description,
       industry: mapToIndustry(businessData.main_category),
       main_category: businessData.main_category,
+      sub_niche: businessData.sub_niche,
       service_types: businessData.service_types,
       year_founded: businessData.year_founded,
       socials: businessData.socials,

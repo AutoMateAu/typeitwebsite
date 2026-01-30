@@ -75,29 +75,10 @@ export const PolicySchema = z.object({
 
 // Main category options (maps to industry in external API)
 export const MainCategoryEnum = z.enum([
-  'Artificial Intelligence Or Machine Learning Companies',
-  'Technology & Software',
-  'Professional Services',
   'Healthcare',
-  'Finance & Banking',
-  'Retail & E-commerce',
-  'Education & Training',
-  'Real Estate',
-  'Manufacturing',
-  'Hospitality & Tourism',
-  'Marketing & Advertising',
-  'Legal Services',
-  'Consulting',
-  'Construction',
-  'Automotive Repair & Maintenance',
-  'Food & Beverage',
-  'Beauty & Personal Care',
-  'Home Services',
-  'Transportation & Logistics',
-  'Entertainment & Recreation',
   'Trades & Services',
-  'Veterinary',
-  'Other',
+  'Financial Services',
+  'General (Lead Capture)',
 ]);
 
 // Location type enum
@@ -125,6 +106,7 @@ export const BusinessExtractionSchema = z.object({
   // Business details
   business_description: z.string().nullable(),
   main_category: MainCategoryEnum,
+  sub_niche: z.string().nullable(), // e.g. "physiotherapy", "plumbing", "financial_planning"
   service_types: z.array(z.string()).nullable(), // Tags or subcategories
   year_founded: z.number().nullable(),
 

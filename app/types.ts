@@ -32,20 +32,17 @@ export interface SubmitResponse {
 
 // Industry mapping for external API
 export const INDUSTRY_MAP: Record<string, string> = {
-  'Trades & Services': 'trades',
-  'Home Services': 'trades',
-  'Construction': 'trades',
   'Healthcare': 'healthcare',
-  'Automotive Repair & Maintenance': 'automotive',
-  'Veterinary': 'veterinary',
-  // All others map to 'generic'
+  'Trades & Services': 'trades',
+  'Financial Services': 'financial_services',
+  'General (Lead Capture)': 'general',
 };
 
 /**
  * Map main_category to industry code for external API
  */
 export function mapToIndustry(mainCategory: string): string {
-  return INDUSTRY_MAP[mainCategory] || 'generic';
+  return INDUSTRY_MAP[mainCategory] || 'general';
 }
 
 // External API payload structure (what we send to askentry.com)
@@ -65,6 +62,7 @@ export interface ExternalAPIPayload {
     business_description: string | null;
     industry: string; // Mapped from main_category
     main_category: string;
+    sub_niche: string | null;
     service_types: string[] | null;
     year_founded: number | null;
     socials: {
