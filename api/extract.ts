@@ -36,6 +36,8 @@ function normalizeUrl(input: string): string | null {
   }
 }
 
+export const maxDuration = 90;
+
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse
