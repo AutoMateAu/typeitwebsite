@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist for Medical Practices in Australia | Entry</title>
+    <meta name="description" content="Discover how AI receptionists help Australian medical practices answer every call, reduce no-shows, and save $40K+ per year. Guide for GPs, dentists & allied health.">
+    <link rel="icon" type="image/png" href="/notextlogo.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: #fff;
+        }
+
+        header {
+            height: 56px;
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding-top: 6px;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #42526e;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0052cc;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-actions .sign-in {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0052cc;
+            text-decoration: none;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .sign-in:hover {
+            color: #0747a6;
+            background: rgba(0, 82, 204, 0.05);
+        }
+
+        .nav-actions .download-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            background: #0052cc;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .download-btn:hover {
+            background: #0747a6;
+        }
+
+        /* Article Hero */
+        .article-hero {
+            padding: 120px 80px 40px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .article-category {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #c0392b;
+        }
+
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .article-meta-divider {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        .article-hero h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .article-hero .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 80px 80px;
+        }
+
+        .article-content h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f0f0f;
+            margin: 56px 0 20px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .article-content h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 40px 0 14px;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .article-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .article-content ul, .article-content ol {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .article-content a {
+            color: #0052cc;
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid #c0392b;
+            padding-left: 20px;
+            margin: 28px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .article-content hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 48px 0;
+        }
+
+        .article-cta {
+            background: #f5f5f0;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .article-cta p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .article-cta a {
+            font-weight: 600;
+            color: #0052cc;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0052cc;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: 30px 80px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #1e293b;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #42526e;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .sign-in {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .article-hero {
+                padding: 100px 20px 32px;
+            }
+            .article-hero h1 {
+                font-size: 32px;
+            }
+            .article-content {
+                padding: 0 20px 40px;
+            }
+            .article-content h2 {
+                font-size: 24px;
+            }
+            .site-footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                padding: 80px 16px 24px;
+            }
+            .article-hero h1 {
+                font-size: 28px;
+            }
+            .article-content {
+                padding: 0 16px 32px;
+            }
+            .article-content p,
+            .article-content ul,
+            .article-content ol {
+                font-size: 16px;
+            }
+            .site-footer {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="nav-logo">
+            <img src="/Entry1.png" alt="Entry">
+        </a>
+        <nav class="nav-links">
+            <a href="/features">Platform</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/blog" class="active">Blog</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="https://app.askentry.com" class="sign-in">Sign In</a>
+            <a href="/onboarding" class="download-btn">Get Started</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
+    </header>
+
+    <article class="article-hero">
+        <a href="/blog" class="back-to-blog">&larr; Back to Blog</a>
+        <div class="article-meta">
+            <span class="article-category">Knowledge</span>
+            <span class="article-meta-divider"></span>
+            <span class="article-date">Feb 6, 2026</span>
+        </div>
+        <h1>AI Receptionist for Medical Practices in Australia: The Complete 2026 Guide</h1>
+        <p class="subtitle">Discover how AI receptionists help Australian medical practices answer every call, reduce no-shows, and save $40K+ per year.</p>
+    </article>
+
+    <div class="article-content">
+        <img src="/blog/ai-receptionist-medical-practice-australia.png" alt="Future of Health — AI in Australian Medical Practices" style="width:100%;border-radius:16px;margin-bottom:40px;">
+
+        <p>If you run a medical practice in Australia, you already know the front desk is where everything either runs smoothly or falls apart. Phones ringing non-stop, patients arriving for check-ins, scripts to process, referrals to chase — and somehow your receptionist is supposed to handle all of it at once.</p>
+
+        <p>Now layer on the reality that finding good reception staff has never been harder. Starting salaries for medical receptionists in capital cities have climbed as high as $80,000, turnover sits at around six months on average, and 80% of healthcare roles across the country are in some stage of shortage.</p>
+
+        <p>This is why a growing number of Australian GPs, dentists, physiotherapists, and allied health practitioners are turning to <a href="/features">AI receptionists</a> — intelligent phone systems that answer calls, book appointments, and handle patient enquiries around the clock.</p>
+
+        <h2>What Is an AI Receptionist for Medical Practices?</h2>
+
+        <p>An <a href="/features">AI receptionist</a> is a voice-based system powered by artificial intelligence that answers your practice phone line, understands what the caller needs, and takes action — whether that's booking an appointment, answering a question about your services, or sending a follow-up SMS with your clinic's address.</p>
+
+        <p>This isn't the old-school phone tree where callers press 1 for this and 2 for that. Modern AI receptionists use natural language processing to hold genuine conversations. A patient can say "I need to see Dr. Patel sometime next week, preferably in the morning" and the system checks availability and books them in.</p>
+
+        <p>Here's what a well-built AI receptionist handles for a medical practice:</p>
+
+        <ul>
+            <li><strong>Answering inbound calls 24/7</strong>, including after hours, weekends, and public holidays</li>
+            <li><strong>Booking, rescheduling, and cancelling appointments</strong> directly into your practice management software</li>
+            <li><strong>Answering common patient questions</strong> — opening hours, services, fees, location, parking</li>
+            <li><strong>Recognising returning patients</strong> and greeting them by name</li>
+            <li><strong>Sending SMS follow-ups</strong> with booking confirmations, directions, or intake forms</li>
+            <li><strong>Screening and triaging calls</strong> — flagging urgent matters for immediate human follow-up</li>
+            <li><strong>Capturing new patient details</strong> and feeding them into your CRM or PMS</li>
+            <li><strong>Providing call summaries and transcripts</strong> so nothing gets lost</li>
+        </ul>
+
+        <p>What it doesn't do is replace clinical judgement. A good AI receptionist handles the administrative layer so your human team can focus on patient care.</p>
+
+        <h2>Why Australian Medical Practices Need This Now</h2>
+
+        <h3>The staffing crisis isn't easing</h3>
+
+        <p>Australia is projected to face a shortage of over 100,000 nurses by 2025, and the squeeze extends across every healthcare role — including reception. Rural and regional practices feel this hardest, with up to 50% fewer healthcare professionals per capita than metro areas.</p>
+
+        <p>Finding a competent medical receptionist who understands Medicare billing, appointment triage, and patient communication is genuinely difficult. And when the average tenure is six months, you're stuck in a perpetual cycle of recruiting and training.</p>
+
+        <p>An AI receptionist won't solve your clinical staffing needs, but it takes enough pressure off your front desk that your human team can breathe — and stay.</p>
+
+        <h3>Missed calls are costing you more than you think</h3>
+
+        <p>80% of callers won't leave a voicemail. They'll hang up and call the next clinic.</p>
+
+        <p>No-show rates in outpatient settings typically range from 23% to 33%. Each missed appointment represents roughly $200 in lost revenue. For an independent practice, that can translate to $150,000 or more per year. And patients who miss one appointment are 70% more likely not to return within 18 months.</p>
+
+        <p>An AI receptionist <a href="/features">answers every call</a> (so enquiries never hit voicemail), books appointments immediately (reducing the gap between interest and commitment), and sends automated reminders that can cut no-show rates by up to 70%.</p>
+
+        <h3>Patient expectations have shifted</h3>
+
+        <p>Patients expect to book appointments at 9pm on a Sunday or call during lunch without sitting on hold. If your phones are only answered 8:30am to 5pm Monday to Friday, you're losing patients to practices that offer more flexibility. <a href="/features">See how Entry handles after-hours calls</a>.</p>
+
+        <h2>What to Look for (Australian Medical Edition)</h2>
+
+        <p>Most AI receptionist platforms are US-based and built around HIPAA compliance. That's not enough for an Australian practice. Here's what actually matters.</p>
+
+        <h3>Australian Privacy Act compliance</h3>
+
+        <p>The moment someone calls to book an appointment, you're handling patient information under the Australian Privacy Principles (APPs) within the Privacy Act 1988. Look for a provider that can tell you where your data is hosted (ideally Australia), how it's encrypted, and how it complies with the APPs — not just HIPAA.</p>
+
+        <h3>Integration with Australian practice management software</h3>
+
+        <p>Your AI receptionist needs to plug into what you already use:</p>
+
+        <ul>
+            <li><strong>Best Practice</strong> and <strong>Medical Director</strong> — dominant PMS platforms for GP clinics</li>
+            <li><strong>Cliniko</strong>, <strong>Nookal</strong>, and <strong>Halaxy</strong> — widely used across physio, chiro, psychology, and allied health</li>
+            <li><strong>HotDoc</strong> and <strong>HealthEngine</strong> — the major patient booking platforms</li>
+            <li><strong>Google Calendar</strong> and <strong>Outlook</strong> — for simpler setups</li>
+        </ul>
+
+        <p>If it can't integrate with your calendar and PMS, you'll just create manual data entry for your staff — defeating the purpose.</p>
+
+        <h3>Australian voice and tone</h3>
+
+        <p>If your patients are calling a GP clinic in Parramatta and the AI sounds like it's operating out of Texas, trust drops immediately. Look for natural-sounding Australian voices that match your practice tone.</p>
+
+        <h3>Medicare and billing query handling</h3>
+
+        <p>Patients constantly call about bulk billing, gap fees, and referrals. Your AI must handle these accurately or know when to escalate. A system that fumbles "do you bulk bill?" will erode trust fast.</p>
+
+        <h3>Urgent call escalation</h3>
+
+        <p>A patient calling about chest pain or a child's allergic reaction must be escalated to a human immediately. Your AI receptionist needs to detect urgency through keywords or caller tone and route those calls appropriately. This isn't optional in a medical setting.</p>
+
+        <h2>The Cost Comparison</h2>
+
+        <p>Real Australian numbers:</p>
+
+        <h3>Hiring a medical receptionist:</h3>
+
+        <ul>
+            <li>Base salary: $48,000–$60,000/year (plus 11.5% super)</li>
+            <li>Total cost: ~$54,000–$67,000/year (up to $80K+ in capital cities)</li>
+            <li>Add recruitment costs, training time, sick leave, annual leave</li>
+            <li>Can only answer one call at a time, during business hours</li>
+        </ul>
+
+        <h3>AI receptionist platform:</h3>
+
+        <ul>
+            <li>Typically $100–$500/month ($1,200–$6,000/year) — <a href="/pricing">see Entry's pricing</a></li>
+            <li>Answers unlimited simultaneous calls, 24/7/365</li>
+            <li>No sick days, no turnover, no training lag</li>
+        </ul>
+
+        <p>Most practices don't replace their front desk entirely. They use AI to handle overflow, after-hours calls, and routine enquiries — freeing their human receptionist for in-person care and complex admin. The savings come from not needing that second or third hire, and from capturing revenue that otherwise walks out the door via missed calls and no-shows. For larger practices, <a href="/enterprise">Entry's enterprise plan</a> offers dedicated support and custom integrations.</p>
+
+        <h2>Common Concerns</h2>
+
+        <h3>"My older patients won't want to talk to a robot."</h3>
+
+        <p>Research actually shows positive responses from older patients when the voice sounds natural and warm. Most don't mind — and many prefer it to holding for ten minutes.</p>
+
+        <h3>"What about patient data and privacy?"</h3>
+
+        <p>Legitimate concern. Choose a provider that stores data in Australia, encrypts everything in transit and at rest, and demonstrates compliance with the Australian Privacy Principles in writing.</p>
+
+        <h3>"We tried automated phone systems before and patients hated it."</h3>
+
+        <p>Old IVR phone trees are nothing like modern conversational AI. Today's systems hold natural dialogue, understand context, and adapt to what the caller says. It's the difference between a vending machine and a conversation. <a href="/features">Listen to a sample call</a> to hear the difference.</p>
+
+        <h3>"Will it integrate with our systems?"</h3>
+
+        <p>Varies by provider. The best platforms integrate directly with major Australian PMS and booking systems. Always confirm before committing.</p>
+
+        <h2>Getting Started</h2>
+
+        <ol>
+            <li><strong>Audit your missed calls.</strong> Most phone systems can show you this data. Knowing how many calls you're missing (and when) reveals the opportunity.</li>
+            <li><strong>Identify must-have integrations.</strong> What PMS, calendar, and booking platform do you use? These are your non-negotiables.</li>
+            <li><strong>Start with after-hours calls.</strong> It's low risk and immediately captures revenue you're currently losing. <a href="/onboarding">Get set up in minutes</a>.</li>
+            <li><strong>Provide thorough training data.</strong> The more you tell the AI about your practice — services, fees, practitioners, FAQs, booking rules — the better it performs from day one.</li>
+            <li><strong>Review and refine.</strong> Listen to call recordings in the first few weeks and update the AI's knowledge base where needed.</li>
+        </ol>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Australian medical practices are under more pressure than ever — staffing shortages, rising costs, demanding patient expectations, and tight margins. An AI receptionist addresses the front desk bottleneck that sits at the centre of most of those problems.</p>
+
+        <p>Every call answered is a patient retained. Every appointment booked immediately is a no-show avoided. Every after-hours enquiry captured is revenue that would have gone to the clinic down the road.</p>
+
+        <p>The technology is mature, the cost is a fraction of an additional hire, and Australian-specific solutions now exist that understand Medicare, the Privacy Act, and the software your practice already runs on.</p>
+
+        <p>The question isn't whether AI receptionists will become standard in Australian healthcare. The question is whether your practice will be early or late. <a href="/onboarding"><strong>Try Entry free today</strong></a>.</p>
+
+        <hr>
+
+        <div class="article-cta">
+            <p>Entry is an AI receptionist platform built for Australian businesses including medical practices, dental clinics, and allied health providers.</p>
+            <p><a href="/onboarding">Try Entry free</a> or <a href="/features">listen to our AI in action</a>.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3341FF" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            Entry
+        </div>
+        <div class="footer-copyright">
+            &copy; 2026 Entry. All rights reserved.<br>
+            Privacy Policy · Terms of Service
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
