@@ -16,6 +16,7 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     min-height: 100vh;
     transition: opacity 0.2s ease-out;
+    overflow-x: hidden;
 }
 
 body.fade-out {
@@ -1558,11 +1559,7 @@ main {
 .carousel-track {
     display: flex;
     gap: 24px;
-    animation: scroll 35s linear infinite;
-}
-
-.carousel-track.reverse {
-    animation: scroll-reverse 35s linear infinite;
+    animation: scroll 25s linear infinite;
 }
 
 .carousel-track:hover {
@@ -1575,15 +1572,6 @@ main {
     }
     100% {
         transform: translateX(-50%);
-    }
-}
-
-@keyframes scroll-reverse {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0);
     }
 }
 
@@ -2065,9 +2053,10 @@ body:has(.launch-banner) .never-lose-sticky {
 }
 
 .feature-cards-container .feature-card img {
-    max-width: calc(100% - 40px);
-    max-height: calc(100% - 40px);
-    object-fit: contain;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+    object-fit: cover;
+    object-position: top center;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
