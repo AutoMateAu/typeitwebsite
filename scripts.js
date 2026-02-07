@@ -375,3 +375,25 @@ document.querySelectorAll('a[href="/onboarding"]').forEach(link => {
         }
     });
 })();
+
+// ==========================================================================
+// 10. Tool Logo Carousel - cycles through integration logos
+// ==========================================================================
+
+(function() {
+    const items = document.querySelectorAll('.tool-carousel-item');
+    if (!items.length) return;
+
+    let current = 0;
+
+    setInterval(function() {
+        var next = (current + 1) % items.length;
+        items[current].classList.remove('active');
+        items[current].classList.add('exiting');
+        setTimeout(function() {
+            items[current === 0 ? items.length - 1 : current - 1].classList.remove('exiting');
+        }, 400);
+        items[next].classList.add('active');
+        current = next;
+    }, 2000);
+})();

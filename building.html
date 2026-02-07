@@ -48,7 +48,7 @@
             right: 0;
             bottom: 0;
             z-index: -3;
-            background: #fff;
+            background: linear-gradient(180deg, #dbeafe 0%, #f0f4ff 50%, #ffffff 100%);
             overflow: hidden;
         }
 
@@ -57,11 +57,10 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 50%;
+            bottom: 0;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
         }
 
         .gradient-bg canvas {
@@ -125,11 +124,10 @@
 
         .card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow:
-                0 2px 4px rgba(0, 0, 0, 0.05),
-                0 4px 8px rgba(0, 0, 0, 0.05),
-                0 8px 16px rgba(0, 0, 0, 0.05);
+                0 4px 6px rgba(0, 0, 0, 0.04),
+                0 10px 24px rgba(0, 0, 0, 0.08);
             width: 100%;
             max-width: 480px;
             overflow: hidden;
