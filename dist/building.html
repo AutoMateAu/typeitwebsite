@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Building Your AI Assistant - Entry</title>
+    <link rel="icon" type="image/png" href="/assets/notextlogo-D3fsBOt2.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-D7Wv6BLz.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,25 +48,19 @@
             right: 0;
             bottom: 0;
             z-index: -3;
-            background: #fff;
+            background: linear-gradient(180deg, #dbeafe 0%, #f0f4ff 50%, #ffffff 100%);
             overflow: hidden;
         }
 
         .gradient-bg {
             position: fixed;
-            top: -30%;
-            left: -10%;
-            right: -10%;
-            height: 65%;
-            transform: skewY(-5deg) translateZ(0);
-            transform-origin: top right;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
         }
 
         .gradient-bg canvas {
@@ -77,26 +73,6 @@
             height: 100%;
         }
 
-        /* Vertical border lines */
-        .vertical-line {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
-        }
-
-        .vertical-line-right {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
-        }
 
         .header-section {
             display: flex;
@@ -148,11 +124,10 @@
 
         .card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow:
-                0 2px 4px rgba(0, 0, 0, 0.05),
-                0 4px 8px rgba(0, 0, 0, 0.05),
-                0 8px 16px rgba(0, 0, 0, 0.05);
+                0 4px 6px rgba(0, 0, 0, 0.04),
+                0 10px 24px rgba(0, 0, 0, 0.08);
             width: 100%;
             max-width: 480px;
             overflow: hidden;
@@ -415,6 +390,18 @@
             color: #5e6977;
         }
 
+        @media (max-width: 768px) {
+            .footer {
+                left: 20px !important;
+            }
+            .card {
+                max-width: 100%;
+            }
+            .card-body {
+                padding: 24px;
+            }
+        }
+
         @media (max-width: 480px) {
             body {
                 padding: 20px;
@@ -448,12 +435,10 @@
         }
     </style>
   <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/assets/main-BlgYNAz1.js"></script>
+  <script type="module" crossorigin src="/assets/main-BiKacKto.js"></script>
 </head>
 <body>
     <div class="background-container"></div>
-    <div class="vertical-line"></div>
-    <div class="vertical-line-right"></div>
     <div id="gradient-root" class="gradient-bg"></div>
 
     <div class="header-section">
@@ -520,7 +505,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
-                This usually takes less than 20 seconds
+                This usually takes under a minute
             </div>
         </div>
     </div>
@@ -531,12 +516,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
             Back
-        </button>
-        <button class="next-btn" id="nextBtn" disabled>
-            Next
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
         </button>
     </div>
 
@@ -552,75 +531,172 @@
         </svg>`;
 
         const steps = [
-            { id: 'step1', dots: 'dots1', duration: 2000 },
-            { id: 'step2', dots: 'dots2', duration: 3000 },
-            { id: 'step3', dots: 'dots3', duration: 2500 },
-            { id: 'step4', dots: 'dots4', duration: 2000 }
+            { id: 'step1', dots: 'dots1' },
+            { id: 'step2', dots: 'dots2' },
+            { id: 'step3', dots: 'dots3' },
+            { id: 'step4', dots: 'dots4' }
         ];
 
         const progressBar = document.getElementById('progressBar');
-        let currentStep = 0;
+        let currentStepIndex = 0;
+        let extractionComplete = false;
+        let extractedData = null;
+        let extractionError = null;
 
         function activateStep(index) {
             const step = steps[index];
             const stepEl = document.getElementById(step.id);
             const dotsEl = document.getElementById(step.dots);
 
-            // Remove pending, add active
             stepEl.classList.remove('pending');
             stepEl.classList.add('active');
 
-            // Show loading dots with smooth transition
             setTimeout(() => {
                 dotsEl.classList.add('visible');
             }, 100);
 
-            // Update progress bar
             progressBar.style.width = ((index + 0.5) / steps.length * 100) + '%';
         }
 
         function completeStep(index) {
-            const step = steps[index];
-            const stepEl = document.getElementById(step.id);
-            const dotsEl = document.getElementById(step.dots);
+            return new Promise(resolve => {
+                const step = steps[index];
+                const stepEl = document.getElementById(step.id);
+                const dotsEl = document.getElementById(step.dots);
 
-            // Hide loading dots first with smooth transition
-            dotsEl.classList.remove('visible');
+                dotsEl.classList.remove('visible');
 
-            // Wait for dots to fade out, then complete the step
-            setTimeout(() => {
-                // Remove active, add completed
-                stepEl.classList.remove('active');
-                stepEl.classList.add('completed');
-
-                // Replace icon with animated checkmark
-                stepEl.querySelector('.step-icon').innerHTML = checkmarkSVG;
-
-                // Update progress bar
-                progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
-            }, 200);
+                setTimeout(() => {
+                    stepEl.classList.remove('active');
+                    stepEl.classList.add('completed');
+                    stepEl.querySelector('.step-icon').innerHTML = checkmarkSVG;
+                    progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
+                    resolve();
+                }, 200);
+            });
         }
 
-        function runSteps() {
-            if (currentStep >= steps.length) {
-                // All done - enable the next button
-                const nextBtn = document.getElementById('nextBtn');
-                nextBtn.disabled = false;
-                nextBtn.onclick = () => window.location.href = 'demo.html';
+        function showError(message) {
+            const card = document.querySelector('.card-body');
+            card.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 48px; height: 48px; color: #ef4444; margin-bottom: 16px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                    </svg>
+                    <h3 style="font-size: 18px; font-weight: 600; color: #1f2937; margin-bottom: 8px;">Something went wrong</h3>
+                    <p style="font-size: 14px; color: #6b7280; margin-bottom: 20px;">${message}</p>
+                    <button onclick="retryExtraction()" style="padding: 10px 24px; background: #2563eb; color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; margin-right: 8px;">Try Again</button>
+                    <button onclick="window.location.href='/onboarding'" style="padding: 10px 24px; background: white; color: #374151; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Change URL</button>
+                </div>
+            `;
+        }
+
+        async function runExtraction() {
+            const url = sessionStorage.getItem('onboarding_url');
+
+            if (!url) {
+                window.location.href = '/onboarding';
                 return;
             }
 
-            activateStep(currentStep);
+            // Start visual animation
+            activateStep(0);
 
-            setTimeout(() => {
-                completeStep(currentStep);
-                currentStep++;
-                setTimeout(() => runSteps(), 400);
-            }, steps[currentStep].duration);
+            try {
+                const response = await fetch('/api/extract', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url })
+                });
+
+                const result = await response.json();
+
+                if (!result.success) {
+                    extractionError = result.error || 'Failed to extract data';
+                    showError(extractionError);
+                    return;
+                }
+
+                extractedData = result.data;
+                extractionComplete = true;
+
+                sessionStorage.setItem('extracted_data', JSON.stringify(extractedData));
+
+            } catch (error) {
+                console.error('Extraction error:', error);
+                extractionError = 'Network error. Please check your connection and try again.';
+                showError(extractionError);
+            }
         }
 
-        // Start the animation
-        setTimeout(runSteps, 700);
+        function retryExtraction() {
+            window.location.reload();
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        // Wait for extraction to finish (resolves immediately if already done)
+        function waitForExtraction() {
+            return new Promise((resolve, reject) => {
+                if (extractionComplete) return resolve();
+                if (extractionError) return reject();
+                const check = setInterval(() => {
+                    if (extractionComplete) { clearInterval(check); resolve(); }
+                    else if (extractionError) { clearInterval(check); reject(); }
+                }, 200);
+            });
+        }
+
+        async function animateSteps() {
+            const lastIndex = steps.length - 1;
+
+            // Animate steps 1 through 3 on fixed timers
+            for (let i = 0; i < lastIndex; i++) {
+                if (extractionError) return;
+
+                if (i > 0) {
+                    await completeStep(i - 1);
+                    await sleep(400);
+                }
+
+                if (extractionError) return;
+                activateStep(i);
+
+                // If extraction already done, speed through remaining steps
+                await sleep(extractionComplete ? 300 : 2500);
+            }
+
+            if (extractionError) return;
+
+            // Complete step 3 and activate step 4 (the last step)
+            await completeStep(lastIndex - 1);
+            await sleep(400);
+            if (extractionError) return;
+            activateStep(lastIndex);
+
+            // Hold step 4 active until scraper finishes
+            try {
+                await waitForExtraction();
+            } catch {
+                return; // error already shown
+            }
+
+            // Scraper done — give a brief pause so it doesn't feel instant
+            await sleep(400);
+
+            // Complete the final step
+            await completeStep(lastIndex);
+            await sleep(600);
+
+            // Auto-navigate to next page
+            window.location.href = '/details';
+        }
+
+        // Start extraction and animation
+        runExtraction();
+        setTimeout(animateSteps, 700);
     </script>
 </body>
 </html>

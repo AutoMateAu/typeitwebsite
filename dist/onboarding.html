@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Started - Entry</title>
+    <link rel="icon" type="image/png" href="/assets/notextlogo-D3fsBOt2.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-D7Wv6BLz.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         * {
@@ -21,8 +23,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding-top: 60px;
+            justify-content: center;
+            padding: 40px 20px;
             position: relative;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -39,7 +41,7 @@
             }
         }
 
-        /* Stripe-style diagonal background */
+        /* WebGL gradient background with dithering */
         .background-container {
             position: fixed;
             top: 0;
@@ -47,56 +49,37 @@
             right: 0;
             bottom: 0;
             z-index: -3;
-            background: #fff;
             overflow: hidden;
         }
 
-        .gradient-bg {
-            position: fixed;
-            top: -30%;
-            left: -10%;
-            right: -10%;
-            height: 65%;
-            transform: skewY(-5deg) translateZ(0);
-            transform-origin: top right;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-        }
-
-        .gradient-bg canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
-
-        .gradient-container {
+        .background-container canvas {
             width: 100%;
             height: 100%;
         }
 
-        /* Vertical border lines */
-        .vertical-line {
+        /* Top logo */
+        .top-logo {
             position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
+            top: 16px;
+            left: 72px;
+            z-index: 10;
         }
 
-        .vertical-line-right {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 110px;
-            width: 1px;
-            background: #e0e0e0;
-            z-index: -2;
+        .top-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0 20px;
         }
 
         .header-section {
@@ -137,17 +120,16 @@
         .page-title {
             font-size: 32px;
             font-weight: 700;
-            color: #fff;
+            color: #1e293b;
             margin-top: 16px;
             margin-bottom: 12px;
             text-align: center;
             letter-spacing: -0.3px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .page-subtitle {
             font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
+            color: #64748b;
             text-align: center;
             margin-bottom: 16px;
         }
@@ -160,12 +142,12 @@
                 0 4px 8px rgba(0, 0, 0, 0.05),
                 0 8px 16px rgba(0, 0, 0, 0.05);
             width: 100%;
-            max-width: 400px;
+            max-width: 460px;
             overflow: hidden;
         }
 
         .card-body {
-            padding: 40px;
+            padding: 60px 48px 80px;
         }
 
         .form-group {
@@ -205,25 +187,25 @@
         }
 
         .input-header-text h3 {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             color: #30313d;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .input-header-text p {
-            font-size: 13px;
+            font-size: 15px;
             color: #6b7280;
             line-height: 1.4;
         }
 
         .form-group input {
             width: 100%;
-            height: 44px;
+            height: 50px;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
-            padding: 0 12px;
-            font-size: 14px;
+            padding: 0 16px;
+            font-size: 16px;
             font-family: inherit;
             color: #30313d;
             background: #fff;
@@ -242,12 +224,12 @@
 
         .enter-btn {
             width: 100%;
-            height: 44px;
+            height: 50px;
             background: #2563eb;
             border: none;
             border-radius: 6px;
             color: #fff;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             font-family: inherit;
             cursor: pointer;
@@ -257,62 +239,6 @@
 
         .enter-btn:hover {
             background: #1d4ed8;
-        }
-
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin: 6px 0;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e6e6e6;
-        }
-
-        .divider span {
-            font-size: 12px;
-            font-weight: 500;
-            color: #8898aa;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .alt-btn {
-            width: 100%;
-            height: 44px;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            color: #30313d;
-            font-size: 14px;
-            font-weight: 500;
-            font-family: inherit;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.15s ease;
-            margin-bottom: 12px;
-        }
-
-        .alt-btn:last-child {
-            margin-bottom: 0;
-        }
-
-        .alt-btn:hover {
-            background: #f7f8fa;
-        }
-
-        .alt-btn svg {
-            width: 18px;
-            height: 18px;
-            color: #6b7280;
         }
 
         /* Footer */
@@ -339,10 +265,23 @@
             color: #5e6977;
         }
 
+        @media (max-width: 768px) {
+            .top-logo {
+                left: 20px;
+            }
+            .footer {
+                left: 20px !important;
+            }
+            body {
+                padding: 30px 20px;
+            }
+        }
+
         @media (max-width: 480px) {
             body {
                 padding: 20px;
-                padding-top: 40px;
+                justify-content: flex-start;
+                padding-top: 60px;
             }
 
             .card-body {
@@ -359,19 +298,16 @@
             }
         }
     </style>
-  <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/assets/main-BlgYNAz1.js"></script>
 </head>
 <body>
     <div class="background-container"></div>
-    <div class="vertical-line"></div>
-    <div class="vertical-line-right"></div>
-    <div id="gradient-root" class="gradient-bg"></div>
 
+    <a href="/" class="top-logo">
+        <img src="/assets/Entry1-DBZQppMB.png" alt="Entry">
+    </a>
+
+    <div class="content-wrapper">
     <div class="header-section">
-        <div class="logo">
-            <img src="/assets/entry-white-text-tIRDzrdR.png" alt="Entry" class="logo-img">
-        </div>
         <h1 class="page-title">Let's get started</h1>
         <p class="page-subtitle">Set up your AI receptionist in minutes</p>
     </div>
@@ -388,31 +324,12 @@
                 <input type="url" placeholder="" id="websiteInput">
             </div>
 
-            <button class="enter-btn" type="button" onclick="window.location.href='building.html'">
+            <button class="enter-btn" type="button" id="enterBtn">
                 Enter
             </button>
 
-            <div class="divider">
-                <span>or</span>
-            </div>
-
-            <button class="alt-btn" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                </svg>
-                Use Google Business Profile
-            </button>
-
-            <button class="alt-btn" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                </svg>
-                Enter Details Manually
-            </button>
         </div>
+    </div>
     </div>
 
     <div class="footer">
@@ -421,6 +338,128 @@
     </div>
 
     <script>
+        // WebGL Gradient Background with Dithering
+        (function() {
+            const canvas = document.createElement('canvas');
+            const container = document.querySelector('.background-container');
+            container.appendChild(canvas);
+
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (!gl) {
+                container.style.background = 'radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.15), transparent), #fafafa';
+                return;
+            }
+
+            const vertexShaderSource = `
+                attribute vec2 a_position;
+                varying vec2 v_uv;
+                void main() {
+                    v_uv = a_position * 0.5 + 0.5;
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                }
+            `;
+
+            const fragmentShaderSource = `
+                precision highp float;
+                varying vec2 v_uv;
+                uniform vec2 u_resolution;
+
+                float random(vec2 st) {
+                    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+                }
+
+                float ellipse(vec2 uv, vec2 center, vec2 radius) {
+                    vec2 d = (uv - center) / radius;
+                    return 1.0 - smoothstep(0.0, 1.0, length(d));
+                }
+
+                void main() {
+                    vec2 uv = v_uv;
+                    vec3 baseColor = vec3(0.98, 0.98, 0.98);
+                    vec3 blue1 = vec3(0.231, 0.510, 0.965);
+                    vec3 blue2 = vec3(0.314, 0.588, 1.0);
+                    vec3 blue3 = vec3(0.388, 0.627, 1.0);
+
+                    float gradient = 0.0;
+                    gradient += ellipse(uv, vec2(0.08, 0.5), vec2(0.25, 0.35)) * 0.16;
+                    gradient += ellipse(uv, vec2(0.15, 0.45), vec2(0.22, 0.30)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.05, 0.55), vec2(0.18, 0.28)) * 0.10;
+                    gradient += ellipse(uv, vec2(0.50, 0.50), vec2(0.30, 0.32)) * 0.10;
+                    gradient += ellipse(uv, vec2(0.45, 0.45), vec2(0.22, 0.24)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.30, 0.50), vec2(0.32, 0.24)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.70, 0.50), vec2(0.32, 0.24)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.92, 0.5), vec2(0.25, 0.35)) * 0.16;
+                    gradient += ellipse(uv, vec2(0.85, 0.45), vec2(0.22, 0.30)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.95, 0.55), vec2(0.18, 0.28)) * 0.10;
+
+                    vec3 blueColor = mix(blue1, mix(blue2, blue3, uv.x), uv.y * 0.5 + 0.25);
+                    vec3 color = mix(baseColor, blueColor, gradient);
+
+                    float noise = random(gl_FragCoord.xy) / 255.0;
+                    color += noise - 0.5 / 255.0;
+
+                    gl_FragColor = vec4(color, 1.0);
+                }
+            `;
+
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    gl.deleteShader(shader);
+                    return null;
+                }
+                return shader;
+            }
+
+            function createProgram(gl, vertexShader, fragmentShader) {
+                const program = gl.createProgram();
+                gl.attachShader(program, vertexShader);
+                gl.attachShader(program, fragmentShader);
+                gl.linkProgram(program);
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    gl.deleteProgram(program);
+                    return null;
+                }
+                return program;
+            }
+
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+            const program = createProgram(gl, vertexShader, fragmentShader);
+
+            const positionLocation = gl.getAttribLocation(program, 'a_position');
+            const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                -1, -1,  1, -1,  -1, 1,
+                -1,  1,  1, -1,   1, 1
+            ]), gl.STATIC_DRAW);
+
+            function render() {
+                const dpr = window.devicePixelRatio || 1;
+                const width = canvas.clientWidth * dpr;
+                const height = canvas.clientHeight * dpr;
+                if (canvas.width !== width || canvas.height !== height) {
+                    canvas.width = width;
+                    canvas.height = height;
+                    gl.viewport(0, 0, width, height);
+                }
+                gl.useProgram(program);
+                gl.uniform2f(resolutionLocation, width, height);
+                gl.enableVertexAttribArray(positionLocation);
+                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
+
+            render();
+            window.addEventListener('resize', render);
+        })();
+
         lucide.createIcons();
 
         // Typing animation for input placeholder
@@ -488,6 +527,70 @@
             if (input.value === '') {
                 isUserTyping = false;
                 typeAnimation();
+            }
+        });
+
+        // URL validation and navigation
+        function normalizeUrl(input) {
+            let url = input.trim();
+            // Add protocol if missing
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+            try {
+                const parsed = new URL(url);
+                if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+                    return null;
+                }
+                return parsed.toString();
+            } catch {
+                return null;
+            }
+        }
+
+        function showError(message) {
+            // Remove existing error if any
+            const existingError = document.querySelector('.url-error');
+            if (existingError) existingError.remove();
+
+            const error = document.createElement('div');
+            error.className = 'url-error';
+            error.style.cssText = 'color: #ef4444; font-size: 13px; margin-top: 8px; text-align: center;';
+            error.textContent = message;
+            input.parentElement.appendChild(error);
+
+            input.style.borderColor = '#ef4444';
+            setTimeout(() => {
+                input.style.borderColor = '';
+                error.remove();
+            }, 3000);
+        }
+
+        document.getElementById('enterBtn').addEventListener('click', () => {
+            const urlValue = input.value.trim();
+
+            if (!urlValue) {
+                showError('Please enter your business website URL');
+                input.focus();
+                return;
+            }
+
+            const normalizedUrl = normalizeUrl(urlValue);
+            if (!normalizedUrl) {
+                showError('Please enter a valid website URL');
+                input.focus();
+                return;
+            }
+
+            // Store URL in sessionStorage and navigate
+            sessionStorage.setItem('onboarding_url', normalizedUrl);
+            window.location.href = '/building';
+        });
+
+        // Allow Enter key to submit
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('enterBtn').click();
             }
         });
     </script>

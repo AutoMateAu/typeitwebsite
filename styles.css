@@ -1203,16 +1203,16 @@ main {
 
 .tool-logo-carousel {
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
 .tool-carousel-item {
     position: absolute;
     top: 0;
     left: 0;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     opacity: 0;
     transform: translateY(20px);
@@ -1238,6 +1238,7 @@ main {
     padding: 40px 40px 0 !important;
     position: relative;
     overflow: hidden;
+    max-height: 420px;
 }
 
 .call-split {
@@ -1251,12 +1252,16 @@ main {
 
 .call-split-panel {
     flex: 1;
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
     padding: 24px;
+    padding-bottom: 80px;
     font-family: 'Inter', sans-serif;
-    height: 360px;
+    height: 420px;
     overflow: hidden;
     transition: opacity 0.5s ease, filter 0.5s ease;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
 }
 
 .call-split-panel.panel-dull {
@@ -1672,13 +1677,36 @@ main {
     overflow: hidden;
 }
 
-#cta-gradient-canvas {
+#cta-gradient-canvas,
+#cta-gradient-canvas-2 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
+}
+
+.cta-bottom-nav {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 48px;
+}
+
+.cta-bottom-nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.cta-bottom-nav a:hover {
+    color: #1e293b;
 }
 
 .cta-banner-inner {
@@ -2045,163 +2073,170 @@ main {
 }
 
 /* ==========================================================================
-   28. Never Lose Business Section - Scroll-driven Animation
+   28. Setup Roadmap Section
    ========================================================================== */
 
-.never-lose-section {
-    position: relative;
-    background: #fafafa;
-    min-height: 300vh;
+.setup-timeline {
+    padding: 160px 80px 180px;
+    background: #e6ecf7;
 }
 
-.never-lose-sticky {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 80px;
-    overflow: hidden;
-}
-
-/* Account for launch banner when it exists */
-body:has(.launch-banner) .never-lose-sticky {
-    top: 42px;
-    height: calc(100vh - 42px);
-}
-
-.never-lose-inner {
-    max-width: 1400px;
+.setup-timeline-inner {
+    max-width: 1000px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 50% 45%;
-    gap: 5%;
-    align-items: center;
-    width: 100%;
 }
 
-.never-lose-content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.never-lose-content h2 {
+.setup-timeline-inner h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 46px;
     font-weight: 500;
     color: #1a1a2e;
-    line-height: 1.3;
-    margin-bottom: 0;
+    text-align: center;
+    margin-bottom: 140px;
+    line-height: 1.2;
 }
 
-.never-lose-features {
+.roadmap {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 220px;
+    padding-top: 80px;
 }
 
-.never-lose-item {
-    padding: 10px 0;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding-left: 20px;
-    margin-left: -20px;
+.roadmap-start {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    background: #c0cce0;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.roadmap-line {
+    position: absolute;
+    left: 50%;
+    top: 18px;
+    height: 0;
+    width: 4px;
+    background: #c0cce0;
+    transform: translateX(-50%);
+    transition: none;
+    z-index: 1;
+}
+
+.roadmap-step {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
     position: relative;
 }
 
-.never-lose-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    background: linear-gradient(180deg, #60a5fa, #1e40af);
-    border-radius: 3px;
-    opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Steps start dim */
+.roadmap-content {
+    max-width: 380px;
+    transition: opacity 0.5s ease;
+    opacity: 0.25;
 }
 
-.never-lose-item.active::before {
-    opacity: 1;
-}
-
-.never-lose-item h3 {
+.roadmap-number {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #fff;
+    color: #b0bac8;
     font-family: 'Poppins', sans-serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: #94a3b8;
-    margin-bottom: 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.never-lose-item.active h3 {
-    color: #1a1a2e;
-    margin-bottom: 14px;
-}
-
-.never-lose-item p {
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    color: #64748b;
-    line-height: 1.6;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.never-lose-item.active p {
-    max-height: 120px;
-    opacity: 1;
-}
-
-/* Progress Indicator - Hidden */
-.scroll-progress {
-    display: none;
-}
-
-/* ==========================================================================
-   29. Feature Cards Container
-   ========================================================================== */
-
-.feature-cards-container {
-    position: relative;
-    min-height: 500px;
-    border-radius: 24px;
-    overflow: hidden;
-}
-
-.feature-cards-container .feature-card {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    border-radius: 24px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    transform: translateY(30px) scale(0.96);
-    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+    font-size: 26px;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 3;
 }
 
-.feature-cards-container .feature-card.active {
+/* Active state when line reaches the step */
+.roadmap-step.active .roadmap-content {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
 }
 
-.feature-cards-container .feature-card.exiting {
+.roadmap-step.active .roadmap-number {
+    background: #1a1a2e;
+    color: #fff;
+}
+
+.roadmap-spacer {
+    /* Empty column to balance the grid */
+}
+
+.roadmap-marker {
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roadmap-left .roadmap-content {
+    text-align: left;
+    margin-left: auto;
+}
+
+.roadmap-right .roadmap-content {
+    text-align: left;
+    margin-right: auto;
+}
+
+.roadmap-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #94a3b8;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.5s ease;
+}
+
+.roadmap-step.active .roadmap-label {
+    color: #3341ff;
+}
+
+.roadmap-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.roadmap-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.roadmap-end {
+    width: 18px;
+    height: 18px;
+    background: #c0cce0;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.roadmap-cta {
+    text-align: center;
+    margin-top: 160px;
     opacity: 0;
-    transform: translateY(-30px) scale(0.96);
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .feature-cards-container .feature-card img {
@@ -2210,6 +2245,72 @@ body:has(.launch-banner) .never-lose-sticky {
     max-height: calc(100% - 48px);
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.roadmap-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.roadmap-cta-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-weight: 600;
+    color: #1a1a2e;
+    line-height: 1.25;
+}
+
+.roadmap-cta-line {
+    display: block;
+}
+
+.roadmap-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #1a1a2e;
+    border: none;
+    border-radius: 100px;
+    padding: 14px 16px 14px 28px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    top: -8px;
+    margin-left: 14px;
+    transform: scale(0);
+    opacity: 0;
+    transition: background 0.3s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+}
+
+.roadmap-cta.visible .roadmap-pill {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
+.roadmap-pill:hover {
+    background: #2a2a42;
+}
+
+.roadmap-pill-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: #1a1a2e;
+    transition: transform 0.3s ease;
+}
+
+.roadmap-pill:hover .roadmap-pill-arrow {
+    transform: translateX(3px);
 }
 
 /* ==========================================================================
@@ -2528,69 +2629,39 @@ body:has(.launch-banner) .never-lose-sticky {
    ========================================================================== */
 
 @media (max-width: 1024px) {
-    .never-lose-section {
-        min-height: 200vh;
+    .setup-timeline {
+        padding: 100px 40px;
     }
 
-    .never-lose-sticky {
-        padding: 0 40px;
-        flex-direction: column;
-        justify-content: center;
+    .setup-timeline-inner h2 {
+        font-size: 36px;
+        margin-bottom: 100px;
     }
 
-    body:has(.launch-banner) .never-lose-sticky {
-        top: 42px;
-        height: calc(100vh - 42px);
+    .roadmap {
+        gap: 160px;
     }
 
-    .never-lose-inner {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        max-width: 700px;
-    }
-
-    .never-lose-content {
+    .roadmap-step {
         gap: 24px;
     }
 
-    .never-lose-content h2 {
-        font-size: 32px;
-        text-align: center;
+    .roadmap-content h3 {
+        font-size: 24px;
     }
 
-    .never-lose-features {
-        gap: 8px;
+    .roadmap-number {
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
     }
 
-    .never-lose-item {
-        padding: 12px 16px;
-        margin-left: 0;
-        border-left: none;
-        border-radius: 12px;
-        background: transparent;
-        transition: all 0.3s ease;
+    .roadmap-cta {
+        margin-top: 100px;
     }
 
-    .never-lose-item.active {
-        background: #fff;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border-left: none;
-    }
-
-    .never-lose-item h3 {
-        font-size: 20px;
-    }
-
-    .never-lose-item p {
-        font-size: 15px;
-    }
-
-    .feature-cards-container {
-        min-height: 350px;
-    }
-
-    .feature-cards-container .feature-card {
-        border-radius: 20px;
+    .roadmap-cta-text {
+        font-size: 52px;
     }
 
     /* Voice Showcase Grid - Tablet */
@@ -2694,68 +2765,58 @@ body:has(.launch-banner) .never-lose-sticky {
         height: 200px;
     }
 
-    .never-lose-section {
-        min-height: 180vh;
+    .setup-timeline {
+        padding: 80px 20px;
     }
 
-    .never-lose-sticky {
-        padding: 20px;
-        height: 100vh;
-        height: 100dvh; /* Use dynamic viewport height for mobile browsers */
+    .setup-timeline-inner h2 {
+        font-size: 28px;
+        margin-bottom: 64px;
     }
 
-    body:has(.launch-banner) .never-lose-sticky {
-        top: 42px;
-        height: calc(100vh - 42px);
-        height: calc(100dvh - 42px);
+    .roadmap-line {
+        left: 24px;
     }
 
-    .never-lose-inner {
+    .roadmap-step {
+        grid-template-columns: auto 1fr;
         gap: 20px;
-        align-content: center;
     }
 
-    .never-lose-content {
-        gap: 16px;
+    .roadmap-spacer {
+        display: none;
     }
 
-    .never-lose-content h2 {
-        font-size: 26px;
-        line-height: 1.2;
+    .roadmap-left .roadmap-content,
+    .roadmap-right .roadmap-content {
+        text-align: left;
+        margin: 0;
     }
 
-    .never-lose-features {
-        gap: 6px;
+    .roadmap-number {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
     }
 
-    .never-lose-item {
-        padding: 10px 14px;
-        border-radius: 10px;
+    .roadmap-content h3 {
+        font-size: 22px;
     }
 
-    .never-lose-item h3 {
-        font-size: 17px;
-    }
-
-    .never-lose-item.active h3 {
-        margin-bottom: 8px;
-    }
-
-    .never-lose-item p {
+    .roadmap-content p {
         font-size: 14px;
-        line-height: 1.5;
     }
 
-    .never-lose-item.active p {
-        max-height: 80px;
+    .roadmap {
+        gap: 140px;
     }
 
-    .feature-cards-container {
-        min-height: 280px;
+    .roadmap-cta {
+        margin-top: 80px;
     }
 
-    .feature-cards-container .feature-card {
-        border-radius: 16px;
+    .roadmap-cta-text {
+        font-size: 36px;
     }
 
     /* Hero & Email Form Mobile */
@@ -2937,35 +2998,56 @@ body:has(.launch-banner) .never-lose-sticky {
    ========================================================================== */
 
 @media (max-width: 480px) {
-    .never-lose-section {
-        min-height: 160vh;
+    .setup-timeline {
+        padding: 60px 16px;
     }
 
-    .never-lose-sticky {
-        padding: 16px;
-    }
-
-    .never-lose-content h2 {
+    .setup-timeline-inner h2 {
         font-size: 22px;
+        margin-bottom: 48px;
     }
 
-    .never-lose-item h3 {
-        font-size: 15px;
+    .roadmap-number {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
     }
 
-    .never-lose-item p {
+    .roadmap-content h3 {
+        font-size: 20px;
+    }
+
+    .roadmap-content p {
         font-size: 13px;
     }
 
-    .never-lose-item.active p {
-        max-height: 70px;
+    .roadmap {
+        gap: 100px;
     }
 
-    .feature-cards-container {
-        min-height: 220px;
+    .roadmap-cta {
+        margin-top: 60px;
     }
 
-    .feature-cards-container .feature-card {
-        border-radius: 12px;
+    .roadmap-cta-text {
+        font-size: 28px;
+    }
+
+    .roadmap-pill {
+        padding: 10px 12px 10px 20px;
+        font-size: 14px;
+        gap: 8px;
+        top: -4px;
+        margin-left: 8px;
+    }
+
+    .roadmap-pill-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .roadmap-pill-arrow svg {
+        width: 14px;
+        height: 14px;
     }
 }

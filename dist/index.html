@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entry - AI Receptionist</title>
-    <link rel="icon" type="image/png" href="/assets/notextlogo-b76Y2QB5.png">
+    <link rel="icon" type="image/png" href="/assets/notextlogo-D3fsBOt2.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-D7Wv6BLz.ico">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Serif&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-  <script type="module" crossorigin src="/assets/main-DumogZEJ.js"></script>
+  <script type="module" crossorigin src="/assets/main-BKrWGiYS.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="stylesheet" crossorigin href="/assets/main-D4xc2dJY.css">
+  <link rel="stylesheet" crossorigin href="/assets/main-l65dkO3J.css">
 </head>
 <body>
+    <!-- SVG noise filter for grainy texture -->
+    <svg style="position:absolute;width:0;height:0;">
+        <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+            <feColorMatrix type="saturate" values="0"/>
+            <feBlend in="SourceGraphic" mode="multiply"/>
+        </filter>
+    </svg>
+
     <!-- ========== LAUNCH BANNER (Remove this section when ready) ========== -->
     <div class="launch-banner">
         PROJECT LAUNCHING SOON - EMAIL <a href="mailto:tenzin@whitecrow.com.au">tenzin@whitecrow.com.au</a> FOR EARLY ACCESS
@@ -26,7 +36,7 @@
     <!-- ========== Header ========== -->
     <header>
         <div class="nav-logo">
-            <img src="/assets/Entry1-BEFGlbO7.png" alt="Entry">
+            <img src="/assets/Entry1-DBZQppMB.png" alt="Entry">
         </div>
         <nav class="nav-links">
             <a href="/features">Platform</a>
@@ -35,13 +45,14 @@
             <a href="/blog">Blog</a>
         </nav>
         <div class="nav-actions">
-            <a href="/app" class="sign-in">Sign in</a>
+            <a href="https://app.askentry.com" class="sign-in">Sign in</a>
             <a href="/onboarding" class="download-btn">Sign Up</a>
         </div>
     </header>
 
     <!-- ========== Main / Hero Section ========== -->
     <main>
+        <canvas id="gradient-canvas"></canvas>
         <div class="hero-section">
             <div class="hero-text">
                 <h1>The Best Performing<br><span>AI Receptionist</span></h1>
@@ -272,13 +283,13 @@
                 </div>
                 <div class="feature-cards-container">
                     <div class="feature-card active" data-chat="1">
-                        <!-- Add your image here -->
+                        <img src="/assets/training-BPh9M4S-.png" alt="Enter your website">
                     </div>
                     <div class="feature-card" data-chat="2">
-                        <!-- Add your image here -->
+                        <img src="/assets/customise-AczYfRHZ.png" alt="Customize your AI voice">
                     </div>
                     <div class="feature-card" data-chat="3">
-                        <!-- Add your image here -->
+                        <img src="/assets/launch-BlHPTgra.png" alt="Go live instantly">
                     </div>
                 </div>
             </div>
@@ -292,93 +303,92 @@
                 <h2>What Does Your AI<br>Receptionist Do?</h2>
                 <p>Your AI handles day-to-day reception tasks, making life easier for you and your team</p>
             </div>
-            <div class="tabs-container">
-                <div class="tabs">
-                    <button class="tab active">
-                        <div class="tab-icon">
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="16" fill="#dbeafe"/>
-                                <path d="M24 16v16M16 24h16" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
-                                <circle cx="32" cy="16" r="6" fill="#fbbf24"/>
-                                <circle cx="16" cy="32" r="5" fill="#10b981"/>
-                            </svg>
+
+            <!-- Row 1 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #60a5fa, #2563eb);"></span> We help you never miss a call again</h3>
+                    <p class="feature-row-desc">Every call answered 24/7. Appointments booked directly into your calendar. Returning customers greeted by name.</p>
+                </div>
+                <div class="feature-card-image call-split-bg">
+                    <div class="call-split" id="callSimulation">
+                        <!-- Caller panel -->
+                        <div class="call-split-panel call-split-caller" id="callerPanel">
+                            <div class="call-split-header">
+                                <img src="https://i.pravatar.cc/40?img=32" alt="" class="call-split-avatar">
+                                <span class="call-split-name">Jessica</span>
+                                <div class="call-waveform" id="callerWave">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="1" data-speaker="caller">Hey, I'd like to book a haircut for next Thursday if that's possible?</p>
+                                <p class="call-msg" data-order="3" data-speaker="caller">Yeah, 2pm would be perfect actually.</p>
+                                <p class="call-msg" data-order="5" data-speaker="caller">Oh, and could I also get a colour done at the same time?</p>
+                                <p class="call-msg" data-order="7" data-speaker="caller">A balayage would be great.</p>
+                                <p class="call-msg" data-order="9" data-speaker="caller">Perfect, thanks so much! See you Thursday.</p>
+                            </div>
                         </div>
-                        Answers calls
-                    </button>
-                    <button class="tab">
-                        <div class="tab-icon">
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="28" r="8" fill="#10b981"/>
-                                <circle cx="32" cy="20" r="6" fill="#fbbf24"/>
-                                <path d="M30 32c0-2 2-4 6-4" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M36 26v-4M34 24h4" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                        <!-- AI panel -->
+                        <div class="call-split-panel call-split-ai" id="aiPanel">
+                            <div class="call-split-header">
+                                <div class="call-split-ai-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                                </div>
+                                <span class="call-split-name">Entry AI</span>
+                                <div class="call-waveform call-waveform-ai" id="aiWave">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="2" data-speaker="ai">Hi Jessica! Thanks for calling. Thursday has availability at 10am or 2pm — which works better for you?</p>
+                                <p class="call-msg" data-order="4" data-speaker="ai">Perfect. I've pencilled you in for 2pm with Sarah.</p>
+                                <p class="call-msg" data-order="6" data-speaker="ai">Of course! Sarah does colour as well. Were you thinking highlights, balayage, or a full colour?</p>
+                                <p class="call-msg" data-order="8" data-speaker="ai">Great choice. I've updated your booking — haircut and balayage, Thursday at 2pm. You'll get a confirmation SMS shortly.</p>
+                                <p class="call-msg" data-order="10" data-speaker="ai">See you then, Jessica! Have a lovely day.</p>
+                            </div>
                         </div>
-                        After hours
-                    </button>
-                    <button class="tab">
-                        <div class="tab-icon">
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="20" r="10" fill="#fbbf24"/>
-                                <path d="M24 12v8l5 3" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-                                <rect x="20" y="32" width="8" height="6" rx="2" fill="#f59e0b"/>
-                            </svg>
-                        </div>
-                        Books appointments
-                    </button>
-                    <button class="tab">
-                        <div class="tab-icon">
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 20h24v4H12z" fill="#3b82f6"/>
-                                <path d="M12 28h24v4H12z" fill="#1d4ed8"/>
-                                <path d="M28 12l8 8-8 8" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        Website queries
-                    </button>
+                    </div>
                 </div>
             </div>
-            <div class="features-content">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
-                            </svg>
-                        </div>
-                        <h3>Lead Capturing Pro</h3>
-                        <p>Gathers essential details from callers, like names, contact info, and service needs, so you never miss an opportunity.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                            </svg>
-                        </div>
-                        <h3>Real-Time Call Summaries</h3>
-                        <p>Sends detailed summaries straight to your inbox or CRM, so you always know what's happening.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                            </svg>
-                        </div>
-                        <h3>Efficient Call Handling</h3>
-                        <p>Whether it's booking appointments, answering FAQs, or taking messages, your AI gets it done without breaking a sweat.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                            </svg>
-                        </div>
-                        <h3>Smart Call Transfers</h3>
-                        <p>Seamlessly routes callers to the right person, team, or department. No confusion, no delays.</p>
-                    </div>
+
+            <!-- Row 4 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #f472b6, #db2777);"></span> We keep everything in one place</h3>
+                    <p class="feature-row-desc">Calls, emails, chats, and enquiries in a single inbox. AI summaries and smart drafts so you stay on top of it all.</p>
                 </div>
-                <div class="features-image">
-                    <span class="features-image-placeholder">Product Screenshot</span>
+                <div class="feature-card-image" style="align-items: flex-end;">
+                    <img src="/assets/everything_one_place-_n77eRqA.png" alt="Everything in one place" style="width: 90%; display: block; border-radius: 12px 12px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); margin-top: 60px;">
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #a78bfa, #7c3aed);"></span> We connect to the tools you already use</h3>
+                    <p class="feature-row-desc">Calendar, CRM, and booking systems — all synced. Smart routing, zero double-bookings.</p>
+                </div>
+                <div class="feature-card-image tools-connect-bg">
+                    <div class="tools-connect">
+                        <div class="tool-logo-card tool-logo-entry">
+                            <img src="/assets/notextlogo-D3fsBOt2.png" alt="Entry">
+                        </div>
+                        <div class="tools-connect-arrow">
+                            <svg width="80" height="28" viewBox="0 0 80 28" fill="none">
+                                <path d="M0 14H66" stroke="#7c8da5" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M58 4L72 14L58 24" stroke="#7c8da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="tool-logo-card tool-logo-target">
+                            <div class="tool-logo-carousel">
+                                <img class="tool-carousel-item active" src="data:image/png;base64,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" alt="Gmail">
+                                <img class="tool-carousel-item" src="/assets/nookal-icon-B-LoZwkk.png" alt="Nookal">
+                                <img class="tool-carousel-item" src="https://cdn.worldvectorlogo.com/logos/hubspot-1.svg" alt="HubSpot">
+                                <img class="tool-carousel-item" src="/assets/calendly-icon-DUs4p0tW.png" alt="Calendly">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -409,409 +419,57 @@
         </div>
     </section>
 
-    <!-- ========== Features Showcase Section ========== -->
-    <section class="features-showcase">
-        <div class="features-showcase-inner">
-            <div class="features-showcase-header">
-                <h2>From calls to conversions</h2>
-                <p>Our AI receptionist handles every interaction with precision, turning routine calls into business opportunities.</p>
-            </div>
-            <div class="features-showcase-content">
-                <div class="features-list">
-                    <div class="feature-item active">
-                        <div class="feature-item-header">
-                            <div class="feature-item-dot"></div>
-                            <h3>Natural conversations</h3>
-                        </div>
-                        <div class="feature-item-desc">Handle complex inquiries with human-like understanding and responses.</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-item-header">
-                            <div class="feature-item-dot"></div>
-                            <h3>24/7 availability</h3>
-                        </div>
-                        <div class="feature-item-desc">Never miss a call, even outside business hours.</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-item-header">
-                            <div class="feature-item-dot"></div>
-                            <h3>Smart scheduling</h3>
-                        </div>
-                        <div class="feature-item-desc">Automatically book appointments and manage your calendar.</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-item-header">
-                            <div class="feature-item-dot"></div>
-                            <h3>Instant summaries</h3>
-                        </div>
-                        <div class="feature-item-desc">Get detailed call summaries delivered to your inbox or CRM.</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-item-header">
-                            <div class="feature-item-dot"></div>
-                            <h3>Seamless transfers</h3>
-                        </div>
-                        <div class="feature-item-desc">Route calls to the right team member when needed.</div>
-                    </div>
-                    <a href="/onboarding" class="features-cta">
-                        Get started now
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="features-showcase-image">
-                    <span class="features-showcase-image-placeholder">Product Screenshot</span>
+
+    <!-- ========== CTA Banner ========== -->
+    <section class="cta-banner">
+        <canvas id="cta-gradient-canvas"></canvas>
+        <div class="cta-banner-inner">
+            <h2>Ready to never miss a call again?</h2>
+            <p>Set up your AI receptionist in under 2 minutes. No credit card required.</p>
+            <div class="email-form">
+                <div class="email-form-wrapper">
+                    <input type="url" placeholder="Enter your website URL">
+                    <button onclick="trainAgent()">Try Free Forever</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== Section Four - Integrations ========== -->
+    <!-- ========== Section Four - Trust ========== -->
     <section class="section-four">
         <div class="section-four-header">
-            <h2>Works with all your favorite tools</h2>
-            <p>Connect your favorite apps and build workflows to power your business</p>
-            <a href="#" class="integrations-btn">See All Integrations</a>
+            <h2>Entry is built to keep your data safe</h2>
         </div>
-        <div class="carousel-rows">
-            <!-- Row 1 - scrolls left -->
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fff4e6;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff6b35">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                            </svg>
-                        </div>
-                        <h3>HubSpot</h3>
-                        <p>Unlock seamless call experience and improve your agent productivity.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e8f4fd;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#0176d3">
-                                <path d="M12.5 2C7.81 2 4 5.81 4 10.5c0 2.89 1.44 5.43 3.63 6.97L7 22l4.5-2.5L16 22l-.63-4.53C17.56 15.93 21 12.89 21 10.5 21 5.81 17.19 2 12.5 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Salesforce</h3>
-                        <p>Boost your sales pipeline and streamline customer relationships.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e6f7e6;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#34a853">
-                                <path d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8h14v10z"/>
-                            </svg>
-                        </div>
-                        <h3>Google Calendar</h3>
-                        <p>Automatically sync appointments and manage your schedule.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fff0f0;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#e01e5a">
-                                <path d="M6 15a2 2 0 01-2-2 2 2 0 012-2h2v2a2 2 0 01-2 2zm1-6a2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2v2H7z"/>
-                            </svg>
-                        </div>
-                        <h3>Slack</h3>
-                        <p>Get instant notifications right in your team channels.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #f0e6ff;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#7c3aed">
-                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18.5L4 16V8.5l8 4v8z"/>
-                            </svg>
-                        </div>
-                        <h3>Pipedrive</h3>
-                        <p>Streamline your lead management and sales process.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e6f3ff;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#2563eb">
-                                <circle cx="12" cy="12" r="10"/>
-                            </svg>
-                        </div>
-                        <h3>Zoho CRM</h3>
-                        <p>Get a unified platform for your sales and marketing.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e6fffa;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#03a87c">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <h3>Zendesk</h3>
-                        <p>Enhance your customer service experience.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e8f5e9;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#25d366">
-                                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.12-1.33A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>WhatsApp</h3>
-                        <p>Connect with customers on their preferred platform.</p>
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fff4e6;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff6b35">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                            </svg>
-                        </div>
-                        <h3>HubSpot</h3>
-                        <p>Unlock seamless call experience and improve your agent productivity.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e8f4fd;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#0176d3">
-                                <path d="M12.5 2C7.81 2 4 5.81 4 10.5c0 2.89 1.44 5.43 3.63 6.97L7 22l4.5-2.5L16 22l-.63-4.53C17.56 15.93 21 12.89 21 10.5 21 5.81 17.19 2 12.5 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Salesforce</h3>
-                        <p>Boost your sales pipeline and streamline customer relationships.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e6f7e6;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#34a853">
-                                <path d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8h14v10z"/>
-                            </svg>
-                        </div>
-                        <h3>Google Calendar</h3>
-                        <p>Automatically sync appointments and manage your schedule.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fff0f0;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#e01e5a">
-                                <path d="M6 15a2 2 0 01-2-2 2 2 0 012-2h2v2a2 2 0 01-2 2zm1-6a2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2v2H7z"/>
-                            </svg>
-                        </div>
-                        <h3>Slack</h3>
-                        <p>Get instant notifications right in your team channels.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #f0e6ff;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#7c3aed">
-                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18.5L4 16V8.5l8 4v8z"/>
-                            </svg>
-                        </div>
-                        <h3>Pipedrive</h3>
-                        <p>Streamline your lead management and sales process.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e6f3ff;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#2563eb">
-                                <circle cx="12" cy="12" r="10"/>
-                            </svg>
-                        </div>
-                        <h3>Zoho CRM</h3>
-                        <p>Get a unified platform for your sales and marketing.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e6fffa;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#03a87c">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <h3>Zendesk</h3>
-                        <p>Enhance your customer service experience.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e8f5e9;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#25d366">
-                                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.12-1.33A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>WhatsApp</h3>
-                        <p>Connect with customers on their preferred platform.</p>
-                    </div>
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-card-image">
+                    <img src="/assets/client_data_protected-Cv-D5KNC.png" alt="Client data protected">
                 </div>
+                <h3>Client data stays protected</h3>
+                <p>Your customers' personal details, phone numbers, and booking info are encrypted and stored securely. Only your team can access them.</p>
             </div>
-            <!-- Row 2 - scrolls right (reverse) -->
-            <div class="carousel-container">
-                <div class="carousel-track reverse">
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fef3c7;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/>
-                            </svg>
-                        </div>
-                        <h3>Freshdesk</h3>
-                        <p>Build a central contact HQ to boost customer service.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #dbeafe;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3b82f6">
-                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Outlook</h3>
-                        <p>Sync emails and calendar events seamlessly.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fee2e2;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ef4444">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Intercom</h3>
-                        <p>Engage customers with personalized messaging.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #d1fae5;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#10b981">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Notion</h3>
-                        <p>Keep your team's knowledge base up to date.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #ede9fe;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#8b5cf6">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                            </svg>
-                        </div>
-                        <h3>ActiveCampaign</h3>
-                        <p>Automate your marketing campaigns and improve ROI.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fce7f3;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ec4899">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                            </svg>
-                        </div>
-                        <h3>Monday.com</h3>
-                        <p>Manage projects and workflows efficiently.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e0e7ff;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#6366f1">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Airtable</h3>
-                        <p>Organize data and automate workflows easily.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #ccfbf1;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#14b8a6">
-                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18l-8-4V8l8 4v8zm0-10L4.5 6 12 2l7.5 4L12 10z"/>
-                            </svg>
-                        </div>
-                        <h3>Stripe</h3>
-                        <p>Process payments and manage subscriptions.</p>
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fef3c7;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/>
-                            </svg>
-                        </div>
-                        <h3>Freshdesk</h3>
-                        <p>Build a central contact HQ to boost customer service.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #dbeafe;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3b82f6">
-                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Outlook</h3>
-                        <p>Sync emails and calendar events seamlessly.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fee2e2;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ef4444">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Intercom</h3>
-                        <p>Engage customers with personalized messaging.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #d1fae5;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#10b981">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Notion</h3>
-                        <p>Keep your team's knowledge base up to date.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #ede9fe;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#8b5cf6">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                            </svg>
-                        </div>
-                        <h3>ActiveCampaign</h3>
-                        <p>Automate your marketing campaigns and improve ROI.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #fce7f3;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ec4899">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                            </svg>
-                        </div>
-                        <h3>Monday.com</h3>
-                        <p>Manage projects and workflows efficiently.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #e0e7ff;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#6366f1">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Airtable</h3>
-                        <p>Organize data and automate workflows easily.</p>
-                    </div>
-                    <div class="integration-card">
-                        <div class="integration-icon" style="background: #ccfbf1;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#14b8a6">
-                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18l-8-4V8l8 4v8zm0-10L4.5 6 12 2l7.5 4L12 10z"/>
-                            </svg>
-                        </div>
-                        <h3>Stripe</h3>
-                        <p>Process payments and manage subscriptions.</p>
-                    </div>
+            <div class="trust-card">
+                <div class="trust-card-image">
+                    <img src="/assets/call_recordings_private-Gjm4YvFT.png" alt="Call recordings private">
                 </div>
+                <h3>Call recordings are yours alone</h3>
+                <p>Every call transcript and summary is private to your business. We never share, sell, or use your conversations for anything.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-card-image">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <path d="M60 24 L88 38 L88 62 C88 80 74 94 60 98 C46 94 32 80 32 62 L32 38 Z" fill="#34d399" opacity="0.2"/>
+                        <path d="M60 32 L82 43 L82 62 C82 76 71 87 60 90 C49 87 38 76 38 62 L38 43 Z" fill="#10b981" opacity="0.25"/>
+                        <path d="M52 60 L58 66 L70 54" stroke="#059669" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Your business knowledge stays private</h3>
+                <p>The FAQs, services, and pricing you teach Entry are never used to train AI models or shared with anyone outside your account.</p>
             </div>
         </div>
     </section>
 
-    <!-- ========== Insights Section ========== -->
-    <section class="insights-section">
-        <div class="insights-section-inner">
-            <h2>Research and Insights</h2>
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <span class="insight-card-date">December 10, 2024</span>
-                    <h3>The Future of Voice AI in Customer Service</h3>
-                    <p class="insight-card-desc">How conversational AI is transforming the way businesses handle customer enquiries and support calls.</p>
-                    <div class="insight-card-image" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);"></div>
-                </div>
-                <div class="insight-card">
-                    <span class="insight-card-date">November 28, 2024</span>
-                    <h3>5 Ways AI Receptionists Reduce No-Shows</h3>
-                    <p class="insight-card-desc">Discover how automated appointment reminders and smart scheduling can dramatically improve attendance rates.</p>
-                    <div class="insight-card-image" style="background: linear-gradient(135deg, #fae8ff 0%, #e9d5ff 100%);"></div>
-                </div>
-                <div class="insight-card">
-                    <span class="insight-card-date">November 15, 2024</span>
-                    <h3>Building Trust with AI-Powered Phone Systems</h3>
-                    <p class="insight-card-desc">Why transparency and natural conversation flow are key to customer acceptance of voice AI technology.</p>
-                    <div class="insight-card-image" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);"></div>
-                </div>
-            </div>
-            <div class="insights-cta">
-                <a href="#">
-                    Read more
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
+
 
     <!-- ========== Section Five - Final CTA ========== -->
     <section class="section-five">
@@ -870,6 +528,457 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts -->
+    <script>
+        // WebGL Gradient Background with Dithering
+        (function() {
+            const canvas = document.getElementById('gradient-canvas');
+            if (!canvas) return;
+
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (!gl) return; // Falls back to CSS gradient
+
+            const vertexShaderSource = `
+                attribute vec2 a_position;
+                varying vec2 v_uv;
+                void main() {
+                    v_uv = a_position * 0.5 + 0.5;
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                }
+            `;
+
+            const fragmentShaderSource = `
+                precision highp float;
+                varying vec2 v_uv;
+                uniform vec2 u_resolution;
+
+                // Pseudo-random noise function for dithering
+                float random(vec2 st) {
+                    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+                }
+
+                // Soft ellipse gradient
+                float ellipse(vec2 uv, vec2 center, vec2 radius) {
+                    vec2 d = (uv - center) / radius;
+                    return 1.0 - smoothstep(0.0, 1.0, length(d));
+                }
+
+                void main() {
+                    vec2 uv = v_uv;
+                    // Flip Y to match CSS coordinate system
+                    uv.y = 1.0 - uv.y;
+
+                    // Base color (#fafafa)
+                    vec3 baseColor = vec3(0.98, 0.98, 0.98);
+
+                    // Blue gradient colors
+                    vec3 blue1 = vec3(0.231, 0.510, 0.965);  // #3b82f6 - rgba(59, 130, 246)
+                    vec3 blue2 = vec3(0.314, 0.588, 1.0);    // #5096ff - rgba(80, 150, 255)
+                    vec3 blue3 = vec3(0.388, 0.627, 1.0);    // #63a0ff - rgba(99, 160, 255)
+                    vec3 blue4 = vec3(0.392, 0.627, 1.0);    // #64a0ff - rgba(100, 160, 255)
+
+                    float gradient = 0.0;
+
+                    // Left side ellipses (matching CSS: at 8% 40%, 15% 38%, 5% 48%, 3% 55%)
+                    gradient += ellipse(uv, vec2(0.08, 0.40), vec2(0.25, 0.28)) * 0.14;
+                    gradient += ellipse(uv, vec2(0.15, 0.38), vec2(0.20, 0.25)) * 0.10;
+                    gradient += ellipse(uv, vec2(0.05, 0.48), vec2(0.16, 0.19)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.03, 0.55), vec2(0.22, 0.31)) * 0.10;
+
+                    // Right side ellipses (matching CSS: at 92% 40%, 88% 45%, 97% 52%, 95% 60%)
+                    gradient += ellipse(uv, vec2(0.92, 0.40), vec2(0.24, 0.27)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.88, 0.45), vec2(0.19, 0.22)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.97, 0.52), vec2(0.20, 0.28)) * 0.10;
+                    gradient += ellipse(uv, vec2(0.95, 0.60), vec2(0.18, 0.24)) * 0.07;
+
+                    // Top center ellipses (matching CSS: at 45% 32%, 35% 35%, 55% 33%, 60% 38%)
+                    gradient += ellipse(uv, vec2(0.45, 0.32), vec2(0.38, 0.19)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.35, 0.35), vec2(0.31, 0.16)) * 0.09;
+                    gradient += ellipse(uv, vec2(0.55, 0.33), vec2(0.28, 0.14)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.60, 0.38), vec2(0.22, 0.13)) * 0.07;
+
+                    // Additional smaller ellipses (matching CSS: at 25% 40%, 18% 36%, 82% 35%)
+                    gradient += ellipse(uv, vec2(0.25, 0.40), vec2(0.19, 0.11)) * 0.07;
+                    gradient += ellipse(uv, vec2(0.18, 0.36), vec2(0.16, 0.16)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.82, 0.35), vec2(0.14, 0.14)) * 0.07;
+
+                    // Mix blue tones based on position for variety
+                    vec3 blueColor = mix(blue1, mix(blue2, mix(blue3, blue4, uv.x), uv.y), 0.5);
+
+                    // Combine base with gradient
+                    vec3 color = mix(baseColor, blueColor, gradient);
+
+                    // Apply dithering to reduce banding
+                    // Use gl_FragCoord for per-pixel noise
+                    float noise = random(gl_FragCoord.xy) / 255.0;
+                    color += noise - 0.5 / 255.0;
+
+                    gl_FragColor = vec4(color, 1.0);
+                }
+            `;
+
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+                    gl.deleteShader(shader);
+                    return null;
+                }
+                return shader;
+            }
+
+            function createProgram(gl, vertexShader, fragmentShader) {
+                const program = gl.createProgram();
+                gl.attachShader(program, vertexShader);
+                gl.attachShader(program, fragmentShader);
+                gl.linkProgram(program);
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    console.error('Program link error:', gl.getProgramInfoLog(program));
+                    gl.deleteProgram(program);
+                    return null;
+                }
+                return program;
+            }
+
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+            const program = createProgram(gl, vertexShader, fragmentShader);
+
+            const positionLocation = gl.getAttribLocation(program, 'a_position');
+            const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                -1, -1,  1, -1,  -1, 1,
+                -1,  1,  1, -1,   1, 1
+            ]), gl.STATIC_DRAW);
+
+            function render() {
+                const main = document.querySelector('main');
+                const dpr = window.devicePixelRatio || 1;
+                const width = main.clientWidth * dpr;
+                const height = main.clientHeight * dpr;
+
+                canvas.style.width = main.clientWidth + 'px';
+                canvas.style.height = main.clientHeight + 'px';
+
+                if (canvas.width !== width || canvas.height !== height) {
+                    canvas.width = width;
+                    canvas.height = height;
+                    gl.viewport(0, 0, width, height);
+                }
+
+                gl.useProgram(program);
+                gl.uniform2f(resolutionLocation, width, height);
+
+                gl.enableVertexAttribArray(positionLocation);
+                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
+
+            render();
+            window.addEventListener('resize', render);
+            // Re-render after fonts/images load which may change main height
+            window.addEventListener('load', render);
+        })();
+    </script>
+
+    <!-- CTA Banner WebGL Gradient -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('cta-gradient-canvas');
+        if (!canvas) return;
+
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return;
+
+        const vertexShaderSource = `
+            attribute vec2 a_position;
+            varying vec2 v_uv;
+            void main() {
+                v_uv = a_position * 0.5 + 0.5;
+                gl_Position = vec4(a_position, 0.0, 1.0);
+            }
+        `;
+
+        const fragmentShaderSource = `
+            precision highp float;
+            varying vec2 v_uv;
+            uniform vec2 u_resolution;
+
+            float random(vec2 st) {
+                return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+            }
+
+            float ellipse(vec2 uv, vec2 center, vec2 radius) {
+                vec2 d = (uv - center) / radius;
+                return 1.0 - smoothstep(0.0, 1.0, length(d));
+            }
+
+            void main() {
+                vec2 uv = v_uv;
+                uv.y = 1.0 - uv.y;
+
+                vec3 baseColor = vec3(1.0, 1.0, 1.0);
+
+                vec3 blue1 = vec3(0.231, 0.510, 0.965);
+                vec3 blue2 = vec3(0.314, 0.588, 1.0);
+                vec3 blue3 = vec3(0.388, 0.627, 1.0);
+                vec3 blue4 = vec3(0.392, 0.627, 1.0);
+
+                float gradient = 0.0;
+
+                // Large organic blobs - left side
+                gradient += ellipse(uv, vec2(0.08, 0.55), vec2(0.30, 0.45)) * 0.28;
+                gradient += ellipse(uv, vec2(0.0, 0.72), vec2(0.25, 0.35)) * 0.22;
+                gradient += ellipse(uv, vec2(0.18, 0.85), vec2(0.20, 0.28)) * 0.15;
+
+                // Right side blobs
+                gradient += ellipse(uv, vec2(0.90, 0.48), vec2(0.28, 0.40)) * 0.26;
+                gradient += ellipse(uv, vec2(1.0, 0.68), vec2(0.22, 0.32)) * 0.20;
+                gradient += ellipse(uv, vec2(0.75, 0.78), vec2(0.18, 0.22)) * 0.12;
+
+                // Bottom spread
+                gradient += ellipse(uv, vec2(0.38, 0.88), vec2(0.30, 0.25)) * 0.18;
+                gradient += ellipse(uv, vec2(0.62, 0.92), vec2(0.28, 0.22)) * 0.16;
+                gradient += ellipse(uv, vec2(0.50, 0.70), vec2(0.35, 0.30)) * 0.12;
+
+                // Small accent spots
+                gradient += ellipse(uv, vec2(0.28, 0.42), vec2(0.12, 0.14)) * 0.08;
+                gradient += ellipse(uv, vec2(0.70, 0.38), vec2(0.10, 0.12)) * 0.07;
+                gradient += ellipse(uv, vec2(0.50, 0.30), vec2(0.08, 0.08)) * 0.05;
+
+                // Very gradual fade at top - starts invisible, eases in slowly
+                float topFade = smoothstep(0.0, 0.55, uv.y);
+                topFade = topFade * topFade; // extra smooth curve
+                gradient *= topFade;
+
+                vec3 blueColor = mix(blue1, mix(blue2, mix(blue3, blue4, uv.x), uv.y), 0.5);
+                vec3 color = mix(baseColor, blueColor, gradient);
+
+                // Dithering
+                float noise = random(gl_FragCoord.xy) / 255.0;
+                color += noise - 0.5 / 255.0;
+
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        function createProgram(gl, vs, fs) {
+            const program = gl.createProgram();
+            gl.attachShader(program, vs);
+            gl.attachShader(program, fs);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                gl.deleteProgram(program);
+                return null;
+            }
+            return program;
+        }
+
+        const vs = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fs = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+        const program = createProgram(gl, vs, fs);
+
+        const posLoc = gl.getAttribLocation(program, 'a_position');
+        const resLoc = gl.getUniformLocation(program, 'u_resolution');
+
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1, -1, 1, -1, -1, 1,
+            -1, 1, 1, -1, 1, 1
+        ]), gl.STATIC_DRAW);
+
+        function render() {
+            const section = canvas.parentElement;
+            const dpr = window.devicePixelRatio || 1;
+            const w = section.clientWidth * dpr;
+            const h = section.clientHeight * dpr;
+
+            canvas.style.width = section.clientWidth + 'px';
+            canvas.style.height = section.clientHeight + 'px';
+
+            if (canvas.width !== w || canvas.height !== h) {
+                canvas.width = w;
+                canvas.height = h;
+                gl.viewport(0, 0, w, h);
+            }
+
+            gl.useProgram(program);
+            gl.uniform2f(resLoc, w, h);
+            gl.enableVertexAttribArray(posLoc);
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+            gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+        }
+
+        render();
+        window.addEventListener('resize', render);
+        window.addEventListener('load', render);
+    })();
+    </script>
+
+    <!-- Call simulation typing animation -->
+    <script>
+    (function() {
+        const sim = document.getElementById('callSimulation');
+        if (!sim) return;
+
+        const callerPanel = document.getElementById('callerPanel');
+        const aiPanel = document.getElementById('aiPanel');
+        const callerWave = document.getElementById('callerWave');
+        const aiWave = document.getElementById('aiWave');
+        const callerMsgsBox = callerPanel.querySelector('.call-split-messages');
+        const aiMsgsBox = aiPanel.querySelector('.call-split-messages');
+
+        // Build conversation data from HTML, then remove original elements
+        const allMsgs = Array.from(sim.querySelectorAll('.call-msg'));
+        allMsgs.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
+        const conversation = allMsgs.map(msg => ({
+            text: msg.textContent,
+            speaker: msg.dataset.speaker
+        }));
+        allMsgs.forEach(msg => msg.remove());
+
+        let started = false;
+
+        function setActiveSpeaker(speaker) {
+            if (speaker === 'caller') {
+                callerPanel.classList.remove('panel-dull');
+                aiPanel.classList.add('panel-dull');
+                callerWave.classList.add('waveform-active');
+                aiWave.classList.remove('waveform-active');
+            } else {
+                aiPanel.classList.remove('panel-dull');
+                callerPanel.classList.add('panel-dull');
+                aiWave.classList.add('waveform-active');
+                callerWave.classList.remove('waveform-active');
+            }
+        }
+
+        function clearActive() {
+            callerPanel.classList.remove('panel-dull');
+            aiPanel.classList.remove('panel-dull');
+            callerWave.classList.remove('waveform-active');
+            aiWave.classList.remove('waveform-active');
+        }
+
+        function getMessagesBox(speaker) {
+            return speaker === 'caller' ? callerMsgsBox : aiMsgsBox;
+        }
+
+        function getPanel(speaker) {
+            return speaker === 'caller' ? callerPanel : aiPanel;
+        }
+
+        // Check if adding content would overflow the panel
+        function wouldOverflow(panel, msgsBox) {
+            const headerH = panel.querySelector('.call-split-header').offsetHeight;
+            const padding = 48; // 24px top + 24px bottom
+            const available = panel.offsetHeight - headerH - padding;
+            return msgsBox.scrollHeight > available;
+        }
+
+        // Clear old messages from a panel with a fade
+        function clearPanel(msgsBox) {
+            return new Promise(resolve => {
+                const existing = msgsBox.querySelectorAll('.call-msg');
+                existing.forEach(m => m.style.opacity = '0');
+                setTimeout(() => {
+                    msgsBox.innerHTML = '';
+                    resolve();
+                }, 300);
+            });
+        }
+
+        function typeMessage(msgEl, text, charDelay) {
+            return new Promise(resolve => {
+                msgEl.classList.add('visible');
+                let i = 0;
+                const cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                msgEl.appendChild(cursor);
+
+                function typeChar() {
+                    if (i < text.length) {
+                        msgEl.insertBefore(document.createTextNode(text[i]), cursor);
+                        i++;
+                        setTimeout(typeChar, charDelay);
+                    } else {
+                        cursor.remove();
+                        resolve();
+                    }
+                }
+                typeChar();
+            });
+        }
+
+        async function runConversation() {
+            if (started) return;
+            started = true;
+
+            for (const line of conversation) {
+                const msgsBox = getMessagesBox(line.speaker);
+                const panel = getPanel(line.speaker);
+
+                // Create new message element
+                const msgEl = document.createElement('p');
+                msgEl.className = 'call-msg';
+                msgsBox.appendChild(msgEl);
+
+                // Check if this overflows the panel — if so, clear old messages
+                const headerH = panel.querySelector('.call-split-header').offsetHeight;
+                const available = panel.offsetHeight - headerH - 48;
+                if (msgsBox.scrollHeight > available) {
+                    msgEl.remove();
+                    await clearPanel(msgsBox);
+                    msgsBox.appendChild(msgEl);
+                }
+
+                setActiveSpeaker(line.speaker);
+                await new Promise(r => setTimeout(r, 400));
+                await typeMessage(msgEl, line.text, 22);
+                await new Promise(r => setTimeout(r, 500));
+            }
+
+            clearActive();
+
+            // Wait then reset and loop
+            setTimeout(async () => {
+                await clearPanel(callerMsgsBox);
+                await clearPanel(aiMsgsBox);
+                started = false;
+                runConversation();
+            }, 3500);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    runConversation();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(sim);
+    })();
+    </script>
 </body>
 </html>

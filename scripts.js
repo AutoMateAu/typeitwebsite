@@ -125,123 +125,77 @@ sectionTwoTabs.forEach(tab => {
 });
 
 // ==========================================================================
-// 6. Never Lose Business - Scroll-driven Animation
+// 6. Roadmap - Scroll-driven Line & Step Reveal
 // ==========================================================================
 
-const neverLoseSection = document.querySelector('.never-lose-section');
-const neverLoseItems = document.querySelectorAll('.never-lose-item');
-const featureCards = document.querySelectorAll('.feature-card');
-const progressBar = document.querySelector('.scroll-progress-bar');
-let currentStep = 1;
+const roadmapSection = document.querySelector('.roadmap');
+const roadmapLine = document.querySelector('.roadmap-line');
+const roadmapStart = document.querySelector('.roadmap-start');
+const roadmapSteps = document.querySelectorAll('.roadmap-step');
+const roadmapMarkers = document.querySelectorAll('.roadmap-marker');
 
-function setActiveStep(step, force = false) {
-    if (step === currentStep && !force) return;
+if (roadmapSection && roadmapLine) {
+    let roadmapTicking = false;
 
-    const oldStep = currentStep;
-    currentStep = step;
+    function updateRoadmap() {
+        const viewportH = window.innerHeight;
+        const triggerPoint = viewportH * 0.6;
 
-    // Update items
-    neverLoseItems.forEach((item, index) => {
-        const itemStep = index + 1;
-        if (itemStep === step) {
-            item.classList.add('active');
-        } else {
-            item.classList.remove('active');
-        }
-    });
+        // Line starts from bottom of the start box
+        const startBox = roadmapStart.getBoundingClientRect();
+        const lineOriginY = startBox.bottom;
 
-    // Update feature cards with direction-aware animation
-    featureCards.forEach(card => {
-        const cardStep = parseInt(card.dataset.chat);
-        if (cardStep === step) {
-            card.classList.remove('exiting');
-            card.classList.add('active');
-        } else if (cardStep === oldStep) {
-            card.classList.add('exiting');
-            card.classList.remove('active');
-            // Remove exiting class after animation
-            setTimeout(() => {
-                card.classList.remove('exiting');
-            }, 500);
-        } else {
-            card.classList.remove('active', 'exiting');
-        }
-    });
+        // How far the line should draw
+        const drawn = triggerPoint - lineOriginY;
+        const maxHeight = roadmapSection.offsetHeight - 18; // minus start box height
+        const lineHeight = Math.max(0, Math.min(drawn, maxHeight));
 
-    // Update progress bar - smooth transition from 0% to 100%
-    const progress = ((step - 1) / 2) * 100 + 16.5;
-    if (progressBar) {
-        progressBar.style.height = `${Math.min(progress, 100)}%`;
-    }
-}
+        roadmapLine.style.height = lineHeight + 'px';
 
-function handleNeverLoseScroll() {
-    if (!neverLoseSection) return;
+        // The absolute bottom of the drawn line in viewport coords
+        const lineBottomY = lineOriginY + lineHeight;
 
-    const rect = neverLoseSection.getBoundingClientRect();
-    const sectionTop = rect.top;
-    const sectionHeight = rect.height;
-    const viewportHeight = window.innerHeight;
+        // Activate steps when line reaches their marker center
+        roadmapSteps.forEach(step => {
+            const marker = step.querySelector('.roadmap-number');
+            if (!marker) return;
+            const markerRect = marker.getBoundingClientRect();
+            const markerCenter = markerRect.top + markerRect.height / 2;
 
-    // Only process when section is in view
-    if (sectionTop > viewportHeight || rect.bottom < 0) return;
-
-    // Calculate scroll progress within the section (0 to 1)
-    // Account for the sticky element taking up the viewport
-    const scrollableDistance = sectionHeight - viewportHeight;
-    const scrollProgress = Math.max(0, Math.min(1, -sectionTop / scrollableDistance));
-
-    // Update progress bar continuously for smooth effect
-    if (progressBar) {
-        const barProgress = Math.max(5, Math.min(100, scrollProgress * 100));
-        progressBar.style.height = `${barProgress}%`;
-    }
-
-    // Determine which step based on scroll progress with slight overlap zones
-    let newStep;
-    if (scrollProgress < 0.30) {
-        newStep = 1;
-    } else if (scrollProgress < 0.65) {
-        newStep = 2;
-    } else {
-        newStep = 3;
-    }
-
-    if (newStep !== currentStep) {
-        setActiveStep(newStep);
-    }
-}
-
-// Use requestAnimationFrame for smoother scroll handling
-let ticking = false;
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        requestAnimationFrame(() => {
-            handleNeverLoseScroll();
-            ticking = false;
+            if (lineBottomY >= markerCenter) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
         });
-        ticking = true;
     }
-}, { passive: true });
 
-// Initial setup
-document.addEventListener('DOMContentLoaded', () => {
-    setActiveStep(1, true);
-    handleNeverLoseScroll();
-});
+    window.addEventListener('scroll', () => {
+        if (!roadmapTicking) {
+            requestAnimationFrame(() => {
+                updateRoadmap();
+                roadmapTicking = false;
+            });
+            roadmapTicking = true;
+        }
+    }, { passive: true });
 
-// Also run on load in case DOMContentLoaded already fired
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setActiveStep(1, true);
-    handleNeverLoseScroll();
+    // Animate CTA entrance
+    const roadmapCta = document.querySelector('.roadmap-cta');
+    if (roadmapCta) {
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    ctaObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        ctaObserver.observe(roadmapCta);
+    }
+
+    updateRoadmap();
 }
-
-// Click handlers for direct interaction (useful on mobile)
-neverLoseItems.forEach((item, index) => {
-    item.addEventListener('click', function() {
-        setActiveStep(index + 1);
-    });
-});
 
 // ==========================================================================
 // 7. Stat Cards - Fade-in Animation with Counting

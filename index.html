@@ -255,40 +255,71 @@
         </div>
     </section>
 
-    <!-- ========== Never Lose Business Section ========== -->
-    <section class="never-lose-section">
-        <div class="never-lose-sticky">
-            <div class="scroll-progress">
-                <div class="scroll-progress-bar" style="height: 5%;"></div>
-            </div>
-            <div class="never-lose-inner">
-                <div class="never-lose-content">
-                    <h2>Set up your AI receptionist in minutes</h2>
-                    <div class="never-lose-features">
-                        <div class="never-lose-item active" data-step="1">
-                            <h3>Enter your website</h3>
-                            <p>Our AI agent learns all about your business so that it can produce the highest quality answers.</p>
-                        </div>
-                        <div class="never-lose-item" data-step="2">
-                            <h3>Customize your AI voice</h3>
-                            <p>Choose from natural-sounding voices and set your business tone. Connect any CRM software you want Entry to enter your appointments into.</p>
-                        </div>
-                        <div class="never-lose-item" data-step="3">
-                            <h3>Go live instantly</h3>
-                            <p>Start answering calls 24/7 within minutes. Monitor conversations in real-time and refine responses as you grow.</p>
-                        </div>
+    <!-- ========== Setup Roadmap Section ========== -->
+    <section class="setup-timeline">
+        <div class="setup-timeline-inner">
+            <h2>Getting started is easy</h2>
+
+            <div class="roadmap">
+                <div class="roadmap-start"></div>
+                <div class="roadmap-line"></div>
+
+                <div class="roadmap-step roadmap-left">
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 1</span>
+                        <h3>Enter your website</h3>
+                        <p>Our AI learns everything about your business to produce the highest quality answers.</p>
+                    </div>
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">1</div>
+                    </div>
+                    <div class="roadmap-spacer"></div>
+                </div>
+
+                <div class="roadmap-step roadmap-right">
+                    <div class="roadmap-spacer"></div>
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">2</div>
+                    </div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 2</span>
+                        <h3>Customize your voice</h3>
+                        <p>Choose from natural-sounding voices and set your business tone. Connect any CRM software you want.</p>
                     </div>
                 </div>
-                <div class="feature-cards-container">
-                    <div class="feature-card active" data-chat="1">
-                        <img src="training.png" alt="Enter your website">
+
+                <div class="roadmap-step roadmap-left">
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 3</span>
+                        <h3>Connect your tools</h3>
+                        <p>Sync your calendar, CRM, and booking systems. Smart routing with zero double-bookings.</p>
                     </div>
-                    <div class="feature-card" data-chat="2">
-                        <img src="customise.png" alt="Customize your AI voice">
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">3</div>
                     </div>
-                    <div class="feature-card" data-chat="3">
-                        <img src="launch.png" alt="Go live instantly">
+                    <div class="roadmap-spacer"></div>
+                </div>
+
+                <div class="roadmap-step roadmap-right">
+                    <div class="roadmap-spacer"></div>
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">4</div>
                     </div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 4</span>
+                        <h3>Go live instantly</h3>
+                        <p>Start answering calls 24/7 within minutes. Monitor conversations in real-time and refine as you grow.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-end"></div>
+            </div>
+
+            <div class="roadmap-cta">
+                <div class="roadmap-cta-text">
+                    <span class="roadmap-cta-line">Start answering</span>
+                    <span class="roadmap-cta-line">calls <a href="#" class="roadmap-pill" onclick="trainAgent(); return false;"><span>Start free</span><span class="roadmap-pill-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></span>
+                    <span class="roadmap-cta-line">effortlessly</span>
                 </div>
             </div>
         </div>
@@ -357,7 +388,7 @@
                     <p class="feature-row-desc">Calls, emails, chats, and enquiries in a single inbox. AI summaries and smart drafts so you stay on top of it all.</p>
                 </div>
                 <div class="feature-card-image" style="align-items: flex-end;">
-                    <img src="everything_one_place.png" alt="Everything in one place" style="width: 90%; display: block; border-radius: 12px 12px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); margin-top: 60px;">
+                    <img src="inbox-screenshot.png" alt="Everything in one place" style="width: 90%; display: block; border-radius: 12px 12px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); margin-top: 60px;">
                 </div>
             </div>
 
@@ -381,9 +412,11 @@
                         <div class="tool-logo-card tool-logo-target">
                             <div class="tool-logo-carousel">
                                 <img class="tool-carousel-item active" src="gmail-icon.png" alt="Gmail">
-                                <img class="tool-carousel-item" src="nookal-icon.png" alt="Nookal">
+
                                 <img class="tool-carousel-item" src="https://cdn.worldvectorlogo.com/logos/hubspot-1.svg" alt="HubSpot">
                                 <img class="tool-carousel-item" src="calendly-icon.png" alt="Calendly">
+
+                                <img class="tool-carousel-item" src="slack-icon.png" alt="Slack">
                             </div>
                         </div>
                     </div>
@@ -392,26 +425,60 @@
         </div>
     </section>
 
+    <!-- ========== Section Four - Trust ========== -->
+    <section class="section-four">
+        <div class="section-four-header">
+            <h2>Entry is built to keep your data safe</h2>
+        </div>
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-card-image">
+                    <img src="client_data_protected.png" alt="Client data protected">
+                </div>
+                <h3>Client data stays protected</h3>
+                <p>Your customers' personal details, phone numbers, and booking info are encrypted and stored securely. Only your team can access them.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-card-image" style="align-items: center; padding: 20px;">
+                    <img src="call_recordings_private.png" alt="Call recordings private">
+                </div>
+                <h3>Call recordings are yours alone</h3>
+                <p>Every call transcript and summary is private to your business. We never share, sell, or use your conversations for anything.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-card-image" style="align-items: center; padding: 20px;">
+                    <svg width="200" height="200" viewBox="0 0 120 120" fill="none">
+                        <path d="M60 24 L88 38 L88 62 C88 80 74 94 60 98 C46 94 32 80 32 62 L32 38 Z" fill="#34d399" opacity="0.2"/>
+                        <path d="M60 32 L82 43 L82 62 C82 76 71 87 60 90 C49 87 38 76 38 62 L38 43 Z" fill="#10b981" opacity="0.25"/>
+                        <path d="M52 60 L58 66 L70 54" stroke="#059669" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Your business knowledge stays private</h3>
+                <p>The FAQs, services, and pricing you teach Entry are never used to train AI models or shared with anyone outside your account.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- ========== Section Three - Stats ========== -->
     <section class="section-three">
         <div class="section-three-inner">
-            <h2>Elevate your CX with AI agents<br>proven to outperform humans</h2>
+            <h2>Never miss a call again.<br>Your AI receptionist, always on.</h2>
             <div class="stats-grid">
                 <div class="stat-card green">
-                    <div class="stat-number" data-target="8" data-suffix="X">4X</div>
-                    <div class="stat-label">more productive<br>than human agents</div>
+                    <div class="stat-number" data-target="24" data-suffix="/7">12/7</div>
+                    <div class="stat-label">availability<br>every day of the year</div>
                 </div>
                 <div class="stat-card pink">
-                    <div class="stat-number" data-target="162" data-suffix="%">97%</div>
-                    <div class="stat-label">increase in<br>CSAT scores</div>
+                    <div class="stat-number" data-target="97" data-suffix="%">58%</div>
+                    <div class="stat-label">of calls answered<br>within 3 rings</div>
                 </div>
                 <div class="stat-card blue">
-                    <div class="stat-number" data-target="357" data-suffix="%">214%</div>
-                    <div class="stat-label">ROI on<br>AI investment</div>
+                    <div class="stat-number" data-target="35" data-suffix="%">21%</div>
+                    <div class="stat-label">more bookings<br>from missed calls saved</div>
                 </div>
                 <div class="stat-card yellow">
-                    <div class="stat-number" data-target="84" data-suffix="%">50%</div>
-                    <div class="stat-label">automated<br>resolution rate</div>
+                    <div class="stat-number" data-target="60" data-suffix="%">36%</div>
+                    <div class="stat-label">lower cost than<br>a traditional receptionist</div>
                 </div>
             </div>
         </div>
@@ -433,61 +500,26 @@
         </div>
     </section>
 
-    <!-- ========== Section Four - Trust ========== -->
-    <section class="section-four">
-        <div class="section-four-header">
-            <h2>Entry is built to keep your data safe</h2>
-        </div>
-        <div class="trust-grid">
-            <div class="trust-card">
-                <div class="trust-card-image">
-                    <img src="client_data_protected.png" alt="Client data protected">
-                </div>
-                <h3>Client data stays protected</h3>
-                <p>Your customers' personal details, phone numbers, and booking info are encrypted and stored securely. Only your team can access them.</p>
-            </div>
-            <div class="trust-card">
-                <div class="trust-card-image">
-                    <img src="call_recordings_private.png" alt="Call recordings private">
-                </div>
-                <h3>Call recordings are yours alone</h3>
-                <p>Every call transcript and summary is private to your business. We never share, sell, or use your conversations for anything.</p>
-            </div>
-            <div class="trust-card">
-                <div class="trust-card-image">
-                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                        <path d="M60 24 L88 38 L88 62 C88 80 74 94 60 98 C46 94 32 80 32 62 L32 38 Z" fill="#34d399" opacity="0.2"/>
-                        <path d="M60 32 L82 43 L82 62 C82 76 71 87 60 90 C49 87 38 76 38 62 L38 43 Z" fill="#10b981" opacity="0.25"/>
-                        <path d="M52 60 L58 66 L70 54" stroke="#059669" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Your business knowledge stays private</h3>
-                <p>The FAQs, services, and pricing you teach Entry are never used to train AI models or shared with anyone outside your account.</p>
-            </div>
-        </div>
-    </section>
-
 
 
     <!-- ========== Section Five - Final CTA ========== -->
-    <section class="section-five">
-        <div class="section-five-inner">
-            <nav class="section-five-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#demo">Demo</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="section-five-content">
-                <h2>Ready to transform<br>your customer experience?</h2>
-                <a href="/onboarding" class="section-five-cta">
-                    Get started
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
+    <section class="cta-banner cta-banner-bottom">
+        <canvas id="cta-gradient-canvas-2"></canvas>
+        <nav class="cta-bottom-nav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#demo">Demo</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="cta-banner-inner">
+            <h2>Ready to never miss a call again?</h2>
+            <p>Set up your AI receptionist in under 2 minutes. No credit card required.</p>
+            <div class="email-form">
+                <div class="email-form-wrapper">
+                    <input type="url" placeholder="Enter your website URL">
+                    <button onclick="trainAgent()">Try Free Forever</button>
+                </div>
             </div>
         </div>
     </section>
@@ -689,8 +721,8 @@
 
     <!-- CTA Banner WebGL Gradient -->
     <script>
-    (function() {
-        const canvas = document.getElementById('cta-gradient-canvas');
+    function initCtaGradient(canvasId) {
+        const canvas = document.getElementById(canvasId);
         if (!canvas) return;
 
         const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -732,30 +764,18 @@
 
                 float gradient = 0.0;
 
-                // Large organic blobs - left side
-                gradient += ellipse(uv, vec2(0.08, 0.55), vec2(0.30, 0.45)) * 0.28;
-                gradient += ellipse(uv, vec2(0.0, 0.72), vec2(0.25, 0.35)) * 0.22;
-                gradient += ellipse(uv, vec2(0.18, 0.85), vec2(0.20, 0.28)) * 0.15;
+                // Soft wide central glow
+                gradient += ellipse(uv, vec2(0.5, 0.5), vec2(0.80, 0.55)) * 0.25;
+                gradient += ellipse(uv, vec2(0.5, 0.5), vec2(0.55, 0.40)) * 0.15;
 
-                // Right side blobs
-                gradient += ellipse(uv, vec2(0.90, 0.48), vec2(0.28, 0.40)) * 0.26;
-                gradient += ellipse(uv, vec2(1.0, 0.68), vec2(0.22, 0.32)) * 0.20;
-                gradient += ellipse(uv, vec2(0.75, 0.78), vec2(0.18, 0.22)) * 0.12;
+                // Gentle side accents that blend inward
+                gradient += ellipse(uv, vec2(0.15, 0.55), vec2(0.35, 0.45)) * 0.12;
+                gradient += ellipse(uv, vec2(0.85, 0.50), vec2(0.35, 0.45)) * 0.12;
 
-                // Bottom spread
-                gradient += ellipse(uv, vec2(0.38, 0.88), vec2(0.30, 0.25)) * 0.18;
-                gradient += ellipse(uv, vec2(0.62, 0.92), vec2(0.28, 0.22)) * 0.16;
-                gradient += ellipse(uv, vec2(0.50, 0.70), vec2(0.35, 0.30)) * 0.12;
-
-                // Small accent spots
-                gradient += ellipse(uv, vec2(0.28, 0.42), vec2(0.12, 0.14)) * 0.08;
-                gradient += ellipse(uv, vec2(0.70, 0.38), vec2(0.10, 0.12)) * 0.07;
-                gradient += ellipse(uv, vec2(0.50, 0.30), vec2(0.08, 0.08)) * 0.05;
-
-                // Very gradual fade at top - starts invisible, eases in slowly
-                float topFade = smoothstep(0.0, 0.55, uv.y);
-                topFade = topFade * topFade; // extra smooth curve
-                gradient *= topFade;
+                // Fade all edges smoothly to white
+                float edgeFade = smoothstep(0.0, 0.25, uv.y) * smoothstep(0.0, 0.25, 1.0 - uv.y)
+                               * smoothstep(0.0, 0.12, uv.x) * smoothstep(0.0, 0.12, 1.0 - uv.x);
+                gradient *= edgeFade;
 
                 vec3 blueColor = mix(blue1, mix(blue2, mix(blue3, blue4, uv.x), uv.y), 0.5);
                 vec3 color = mix(baseColor, blueColor, gradient);
@@ -831,7 +851,9 @@
         render();
         window.addEventListener('resize', render);
         window.addEventListener('load', render);
-    })();
+    }
+    initCtaGradient('cta-gradient-canvas');
+    initCtaGradient('cta-gradient-canvas-2');
     </script>
 
     <!-- Call simulation typing animation -->

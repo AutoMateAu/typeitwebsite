@@ -27,7 +27,10 @@
       "Bash(npx vercel:*)",
       "Bash(git rm:*)",
       "Bash(ls:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(GIT_EDITOR=true git rebase:*)"
     ],
     "deny": [],
     "ask": []

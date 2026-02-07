@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hear Your Receptionist - Entry</title>
+    <link rel="icon" type="image/png" href="/assets/notextlogo-D3fsBOt2.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-D7Wv6BLz.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -647,6 +649,26 @@
 
         .footer a:hover {
             color: #5e6977;
+        }
+
+        @media (max-width: 768px) {
+            .vertical-line, .vertical-line-right {
+                display: none;
+            }
+            .logo {
+                top: 20px;
+                left: 20px;
+            }
+            .footer {
+                left: 20px !important;
+            }
+            .main-content {
+                padding: 70px 20px 60px;
+            }
+            .voice-selector {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
