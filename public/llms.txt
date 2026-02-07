@@ -1,0 +1,68 @@
+# Entry - AI Receptionist
+
+> Entry is an AI-powered voice receptionist platform that answers business calls 24/7, books appointments, manages emails, and follows up with leads. Built for healthcare, trades, financial services, and service-based businesses across Australia and beyond. Entry replaces the need for a human receptionist at a fraction of the cost.
+
+## Company Information
+
+- Name: Entry
+- Website: https://www.askentry.com
+- Product type: AI voice receptionist SaaS platform
+- Target market: Small-to-medium businesses (healthcare, trades, financial services)
+- Headquarters: Australia
+- App dashboard: https://app.askentry.com
+
+## What Entry Does
+
+Entry provides AI voice agents that answer phone calls on behalf of businesses. The AI receptionist can:
+
+- Answer every inbound call 24/7, including after hours and weekends
+- Book appointments directly into connected calendars (Calendly, Nookal, and more)
+- Recognise returning customers and greet them by name
+- Send SMS follow-ups to new leads automatically
+- Manage a unified inbox combining calls, emails, and chat enquiries
+- Generate AI summaries and smart email drafts
+- Provide call recordings and full transcripts
+- Integrate with CRMs and business tools (Gmail, HubSpot, Calendly, Nookal, ServiceM8)
+
+## Core Pages
+
+- [Homepage](https://www.askentry.com/): Overview of Entry's AI receptionist platform, features, and demo
+- [Platform & Features](https://www.askentry.com/features): Detailed feature breakdown including voice agents, call management, and integrations
+- [Pricing](https://www.askentry.com/pricing): Four-tier pricing from Free ($0/mo) to Pro ($599/mo)
+- [Enterprise](https://www.askentry.com/enterprise): Enterprise solutions for larger organisations
+- [Blog](https://www.askentry.com/blog): Articles on AI receptionists, industry guides, and product updates
+- [Sign Up](https://www.askentry.com/onboarding): Free onboarding flow — enter your website and Entry's AI builds your receptionist automatically
+
+## Pricing Plans
+
+- **Free**: $0/month — 100 minutes, basic training, appointment booking, call logs, unified inbox
+- **After Hours**: $99/month — 200 minutes, SMS lead follow-up, full customisation, client recognition, call recordings
+- **Overflow** (most popular): $299/month — 700 minutes, website chatbot, advanced AI training, multi-calendar booking, automated email replies, 3 phone numbers, 5 team members, priority support
+- **Pro**: $599/month — 2,000 minutes, custom CRM integration, 10 phone numbers, unlimited team members, API access
+
+Additional minutes are available from $0.45 to $0.65 per minute depending on plan. Annual billing discounts are offered.
+
+## Industries Served
+
+- **Healthcare**: Medical practices, dental clinics, physiotherapy, allied health — reduce no-shows and never miss a patient call
+- **Trades & Services**: Electricians, plumbers, builders, construction — capture leads while on the job
+- **Financial Services**: Financial planners, accountants — professional call handling for client-facing firms
+- **General Service Businesses**: Any business that receives inbound phone calls and books appointments
+
+## Key Integrations
+
+- Calendly (appointment scheduling)
+- Nookal (practice management for allied health)
+- Gmail (email management)
+- HubSpot (CRM)
+- ServiceM8 (job management for trades)
+- Custom CRM via API (Pro plan)
+
+## Blog Articles
+
+- [AI Receptionist for Medical Practices in Australia: The Complete 2026 Guide](https://www.askentry.com/blog/ai-receptionist-medical-practice-australia): How AI receptionists help Australian medical practices answer every call, reduce no-shows, and save $40K+ per year
+
+## Optional
+
+- [Demo](https://www.askentry.com/demo): Product demonstration page
+- [Sign In](https://app.askentry.com): Existing customer dashboard login
