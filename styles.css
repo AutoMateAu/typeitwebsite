@@ -2205,10 +2205,9 @@ body:has(.launch-banner) .never-lose-sticky {
 }
 
 .feature-cards-container .feature-card img {
-    width: calc(100% - 100px);
-    height: calc(100% - 100px);
-    object-fit: cover;
-    object-position: top center;
+    width: calc(100% - 48px);
+    height: auto;
+    max-height: calc(100% - 48px);
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
