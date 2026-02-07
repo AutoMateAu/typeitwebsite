@@ -15,6 +15,8 @@ export default defineConfig({
         enterprise: resolve(__dirname, 'enterprise.html'),
         demo: resolve(__dirname, 'demo.html'),
         details: resolve(__dirname, 'details.html'),
+        blog: resolve(__dirname, 'blog/index.html'),
+        blogArticle1: resolve(__dirname, 'blog/ai-receptionist-medical-practice-australia.html'),
       },
     },
   },
