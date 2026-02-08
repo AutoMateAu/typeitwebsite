@@ -415,13 +415,13 @@
     <!-- Category Filters -->
     <div class="blog-filters">
         <div class="category-buttons">
-            <button class="category-btn active" data-category="all">ALL <span class="count">(3)</span></button>
-            <button class="category-btn" data-category="general">GENERAL <span class="count">(0)</span></button>
-            <button class="category-btn" data-category="how-to">HOW-TO <span class="count">(0)</span></button>
-            <button class="category-btn" data-category="knowledge">KNOWLEDGE <span class="count">(3)</span></button>
-            <button class="category-btn" data-category="company-update">COMPANY UPDATE <span class="count">(0)</span></button>
+            <button class="category-btn active" data-category="all">ALL <span class="count"></span></button>
+            <button class="category-btn" data-category="general">GENERAL <span class="count"></span></button>
+            <button class="category-btn" data-category="how-to">HOW-TO <span class="count"></span></button>
+            <button class="category-btn" data-category="knowledge">KNOWLEDGE <span class="count"></span></button>
+            <button class="category-btn" data-category="company-update">COMPANY UPDATE <span class="count"></span></button>
         </div>
-        <p class="article-count"><span>3</span> articles</p>
+        <p class="article-count"><span></span> articles</p>
     </div>
 
     <!-- Blog Grid -->
@@ -500,6 +500,19 @@
         const categoryBtns = document.querySelectorAll('.category-btn');
         const blogCards = document.querySelectorAll('.blog-card');
         const articleCountEl = document.querySelector('.article-count span');
+
+        // Dynamically compute counts from blog cards
+        function updateCategoryCounts() {
+            categoryBtns.forEach(btn => {
+                const cat = btn.dataset.category;
+                const count = cat === 'all'
+                    ? blogCards.length
+                    : document.querySelectorAll(`.blog-card[data-category="${cat}"]`).length;
+                btn.querySelector('.count').textContent = `(${count})`;
+            });
+            articleCountEl.textContent = blogCards.length;
+        }
+        updateCategoryCounts();
 
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
