@@ -36,6 +36,7 @@ export default defineConfig({
         details: resolve(__dirname, 'details.html'),
         blog: resolve(__dirname, 'blog/index.html'),
         blogArticle1: resolve(__dirname, 'blog/ai-receptionist-medical-practice-australia.html'),
+        blogArticle2: resolve(__dirname, 'blog/ai-receptionist-physiotherapy-australia.html'),
         blogArticle3: resolve(__dirname, 'blog/ai-receptionist-real-estate-australia.html'),
       },
     },

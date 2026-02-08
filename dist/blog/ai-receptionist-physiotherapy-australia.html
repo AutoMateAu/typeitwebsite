@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist for Physiotherapy Practices in Australia | Entry</title>
+    <meta name="description" content="Discover how AI receptionists help Australian physio clinics answer every call, reduce no-shows across treatment plans, and save $40K+ per year.">
+    <link rel="icon" type="image/png" href="/assets/notextlogo-D3fsBOt2.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-D7Wv6BLz.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: #fff;
+        }
+
+        header {
+            height: 56px;
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding-top: 6px;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #42526e;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0052cc;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-actions .sign-in {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0052cc;
+            text-decoration: none;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .sign-in:hover {
+            color: #0747a6;
+            background: rgba(0, 82, 204, 0.05);
+        }
+
+        .nav-actions .download-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            background: #0052cc;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .download-btn:hover {
+            background: #0747a6;
+        }
+
+        /* Article Hero */
+        .article-hero {
+            padding: 120px 80px 40px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .article-category {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #c0392b;
+        }
+
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .article-meta-divider {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        .article-hero h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .article-hero .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .author-byline {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .author-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .author-name a {
+            color: #1a1a2e;
+            text-decoration: none;
+        }
+
+        .author-name a:hover {
+            color: #c0392b;
+        }
+
+        .author-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 32px;
+            background: #fafafa;
+            border-radius: 16px;
+            margin-top: 48px;
+            border: 1px solid #eee;
+        }
+
+        .author-box .author-avatar {
+            width: 64px;
+            height: 64px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .author-box-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .author-box-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .author-box-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .author-box-bio {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .author-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #0077b5;
+            text-decoration: none;
+            margin-top: 4px;
+        }
+
+        .author-linkedin:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 80px 80px;
+        }
+
+        .article-content h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f0f0f;
+            margin: 56px 0 20px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .article-content h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 40px 0 14px;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .article-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .article-content ul, .article-content ol {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .article-content a {
+            color: #0052cc;
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid #c0392b;
+            padding-left: 20px;
+            margin: 28px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .article-content hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 48px 0;
+        }
+
+        .article-cta {
+            background: #f5f5f0;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .article-cta p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .article-cta a {
+            font-weight: 600;
+            color: #0052cc;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0052cc;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+
+        .hero-image-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 44px;
+            position: relative;
+        }
+
+        .hero-image-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.15) 0%, rgba(51, 65, 255, 0.10) 100%);
+            pointer-events: none;
+        }
+
+        .hero-image-wrap img {
+            width: 100%;
+            display: block;
+            filter: brightness(1.02) contrast(1.05) saturate(1.15);
+        }
+
+        .toc {
+            background: #f9f9f6;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+        }
+
+        .toc p {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 6px;
+        }
+
+        .toc a {
+            font-size: 15px;
+            color: #0052cc;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: 30px 80px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #1e293b;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #42526e;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .sign-in {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .article-hero {
+                padding: 100px 20px 32px;
+            }
+            .article-hero h1 {
+                font-size: 32px;
+            }
+            .article-content {
+                padding: 0 20px 40px;
+            }
+            .article-content h2 {
+                font-size: 24px;
+            }
+            .site-footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                padding: 80px 16px 24px;
+            }
+            .article-hero h1 {
+                font-size: 28px;
+            }
+            .article-content {
+                padding: 0 16px 32px;
+            }
+            .article-content p,
+            .article-content ul,
+            .article-content ol {
+                font-size: 16px;
+            }
+            .site-footer {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="nav-logo">
+            <img src="/assets/Entry1-DBZQppMB.png" alt="Entry">
+        </a>
+        <nav class="nav-links">
+            <a href="/features">Platform</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/blog" class="active">Blog</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="https://app.askentry.com" class="sign-in">Sign In</a>
+            <a href="/onboarding" class="download-btn">Get Started</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
+    </header>
+
+    <article class="article-hero">
+        <a href="/blog" class="back-to-blog">&larr; Back to Blog</a>
+        <div class="article-meta">
+            <span class="article-category">Knowledge</span>
+            <span class="article-meta-divider"></span>
+            <span class="article-date">Feb 7, 2026</span>
+        </div>
+        <h1>AI Receptionist for Physiotherapy Practices in Australia: The Complete 2026 Guide</h1>
+        <p class="subtitle">Discover how AI receptionists help Australian physio clinics answer every call, reduce no-shows across treatment plans, and save $40K+ per year &mdash; without hiring another receptionist.</p>
+        <div class="author-byline">
+            <div class="author-avatar">AD</div>
+            <div class="author-info">
+                <span class="author-name"><a href="https://www.linkedin.com/in/alex-dowling-703323242/" target="_blank" rel="noopener">Alex Dowling</a></span>
+                <span class="author-title">Head of Marketing at Entry</span>
+            </div>
+        </div>
+    </article>
+
+    <div class="article-content">
+
+        <div class="hero-image-wrap">
+            <img src="/assets/ai-receptionist-physiotherapy-australia-CpfZsaX5.jpg" alt="Physiotherapy practice in Australia">
+        </div>
+
+        <p>If you run a physiotherapy practice in Australia, your front desk is doing the work of three people. Phones ringing between patient appointments, new enquiries coming in while your receptionist is processing a WorkCover claim, someone on hold wanting to know if their health fund covers remedial massage &mdash; and that's just before lunch.</p>
+
+        <p>Now factor in the reality of hiring. The average physiotherapy receptionist salary in Australia sits around <a href="https://au.jora.com/s/Physiotherapy-Receptionist-salary" target="_blank" rel="noopener">$60,000 per year</a>. Turnover in allied health reception roles is high, good candidates are hard to find, and every time someone leaves, you're back to square one &mdash; recruiting, training, and losing productivity for weeks.</p>
+
+        <p>This is why a growing number of Australian physio clinics &mdash; from solo practitioners to multi-location practices &mdash; are turning to <a href="/features">AI receptionists</a>. These are intelligent phone systems that answer calls, book appointments, handle patient enquiries, and work around the clock without sick days or annual leave.</p>
+
+        <div class="toc">
+            <p>Table of Contents</p>
+            <ul>
+                <li><a href="#what-is-an-ai-receptionist">What Is an AI Receptionist for Physio Practices?</a></li>
+                <li><a href="#why-now">Why Physiotherapy Practices Need This Now</a></li>
+                <li><a href="#how-to-choose">How to Choose an AI Receptionist for Your Physio Practice</a></li>
+                <li><a href="#cost-comparison">AI Receptionist vs Physio Receptionist: Cost Comparison</a></li>
+                <li><a href="#common-concerns">Common Concerns from Physio Practice Owners</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#bottom-line">The Bottom Line</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+            </ul>
+        </div>
+
+        <h2 id="what-is-an-ai-receptionist">What Is an AI Receptionist for Physio Practices?</h2>
+
+        <p>An <a href="/features">AI receptionist</a> is a voice-based system powered by artificial intelligence that answers your practice phone line, understands what the caller needs, and takes action &mdash; whether that's booking an initial assessment, answering a question about your services, or sending a follow-up SMS with your clinic's address and intake forms.</p>
+
+        <p>This isn't the old press-1-for-appointments phone tree. Modern AI receptionists use natural language processing to have real conversations. A patient can say "I tweaked my back playing footy on the weekend, can I get in to see someone tomorrow morning?" and the system checks your calendar and books them in.</p>
+
+        <p>Here's what a well-built AI receptionist handles for a physiotherapy practice:</p>
+
+        <ul>
+            <li><strong>Answering inbound calls 24/7</strong>, including after hours, weekends, and public holidays</li>
+            <li><strong>Booking, rescheduling, and cancelling appointments</strong> directly into your practice management software</li>
+            <li><strong>Answering common patient questions</strong> &mdash; services offered, fees, practitioner availability, parking, location, what to wear to an appointment</li>
+            <li><strong>Handling health fund and payment queries</strong> &mdash; "Do you accept Medibank?", "What's the gap payment?", "Do you offer HICAPS?"</li>
+            <li><strong>Managing referral and funding queries</strong> &mdash; WorkCover, TAC, NDIS, DVA, EPC referrals from GPs</li>
+            <li><strong>Recognising returning patients</strong> and greeting them by name</li>
+            <li><strong>Sending SMS follow-ups</strong> with booking confirmations, directions, or pre-appointment instructions</li>
+            <li><strong>Screening and triaging calls</strong> &mdash; identifying urgent matters and routing them to a human</li>
+            <li><strong>Capturing new patient details</strong> and feeding them into your PMS</li>
+            <li><strong>Providing call summaries and transcripts</strong> so nothing falls through the cracks</li>
+        </ul>
+
+        <p>What it doesn't do is replace clinical judgement. An AI receptionist handles the administrative layer so your physios can focus on treating patients, not answering phones between appointments.</p>
+
+        <h2 id="why-now">Why Physiotherapy Practices Need This Now</h2>
+
+        <h3>The staffing squeeze is real</h3>
+
+        <p>Australia's physiotherapy industry is worth <a href="https://www.ibisworld.com/australia/industry/physiotherapy-services/619/" target="_blank" rel="noopener">$3.9 billion and includes over 9,500 businesses</a> &mdash; the vast majority of which are small, independent practices. Finding and keeping quality reception staff has become one of the biggest operational headaches in the industry.</p>
+
+        <p>It's not just receptionists, either. Research from the <a href="https://www.tandfonline.com/doi/full/10.1080/09593985.2023.2233100" target="_blank" rel="noopener">Australian Physiotherapy Association</a> shows that only 27% of early-career physiotherapists intend to stay in the profession long-term (more than 20 years), contributing to ongoing workforce pressure. When your physios are stretched thin, the last thing you need is your receptionist calling in sick with no backup.</p>
+
+        <p>An AI receptionist won't treat your patients, but it takes enough pressure off your front desk that your human team can focus on in-clinic patient care and complex admin &mdash; the things that actually need a human touch.</p>
+
+        <h3>Missed calls are bleeding your practice dry</h3>
+
+        <p>Here's the uncomfortable truth: <strong>80% of callers won't leave a voicemail.</strong> They'll hang up and call the next physio clinic that answers.</p>
+
+        <p>Think about what that means in practice. A new patient calls at 12:30pm while your receptionist is at lunch. They don't leave a message. They Google "physio near me," call the next result, and book there instead. That's not just one appointment lost &mdash; it's an entire treatment plan of 6&ndash;10 sessions. At an average of $90&ndash;$120 per session, that's $540&ndash;$1,200 in revenue from a single missed call.</p>
+
+        <p>Now multiply that across every missed call during lunch breaks, after hours, and when your receptionist is already on the phone with someone else.</p>
+
+        <h3>No-shows hit physio harder than almost any other healthcare setting</h3>
+
+        <p>Research published in <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8162651/" target="_blank" rel="noopener">BMC Musculoskeletal Disorders</a> found that <strong>73% of physiotherapy patients missed at least one appointment</strong> during their course of treatment, with no-show rates across clinics ranging from 15&ndash;31%.</p>
+
+        <p>What makes this particularly painful for physio practices is the compounding effect. Physiotherapy isn't a one-off appointment &mdash; it's a course of treatment. When a patient no-shows for session three of an eight-session plan, they're far more likely to drop out entirely. That's not just one missed appointment; it's five or more sessions of lost revenue, and a patient whose outcomes suffer because they didn't complete their rehab.</p>
+
+        <p>An AI receptionist attacks this problem from multiple angles: it answers every call so bookings happen immediately (reducing the gap between intent and commitment), sends automated reminders before appointments, and follows up with patients who miss sessions &mdash; all without your team lifting a finger.</p>
+
+        <h3>Patient expectations have changed</h3>
+
+        <p>Patients expect to book a physio appointment at 9pm on a Sunday after rolling an ankle at weekend sport. They expect to call during their lunch break and not sit on hold. If your phones are only answered 8:30am to 5pm Monday to Friday, you're losing patients to clinics that offer more accessibility.</p>
+
+        <p>This is especially true for the demographics that drive physio revenue &mdash; active adults, weekend warriors, NDIS participants, and workers' compensation claimants. These patients are often calling outside business hours because they're at work during yours. <a href="/features">See how Entry handles after-hours calls</a>.</p>
+
+        <h2 id="how-to-choose">How to Choose an AI Receptionist for Your Physio Practice</h2>
+
+        <p>Most AI receptionist platforms are built for US healthcare and designed around HIPAA compliance. That's not enough for an Australian physiotherapy practice. Here's what actually matters.</p>
+
+        <h3>Integration with Australian physiotherapy practice management software</h3>
+
+        <p>This is the non-negotiable. Your AI receptionist needs to plug into the software you already run:</p>
+
+        <ul>
+            <li><strong><a href="https://www.cliniko.com/" target="_blank" rel="noopener">Cliniko</a></strong> &mdash; the dominant PMS for allied health in Australia, used by over 65,000 health professionals. Your AI must be able to read availability, book appointments, and update patient records directly in Cliniko.</li>
+            <li><strong><a href="https://www.nookal.com/au" target="_blank" rel="noopener">Nookal</a></strong> &mdash; widely used across physio, chiro, and allied health. Particularly strong for practices that run group classes (Pilates, hydrotherapy, exercise groups) alongside individual appointments.</li>
+            <li><strong><a href="https://www.halaxy.com/" target="_blank" rel="noopener">Halaxy</a></strong> &mdash; popular with multi-disciplinary practices and those who need integrated telehealth and invoicing.</li>
+            <li><strong><a href="https://www.powerdiary.com/" target="_blank" rel="noopener">Power Diary</a></strong> &mdash; growing among allied health practitioners across Australia.</li>
+            <li><strong><a href="https://www.hotdoc.com.au/" target="_blank" rel="noopener">HotDoc</a></strong> and <strong><a href="https://healthengine.com.au/" target="_blank" rel="noopener">HealthEngine</a></strong> &mdash; the major patient booking platforms.</li>
+            <li><strong>Google Calendar</strong> and <strong>Outlook</strong> &mdash; for simpler setups or solo practitioners.</li>
+        </ul>
+
+        <p>If the AI can't book directly into your PMS, you're just creating a glorified answering machine that generates manual data entry for your staff. That defeats the purpose entirely.</p>
+
+        <h3>Australian Privacy Act compliance</h3>
+
+        <p>The moment someone calls to book a physio appointment, you're handling personal and health information under the Australian Privacy Principles (APPs) within the <a href="https://www.oaic.gov.au/privacy/the-privacy-act" target="_blank" rel="noopener">Privacy Act 1988</a>. Your AI receptionist provider needs to tell you clearly: where is patient data hosted (ideally Australia), how is it encrypted in transit and at rest, and how do they comply with the APPs &mdash; not just US-based HIPAA.</p>
+
+        <h3>Understanding physio-specific call types</h3>
+
+        <p>A generic AI receptionist will fumble the questions that physio patients actually ask. Your system needs to handle these confidently:</p>
+
+        <ul>
+            <li>"Do I need a referral to see a physio?" (No, but an EPC referral from a GP gives them Medicare-subsidised sessions)</li>
+            <li>"Does my health fund cover physio?" and "What's the gap?"</li>
+            <li>"Do you treat [specific condition]?" &mdash; ACL rehab, back pain, post-surgical, sports injuries, chronic pain</li>
+            <li>"Is this covered by WorkCover / TAC / NDIS / DVA?"</li>
+            <li>"How many sessions will I need?"</li>
+            <li>"Can I claim on the spot with HICAPS?"</li>
+            <li>"Do you do dry needling / hydrotherapy / Pilates?"</li>
+        </ul>
+
+        <p>The AI needs to answer these accurately based on your practice's specific information, or know when to escalate to a human.</p>
+
+        <h3>Australian voice and tone</h3>
+
+        <p>If your patients are calling a physio clinic in Bondi and the AI sounds like it's based in California, trust drops immediately. Look for natural-sounding Australian voices that match your practice's tone &mdash; professional but approachable, which is the sweet spot for most physio clinics.</p>
+
+        <h3>Group class and multi-practitioner scheduling</h3>
+
+        <p>Many physio practices run clinical Pilates, group exercise classes, hydrotherapy sessions, or gym rehab programs alongside standard one-on-one appointments. Your AI receptionist needs to handle both &mdash; booking a patient into a 10am Pilates class is different from booking a 30-minute initial assessment with a specific practitioner.</p>
+
+        <h2 id="cost-comparison">AI Receptionist vs Physio Receptionist: Cost Comparison Australia</h2>
+
+        <p>Real Australian numbers for a typical physiotherapy practice:</p>
+
+        <h3>Hiring a physiotherapy receptionist</h3>
+
+        <ul>
+            <li>Base salary: $55,000&ndash;$65,000/year (plus 11.5% superannuation)</li>
+            <li>Total employment cost: ~$62,000&ndash;$73,000/year</li>
+            <li>Add recruitment costs ($3,000&ndash;$5,000 per hire), training time (2&ndash;4 weeks to learn your PMS and billing workflows), sick leave, annual leave</li>
+            <li>Can only answer one call at a time</li>
+            <li>Available during business hours only</li>
+            <li>Turnover means repeating this cycle regularly</li>
+        </ul>
+
+        <h3>AI receptionist platform</h3>
+
+        <ul>
+            <li>Typically $100&ndash;$500/month ($1,200&ndash;$6,000/year) &mdash; <a href="/pricing">see Entry's pricing</a></li>
+            <li>Answers unlimited simultaneous calls</li>
+            <li>Available 24/7/365</li>
+            <li>No sick days, no turnover, no training lag</li>
+            <li>Consistent quality on every call</li>
+        </ul>
+
+        <h3>Where the real savings come from</h3>
+
+        <p>Most physio practices don't replace their receptionist entirely. The smart play is using AI to handle:</p>
+
+        <ul>
+            <li><strong>Overflow calls</strong> when your receptionist is already on the phone or with a patient at the desk</li>
+            <li><strong>After-hours and weekend calls</strong> from patients who get injured outside business hours</li>
+            <li><strong>Routine enquiries</strong> that eat up 60&ndash;70% of your receptionist's phone time (hours, location, fees, availability)</li>
+            <li><strong>Appointment reminders and no-show follow-ups</strong> that your team never has time to do consistently</li>
+        </ul>
+
+        <p>The savings come from three places: not needing a second receptionist as you grow, capturing revenue from calls you're currently missing, and reducing no-shows that silently drain your bottom line.</p>
+
+        <p>For a practice losing just 3 calls per day to voicemail or hold times, and each call represents even a conservative $500 in potential treatment plan revenue, that's $7,500 per week &mdash; or nearly $400,000 per year in revenue at risk.</p>
+
+        <p>For multi-location practices, <a href="/enterprise">Entry's enterprise plan</a> offers dedicated support and custom integrations across all your clinics.</p>
+
+        <h2 id="common-concerns">Common Concerns from Physio Practice Owners</h2>
+
+        <h3>"My patients want to talk to a real person."</h3>
+
+        <p>Most do &mdash; for clinical questions. But for "what time do you open?", "can I move my Thursday appointment to Friday?", and "do you have anything available tomorrow morning?" &mdash; they just want an answer, fast. Research consistently shows patients respond positively to AI when it's natural-sounding and efficient. What frustrates patients is being put on hold or sent to voicemail, not talking to an AI that solves their problem in 30 seconds.</p>
+
+        <h3>"What about patient data and privacy?"</h3>
+
+        <p>This is a legitimate concern and one you should push hard on with any provider. Choose an AI receptionist that stores data in Australia, encrypts everything in transit and at rest, and can demonstrate compliance with the Australian Privacy Principles in writing. Ask for their privacy policy, their data processing agreement, and where their servers are hosted. If they can't answer these questions clearly, walk away.</p>
+
+        <h3>"We tried automated phone systems before and patients hated them."</h3>
+
+        <p>The old IVR phone trees &mdash; "press 1 for appointments, press 2 for billing" &mdash; are nothing like modern conversational AI. Today's AI receptionists hold natural, flowing conversations. They understand context, handle interruptions, and adapt to what the caller says. It's the difference between talking to a vending machine and talking to a capable assistant. <a href="/features">Listen to a sample call</a> to hear the difference for yourself.</p>
+
+        <h3>"Will it work with Cliniko / Nookal / our current setup?"</h3>
+
+        <p>This varies by provider, and it's the first question you should ask. The best platforms integrate directly with major Australian allied health PMS platforms. Always confirm that your specific software is supported &mdash; and test it &mdash; before committing. <a href="/features">Check Entry's integrations</a>.</p>
+
+        <h3>"What about complex bookings &mdash; different session types, practitioners, and class sizes?"</h3>
+
+        <p>A well-configured AI receptionist handles this by understanding your booking rules. It knows that an initial assessment is 60 minutes with a senior physio, a follow-up is 30 minutes with any available practitioner, and your Wednesday Pilates class has 8 spots. You set the rules; the AI follows them.</p>
+
+        <h2 id="getting-started">Getting Started</h2>
+
+        <ol>
+            <li><strong>Audit your missed calls.</strong> Most phone systems and PMS platforms can show you call data. Knowing how many calls you're missing &mdash; and when &mdash; reveals the size of the opportunity. Pay particular attention to lunch hours, Monday mornings, and after 4pm.</li>
+            <li><strong>Identify your must-have integrations.</strong> What PMS do you use? Cliniko? Nookal? Halaxy? What about your booking platform &mdash; HotDoc, HealthEngine, or direct? These are your non-negotiables when evaluating providers.</li>
+            <li><strong>Start with after-hours calls.</strong> This is the lowest-risk entry point and delivers immediate value. Every after-hours call you're currently sending to voicemail is a patient who's probably calling someone else. <a href="/onboarding">Get set up in minutes</a>.</li>
+            <li><strong>Feed it your practice knowledge.</strong> The more you tell the AI about your practice &mdash; services, fees per session type, practitioners and their specialties, FAQs, booking rules, health fund information, what to bring to a first appointment &mdash; the better it performs from day one.</li>
+            <li><strong>Review and refine.</strong> Listen to call recordings in the first few weeks. You'll quickly spot where the AI needs more information or where your practice knowledge base has gaps. Most practices hit their stride within 2&ndash;3 weeks.</li>
+        </ol>
+
+        <h2 id="bottom-line">The Bottom Line</h2>
+
+        <p>Australian physiotherapy is a $3.9 billion industry made up of thousands of small practices &mdash; and every one of them depends on the front desk running smoothly. When calls go unanswered, patients book elsewhere. When no-shows go unfollowed, treatment plans collapse. When your receptionist is overwhelmed, everyone feels it.</p>
+
+        <p>An AI receptionist addresses the front desk bottleneck that sits at the centre of these problems. Every call answered is a patient retained. Every appointment booked immediately is a no-show avoided. Every after-hours enquiry captured is revenue that would have gone to the clinic down the road.</p>
+
+        <p>The technology is mature, the cost is a fraction of an additional hire, and Australian-specific solutions now exist that integrate with Cliniko, Nookal, and the software your practice already runs on.</p>
+
+        <p>The question isn't whether AI receptionists will become standard in Australian physiotherapy. It's whether your practice will be early or late. <a href="/onboarding"><strong>Try Entry free today</strong></a>.</p>
+
+        <hr>
+
+        <h2 id="faqs">FAQs</h2>
+
+        <h3>Do I need a referral for my patients to see a physio?</h3>
+
+        <p>No. In Australia, patients can see a physiotherapist without a referral. However, if they have an Enhanced Primary Care (EPC) plan from their GP, they can access Medicare-subsidised sessions. A good AI receptionist explains this clearly to callers.</p>
+
+        <h3>How does an AI receptionist integrate with Cliniko or Nookal?</h3>
+
+        <p>The AI connects to your PMS via API, allowing it to check real-time practitioner availability, book appointments into the correct diary, and capture patient details &mdash; all without manual data entry by your team.</p>
+
+        <h3>Is patient data safe with an AI receptionist?</h3>
+
+        <p>Look for a provider that hosts data in Australia, encrypts data in transit and at rest, and complies with the Australian Privacy Principles under the Privacy Act 1988. Always ask for documentation of their privacy and security practices.</p>
+
+        <h3>Can an AI receptionist handle WorkCover and NDIS enquiries?</h3>
+
+        <p>Yes, when properly configured. The AI can explain your practice's policies on WorkCover, TAC, DVA, and NDIS funding, and capture the relevant details from callers so your team can process claims efficiently.</p>
+
+        <h3>What happens if a caller needs to speak to a human?</h3>
+
+        <p>The AI recognises when a call requires human attention &mdash; whether it's a clinical question, an urgent matter, or simply a caller who prefers to speak with a person &mdash; and routes the call to your team or takes a priority message for immediate follow-up.</p>
+
+        <h3>How much does an AI receptionist cost compared to hiring staff?</h3>
+
+        <p>AI receptionist platforms typically cost $100&ndash;$500 per month, compared to $62,000&ndash;$73,000 per year for a full-time physiotherapy receptionist including super. Most practices use AI alongside their human receptionist rather than as a replacement.</p>
+
+        <hr>
+
+        <div class="article-cta">
+            <p><em>Entry is an AI receptionist platform built for Australian businesses including physiotherapy practices, allied health clinics, and multi-disciplinary healthcare providers.</em></p>
+            <p><a href="/onboarding">Try Entry free</a> | <a href="/features">Listen to our AI in action</a> | <a href="/enterprise">Enterprise solutions for multi-location practices</a></p>
+        </div>
+
+        <div class="author-box">
+            <div class="author-avatar">AD</div>
+            <div class="author-box-info">
+                <span class="author-box-name">Alex Dowling</span>
+                <span class="author-box-title">Head of Marketing at Entry</span>
+                <span class="author-box-bio">Alex leads marketing at Entry, helping Australian businesses discover how AI receptionists can transform their customer experience and operations.</span>
+                <a href="https://www.linkedin.com/in/alex-dowling-703323242/" target="_blank" rel="noopener" class="author-linkedin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3341FF" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            Entry
+        </div>
+        <div class="footer-copyright">
+            &copy; 2026 Entry. All rights reserved.<br>
+            Privacy Policy &middot; Terms of Service
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

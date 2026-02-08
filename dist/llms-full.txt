@@ -1,0 +1,205 @@
+# Entry - AI Receptionist
+
+> Entry is an AI-powered voice receptionist platform that answers business calls 24/7, books appointments, manages emails, and follows up with leads. Built for healthcare, trades, financial services, and service-based businesses across Australia and beyond. Entry replaces the need for a human receptionist at a fraction of the cost.
+
+## Company Information
+
+- Name: Entry
+- Website: https://www.askentry.com
+- Product type: AI voice receptionist SaaS platform
+- Target market: Small-to-medium businesses (healthcare, trades, financial services)
+- Headquarters: Australia
+- App dashboard: https://app.askentry.com
+
+## Product Overview
+
+Entry is an AI receptionist platform that uses advanced voice AI to answer phone calls on behalf of businesses. Instead of hiring a human receptionist or losing calls to voicemail, businesses connect Entry to their phone line and the AI handles everything: answering calls, understanding caller intent, booking appointments, capturing lead details, and following up via SMS.
+
+The platform combines voice AI, email management, a website chatbot, and CRM integrations into a single unified dashboard. Businesses can monitor all customer interactions — calls, emails, and chats — from one place.
+
+Entry's onboarding is AI-powered: a new user enters their business website URL, and Entry's AI automatically crawls the site, extracts business information (services, hours, FAQs, pricing), and builds a customised AI receptionist in minutes. No manual setup or technical knowledge required.
+
+## Core Features
+
+### AI Voice Receptionist
+- Answers every inbound call 24/7, 365 days a year
+- Natural-sounding AI voices that represent your brand
+- Handles after-hours, weekends, and overflow calls
+- Understands caller intent and routes conversations appropriately
+- Transfers calls to human staff when needed
+
+### Appointment Booking
+- Books appointments directly into connected calendars
+- Supports Calendly, Nookal, and other calendar platforms
+- Multi-calendar support for teams with multiple practitioners or locations
+- Zero double-bookings with real-time availability checking
+- Reduces no-shows through automated reminders
+
+### Client Recognition
+- Recognises returning customers from their phone number
+- Greets returning callers by name
+- Accesses previous interaction history for context
+- Provides personalised service based on past appointments
+
+### Call Management
+- Full call logs with timestamps and caller details
+- Call recordings stored securely and privately
+- AI-generated call transcripts
+- Call summaries highlighting key information and action items
+
+### Email Management
+- Unified inbox for calls, emails, and chat messages
+- AI-generated smart email drafts
+- Automated email replies (Overflow plan and above)
+- All customer communications in one place
+
+### SMS Lead Follow-Up
+- Automatically sends SMS to new leads after a call
+- Captures lead information during the call
+- Ensures no lead falls through the cracks
+- Available on After Hours plan and above
+
+### Website Chatbot
+- Embeddable chatbot for your website
+- Handles customer enquiries in real time
+- Feeds into the same unified inbox as calls and emails
+- Available on Overflow plan and above
+
+### Integrations
+- Calendly: Appointment scheduling
+- Nookal: Practice management for allied health
+- Gmail: Email management and sync
+- HubSpot: CRM integration
+- ServiceM8: Job management for trades
+- Custom CRM via API: Available on Pro plan for any system
+
+## Pricing Plans
+
+### Free Plan — $0/month
+- 100 included minutes per month
+- Basic AI training
+- Appointment booking
+- Call logs
+- Unified inbox
+- Ideal for: Testing the platform or very low-volume businesses
+
+### After Hours Plan — $99/month
+- 200 included minutes per month
+- Everything in Free, plus:
+- SMS lead follow-up
+- Full AI customisation
+- Client recognition (greet returning callers by name)
+- Call recordings
+- Extra minutes: $0.65/minute
+- Ideal for: Businesses that need after-hours call coverage
+
+### Overflow Plan — $299/month (Most Popular)
+- 700 included minutes per month
+- Everything in After Hours, plus:
+- Website chatbot
+- Advanced AI training
+- Multi-calendar booking
+- Automated email replies
+- 3 phone numbers
+- 5 team members
+- Priority support
+- Extra minutes: $0.55/minute
+- Ideal for: Growing businesses with moderate call volume
+
+### Pro Plan — $599/month
+- 2,000 included minutes per month
+- Everything in Overflow, plus:
+- Custom CRM integration
+- 10 phone numbers
+- Unlimited team members
+- API access
+- Extra minutes: $0.45/minute
+- Ideal for: Multi-location businesses and enterprises
+
+Annual billing discounts are available on all paid plans.
+
+## Industries Served
+
+### Healthcare
+Entry helps medical practices, dental clinics, physiotherapy clinics, and allied health providers by:
+- Answering every patient call, reducing missed appointments
+- Booking directly into practice management systems like Nookal
+- Reducing no-shows through automated reminders
+- Handling after-hours calls for urgent enquiries
+- Saving practices an estimated $40,000+ per year compared to a human receptionist
+- Relevant article: "AI Receptionist for Medical Practices in Australia: The Complete 2026 Guide"
+
+### Trades & Services
+Entry helps electricians, plumbers, builders, and other tradespeople by:
+- Capturing every lead while the tradesperson is on a job site
+- Booking quotes and consultations automatically
+- Following up with leads via SMS so no job is lost
+- Providing a professional first impression for every call
+
+### Financial Services
+Entry helps financial planners, accountants, and advisory firms by:
+- Providing professional, consistent call handling
+- Booking client meetings directly into calendars
+- Managing enquiries during busy periods
+- Maintaining compliance through call recordings and transcripts
+
+## How Getting Started Works
+
+1. **Enter your website URL**: Visit askentry.com/onboarding, enter your business website, and Entry's AI automatically crawls your site to learn about your business — services, hours, FAQs, pricing, and more.
+2. **Customise your AI receptionist**: Choose a voice, set the tone, connect your calendar and CRM. Review the AI-extracted business information and make any adjustments.
+3. **Go live**: Your AI receptionist starts answering calls immediately. Monitor everything in real time from the Entry dashboard.
+
+No technical setup required. The entire process can be completed in minutes.
+
+## Performance Statistics
+
+- 4X more productive than human receptionist agents
+- 97% increase in customer satisfaction (CSAT) scores
+- 214% return on investment
+- 50% of calls resolved automatically without human intervention
+
+## Security & Privacy
+
+- All client data is encrypted and securely stored
+- Call recordings are private and belong to the business
+- Business knowledge and training data is not used to train AI models
+- HTTPS enforced with HSTS headers
+- Compliant with Australian data privacy requirements
+
+## All Site Pages
+
+- [Homepage](https://www.askentry.com/): Main landing page with product overview, feature showcase, call simulation demo, and customer examples
+- [Platform & Features](https://www.askentry.com/features): Complete feature breakdown — voice agents, call management, email inbox, integrations, and customisation options
+- [Pricing](https://www.askentry.com/pricing): Full pricing comparison across Free, After Hours, Overflow, and Pro plans
+- [Enterprise](https://www.askentry.com/enterprise): Enterprise solutions for larger organisations with custom requirements
+- [Blog](https://www.askentry.com/blog): Articles covering AI receptionists, industry-specific guides, how-to content, and company updates
+- [AI Receptionist for Medical Practices in Australia](https://www.askentry.com/blog/ai-receptionist-medical-practice-australia): Comprehensive 2026 guide on how AI receptionists help Australian medical practices answer every call, reduce no-shows, and save $40K+ per year
+- [Sign Up / Onboarding](https://www.askentry.com/onboarding): Start for free — AI-powered onboarding that builds your receptionist from your website
+- [Demo](https://www.askentry.com/demo): Product demonstration
+- [Dashboard / Sign In](https://app.askentry.com): Customer login for the Entry app dashboard
+
+## Frequently Asked Questions
+
+### What is Entry?
+Entry is an AI-powered voice receptionist that answers your business phone calls 24/7. It books appointments, captures leads, and manages customer communications — all without a human receptionist.
+
+### How much does Entry cost?
+Entry offers a free plan with 100 minutes per month. Paid plans start at $99/month (After Hours), $299/month (Overflow), and $599/month (Pro). Annual billing discounts are available.
+
+### What industries does Entry serve?
+Entry is built for healthcare (medical, dental, allied health), trades and services (electricians, plumbers, builders), financial services (accountants, financial planners), and any service-based business that receives phone calls.
+
+### How does the AI learn about my business?
+When you sign up, Entry's AI crawls your business website to automatically extract information about your services, hours, pricing, and FAQs. You can review and customise this information before going live.
+
+### Can Entry book appointments?
+Yes. Entry integrates with Calendly, Nookal, and other calendar platforms to book appointments directly during a call. Multi-calendar support is available for teams.
+
+### Does Entry work after hours?
+Yes. Entry answers calls 24/7, including after hours, weekends, and public holidays. The After Hours plan ($99/month) is specifically designed for businesses that need coverage outside business hours.
+
+### Is my data secure?
+Yes. All data is encrypted, call recordings are private and owned by the business, and business knowledge is never used to train AI models.
+
+### Can I try Entry for free?
+Yes. The Free plan includes 100 minutes per month with core features like appointment booking, call logs, and a unified inbox. No credit card required.
