@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist for Real Estate Agents in Australia: The Complete 2026 Guide | Entry</title>
+    <meta name="description" content="Australian real estate agents miss up to 40% of inbound calls. Discover how AI receptionists help agencies answer every call, capture every lead, and win more listings.">
+    <link rel="icon" type="image/png" href="/notextlogo.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: #fff;
+        }
+
+        header {
+            height: 56px;
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding-top: 6px;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #42526e;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0052cc;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-actions .sign-in {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0052cc;
+            text-decoration: none;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .sign-in:hover {
+            color: #0747a6;
+            background: rgba(0, 82, 204, 0.05);
+        }
+
+        .nav-actions .download-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            background: #0052cc;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .download-btn:hover {
+            background: #0747a6;
+        }
+
+        /* Article Hero */
+        .article-hero {
+            padding: 120px 80px 40px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .article-category {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #c0392b;
+        }
+
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .article-meta-divider {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        .article-hero h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .article-hero .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .author-byline {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .author-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .author-name a {
+            color: #1a1a2e;
+            text-decoration: none;
+        }
+
+        .author-name a:hover {
+            color: #c0392b;
+        }
+
+        .author-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 32px;
+            background: #fafafa;
+            border-radius: 16px;
+            margin-top: 48px;
+            border: 1px solid #eee;
+        }
+
+        .author-box .author-avatar {
+            width: 64px;
+            height: 64px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .author-box-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .author-box-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .author-box-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .author-box-bio {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .author-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #0077b5;
+            text-decoration: none;
+            margin-top: 4px;
+        }
+
+        .author-linkedin:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 80px 80px;
+        }
+
+        .article-content h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f0f0f;
+            margin: 56px 0 20px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .article-content h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 40px 0 14px;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .article-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .article-content ul, .article-content ol {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .article-content a {
+            color: #0052cc;
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid #c0392b;
+            padding-left: 20px;
+            margin: 28px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .article-content hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 48px 0;
+        }
+
+        .article-cta {
+            background: #f5f5f0;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .article-cta p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .article-cta a {
+            font-weight: 600;
+            color: #0052cc;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0052cc;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+
+        .toc {
+            background: #f9f9f7;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+        }
+
+        .toc p {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a1a2e;
+            margin-bottom: 14px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc ul li {
+            margin-bottom: 6px;
+        }
+
+        .toc ul li a {
+            font-size: 15px;
+            color: #0052cc;
+            text-decoration: none;
+        }
+
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: 30px 80px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #1e293b;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #42526e;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .sign-in {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .article-hero {
+                padding: 100px 20px 32px;
+            }
+            .article-hero h1 {
+                font-size: 32px;
+            }
+            .article-content {
+                padding: 0 20px 40px;
+            }
+            .article-content h2 {
+                font-size: 24px;
+            }
+            .site-footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                padding: 80px 16px 24px;
+            }
+            .article-hero h1 {
+                font-size: 28px;
+            }
+            .article-content {
+                padding: 0 16px 32px;
+            }
+            .article-content p,
+            .article-content ul,
+            .article-content ol {
+                font-size: 16px;
+            }
+            .site-footer {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="nav-logo">
+            <img src="/Entry1.png" alt="Entry">
+        </a>
+        <nav class="nav-links">
+            <a href="/features">Platform</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/blog" class="active">Blog</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="https://app.askentry.com" class="sign-in">Sign In</a>
+            <a href="/onboarding" class="download-btn">Get Started</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
+    </header>
+
+    <article class="article-hero">
+        <a href="/blog" class="back-to-blog">&larr; Back to Blog</a>
+        <div class="article-meta">
+            <span class="article-category">Knowledge</span>
+            <span class="article-meta-divider"></span>
+            <span class="article-date">Feb 8, 2026</span>
+        </div>
+        <h1>AI Receptionist for Real Estate Agents in Australia: The Complete 2026 Guide</h1>
+        <p class="subtitle">Australian real estate agents miss up to 40% of inbound calls. With the average listing commission at $15,000+, every unanswered call is a deal walking straight to a competitor. Here's how AI receptionists are changing that.</p>
+        <div class="author-byline">
+            <div class="author-avatar">AD</div>
+            <div class="author-info">
+                <span class="author-name"><a href="https://www.linkedin.com/in/alex-dowling-703323242/" target="_blank" rel="noopener">Alex Dowling</a></span>
+                <span class="author-title">Head of Marketing at Entry</span>
+            </div>
+        </div>
+    </article>
+
+    <div class="article-content">
+        <img src="/blog/ai-receptionist-real-estate-australia.jpg" alt="AI Receptionist for Real Estate Agents in Australia" style="width:100%;border-radius:16px;margin-bottom:40px;">
+
+        <p>If you're a real estate agent in Australia, your phone is your livelihood &mdash; and it's also the thing you can never answer at the right time.</p>
+
+        <p>You're mid-way through a Saturday open home when a motivated seller calls about listing their property. You're driving between inspections when a qualified buyer rings to book a viewing. You're negotiating a deal at the kitchen table when a landlord calls about a new management agreement. The phone rings, and you can't pick up.</p>
+
+        <p>Here's what happens next: <a href="https://www.officehq.com.au/if-you-do-the-hard-work-to-attract-leads-why-risk-losing-them/" target="_blank" rel="noopener">80% of those callers won't leave a voicemail</a>. They'll call the next agent in their search results. In an industry where <a href="https://www.stepps.com.au/lead-generation/real-estate-agents-throwing-away-listings/" target="_blank" rel="noopener">responding within 24 hours means an 80% conversion rate &mdash; and delaying by just one day drops that to 20%</a> &mdash; that missed call isn't a minor inconvenience. It's thousands of dollars in lost commission.</p>
+
+        <p>This is why a growing number of Australian real estate agencies are turning to <a href="/features">AI receptionists</a> &mdash; intelligent phone systems that answer every call, capture every lead, and keep your pipeline full while you're busy doing what agents actually do: listing, selling, and managing properties.</p>
+
+        <div class="toc">
+            <p>Table of Contents</p>
+            <ul>
+                <li><a href="#what-is-an-ai-receptionist-for-real-estate">What Is an AI Receptionist for Real Estate?</a></li>
+                <li><a href="#why-australian-real-estate-agents-need-this-now">Why Australian Real Estate Agents Need This Now</a></li>
+                <li><a href="#how-ai-receptionists-work-for-sales-and-property-management">How AI Receptionists Work for Sales and Property Management</a></li>
+                <li><a href="#how-to-choose-an-ai-receptionist-for-your-real-estate-agency">How to Choose an AI Receptionist for Your Real Estate Agency</a></li>
+                <li><a href="#ai-receptionist-vs-hiring-a-real-estate-receptionist-cost-comparison-australia">AI Receptionist vs Hiring a Real Estate Receptionist: Cost Comparison Australia</a></li>
+                <li><a href="#common-concerns-from-principals-and-agents">Common Concerns from Principals and Agents</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#the-bottom-line">The Bottom Line</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="what-is-an-ai-receptionist-for-real-estate">What Is an AI Receptionist for Real Estate?</h2>
+
+        <p>An <a href="/features">AI receptionist</a> is a voice-based system powered by artificial intelligence that answers your agency's phone line, understands what the caller needs, and takes action &mdash; whether that's capturing a seller lead, booking a property inspection, answering a rental enquiry, or routing an urgent call to the right agent.</p>
+
+        <p>This isn't the "press 1 for sales, press 2 for property management" phone tree that callers hang up on. Modern AI receptionists use natural language processing to have real conversations. A caller can say "I'm looking to sell my three-bedroom house in Paddington and want to know what it might be worth" and the AI captures their details, asks the right qualifying questions, and sends the lead to the appropriate agent &mdash; instantly.</p>
+
+        <p>Here's what a well-configured AI receptionist handles for a real estate agency:</p>
+
+        <ul>
+            <li><strong>Answering every inbound call 24/7</strong>, including after hours, weekends, and during Saturday open homes</li>
+            <li><strong>Capturing and qualifying seller leads</strong> &mdash; property address, timeline, motivation, and contact details</li>
+            <li><strong>Handling buyer enquiries</strong> &mdash; property availability, inspection times, price guides, and booking viewings</li>
+            <li><strong>Managing rental and property management calls</strong> &mdash; maintenance requests, lease enquiries, arrears follow-ups, and tenant communications</li>
+            <li><strong>Routing calls intelligently</strong> &mdash; sending seller leads to the listing agent, maintenance issues to the property manager, and urgent matters to the principal</li>
+            <li><strong>Booking property inspections and appraisals</strong> directly into your calendar or CRM</li>
+            <li><strong>Answering common questions</strong> &mdash; agency hours, agent availability, current listings, recent sales, suburb information</li>
+            <li><strong>Sending SMS follow-ups</strong> with property details, inspection confirmations, or agent contact information</li>
+            <li><strong>Providing call summaries and transcripts</strong> so no lead detail is ever lost</li>
+        </ul>
+
+        <p>What it doesn't replace is the relationship-building, negotiation, and deal-making that makes a great agent. It handles the front door so you can focus on closing.</p>
+
+        <hr>
+
+        <h2 id="why-australian-real-estate-agents-need-this-now">Why Australian Real Estate Agents Need This Now</h2>
+
+        <h3>Missed calls are costing your agency a fortune</h3>
+
+        <p>Research consistently shows that real estate agents miss approximately <a href="https://archizsolutions.com/blog-stop-losing-real-estate-leads-voice-agents/" target="_blank" rel="noopener">40% of their inbound calls</a>. Not because they're lazy &mdash; because they're doing their job. You can't answer the phone when you're mid-auction, walking a buyer through a property, or sitting across from a vendor reviewing an offer.</p>
+
+        <p>The maths is brutal. If your average listing commission is $15,000 and you're missing even a fraction of genuine seller enquiries, the annual cost is staggering. <a href="https://www.stepps.com.au/lead-generation/real-estate-agents-throwing-away-listings/" target="_blank" rel="noopener">Stepps' analysis of Australian agencies</a> found that the gap between responding within 24 hours and delaying by just one day represents up to 46 lost listings for an average agency &mdash; that's potentially <strong>$690,000 in gross commission income</strong> walking out the door.</p>
+
+        <p>And it's not just sellers. Every buyer who can't get through to ask about an inspection time, every landlord who calls to discuss their investment property, every tenant with a maintenance issue &mdash; they all <a href="https://www.signmore.com/know-more/hidden-costs-of-missed-calls" target="_blank" rel="noopener">call someone else when you don't pick up</a>.</p>
+
+        <h3>Speed-to-lead wins listings &mdash; and you can't be fast enough alone</h3>
+
+        <p>Industry data shows that leads are <a href="https://www.brainforge.ai/blog/ai-receptionist-for-real-estate" target="_blank" rel="noopener">21 times more likely to convert when contacted within five minutes</a> rather than 30. In Australian real estate specifically, <a href="https://www.stepps.com.au/lead-generation/real-estate-agents-throwing-away-listings/" target="_blank" rel="noopener">agents who respond within 24 hours convert at 80% &mdash; but waiting just one extra day drops that rate to 20%</a>.</p>
+
+        <p>But here's the paradox: the busier and more successful you get, the harder it becomes to answer every call quickly. Your best agents are the ones most likely to be out of the office &mdash; at inspections, auctions, listing presentations, and client meetings. The more listings you win, the more calls you miss.</p>
+
+        <p>An AI receptionist breaks this cycle. Every call is answered on the first ring, every lead is captured immediately, and qualified prospects are routed to the right agent with full context &mdash; before a competitor even gets a chance. <a href="/features">See how Entry handles calls instantly</a>.</p>
+
+        <h3>The industry is more competitive than ever</h3>
+
+        <p>Australia now has over <a href="https://www.ibisworld.com/australia/number-of-businesses/real-estate-services/539/" target="_blank" rel="noopener">45,400 real estate agencies</a> and <a href="https://www.realestatebusiness.com.au/industry/29860-australia-s-real-estate-agent-boom-by-30-in-10-years" target="_blank" rel="noopener">108,700 agents</a> &mdash; a 30% increase in agent numbers over the past decade according to KPMG research. The industry contributes <a href="https://entryeducation.edu.au/blog/australias-largest-real-estate-agencies/" target="_blank" rel="noopener">10.6% of Australia's GDP ($232.7 billion)</a>, and competition for listings has never been fiercer.</p>
+
+        <p>In a market where sellers are comparing three, four, or five agents before deciding who to list with, the agency that answers the phone, responds instantly, and makes a professional first impression has a massive advantage. An AI receptionist ensures that first impression happens every single time &mdash; whether the call comes at 9am Monday or 8pm Saturday.</p>
+
+        <h3>Property management teams are drowning in routine calls</h3>
+
+        <p>It's not just the sales side. Property management teams handle an enormous volume of calls &mdash; tenant maintenance requests, landlord updates, lease renewals, prospective tenant enquiries, and arrears follow-ups. Many of these are routine and repetitive, but they all need to be handled promptly.</p>
+
+        <p>A single property manager juggling 150+ properties simply cannot answer every call while also conducting inspections, processing applications, and managing compliance. An AI receptionist handles the routine calls &mdash; logging maintenance requests, answering lease questions, providing inspection times for available rentals &mdash; and escalates the genuinely urgent issues to your team.</p>
+
+        <hr>
+
+        <h2 id="how-ai-receptionists-work-for-sales-and-property-management">How AI Receptionists Work for Sales and Property Management</h2>
+
+        <p>What makes real estate different from other industries is that your agency likely runs two distinct businesses under one roof: sales and property management. A good AI receptionist handles both.</p>
+
+        <h3>For the sales team</h3>
+
+        <ul>
+            <li><strong>Seller lead capture</strong>: When a potential vendor calls asking for an appraisal or wanting to know what their property is worth, the AI captures their details &mdash; property address, bedrooms, bathrooms, timeline, contact information &mdash; and immediately alerts the relevant agent</li>
+            <li><strong>Buyer enquiries</strong>: Callers asking about specific listings get property details, price guides, and inspection times. The AI can book them into upcoming open homes or private inspections</li>
+            <li><strong>Appraisal bookings</strong>: Sellers ready to meet with an agent get booked directly into the listing agent's calendar</li>
+            <li><strong>After-hours lead capture</strong>: The calls that come in at 7pm when someone's browsing <a href="https://www.realestate.com.au/" target="_blank" rel="noopener">realestate.com.au</a> on the couch &mdash; these are high-intent leads that most agencies send to voicemail</li>
+        </ul>
+
+        <h3>For property management</h3>
+
+        <ul>
+            <li><strong>Maintenance requests</strong>: Tenants call to report a leaking tap or broken air conditioner. The AI captures the details, categorises the urgency, and logs it in your system &mdash; or escalates genuine emergencies (burst pipe, no hot water, security issue) to a human immediately</li>
+            <li><strong>Rental enquiries</strong>: Prospective tenants calling about available properties get answers about rent, inspection times, application processes, and pet policies</li>
+            <li><strong>Landlord communications</strong>: Owners calling about their investment property get professional handling and messages routed to their property manager</li>
+            <li><strong>Arrears follow-up</strong>: AI can make outbound calls to tenants with overdue rent, providing a consistent and professional touchpoint without your team spending hours on the phone</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="how-to-choose-an-ai-receptionist-for-your-real-estate-agency">How to Choose an AI Receptionist for Your Real Estate Agency</h2>
+
+        <h3>Integration with Australian real estate CRM and property management software</h3>
+
+        <p>This is the non-negotiable. Your AI receptionist needs to work with the software your agency already runs:</p>
+
+        <ul>
+            <li><strong><a href="https://www.rexsoftware.com/" target="_blank" rel="noopener">Rex Software</a></strong> &mdash; one of Australia's leading real estate CRMs, used by 2,500+ agencies for sales, rentals, and marketing. Your AI needs to push leads, log calls, and sync with Rex's contact database.</li>
+            <li><strong><a href="https://www.propertyme.com.au/" target="_blank" rel="noopener">PropertyMe</a></strong> &mdash; used by over <a href="https://www.propertyme.com.au/" target="_blank" rel="noopener">6,000 agencies</a> and one in two property managers across Australia and New Zealand. Critical for maintenance request logging, tenant communications, and trust accounting workflows. PropertyMe recently <a href="https://www.propertyme.com.au/blog/propertyme/propertyme-expands-into-real-estate-crm-with-the-acquisition-of-phoenix-software" target="_blank" rel="noopener">acquired Phoenix CRM</a> to offer a combined sales and PM platform.</li>
+            <li><strong><a href="https://www.mrisoftware.com/au/products/property-tree/" target="_blank" rel="noopener">MRI Property Tree</a></strong> &mdash; a leading cloud-based property management platform with strong trust accounting and automation features, developed by Rockend (now part of MRI Software).</li>
+            <li><strong><a href="https://www.vaultre.com.au/" target="_blank" rel="noopener">VaultRE</a></strong> &mdash; comprehensive CRM with strong customisation, scalability, and mobile capabilities.</li>
+            <li><strong><a href="https://www.reapit.com/anz/" target="_blank" rel="noopener">Reapit</a></strong> &mdash; established platform covering both sales and property management, with 20,000+ users across Australia and New Zealand.</li>
+            <li><strong><a href="https://www.console.com.au/" target="_blank" rel="noopener">Console Cloud</a></strong> &mdash; property management focused, widely used across Australian agencies.</li>
+        </ul>
+
+        <p>If the AI can't push a seller lead into Rex or log a maintenance request in PropertyMe, it's just a fancy answering machine. The whole point is eliminating manual data entry so your team acts on leads immediately.</p>
+
+        <h3>Understanding real estate-specific call types</h3>
+
+        <p>Real estate calls are uniquely varied. Your AI needs to distinguish between &mdash; and correctly handle &mdash; very different caller intents:</p>
+
+        <ul>
+            <li>A vendor wanting an appraisal (high-value lead &mdash; capture everything and alert an agent immediately)</li>
+            <li>A buyer asking about a specific listing (provide information, book an inspection)</li>
+            <li>A tenant reporting a maintenance issue (log it, categorise urgency, escalate emergencies)</li>
+            <li>A landlord asking about their rental income (route to property manager)</li>
+            <li>A solicitor calling about a settlement (route to the relevant agent or admin)</li>
+            <li>A cold caller trying to sell you something (handle politely without wasting agent time)</li>
+        </ul>
+
+        <p>A generic AI receptionist will treat all of these the same. A real estate-configured one knows the difference and acts accordingly.</p>
+
+        <h3>Australian voice, local knowledge, and property terminology</h3>
+
+        <p>Real estate is intensely local. If your agency covers the Northern Beaches and a caller asks about Dee Why, your AI should sound like it belongs there &mdash; not in a call centre overseas. Natural Australian voices and the ability to handle local suburb names, property terminology (strata, body corporate, settlement, exchanged, under offer, EOI, expressions of interest), and market-specific language is essential for building trust with callers.</p>
+
+        <h3>Multi-agent and multi-department routing</h3>
+
+        <p>Most agencies have multiple agents, each with their own listings, landlord portfolios, and areas of responsibility. Your AI receptionist needs to route calls intelligently &mdash; sending a buyer enquiry about a specific listing to the listing agent, a property management call to the right PM, and a general enquiry to whoever is available. Smart routing turns your AI from a message-taker into a true front desk. <a href="/features">See how Entry routes calls to the right person</a>.</p>
+
+        <hr>
+
+        <h2 id="ai-receptionist-vs-hiring-a-real-estate-receptionist-cost-comparison-australia">AI Receptionist vs Hiring a Real Estate Receptionist: Cost Comparison Australia</h2>
+
+        <p>Real Australian numbers for a typical real estate agency:</p>
+
+        <h3>Hiring a real estate receptionist</h3>
+
+        <ul>
+            <li>Base salary: <a href="https://au.talent.com/salary?job=real+estate+receptionist" target="_blank" rel="noopener">$55,000&ndash;$70,000/year</a> (plus 11.5% superannuation)</li>
+            <li>Total employment cost: ~$62,000&ndash;$78,000/year</li>
+            <li>Add recruitment costs, training on your CRM and agency processes, sick leave, annual leave</li>
+            <li>Available during business hours only &mdash; but your best leads call evenings and weekends</li>
+            <li>Can only handle one call at a time</li>
+            <li>Saturday open homes? Your receptionist probably isn't working</li>
+        </ul>
+
+        <h3>AI receptionist platform</h3>
+
+        <ul>
+            <li>Typically $100&ndash;$500/month ($1,200&ndash;$6,000/year) &mdash; <a href="/pricing">see Entry's pricing</a></li>
+            <li>Answers unlimited simultaneous calls</li>
+            <li>Available 24/7/365 &mdash; including Saturday afternoons, Sunday evenings, and public holidays</li>
+            <li>No sick days, no turnover, no training lag</li>
+            <li>Consistent quality and lead capture on every call</li>
+        </ul>
+
+        <h3>Where the real ROI lives</h3>
+
+        <p>Forget the cost savings on salary for a moment. The real return comes from revenue you're currently losing:</p>
+
+        <p><strong>One captured seller lead per month pays for the entire year.</strong> If your average commission is $15,000 and the AI captures even one seller lead per month that would otherwise have gone to voicemail, that's $180,000 in potential GCI per year &mdash; from a system that costs less than $6,000.</p>
+
+        <p>For buyer leads, the maths is equally compelling. Every inspection booked is a potential sale. Every after-hours enquiry captured is a buyer who didn't call the agency down the road instead.</p>
+
+        <p>For property management, the value is in efficiency. Automating routine maintenance calls, rental enquiries, and tenant communications frees your PMs to manage more properties without burning out &mdash; or needing another hire.</p>
+
+        <p>For larger agencies or franchise groups, <a href="/enterprise">Entry's enterprise plan</a> provides dedicated support and custom integrations across multiple offices.</p>
+
+        <hr>
+
+        <h2 id="common-concerns-from-principals-and-agents">Common Concerns from Principals and Agents</h2>
+
+        <h3>"Real estate is a relationship business. You can't automate that."</h3>
+
+        <p>You're right &mdash; and nobody's suggesting you automate the relationship. What you automate is the first 60 seconds: answering the phone, capturing the caller's needs, and getting the right information to the right agent. The relationship starts when you call that qualified lead back within five minutes with their full details already in your CRM. That's a better first impression than voicemail.</p>
+
+        <h3>"My agents prefer to answer their own phones."</h3>
+
+        <p>Great agents should be spending their time listing, selling, and negotiating &mdash; not playing phone tag. The AI handles calls when agents can't pick up (inspections, auctions, meetings, driving) and routes qualified leads with full context. Your agents still run the relationships; they just never miss the opening.</p>
+
+        <h3>"What about sensitive negotiations or vendor-confidential information?"</h3>
+
+        <p>A well-configured AI receptionist handles general enquiries and lead capture. It doesn't discuss vendor reserve prices, negotiate commissions, or share confidential deal information. When a call requires that level of sensitivity, the AI recognises it and routes to a human immediately.</p>
+
+        <h3>"Will it work with Rex / PropertyMe / our current setup?"</h3>
+
+        <p>This varies by provider and should be the first thing you verify. The best platforms integrate directly with major Australian real estate CRM and property management systems. Always confirm your specific software is supported &mdash; and test it &mdash; before committing. <a href="/features">Check Entry's integrations</a>.</p>
+
+        <h3>"Our agency handles both sales and property management. Can one AI handle both?"</h3>
+
+        <p>Yes. A properly configured AI receptionist can distinguish between sales enquiries and property management calls, applying different workflows to each. Buyer and seller leads go to the sales team; maintenance requests and tenant calls go to property management. The caller doesn't need to know which department they need &mdash; the AI figures it out.</p>
+
+        <hr>
+
+        <h2 id="getting-started">Getting Started</h2>
+
+        <ol>
+            <li><strong>Track your missed calls for one week.</strong> Most phone systems can show you this data. Count how many calls go to voicemail or ring out &mdash; and what time of day they happen. The number will probably shock you. Pay particular attention to evenings, weekends, and Saturday open home hours.</li>
+            <li><strong>Calculate the cost.</strong> If you're missing 5 calls per day and even 10% are genuine seller or buyer leads, what's that worth in commission over a year? Most agencies find the number is six figures.</li>
+            <li><strong>Identify your must-have integrations.</strong> What CRM does your sales team use? Rex? VaultRE? What about property management &mdash; PropertyMe, Property Tree, Console? These are non-negotiable when evaluating providers.</li>
+            <li><strong>Start with after-hours and overflow calls.</strong> This is the lowest-risk approach. Keep your receptionist or agents answering during business hours, and let the AI capture everything that would otherwise go to voicemail. <a href="/onboarding">Get set up in minutes</a>.</li>
+            <li><strong>Configure your lead routing.</strong> Tell the AI which agents cover which areas or listings, who handles property management, and what constitutes an urgent escalation. The more specific you are, the better it performs.</li>
+            <li><strong>Review and refine.</strong> Listen to call recordings in the first few weeks. You'll quickly identify where the AI needs more information about your listings, processes, or team structure. Most agencies are fully optimised within 2&ndash;3 weeks.</li>
+        </ol>
+
+        <hr>
+
+        <h2 id="the-bottom-line">The Bottom Line</h2>
+
+        <p>Real estate is one of the few industries where a single missed phone call can cost you $15,000 or more. And agents, by the very nature of their job, miss calls constantly &mdash; during inspections, at auctions, in listing presentations, while driving between appointments, and every evening and weekend when high-intent buyers and sellers are browsing property listings from their couch.</p>
+
+        <p>An AI receptionist doesn't replace what makes a great agent great. It ensures that every caller gets answered, every lead gets captured, and every opportunity reaches the right person &mdash; instantly. In an industry where the <a href="https://www.stepps.com.au/lead-generation/real-estate-agents-throwing-away-listings/" target="_blank" rel="noopener">first agent to respond wins the business the vast majority of the time</a>, that speed advantage is worth more than any marketing spend.</p>
+
+        <p>Australia has over 45,000 real estate agencies competing for the same listings and the same buyers. The agencies that answer every call, respond to every lead, and never let an opportunity slip through will win. The ones that keep sending callers to voicemail will keep wondering where their listings went.</p>
+
+        <p>The technology is ready. The cost is a fraction of a single commission. The only question is how many more calls you're willing to miss. <a href="/onboarding"><strong>Try Entry free today</strong></a>.</p>
+
+        <hr>
+
+        <h2 id="faqs">FAQs</h2>
+
+        <h3>How does an AI receptionist handle buyer enquiries about specific listings?</h3>
+
+        <p>The AI accesses your current listing information &mdash; property details, price guides, inspection times &mdash; and provides callers with accurate, up-to-date answers. It can book buyers into upcoming open homes or private inspections and send an SMS with the property address and details.</p>
+
+        <h3>Can it capture seller leads and route them to the right agent?</h3>
+
+        <p>Yes. When a potential vendor calls wanting an appraisal or market update, the AI captures their property address, timeline, contact details, and any qualifying information, then routes the lead to the appropriate agent based on your agency's rules &mdash; by area, by roster, or by listing type.</p>
+
+        <h3>Does it integrate with Rex, PropertyMe, and other Australian real estate software?</h3>
+
+        <p>Integration capabilities vary by provider. The best AI receptionist platforms integrate directly with major Australian real estate CRM and property management systems including <a href="https://www.rexsoftware.com/" target="_blank" rel="noopener">Rex</a>, <a href="https://www.propertyme.com.au/" target="_blank" rel="noopener">PropertyMe</a>, <a href="https://www.mrisoftware.com/au/products/property-tree/" target="_blank" rel="noopener">MRI Property Tree</a>, and others. Always verify your specific software is supported before committing.</p>
+
+        <h3>How does it handle property management calls &mdash; maintenance, tenant issues, arrears?</h3>
+
+        <p>The AI can log maintenance requests with full details (property address, issue description, urgency level), answer routine tenant enquiries about leases and inspections, and escalate genuine emergencies to your property management team. For arrears, some platforms can make outbound follow-up calls to tenants with overdue rent.</p>
+
+        <h3>What happens during auctions and open homes when the whole team is unavailable?</h3>
+
+        <p>This is exactly where an AI receptionist provides the most value. While your team is running a Saturday auction or managing multiple open homes simultaneously, the AI handles every inbound call &mdash; capturing buyer enquiries, seller leads, and tenant calls that would otherwise go to voicemail. <a href="/features">See how Entry works during your busiest hours</a>.</p>
+
+        <h3>Is caller and client data secure?</h3>
+
+        <p>Look for a provider that stores data in Australia, encrypts information in transit and at rest, and can demonstrate compliance with the <a href="https://www.oaic.gov.au/privacy/the-privacy-act" target="_blank" rel="noopener">Australian Privacy Principles</a> under the Privacy Act 1988. Your agency handles sensitive financial and personal information &mdash; including vendor details, buyer budgets, and tenant records &mdash; so data security should be a non-negotiable.</p>
+
+        <h3>How much does it cost compared to a full-time receptionist?</h3>
+
+        <p>AI receptionist platforms typically cost $100&ndash;$500 per month, compared to <a href="https://au.talent.com/salary?job=real+estate+receptionist" target="_blank" rel="noopener">$62,000&ndash;$78,000 per year</a> for a full-time real estate receptionist including super. Most agencies use AI alongside their existing team &mdash; handling overflow and after-hours calls &mdash; rather than as a full replacement.</p>
+
+        <hr>
+
+        <div class="article-cta">
+            <p>Entry is an AI receptionist platform built for Australian businesses including real estate agencies, property management firms, and multi-office franchise groups.</p>
+            <p><a href="/onboarding">Try Entry free</a> | <a href="/features">Listen to our AI in action</a> | <a href="/enterprise">Enterprise solutions for multi-office agencies</a></p>
+        </div>
+
+        <div class="author-box">
+            <div class="author-avatar">AD</div>
+            <div class="author-box-info">
+                <span class="author-box-name">Alex Dowling</span>
+                <span class="author-box-title">Head of Marketing at Entry</span>
+                <span class="author-box-bio">Alex leads marketing at Entry, helping Australian businesses discover how AI receptionists can transform their customer experience and operations.</span>
+                <a href="https://www.linkedin.com/in/alex-dowling-703323242/" target="_blank" rel="noopener" class="author-linkedin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3341FF" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            Entry
+        </div>
+        <div class="footer-copyright">
+            &copy; 2026 Entry. All rights reserved.<br>
+            Privacy Policy &middot; Terms of Service
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
