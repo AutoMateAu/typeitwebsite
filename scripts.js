@@ -198,61 +198,23 @@ if (roadmapSection && roadmapLine) {
 }
 
 // ==========================================================================
-// 7. Stat Cards - Fade-in Animation with Counting
+// 7. FAQ Accordion
 // ==========================================================================
 
-const statCards = document.querySelectorAll('.stat-card');
-const statNumbers = document.querySelectorAll('.stat-number');
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
 
-function easeOutExpo(t) {
-    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-}
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
 
-function animateCount(element, target, suffix, duration) {
-    const start = Math.floor(target * 0.6);
-    const startTime = performance.now();
-
-    function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easedProgress = easeOutExpo(progress);
-        const current = Math.floor(start + (target - start) * easedProgress);
-
-        element.textContent = current + suffix;
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        } else {
-            element.textContent = target + suffix;
-        }
-    }
-
-    requestAnimationFrame(update);
-}
-
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            statCards.forEach(card => card.classList.add('visible'));
-
-            // Start counting after cards appear
-            setTimeout(() => {
-                statNumbers.forEach(num => {
-                    const target = parseInt(num.dataset.target);
-                    const suffix = num.dataset.suffix || '';
-                    animateCount(num, target, suffix, 2000);
-                });
-            }, 400);
-
-            statsObserver.disconnect();
+        // Toggle clicked
+        if (!isOpen) {
+            item.classList.add('open');
         }
     });
-}, { threshold: 0.3 });
-
-const statsGrid = document.querySelector('.stats-grid');
-if (statsGrid) {
-    statsObserver.observe(statsGrid);
-}
+});
 
 // ==========================================================================
 // 8. Page Transition for Download Button

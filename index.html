@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entry - AI Receptionist</title>
+    <title>Entry — AI Receptionist for Australian Businesses | 24/7 Voice, Email & Lead Follow-Up</title>
+    <meta name="description" content="Entry is Australia's AI receptionist. Answer every call 24/7, manage emails, follow up leads, and book appointments automatically. Try free forever.">
+    <link rel="canonical" href="https://www.askentry.com/">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Entry — AI Receptionist for Australian Businesses">
+    <meta property="og:description" content="Answer every call 24/7 with AI. Manage emails, follow up leads, book appointments automatically. Try free forever.">
+    <meta property="og:image" content="https://www.askentry.com/Entry1.png">
+    <meta property="og:url" content="https://www.askentry.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Entry — AI Receptionist for Australian Businesses">
+    <meta name="twitter:description" content="Answer every call 24/7 with AI. Manage emails, follow up leads, book appointments automatically.">
+    <meta name="twitter:image" content="https://www.askentry.com/Entry1.png">
+
     <link rel="icon" type="image/png" href="notextlogo.png">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
@@ -37,7 +51,6 @@
             <img src="Entry1.png" alt="Entry">
         </div>
         <nav class="nav-links">
-            <a href="/features">Platform</a>
             <a href="/enterprise">Enterprise</a>
             <a href="/pricing">Pricing</a>
             <a href="/blog">Blog</a>
@@ -53,8 +66,8 @@
         <canvas id="gradient-canvas"></canvas>
         <div class="hero-section">
             <div class="hero-text">
-                <h1>The Best Performing<br><span>AI Receptionist</span></h1>
-                <p class="hero-subtext">Easy-to-use AI voice agents,<br>email management, lead follow up, and a whole lot more. All in one place.</p>
+                <h1>AI Receptionist for Australian Businesses<br><span>Never Miss a Call Again</span></h1>
+                <p class="hero-subtext">Easy-to-use AI voice agents that answer every call 24/7,<br>manage emails, follow up leads, and book appointments automatically. All in one place.</p>
             </div>
             <div class="email-form">
                 <div class="email-form-wrapper">
@@ -97,7 +110,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="dashboard_general.png" alt="Dashboard" class="dashboard-img">
+                <img src="dashboard_general.png" alt="Entry AI Receptionist Dashboard showing call analytics and conversation insights" class="dashboard-img">
                 <div class="video-play-btn"></div>
             </div>
         </div>
@@ -328,11 +341,6 @@
     <!-- ========== Section Two - What Does AI Do ========== -->
     <section class="section-two">
         <div class="section-two-inner">
-            <div class="section-two-header">
-                <h2>What Does Your AI<br>Receptionist Do?</h2>
-                <p>Your AI handles day-to-day reception tasks, making life easier for you and your team</p>
-            </div>
-
             <!-- Row 1 -->
             <div class="feature-card-box">
                 <div class="feature-card-text">
@@ -381,14 +389,136 @@
                 </div>
             </div>
 
+            <!-- Row 2 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #34d399, #059669);"></span> We handle the back-and-forth for you</h3>
+                    <p class="feature-row-desc">Rescheduling, cancellations, follow-ups — your AI receptionist manages it all without you lifting a finger.</p>
+                </div>
+                <div class="feature-card-image call-split-bg">
+                    <div class="call-split" id="callSimulation2">
+                        <!-- Caller panel -->
+                        <div class="call-split-panel call-split-caller" id="callerPanel2">
+                            <div class="call-split-header">
+                                <img src="https://i.pravatar.cc/40?img=12" alt="" class="call-split-avatar">
+                                <span class="call-split-name">Marcus</span>
+                                <div class="call-waveform" id="callerWave2">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="1" data-speaker="caller">Hi, I need to reschedule my appointment from Friday to next week.</p>
+                                <p class="call-msg" data-order="3" data-speaker="caller">Tuesday works. What times do you have?</p>
+                                <p class="call-msg" data-order="5" data-speaker="caller">11am is perfect.</p>
+                                <p class="call-msg" data-order="7" data-speaker="caller">Great, thanks for sorting that out!</p>
+                            </div>
+                        </div>
+                        <!-- AI panel -->
+                        <div class="call-split-panel call-split-ai" id="aiPanel2">
+                            <div class="call-split-header">
+                                <div class="call-split-ai-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                                </div>
+                                <span class="call-split-name">Entry AI</span>
+                                <div class="call-waveform call-waveform-ai" id="aiWave2">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="2" data-speaker="ai">Hi Marcus! No problem at all. I can see your Friday booking. Would Monday or Tuesday work for you?</p>
+                                <p class="call-msg" data-order="4" data-speaker="ai">Tuesday is wide open. I've got 9am, 11am, or 3:30pm available.</p>
+                                <p class="call-msg" data-order="6" data-speaker="ai">Done! I've moved your appointment to Tuesday at 11am. You'll get an updated confirmation text shortly.</p>
+                                <p class="call-msg" data-order="8" data-speaker="ai">Anytime, Marcus. See you Tuesday!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Row 4 -->
             <div class="feature-card-box">
                 <div class="feature-card-text">
                     <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #f472b6, #db2777);"></span> We keep everything in one place</h3>
                     <p class="feature-row-desc">Calls, emails, chats, and enquiries in a single inbox. AI summaries and smart drafts so you stay on top of it all.</p>
                 </div>
-                <div class="feature-card-image" style="align-items: flex-end;">
-                    <img src="inbox-screenshot.png" alt="Everything in one place" style="width: 90%; display: block; border-radius: 12px 12px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); margin-top: 60px;">
+                <div class="feature-card-image inbox-anim-bg">
+                    <div class="inbox-anim" id="inboxAnim">
+                        <!-- Window chrome -->
+                        <div class="inbox-chrome">
+                            <div class="inbox-dots">
+                                <span style="background:#ff5f57;"></span>
+                                <span style="background:#ffbd2e;"></span>
+                                <span style="background:#28c840;"></span>
+                            </div>
+                            <span class="inbox-title">Inbox</span>
+                            <span class="inbox-brand">Entry</span>
+                        </div>
+                        <!-- Sidebar -->
+                        <div class="inbox-sidebar">
+                            <div class="inbox-sidebar-icon active">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="inbox-sidebar-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="inbox-sidebar-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                        </div>
+                        <!-- Email list -->
+                        <div class="inbox-emails">
+                            <div class="inbox-email" data-index="0">
+                                <div class="inbox-avatar" style="background:#3b82f6;">J</div>
+                                <div class="inbox-email-content">
+                                    <div class="inbox-email-header">
+                                        <span class="inbox-sender">Jessica Thompson</span>
+                                        <span class="inbox-tag inbox-tag-respond">Missed Call</span>
+                                        <span class="inbox-time">2:34 PM</span>
+                                    </div>
+                                    <div class="inbox-subject">Haircut Booking — Thursday 2pm</div>
+                                    <div class="inbox-preview">Booked via AI: Haircut + balayage with Sarah, confirmed for Thursday at 2pm...</div>
+                                    <div class="inbox-ai-draft">
+                                        <span class="inbox-ai-dot"></span>
+                                        <span class="inbox-ai-label">AI summary ready</span>
+                                        <div class="inbox-draft-text">Jessica called to book a haircut and balayage for Thursday at 2pm with Sarah. Confirmation SMS sent automatically.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inbox-email" data-index="1">
+                                <div class="inbox-avatar" style="background:#8b5cf6;">M</div>
+                                <div class="inbox-email-content">
+                                    <div class="inbox-email-header">
+                                        <span class="inbox-sender">Marcus Williams</span>
+                                        <span class="inbox-tag inbox-tag-update">Rescheduled</span>
+                                        <span class="inbox-time">1:15 PM</span>
+                                    </div>
+                                    <div class="inbox-subject">Appointment Moved to Tuesday</div>
+                                    <div class="inbox-preview">Rescheduled from Friday to Tuesday at 11am. Updated confirmation sent...</div>
+                                </div>
+                            </div>
+                            <div class="inbox-email" data-index="2">
+                                <div class="inbox-avatar" style="background:#f59e0b;">R</div>
+                                <div class="inbox-email-content">
+                                    <div class="inbox-email-header">
+                                        <span class="inbox-sender">Rachel Kim</span>
+                                        <span class="inbox-tag inbox-tag-fyi">Voicemail</span>
+                                        <span class="inbox-time">11:42 AM</span>
+                                    </div>
+                                    <div class="inbox-subject">Pricing enquiry — wedding package</div>
+                                    <div class="inbox-preview">Left a voicemail asking about bridal hair and makeup pricing for August...</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating labels -->
+                        <div class="inbox-float inbox-float-right" data-index="0">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            Instant categorisation
+                        </div>
+                        <div class="inbox-float inbox-float-left" data-index="1">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            Summaries in seconds
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -459,19 +589,64 @@
         </div>
     </section>
 
+    <!-- ========== FAQ Section ========== -->
+    <section class="faq-section">
+        <div class="faq-inner">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do my customers know they're talking to an AI?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes — callers are always told they're speaking with an AI assistant. The goal isn't to trick anyone. It's to provide a service that's as good as a human receptionist, so your customers get fast, helpful answers every time they call.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I connect my phone number?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You connect via call forwarding on your existing phone. We use a special connection system that gives you full control over when your AI receptionist is active — you decide whether calls are forwarded or not.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I know which bookings in my CRM were made by AI?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Every booking made by your AI receptionist is automatically tagged in your CRM, so you can instantly tell which ones were handled by AI and which were made by your team.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I turn it off?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>There are two ways — a simple toggle in the Entry dashboard, or you can disable call forwarding directly on your phone. Both options take about 10 seconds.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Will my customers like talking to an AI?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our system is built to make the experience as seamless as possible, providing excellent customer service to every caller. We also use phone number recognition to deliver personalised calls — so your returning customers feel known and looked after.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-
-    <!-- ========== Section Five - Final CTA ========== -->
+    <!-- ========== Final CTA ========== -->
     <section class="cta-banner cta-banner-bottom">
-        <canvas id="cta-gradient-canvas-2"></canvas>
-        <nav class="cta-bottom-nav">
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#demo">Demo</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <canvas id="cta-gradient-canvas"></canvas>
         <div class="cta-banner-inner">
             <h2>Ready to never miss a call again?</h2>
             <p>Set up your AI receptionist in under 2 minutes. No credit card required.</p>
@@ -495,6 +670,13 @@
             </svg>
             Entry
         </div>
+        <nav class="footer-nav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#demo">Demo</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
         <div class="footer-copyright">
             © 2026 Entry. All rights reserved.<br>
             Privacy Policy · Terms of Service
@@ -813,7 +995,6 @@
         window.addEventListener('load', render);
     }
     initCtaGradient('cta-gradient-canvas');
-    initCtaGradient('cta-gradient-canvas-2');
     </script>
 
     <!-- Call simulation typing animation -->
@@ -942,6 +1123,259 @@
             clearActive();
 
             // Wait then reset and loop
+            setTimeout(async () => {
+                await clearPanel(callerMsgsBox);
+                await clearPanel(aiMsgsBox);
+                started = false;
+                runConversation();
+            }, 3500);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    runConversation();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(sim);
+    })();
+    </script>
+
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Entry",
+      "url": "https://www.askentry.com",
+      "logo": "https://www.askentry.com/Entry1.png",
+      "description": "AI receptionist platform for Australian businesses. Answer every call 24/7, manage emails, follow up leads, and book appointments automatically.",
+      "foundingDate": "2025",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Entry AI Receptionist",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "AI receptionist that answers calls 24/7, manages emails, and books appointments for Australian businesses",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "AUD",
+        "description": "Free forever plan available"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do my customers know they're talking to an AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — callers are always told they're speaking with an AI assistant. The goal isn't to trick anyone. It's to provide a service that's as good as a human receptionist, so your customers get fast, helpful answers every time they call."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I connect my phone number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You connect via call forwarding on your existing phone. We use a special connection system that gives you full control over when your AI receptionist is active — you decide whether calls are forwarded or not."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know which bookings in my CRM were made by AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every booking made by your AI receptionist is automatically tagged in your CRM, so you can instantly tell which ones were handled by AI and which were made by your team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I turn it off?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are two ways — a simple toggle in the Entry dashboard, or you can disable call forwarding directly on your phone. Both options take about 10 seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my customers like talking to an AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our system is built to make the experience as seamless as possible, providing excellent customer service to every caller. We also use phone number recognition to deliver personalised calls — so your returning customers feel known and looked after."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Set Up Entry AI Receptionist",
+      "description": "Getting started with Entry AI Receptionist in 4 easy steps",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Enter your website",
+          "text": "Our AI learns everything about your business to produce the highest quality answers.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Customize your voice",
+          "text": "Choose from natural-sounding voices and set your business tone. Connect any CRM software you want.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Connect your tools",
+          "text": "Sync your calendar, CRM, and booking systems. Smart routing with zero double-bookings.",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Go live instantly",
+          "text": "Start answering calls 24/7 within minutes. Monitor conversations in real-time and refine as you grow.",
+          "position": 4
+        }
+      ]
+    }
+    </script>
+
+    <!-- Call simulation 2 typing animation -->
+    <script>
+    (function() {
+        const sim = document.getElementById('callSimulation2');
+        if (!sim) return;
+
+        const callerPanel = document.getElementById('callerPanel2');
+        const aiPanel = document.getElementById('aiPanel2');
+        const callerWave = document.getElementById('callerWave2');
+        const aiWave = document.getElementById('aiWave2');
+        const callerMsgsBox = callerPanel.querySelector('.call-split-messages');
+        const aiMsgsBox = aiPanel.querySelector('.call-split-messages');
+
+        const allMsgs = Array.from(sim.querySelectorAll('.call-msg'));
+        allMsgs.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
+        const conversation = allMsgs.map(msg => ({
+            text: msg.textContent,
+            speaker: msg.dataset.speaker
+        }));
+        allMsgs.forEach(msg => msg.remove());
+
+        let started = false;
+
+        function setActiveSpeaker(speaker) {
+            if (speaker === 'caller') {
+                callerPanel.classList.remove('panel-dull');
+                aiPanel.classList.add('panel-dull');
+                callerWave.classList.add('waveform-active');
+                aiWave.classList.remove('waveform-active');
+            } else {
+                aiPanel.classList.remove('panel-dull');
+                callerPanel.classList.add('panel-dull');
+                aiWave.classList.add('waveform-active');
+                callerWave.classList.remove('waveform-active');
+            }
+        }
+
+        function clearActive() {
+            callerPanel.classList.remove('panel-dull');
+            aiPanel.classList.remove('panel-dull');
+            callerWave.classList.remove('waveform-active');
+            aiWave.classList.remove('waveform-active');
+        }
+
+        function getMessagesBox(speaker) {
+            return speaker === 'caller' ? callerMsgsBox : aiMsgsBox;
+        }
+
+        function getPanel(speaker) {
+            return speaker === 'caller' ? callerPanel : aiPanel;
+        }
+
+        function clearPanel(msgsBox) {
+            return new Promise(resolve => {
+                const existing = msgsBox.querySelectorAll('.call-msg');
+                existing.forEach(m => m.style.opacity = '0');
+                setTimeout(() => {
+                    msgsBox.innerHTML = '';
+                    resolve();
+                }, 300);
+            });
+        }
+
+        function typeMessage(msgEl, text, charDelay) {
+            return new Promise(resolve => {
+                msgEl.classList.add('visible');
+                let i = 0;
+                const cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                msgEl.appendChild(cursor);
+
+                function typeChar() {
+                    if (i < text.length) {
+                        msgEl.insertBefore(document.createTextNode(text[i]), cursor);
+                        i++;
+                        setTimeout(typeChar, charDelay);
+                    } else {
+                        cursor.remove();
+                        resolve();
+                    }
+                }
+                typeChar();
+            });
+        }
+
+        async function runConversation() {
+            if (started) return;
+            started = true;
+
+            for (const line of conversation) {
+                const msgsBox = getMessagesBox(line.speaker);
+                const panel = getPanel(line.speaker);
+
+                const msgEl = document.createElement('p');
+                msgEl.className = 'call-msg';
+                msgsBox.appendChild(msgEl);
+
+                const headerH = panel.querySelector('.call-split-header').offsetHeight;
+                const available = panel.offsetHeight - headerH - 48;
+                if (msgsBox.scrollHeight > available) {
+                    msgEl.remove();
+                    await clearPanel(msgsBox);
+                    msgsBox.appendChild(msgEl);
+                }
+
+                setActiveSpeaker(line.speaker);
+                await new Promise(r => setTimeout(r, 400));
+                await typeMessage(msgEl, line.text, 22);
+                await new Promise(r => setTimeout(r, 500));
+            }
+
+            clearActive();
+
             setTimeout(async () => {
                 await clearPanel(callerMsgsBox);
                 await clearPanel(aiMsgsBox);

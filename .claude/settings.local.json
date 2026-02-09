@@ -28,9 +28,11 @@
       "Bash(git rm:*)",
       "Bash(ls:*)",
       "Bash(grep:*)",
-      "Bash(git rebase:*)",
-      "Bash(git reset:*)",
-      "Bash(GIT_EDITOR=true git rebase:*)"
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(npx http-server:*)",
+      "Bash(git pull:*)",
+      "Bash(git rebase:*)"
     ],
     "deny": [],
     "ask": []
