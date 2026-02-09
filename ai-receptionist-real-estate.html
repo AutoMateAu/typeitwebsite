@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-749CVTK2QL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-749CVTK2QL');
+    </script>
+
+    <title>AI Receptionist for Real Estate Agencies | Entry — 24/7 Enquiry Calls & Inspection Booking</title>
+    <meta name="description" content="AI receptionist for real estate agencies in Australia. Answer calls 24/7, book property inspections, handle enquiries automatically.">
+    <link rel="canonical" href="https://www.askentry.com/ai-receptionist-real-estate">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="AI Receptionist for Real Estate Agencies | Entry">
+    <meta property="og:description" content="Answer every call 24/7 with AI. Book property inspections, handle enquiries automatically.">
+    <meta property="og:image" content="https://www.askentry.com/Entry1.png">
+    <meta property="og:url" content="https://www.askentry.com/ai-receptionist-real-estate">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Receptionist for Real Estate Agencies | Entry">
+    <meta name="twitter:description" content="Answer every call 24/7 with AI. Book property inspections, handle enquiries automatically.">
+    <meta name="twitter:image" content="https://www.askentry.com/Entry1.png">
+
+    <link rel="icon" type="image/png" href="notextlogo.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Serif&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- SVG noise filter for grainy texture -->
+    <svg style="position:absolute;width:0;height:0;">
+        <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+            <feColorMatrix type="saturate" values="0"/>
+            <feBlend in="SourceGraphic" mode="multiply"/>
+        </filter>
+    </svg>
+
+    <!-- ========== LAUNCH BANNER (Remove this section when ready) ========== -->
+    <div class="launch-banner">
+        PROJECT LAUNCHING SOON - EMAIL <a href="mailto:tenzin@whitecrow.com.au">tenzin@whitecrow.com.au</a> FOR EARLY ACCESS
+    </div>
+    <!-- ========== END LAUNCH BANNER ========== -->
+
+    <!-- ========== Header ========== -->
+    <header>
+        <div class="nav-logo">
+            <img src="Entry1.png" alt="Entry">
+        </div>
+        <nav class="nav-links">
+            <a href="/enterprise">Enterprise</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/blog">Blog</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="https://app.askentry.com" class="sign-in">Sign in</a>
+            <a href="/onboarding" class="download-btn">Sign Up</a>
+        </div>
+    </header>
+
+    <!-- ========== Main / Hero Section ========== -->
+    <main>
+        <canvas id="gradient-canvas"></canvas>
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1>AI Receptionist for <span>Real Estate Agencies</span></h1>
+                <p class="hero-subtext">Never miss a buyer call again. AI voice agents that answer every call 24/7,<br>book property inspections, handle price enquiries, and manage open home bookings automatically.</p>
+            </div>
+            <div class="email-form">
+                <div class="email-form-wrapper">
+                    <input type="url" id="heroWebsiteInput" placeholder="Enter your real estate agency website URL">
+                    <button onclick="trainAgent()">Try Free Forever</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Handwriting Note -->
+        <div class="handwriting-note">
+            <div class="note-text">Press play to<br>listen</div>
+            <div class="note-arrow">
+                <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 10 C30 10, 40 30, 50 50 C55 60, 70 70, 85 65" stroke="#3b5998" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M78 55 L88 65 L78 72" stroke="#3b5998" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Glass Backgrounds (hidden) -->
+        <div class="glass-background-2"></div>
+        <div class="glass-background"></div>
+
+        <!-- Dashboard Preview Card -->
+        <div class="glass-wrapper">
+            <div class="floating-badge">
+                <div class="badge-pill">
+                    <span class="badge-label">ON TRACK</span>
+                    <span class="badge-value">0.8</span>
+                </div>
+                <div class="badge-lines">
+                    <svg viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 8 L20 2" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M6 16 L22 12" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M5 25 L24 25" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M6 34 L22 38" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path d="M8 42 L20 48" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="box">
+                <img src="dashboard_general.png" alt="Entry AI Receptionist Dashboard for real estate agencies showing buyer call analytics" class="dashboard-img">
+                <div class="video-play-btn"></div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA (hidden) -->
+        <div class="bottom-cta">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                </svg>
+            </div>
+            <span>Create your real estate agency voice agent instantly</span>
+            <div class="arrow-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== Listen Live Section - Voice Agent Showcase ========== -->
+    <section class="listen-live">
+        <div class="listen-live-inner">
+            <div class="listen-live-header">
+                <h2>Hear our AI agents in action</h2>
+            </div>
+
+            <!-- Business Cards Grid -->
+            <div class="voice-showcase-grid">
+                <!-- Card 1: Ohmsworth Electrical -->
+                <div class="voice-card">
+                    <div class="voice-card-logo">
+                        <img src="ohmsworth.png" alt="Ohmsworth Electrical" style="width: 150%; height: 150%; max-width: none;">
+                    </div>
+                    <h3 class="voice-card-name">Ohmsworth Electrical</h3>
+                    <span class="voice-card-industry">Electrician</span>
+                    <div class="audio-player" data-audio="anderson">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 20%"></span><span style="height: 45%"></span><span style="height: 70%"></span><span style="height: 50%"></span><span style="height: 85%"></span><span style="height: 60%"></span><span style="height: 40%"></span><span style="height: 75%"></span><span style="height: 55%"></span><span style="height: 90%"></span><span style="height: 65%"></span><span style="height: 45%"></span><span style="height: 80%"></span><span style="height: 50%"></span><span style="height: 35%"></span><span style="height: 60%"></span><span style="height: 75%"></span><span style="height: 45%"></span><span style="height: 55%"></span><span style="height: 40%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">1:24</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Ledgervale Financial -->
+                <div class="voice-card">
+                    <div class="voice-card-logo">
+                        <img src="ledgervale.png" alt="Ledgervale Financial" style="width: 115%; height: 115%; max-width: none;">
+                    </div>
+                    <h3 class="voice-card-name">Ledgervale Financial</h3>
+                    <span class="voice-card-industry">Financial Planning</span>
+                    <div class="audio-player" data-audio="clarity">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 35%"></span><span style="height: 55%"></span><span style="height: 40%"></span><span style="height: 80%"></span><span style="height: 60%"></span><span style="height: 45%"></span><span style="height: 90%"></span><span style="height: 55%"></span><span style="height: 70%"></span><span style="height: 45%"></span><span style="height: 85%"></span><span style="height: 50%"></span><span style="height: 65%"></span><span style="height: 40%"></span><span style="height: 75%"></span><span style="height: 55%"></span><span style="height: 35%"></span><span style="height: 80%"></span><span style="height: 60%"></span><span style="height: 45%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">2:08</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Mortarwell Builders -->
+                <div class="voice-card">
+                    <div class="voice-card-logo">
+                        <img src="mortarwell.png" alt="Mortarwell Builders" style="width: 220%; height: 220%; max-width: none;">
+                    </div>
+                    <h3 class="voice-card-name">Mortarwell Builders</h3>
+                    <span class="voice-card-industry">Construction</span>
+                    <div class="audio-player" data-audio="tristate">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 50%"></span><span style="height: 30%"></span><span style="height: 65%"></span><span style="height: 45%"></span><span style="height: 80%"></span><span style="height: 55%"></span><span style="height: 70%"></span><span style="height: 40%"></span><span style="height: 90%"></span><span style="height: 60%"></span><span style="height: 35%"></span><span style="height: 75%"></span><span style="height: 50%"></span><span style="height: 85%"></span><span style="height: 45%"></span><span style="height: 60%"></span><span style="height: 70%"></span><span style="height: 35%"></span><span style="height: 55%"></span><span style="height: 80%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">1:52</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Pearlridge Dental Care -->
+                <div class="voice-card">
+                    <div class="voice-card-logo">
+                        <img src="pearlridge.png" alt="Pearlridge Dental Care">
+                    </div>
+                    <h3 class="voice-card-name">Pearlridge Dental Care</h3>
+                    <span class="voice-card-industry">Dental Practice</span>
+                    <div class="audio-player" data-audio="lakeside">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 40%"></span><span style="height: 70%"></span><span style="height: 55%"></span><span style="height: 85%"></span><span style="height: 45%"></span><span style="height: 60%"></span><span style="height: 35%"></span><span style="height: 80%"></span><span style="height: 50%"></span><span style="height: 75%"></span><span style="height: 40%"></span><span style="height: 90%"></span><span style="height: 55%"></span><span style="height: 65%"></span><span style="height: 45%"></span><span style="height: 80%"></span><span style="height: 35%"></span><span style="height: 70%"></span><span style="height: 50%"></span><span style="height: 60%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">1:36</span>
+                    </div>
+                </div>
+
+                <!-- Card 5: Healstride Physiotherapy -->
+                <div class="voice-card">
+                    <div class="voice-card-logo">
+                        <img src="healstride.png" alt="Healstride Physiotherapy">
+                    </div>
+                    <h3 class="voice-card-name">Healstride</h3>
+                    <span class="voice-card-industry">Physiotherapist</span>
+                    <div class="audio-player" data-audio="colorpro">
+                        <button class="play-pause-btn">
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="waveform-container">
+                            <div class="waveform-bars">
+                                <span style="height: 60%"></span><span style="height: 40%"></span><span style="height: 75%"></span><span style="height: 50%"></span><span style="height: 65%"></span><span style="height: 85%"></span><span style="height: 45%"></span><span style="height: 70%"></span><span style="height: 35%"></span><span style="height: 80%"></span><span style="height: 55%"></span><span style="height: 90%"></span><span style="height: 45%"></span><span style="height: 60%"></span><span style="height: 75%"></span><span style="height: 40%"></span><span style="height: 85%"></span><span style="height: 50%"></span><span style="height: 65%"></span><span style="height: 35%"></span>
+                            </div>
+                        </div>
+                        <span class="audio-duration">1:45</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Setup Roadmap Section ========== -->
+    <section class="setup-timeline">
+        <div class="setup-timeline-inner">
+            <h2>Getting started is easy</h2>
+
+            <div class="roadmap">
+                <div class="roadmap-start"></div>
+                <div class="roadmap-line"></div>
+
+                <div class="roadmap-step roadmap-left">
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 1</span>
+                        <h3>Enter your website</h3>
+                        <p>Our AI learns everything about your real estate agency to produce the highest quality answers.</p>
+                    </div>
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">1</div>
+                    </div>
+                    <div class="roadmap-spacer"></div>
+                </div>
+
+                <div class="roadmap-step roadmap-right">
+                    <div class="roadmap-spacer"></div>
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">2</div>
+                    </div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 2</span>
+                        <h3>Customize your voice</h3>
+                        <p>Choose from natural-sounding voices and set your agency tone. Connect any real estate CRM software you want.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step roadmap-left">
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 3</span>
+                        <h3>Connect your tools</h3>
+                        <p>Sync your calendar, property listings, and booking software. Smart routing with zero double-bookings.</p>
+                    </div>
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">3</div>
+                    </div>
+                    <div class="roadmap-spacer"></div>
+                </div>
+
+                <div class="roadmap-step roadmap-right">
+                    <div class="roadmap-spacer"></div>
+                    <div class="roadmap-marker">
+                        <div class="roadmap-number">4</div>
+                    </div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-label">step 4</span>
+                        <h3>Go live instantly</h3>
+                        <p>Start answering buyer calls 24/7 within minutes. Monitor conversations in real-time and refine as you grow.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-end"></div>
+            </div>
+
+            <div class="roadmap-cta">
+                <div class="roadmap-cta-text">
+                    <span class="roadmap-cta-line">Start answering</span>
+                    <span class="roadmap-cta-line">calls <a href="#" class="roadmap-pill" onclick="trainAgent(); return false;"><span>Start free</span><span class="roadmap-pill-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></span>
+                    <span class="roadmap-cta-line">effortlessly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Section Two - What Does AI Do ========== -->
+    <section class="section-two">
+        <div class="section-two-inner">
+            <!-- Row 1 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #60a5fa, #2563eb);"></span> We help you never miss a buyer call again</h3>
+                    <p class="feature-row-desc">Every call answered 24/7. Property inspections booked directly into your calendar. Returning buyers greeted by name.</p>
+                </div>
+                <div class="feature-card-image call-split-bg">
+                    <div class="call-split" id="callSimulation">
+                        <!-- Caller panel -->
+                        <div class="call-split-panel call-split-caller" id="callerPanel">
+                            <div class="call-split-header">
+                                <img src="https://i.pravatar.cc/40?img=25" alt="" class="call-split-avatar">
+                                <span class="call-split-name">Rachel</span>
+                                <div class="call-waveform" id="callerWave">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="1" data-speaker="caller">Hi, I'm interested in viewing the property at 15 Oak Street. Is it still available?</p>
+                                <p class="call-msg" data-order="3" data-speaker="caller">Saturday morning would work best for me.</p>
+                                <p class="call-msg" data-order="5" data-speaker="caller">Also, what's the asking price? I couldn't see it on the listing.</p>
+                                <p class="call-msg" data-order="7" data-speaker="caller">That's within my budget. I'll see you Saturday!</p>
+                                <p class="call-msg" data-order="9" data-speaker="caller">Perfect, thank you!</p>
+                            </div>
+                        </div>
+                        <!-- AI panel -->
+                        <div class="call-split-panel call-split-ai" id="aiPanel">
+                            <div class="call-split-header">
+                                <div class="call-split-ai-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                                </div>
+                                <span class="call-split-name">Entry AI</span>
+                                <div class="call-waveform call-waveform-ai" id="aiWave">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="2" data-speaker="ai">Hi Rachel! Yes, 15 Oak Street is still available. I have inspection times on Saturday at 10am or Sunday at 2pm — which works better for you?</p>
+                                <p class="call-msg" data-order="4" data-speaker="ai">Perfect. I've booked you in for Saturday at 10am for the property inspection at 15 Oak Street.</p>
+                                <p class="call-msg" data-order="6" data-speaker="ai">The asking price for 15 Oak Street is $875,000. It's a 3-bedroom, 2-bathroom home with a double garage.</p>
+                                <p class="call-msg" data-order="8" data-speaker="ai">Wonderful! You'll receive a confirmation text with the inspection details and agent contact information.</p>
+                                <p class="call-msg" data-order="10" data-speaker="ai">You're welcome, Rachel! See you Saturday at 10am.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #34d399, #059669);"></span> We handle the back-and-forth for you</h3>
+                    <p class="feature-row-desc">Rescheduling, cancellations, follow-ups — your AI receptionist manages it all without you lifting a finger.</p>
+                </div>
+                <div class="feature-card-image call-split-bg">
+                    <div class="call-split" id="callSimulation2">
+                        <!-- Caller panel -->
+                        <div class="call-split-panel call-split-caller" id="callerPanel2">
+                            <div class="call-split-header">
+                                <img src="https://i.pravatar.cc/40?img=13" alt="" class="call-split-avatar">
+                                <span class="call-split-name">Tom</span>
+                                <div class="call-waveform" id="callerWave2">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="1" data-speaker="caller">Hi, I need to reschedule my inspection from tomorrow to next week.</p>
+                                <p class="call-msg" data-order="3" data-speaker="caller">Wednesday afternoon would be perfect.</p>
+                                <p class="call-msg" data-order="5" data-speaker="caller">3pm works great, thanks.</p>
+                                <p class="call-msg" data-order="7" data-speaker="caller">Excellent, thanks for your help!</p>
+                            </div>
+                        </div>
+                        <!-- AI panel -->
+                        <div class="call-split-panel call-split-ai" id="aiPanel2">
+                            <div class="call-split-header">
+                                <div class="call-split-ai-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                                </div>
+                                <span class="call-split-name">Entry AI</span>
+                                <div class="call-waveform call-waveform-ai" id="aiWave2">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="call-split-messages">
+                                <p class="call-msg" data-order="2" data-speaker="ai">Hi Tom! No problem at all. I can see your inspection tomorrow. Would Tuesday or Wednesday work for you?</p>
+                                <p class="call-msg" data-order="4" data-speaker="ai">Wednesday has availability at 3pm or 5pm. Which suits you better?</p>
+                                <p class="call-msg" data-order="6" data-speaker="ai">Done! I've moved your inspection to Wednesday at 3pm. You'll get an updated confirmation text shortly.</p>
+                                <p class="call-msg" data-order="8" data-speaker="ai">Anytime, Tom. See you Wednesday!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #f472b6, #db2777);"></span> We keep everything in one place</h3>
+                    <p class="feature-row-desc">Calls, emails, buyer enquiries in a single inbox. AI summaries and smart drafts so you stay on top of it all.</p>
+                </div>
+                <div class="feature-card-image inbox-anim-bg">
+                    <div class="inbox-anim" id="inboxAnim">
+                        <!-- Window chrome -->
+                        <div class="inbox-chrome">
+                            <div class="inbox-dots">
+                                <span style="background:#ff5f57;"></span>
+                                <span style="background:#ffbd2e;"></span>
+                                <span style="background:#28c840;"></span>
+                            </div>
+                            <span class="inbox-title">Inbox</span>
+                            <span class="inbox-brand">Entry</span>
+                        </div>
+                        <!-- Sidebar -->
+                        <div class="inbox-sidebar">
+                            <div class="inbox-sidebar-icon active">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="inbox-sidebar-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="inbox-sidebar-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                        </div>
+                        <!-- Email list -->
+                        <div class="inbox-emails">
+                            <div class="inbox-email" data-index="0">
+                                <div class="inbox-avatar" style="background:#3b82f6;">R</div>
+                                <div class="inbox-email-content">
+                                    <div class="inbox-email-header">
+                                        <span class="inbox-sender">Rachel Green</span>
+                                        <span class="inbox-tag inbox-tag-respond">Missed Call</span>
+                                        <span class="inbox-time">2:34 PM</span>
+                                    </div>
+                                    <div class="inbox-subject">Inspection Booking — Saturday 10am</div>
+                                    <div class="inbox-preview">Booked via AI: 15 Oak Street inspection + price enquiry...</div>
+                                    <div class="inbox-ai-draft">
+                                        <span class="inbox-ai-dot"></span>
+                                        <span class="inbox-ai-label">AI summary ready</span>
+                                        <div class="inbox-draft-text">Rachel called to book inspection for 15 Oak Street on Saturday at 10am. Asked about price — $875k is within budget.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inbox-email" data-index="1">
+                                <div class="inbox-avatar" style="background:#8b5cf6;">T</div>
+                                <div class="inbox-email-content">
+                                    <div class="inbox-email-header">
+                                        <span class="inbox-sender">Tom Anderson</span>
+                                        <span class="inbox-tag inbox-tag-update">Rescheduled</span>
+                                        <span class="inbox-time">1:15 PM</span>
+                                    </div>
+                                    <div class="inbox-subject">Inspection Moved to Wednesday</div>
+                                    <div class="inbox-preview">Rescheduled from tomorrow to Wednesday at 3pm. Updated confirmation sent...</div>
+                                </div>
+                            </div>
+                            <div class="inbox-email" data-index="2">
+                                <div class="inbox-avatar" style="background:#f59e0b;">K</div>
+                                <div class="inbox-email-content">
+                                    <div class="inbox-email-header">
+                                        <span class="inbox-sender">Kate Wilson</span>
+                                        <span class="inbox-tag inbox-tag-fyi">Voicemail</span>
+                                        <span class="inbox-time">11:42 AM</span>
+                                    </div>
+                                    <div class="inbox-subject">Property features enquiry</div>
+                                    <div class="inbox-preview">Left a voicemail asking about backyard size and school zones...</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating labels -->
+                        <div class="inbox-float inbox-float-right" data-index="0">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            Instant categorisation
+                        </div>
+                        <div class="inbox-float inbox-float-left" data-index="1">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            Summaries in seconds
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="feature-card-box">
+                <div class="feature-card-text">
+                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #a78bfa, #7c3aed);"></span> We connect to the tools you already use</h3>
+                    <p class="feature-row-desc">Calendar, property listings, and CRM systems — all synced. Smart routing, zero double-bookings.</p>
+                </div>
+                <div class="feature-card-image tools-connect-bg">
+                    <div class="tools-connect">
+                        <div class="tool-logo-card tool-logo-entry">
+                            <img src="notextlogo.png" alt="Entry">
+                        </div>
+                        <div class="tools-connect-arrow">
+                            <svg width="80" height="28" viewBox="0 0 80 28" fill="none">
+                                <path d="M0 14H66" stroke="#7c8da5" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M58 4L72 14L58 24" stroke="#7c8da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="tool-logo-card tool-logo-target">
+                            <div class="tool-logo-carousel">
+                                <img class="tool-carousel-item active" src="gmail-icon.png" alt="Gmail">
+
+                                <img class="tool-carousel-item" src="https://cdn.worldvectorlogo.com/logos/hubspot-1.svg" alt="HubSpot">
+                                <img class="tool-carousel-item" src="calendly-icon.png" alt="Calendly">
+
+                                <img class="tool-carousel-item" src="slack-icon.png" alt="Slack">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Section Four - Trust ========== -->
+    <section class="section-four">
+        <div class="section-four-header">
+            <h2>Entry is built to keep your buyer data safe</h2>
+        </div>
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-card-image">
+                    <img src="client_data_protected.png" alt="Buyer data protected">
+                </div>
+                <h3>Buyer data stays protected</h3>
+                <p>Your buyers' personal details, property preferences, and booking data are encrypted and stored securely. Only your team can access them.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-card-image" style="align-items: center; padding: 20px;">
+                    <img src="call_recordings_private.png" alt="Call recordings private">
+                </div>
+                <h3>Call recordings are yours alone</h3>
+                <p>Every call transcript and summary is private to your real estate agency. We never share, sell, or use your conversations for anything.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-card-image" style="align-items: center; padding: 20px;">
+                    <svg width="200" height="200" viewBox="0 0 120 120" fill="none">
+                        <path d="M60 24 L88 38 L88 62 C88 80 74 94 60 98 C46 94 32 80 32 62 L32 38 Z" fill="#34d399" opacity="0.2"/>
+                        <path d="M60 32 L82 43 L82 62 C82 76 71 87 60 90 C49 87 38 76 38 62 L38 43 Z" fill="#10b981" opacity="0.25"/>
+                        <path d="M52 60 L58 66 L70 54" stroke="#059669" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Your property knowledge stays private</h3>
+                <p>The listings, property details, and information you teach Entry are never used to train AI models or shared with anyone outside your account.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ Section ========== -->
+    <section class="faq-section">
+        <div class="faq-inner">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do buyers know they're talking to an AI?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes — buyers are always told they're speaking with an AI assistant. The goal isn't to trick anyone. It's to provide a service that's as good as a human receptionist, so your buyers get fast, helpful answers every time they call.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I connect my phone number?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You connect via call forwarding on your existing agency phone. We use a special connection system that gives you full control over when your AI receptionist is active — you decide whether calls are forwarded or not.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I know which bookings were made by AI?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Every booking made by your AI receptionist is automatically tagged in your CRM system, so you can instantly tell which ones were handled by AI and which were made by your team.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I turn it off?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>There are two ways — a simple toggle in the Entry dashboard, or you can disable call forwarding directly on your phone. Both options take about 10 seconds.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Will buyers like talking to an AI?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our system is built to make the experience as seamless as possible, providing excellent customer service. We also use phone number recognition to deliver personalised calls — so your returning buyers feel known and looked after.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========== Final CTA ========== -->
+    <section class="cta-banner cta-banner-bottom">
+        <canvas id="cta-gradient-canvas"></canvas>
+        <div class="cta-banner-inner">
+            <h2>Ready to never miss a buyer call again?</h2>
+            <p>Set up your real estate agency AI receptionist in under 2 minutes. No credit card required.</p>
+            <div class="email-form">
+                <div class="email-form-wrapper">
+                    <input type="url" placeholder="Enter your real estate agency website URL">
+                    <button onclick="trainAgent()">Try Free Forever</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            Entry
+        </div>
+        <nav class="footer-nav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#demo">Demo</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="footer-copyright">
+            © 2026 Entry. All rights reserved.<br>
+            Privacy Policy · Terms of Service
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // WebGL Gradient Background with Dithering
+        (function() {
+            const canvas = document.getElementById('gradient-canvas');
+            if (!canvas) return;
+
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (!gl) return; // Falls back to CSS gradient
+
+            const vertexShaderSource = `
+                attribute vec2 a_position;
+                varying vec2 v_uv;
+                void main() {
+                    v_uv = a_position * 0.5 + 0.5;
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                }
+            `;
+
+            const fragmentShaderSource = `
+                precision highp float;
+                varying vec2 v_uv;
+                uniform vec2 u_resolution;
+
+                // Pseudo-random noise function for dithering
+                float random(vec2 st) {
+                    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+                }
+
+                // Soft ellipse gradient
+                float ellipse(vec2 uv, vec2 center, vec2 radius) {
+                    vec2 d = (uv - center) / radius;
+                    return 1.0 - smoothstep(0.0, 1.0, length(d));
+                }
+
+                void main() {
+                    vec2 uv = v_uv;
+                    // Flip Y to match CSS coordinate system
+                    uv.y = 1.0 - uv.y;
+
+                    // Base color (#fafafa)
+                    vec3 baseColor = vec3(0.98, 0.98, 0.98);
+
+                    // Blue gradient colors
+                    vec3 blue1 = vec3(0.231, 0.510, 0.965);  // #3b82f6 - rgba(59, 130, 246)
+                    vec3 blue2 = vec3(0.314, 0.588, 1.0);    // #5096ff - rgba(80, 150, 255)
+                    vec3 blue3 = vec3(0.388, 0.627, 1.0);    // #63a0ff - rgba(99, 160, 255)
+                    vec3 blue4 = vec3(0.392, 0.627, 1.0);    // #64a0ff - rgba(100, 160, 255)
+
+                    float gradient = 0.0;
+
+                    // Left side ellipses (matching CSS: at 8% 40%, 15% 38%, 5% 48%, 3% 55%)
+                    gradient += ellipse(uv, vec2(0.08, 0.40), vec2(0.25, 0.28)) * 0.14;
+                    gradient += ellipse(uv, vec2(0.15, 0.38), vec2(0.20, 0.25)) * 0.10;
+                    gradient += ellipse(uv, vec2(0.05, 0.48), vec2(0.16, 0.19)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.03, 0.55), vec2(0.22, 0.31)) * 0.10;
+
+                    // Right side ellipses (matching CSS: at 92% 40%, 88% 45%, 97% 52%, 95% 60%)
+                    gradient += ellipse(uv, vec2(0.92, 0.40), vec2(0.24, 0.27)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.88, 0.45), vec2(0.19, 0.22)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.97, 0.52), vec2(0.20, 0.28)) * 0.10;
+                    gradient += ellipse(uv, vec2(0.95, 0.60), vec2(0.18, 0.24)) * 0.07;
+
+                    // Top center ellipses (matching CSS: at 45% 32%, 35% 35%, 55% 33%, 60% 38%)
+                    gradient += ellipse(uv, vec2(0.45, 0.32), vec2(0.38, 0.19)) * 0.12;
+                    gradient += ellipse(uv, vec2(0.35, 0.35), vec2(0.31, 0.16)) * 0.09;
+                    gradient += ellipse(uv, vec2(0.55, 0.33), vec2(0.28, 0.14)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.60, 0.38), vec2(0.22, 0.13)) * 0.07;
+
+                    // Additional smaller ellipses (matching CSS: at 25% 40%, 18% 36%, 82% 35%)
+                    gradient += ellipse(uv, vec2(0.25, 0.40), vec2(0.19, 0.11)) * 0.07;
+                    gradient += ellipse(uv, vec2(0.18, 0.36), vec2(0.16, 0.16)) * 0.08;
+                    gradient += ellipse(uv, vec2(0.82, 0.35), vec2(0.14, 0.14)) * 0.07;
+
+                    // Mix blue tones based on position for variety
+                    vec3 blueColor = mix(blue1, mix(blue2, mix(blue3, blue4, uv.x), uv.y), 0.5);
+
+                    // Combine base with gradient
+                    vec3 color = mix(baseColor, blueColor, gradient);
+
+                    // Apply dithering to reduce banding
+                    // Use gl_FragCoord for per-pixel noise
+                    float noise = random(gl_FragCoord.xy) / 255.0;
+                    color += noise - 0.5 / 255.0;
+
+                    gl_FragColor = vec4(color, 1.0);
+                }
+            `;
+
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+                    gl.deleteShader(shader);
+                    return null;
+                }
+                return shader;
+            }
+
+            function createProgram(gl, vertexShader, fragmentShader) {
+                const program = gl.createProgram();
+                gl.attachShader(program, vertexShader);
+                gl.attachShader(program, fragmentShader);
+                gl.linkProgram(program);
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    console.error('Program link error:', gl.getProgramInfoLog(program));
+                    gl.deleteProgram(program);
+                    return null;
+                }
+                return program;
+            }
+
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+            const program = createProgram(gl, vertexShader, fragmentShader);
+
+            const positionLocation = gl.getAttribLocation(program, 'a_position');
+            const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                -1, -1,  1, -1,  -1, 1,
+                -1,  1,  1, -1,   1, 1
+            ]), gl.STATIC_DRAW);
+
+            function render() {
+                const main = document.querySelector('main');
+                const dpr = window.devicePixelRatio || 1;
+                const width = main.clientWidth * dpr;
+                const height = main.clientHeight * dpr;
+
+                canvas.style.width = main.clientWidth + 'px';
+                canvas.style.height = main.clientHeight + 'px';
+
+                if (canvas.width !== width || canvas.height !== height) {
+                    canvas.width = width;
+                    canvas.height = height;
+                    gl.viewport(0, 0, width, height);
+                }
+
+                gl.useProgram(program);
+                gl.uniform2f(resolutionLocation, width, height);
+
+                gl.enableVertexAttribArray(positionLocation);
+                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
+
+            render();
+            window.addEventListener('resize', render);
+            // Re-render after fonts/images load which may change main height
+            window.addEventListener('load', render);
+        })();
+    </script>
+    <script type="module" src="./scripts.js"></script>
+
+    <!-- CTA Banner WebGL Gradient -->
+    <script>
+    function initCtaGradient(canvasId) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return;
+
+        const vertexShaderSource = `
+            attribute vec2 a_position;
+            varying vec2 v_uv;
+            void main() {
+                v_uv = a_position * 0.5 + 0.5;
+                gl_Position = vec4(a_position, 0.0, 1.0);
+            }
+        `;
+
+        const fragmentShaderSource = `
+            precision highp float;
+            varying vec2 v_uv;
+            uniform vec2 u_resolution;
+
+            float random(vec2 st) {
+                return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+            }
+
+            float ellipse(vec2 uv, vec2 center, vec2 radius) {
+                vec2 d = (uv - center) / radius;
+                return 1.0 - smoothstep(0.0, 1.0, length(d));
+            }
+
+            void main() {
+                vec2 uv = v_uv;
+                uv.y = 1.0 - uv.y;
+
+                vec3 baseColor = vec3(1.0, 1.0, 1.0);
+
+                vec3 blue1 = vec3(0.231, 0.510, 0.965);
+                vec3 blue2 = vec3(0.314, 0.588, 1.0);
+                vec3 blue3 = vec3(0.388, 0.627, 1.0);
+                vec3 blue4 = vec3(0.392, 0.627, 1.0);
+
+                float gradient = 0.0;
+
+                // Soft wide central glow
+                gradient += ellipse(uv, vec2(0.5, 0.5), vec2(0.80, 0.55)) * 0.25;
+                gradient += ellipse(uv, vec2(0.5, 0.5), vec2(0.55, 0.40)) * 0.15;
+
+                // Gentle side accents that blend inward
+                gradient += ellipse(uv, vec2(0.15, 0.55), vec2(0.35, 0.45)) * 0.12;
+                gradient += ellipse(uv, vec2(0.85, 0.50), vec2(0.35, 0.45)) * 0.12;
+
+                // Fade all edges smoothly to white
+                float edgeFade = smoothstep(0.0, 0.25, uv.y) * smoothstep(0.0, 0.25, 1.0 - uv.y)
+                               * smoothstep(0.0, 0.12, uv.x) * smoothstep(0.0, 0.12, 1.0 - uv.x);
+                gradient *= edgeFade;
+
+                vec3 blueColor = mix(blue1, mix(blue2, mix(blue3, blue4, uv.x), uv.y), 0.5);
+                vec3 color = mix(baseColor, blueColor, gradient);
+
+                // Dithering
+                float noise = random(gl_FragCoord.xy) / 255.0;
+                color += noise - 0.5 / 255.0;
+
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        function createProgram(gl, vs, fs) {
+            const program = gl.createProgram();
+            gl.attachShader(program, vs);
+            gl.attachShader(program, fs);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                gl.deleteProgram(program);
+                return null;
+            }
+            return program;
+        }
+
+        const vs = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fs = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+        const program = createProgram(gl, vs, fs);
+
+        const posLoc = gl.getAttribLocation(program, 'a_position');
+        const resLoc = gl.getUniformLocation(program, 'u_resolution');
+
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1, -1, 1, -1, -1, 1,
+            -1, 1, 1, -1, 1, 1
+        ]), gl.STATIC_DRAW);
+
+        function render() {
+            const section = canvas.parentElement;
+            const dpr = window.devicePixelRatio || 1;
+            const w = section.clientWidth * dpr;
+            const h = section.clientHeight * dpr;
+
+            canvas.style.width = section.clientWidth + 'px';
+            canvas.style.height = section.clientHeight + 'px';
+
+            if (canvas.width !== w || canvas.height !== h) {
+                canvas.width = w;
+                canvas.height = h;
+                gl.viewport(0, 0, w, h);
+            }
+
+            gl.useProgram(program);
+            gl.uniform2f(resLoc, w, h);
+            gl.enableVertexAttribArray(posLoc);
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+            gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+        }
+
+        render();
+        window.addEventListener('resize', render);
+        window.addEventListener('load', render);
+    }
+    initCtaGradient('cta-gradient-canvas');
+    </script>
+
+    <!-- Call simulation typing animation -->
+    <script>
+    (function() {
+        const sim = document.getElementById('callSimulation');
+        if (!sim) return;
+
+        const callerPanel = document.getElementById('callerPanel');
+        const aiPanel = document.getElementById('aiPanel');
+        const callerWave = document.getElementById('callerWave');
+        const aiWave = document.getElementById('aiWave');
+        const callerMsgsBox = callerPanel.querySelector('.call-split-messages');
+        const aiMsgsBox = aiPanel.querySelector('.call-split-messages');
+
+        // Build conversation data from HTML, then remove original elements
+        const allMsgs = Array.from(sim.querySelectorAll('.call-msg'));
+        allMsgs.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
+        const conversation = allMsgs.map(msg => ({
+            text: msg.textContent,
+            speaker: msg.dataset.speaker
+        }));
+        allMsgs.forEach(msg => msg.remove());
+
+        let started = false;
+
+        function setActiveSpeaker(speaker) {
+            if (speaker === 'caller') {
+                callerPanel.classList.remove('panel-dull');
+                aiPanel.classList.add('panel-dull');
+                callerWave.classList.add('waveform-active');
+                aiWave.classList.remove('waveform-active');
+            } else {
+                aiPanel.classList.remove('panel-dull');
+                callerPanel.classList.add('panel-dull');
+                aiWave.classList.add('waveform-active');
+                callerWave.classList.remove('waveform-active');
+            }
+        }
+
+        function clearActive() {
+            callerPanel.classList.remove('panel-dull');
+            aiPanel.classList.remove('panel-dull');
+            callerWave.classList.remove('waveform-active');
+            aiWave.classList.remove('waveform-active');
+        }
+
+        function getMessagesBox(speaker) {
+            return speaker === 'caller' ? callerMsgsBox : aiMsgsBox;
+        }
+
+        function getPanel(speaker) {
+            return speaker === 'caller' ? callerPanel : aiPanel;
+        }
+
+        // Check if adding content would overflow the panel
+        function wouldOverflow(panel, msgsBox) {
+            const headerH = panel.querySelector('.call-split-header').offsetHeight;
+            const padding = 48; // 24px top + 24px bottom
+            const available = panel.offsetHeight - headerH - padding;
+            return msgsBox.scrollHeight > available;
+        }
+
+        // Clear old messages from a panel with a fade
+        function clearPanel(msgsBox) {
+            return new Promise(resolve => {
+                const existing = msgsBox.querySelectorAll('.call-msg');
+                existing.forEach(m => m.style.opacity = '0');
+                setTimeout(() => {
+                    msgsBox.innerHTML = '';
+                    resolve();
+                }, 300);
+            });
+        }
+
+        function typeMessage(msgEl, text, charDelay) {
+            return new Promise(resolve => {
+                msgEl.classList.add('visible');
+                let i = 0;
+                const cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                msgEl.appendChild(cursor);
+
+                function typeChar() {
+                    if (i < text.length) {
+                        msgEl.insertBefore(document.createTextNode(text[i]), cursor);
+                        i++;
+                        setTimeout(typeChar, charDelay);
+                    } else {
+                        cursor.remove();
+                        resolve();
+                    }
+                }
+                typeChar();
+            });
+        }
+
+        async function runConversation() {
+            if (started) return;
+            started = true;
+
+            for (const line of conversation) {
+                const msgsBox = getMessagesBox(line.speaker);
+                const panel = getPanel(line.speaker);
+
+                // Create new message element
+                const msgEl = document.createElement('p');
+                msgEl.className = 'call-msg';
+                msgsBox.appendChild(msgEl);
+
+                // Check if this overflows the panel — if so, clear old messages
+                const headerH = panel.querySelector('.call-split-header').offsetHeight;
+                const available = panel.offsetHeight - headerH - 48;
+                if (msgsBox.scrollHeight > available) {
+                    msgEl.remove();
+                    await clearPanel(msgsBox);
+                    msgsBox.appendChild(msgEl);
+                }
+
+                setActiveSpeaker(line.speaker);
+                await new Promise(r => setTimeout(r, 400));
+                await typeMessage(msgEl, line.text, 22);
+                await new Promise(r => setTimeout(r, 500));
+            }
+
+            clearActive();
+
+            // Wait then reset and loop
+            setTimeout(async () => {
+                await clearPanel(callerMsgsBox);
+                await clearPanel(aiMsgsBox);
+                started = false;
+                runConversation();
+            }, 3500);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    runConversation();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(sim);
+    })();
+    </script>
+
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Entry - AI Receptionist for Real Estate Agencies",
+      "url": "https://www.askentry.com/ai-receptionist-real-estate",
+      "logo": "https://www.askentry.com/Entry1.png",
+      "description": "AI receptionist for real estate agencies in Australia. Answer buyer calls 24/7, book property inspections, handle price enquiries automatically.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Entry AI Receptionist for Real Estate Agencies",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "AI receptionist that answers buyer calls 24/7, manages property inspections, and handles price enquiries for real estate agencies",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "AUD",
+        "description": "Free forever plan available"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1"
+      }
+    }
+    </script>
+
+    <!-- Call simulation 2 typing animation -->
+    <script>
+    (function() {
+        const sim = document.getElementById('callSimulation2');
+        if (!sim) return;
+
+        const callerPanel = document.getElementById('callerPanel2');
+        const aiPanel = document.getElementById('aiPanel2');
+        const callerWave = document.getElementById('callerWave2');
+        const aiWave = document.getElementById('aiWave2');
+        const callerMsgsBox = callerPanel.querySelector('.call-split-messages');
+        const aiMsgsBox = aiPanel.querySelector('.call-split-messages');
+
+        const allMsgs = Array.from(sim.querySelectorAll('.call-msg'));
+        allMsgs.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
+        const conversation = allMsgs.map(msg => ({
+            text: msg.textContent,
+            speaker: msg.dataset.speaker
+        }));
+        allMsgs.forEach(msg => msg.remove());
+
+        let started = false;
+
+        function setActiveSpeaker(speaker) {
+            if (speaker === 'caller') {
+                callerPanel.classList.remove('panel-dull');
+                aiPanel.classList.add('panel-dull');
+                callerWave.classList.add('waveform-active');
+                aiWave.classList.remove('waveform-active');
+            } else {
+                aiPanel.classList.remove('panel-dull');
+                callerPanel.classList.add('panel-dull');
+                aiWave.classList.add('waveform-active');
+                callerWave.classList.remove('waveform-active');
+            }
+        }
+
+        function clearActive() {
+            callerPanel.classList.remove('panel-dull');
+            aiPanel.classList.remove('panel-dull');
+            callerWave.classList.remove('waveform-active');
+            aiWave.classList.remove('waveform-active');
+        }
+
+        function getMessagesBox(speaker) {
+            return speaker === 'caller' ? callerMsgsBox : aiMsgsBox;
+        }
+
+        function getPanel(speaker) {
+            return speaker === 'caller' ? callerPanel : aiPanel;
+        }
+
+        function clearPanel(msgsBox) {
+            return new Promise(resolve => {
+                const existing = msgsBox.querySelectorAll('.call-msg');
+                existing.forEach(m => m.style.opacity = '0');
+                setTimeout(() => {
+                    msgsBox.innerHTML = '';
+                    resolve();
+                }, 300);
+            });
+        }
+
+        function typeMessage(msgEl, text, charDelay) {
+            return new Promise(resolve => {
+                msgEl.classList.add('visible');
+                let i = 0;
+                const cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                msgEl.appendChild(cursor);
+
+                function typeChar() {
+                    if (i < text.length) {
+                        msgEl.insertBefore(document.createTextNode(text[i]), cursor);
+                        i++;
+                        setTimeout(typeChar, charDelay);
+                    } else {
+                        cursor.remove();
+                        resolve();
+                    }
+                }
+                typeChar();
+            });
+        }
+
+        async function runConversation() {
+            if (started) return;
+            started = true;
+
+            for (const line of conversation) {
+                const msgsBox = getMessagesBox(line.speaker);
+                const panel = getPanel(line.speaker);
+
+                const msgEl = document.createElement('p');
+                msgEl.className = 'call-msg';
+                msgsBox.appendChild(msgEl);
+
+                const headerH = panel.querySelector('.call-split-header').offsetHeight;
+                const available = panel.offsetHeight - headerH - 48;
+                if (msgsBox.scrollHeight > available) {
+                    msgEl.remove();
+                    await clearPanel(msgsBox);
+                    msgsBox.appendChild(msgEl);
+                }
+
+                setActiveSpeaker(line.speaker);
+                await new Promise(r => setTimeout(r, 400));
+                await typeMessage(msgEl, line.text, 22);
+                await new Promise(r => setTimeout(r, 500));
+            }
+
+            clearActive();
+
+            setTimeout(async () => {
+                await clearPanel(callerMsgsBox);
+                await clearPanel(aiMsgsBox);
+                started = false;
+                runConversation();
+            }, 3500);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    runConversation();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(sim);
+    })();
+    </script>
+</body>
+</html>
