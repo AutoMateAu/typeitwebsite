@@ -37,6 +37,7 @@ export default defineConfig({
         blogArticle1: resolve(__dirname, 'blog/ai-receptionist-medical-practice-australia.html'),
         blogArticle2: resolve(__dirname, 'blog/ai-receptionist-physiotherapy-australia.html'),
         blogArticle3: resolve(__dirname, 'blog/ai-receptionist-real-estate-australia.html'),
+        blogArticle4: resolve(__dirname, 'blog/ai-receptionist-trades-australia.html'),
         landingMedical: resolve(__dirname, 'ai-receptionist-medical.html'),
         landingDental: resolve(__dirname, 'ai-receptionist-dental.html'),
         landingPhysio: resolve(__dirname, 'ai-receptionist-physiotherapy.html'),

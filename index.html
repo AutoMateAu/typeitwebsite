@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="dashboard_general.png" alt="Entry AI Receptionist Dashboard showing call analytics and conversation insights" class="dashboard-img">
+                <img src="inbox-screenshot.png" alt="Entry inbox showing calls, emails, and enquiries with AI summaries" class="dashboard-img">
                 <div class="video-play-btn"></div>
             </div>
         </div>
@@ -399,136 +399,14 @@
                 </div>
             </div>
 
-            <!-- Row 2 -->
-            <div class="feature-card-box">
-                <div class="feature-card-text">
-                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #34d399, #059669);"></span> We handle the back-and-forth for you</h3>
-                    <p class="feature-row-desc">Rescheduling, cancellations, follow-ups — your AI receptionist manages it all without you lifting a finger.</p>
-                </div>
-                <div class="feature-card-image call-split-bg">
-                    <div class="call-split" id="callSimulation2">
-                        <!-- Caller panel -->
-                        <div class="call-split-panel call-split-caller" id="callerPanel2">
-                            <div class="call-split-header">
-                                <img src="https://i.pravatar.cc/40?img=12" alt="" class="call-split-avatar">
-                                <span class="call-split-name">Marcus</span>
-                                <div class="call-waveform" id="callerWave2">
-                                    <span></span><span></span><span></span><span></span><span></span>
-                                </div>
-                            </div>
-                            <div class="call-split-messages">
-                                <p class="call-msg" data-order="1" data-speaker="caller">Hi, I need to reschedule my appointment from Friday to next week.</p>
-                                <p class="call-msg" data-order="3" data-speaker="caller">Tuesday works. What times do you have?</p>
-                                <p class="call-msg" data-order="5" data-speaker="caller">11am is perfect.</p>
-                                <p class="call-msg" data-order="7" data-speaker="caller">Great, thanks for sorting that out!</p>
-                            </div>
-                        </div>
-                        <!-- AI panel -->
-                        <div class="call-split-panel call-split-ai" id="aiPanel2">
-                            <div class="call-split-header">
-                                <div class="call-split-ai-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
-                                </div>
-                                <span class="call-split-name">Entry AI</span>
-                                <div class="call-waveform call-waveform-ai" id="aiWave2">
-                                    <span></span><span></span><span></span><span></span><span></span>
-                                </div>
-                            </div>
-                            <div class="call-split-messages">
-                                <p class="call-msg" data-order="2" data-speaker="ai">Hi Marcus! No problem at all. I can see your Friday booking. Would Monday or Tuesday work for you?</p>
-                                <p class="call-msg" data-order="4" data-speaker="ai">Tuesday is wide open. I've got 9am, 11am, or 3:30pm available.</p>
-                                <p class="call-msg" data-order="6" data-speaker="ai">Done! I've moved your appointment to Tuesday at 11am. You'll get an updated confirmation text shortly.</p>
-                                <p class="call-msg" data-order="8" data-speaker="ai">Anytime, Marcus. See you Tuesday!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Row 4 -->
             <div class="feature-card-box">
                 <div class="feature-card-text">
                     <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #f472b6, #db2777);"></span> We keep everything in one place</h3>
                     <p class="feature-row-desc">Calls, emails, chats, and enquiries in a single inbox. AI summaries and smart drafts so you stay on top of it all.</p>
                 </div>
-                <div class="feature-card-image inbox-anim-bg">
-                    <div class="inbox-anim" id="inboxAnim">
-                        <!-- Window chrome -->
-                        <div class="inbox-chrome">
-                            <div class="inbox-dots">
-                                <span style="background:#ff5f57;"></span>
-                                <span style="background:#ffbd2e;"></span>
-                                <span style="background:#28c840;"></span>
-                            </div>
-                            <span class="inbox-title">Inbox</span>
-                            <span class="inbox-brand">Entry</span>
-                        </div>
-                        <!-- Sidebar -->
-                        <div class="inbox-sidebar">
-                            <div class="inbox-sidebar-icon active">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            </div>
-                            <div class="inbox-sidebar-icon">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            </div>
-                            <div class="inbox-sidebar-icon">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-                            </div>
-                        </div>
-                        <!-- Email list -->
-                        <div class="inbox-emails">
-                            <div class="inbox-email" data-index="0">
-                                <div class="inbox-avatar" style="background:#3b82f6;">J</div>
-                                <div class="inbox-email-content">
-                                    <div class="inbox-email-header">
-                                        <span class="inbox-sender">Jessica Thompson</span>
-                                        <span class="inbox-tag inbox-tag-respond">Missed Call</span>
-                                        <span class="inbox-time">2:34 PM</span>
-                                    </div>
-                                    <div class="inbox-subject">Haircut Booking — Thursday 2pm</div>
-                                    <div class="inbox-preview">Booked via AI: Haircut + balayage with Sarah, confirmed for Thursday at 2pm...</div>
-                                    <div class="inbox-ai-draft">
-                                        <span class="inbox-ai-dot"></span>
-                                        <span class="inbox-ai-label">AI summary ready</span>
-                                        <div class="inbox-draft-text">Jessica called to book a haircut and balayage for Thursday at 2pm with Sarah. Confirmation SMS sent automatically.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inbox-email" data-index="1">
-                                <div class="inbox-avatar" style="background:#8b5cf6;">M</div>
-                                <div class="inbox-email-content">
-                                    <div class="inbox-email-header">
-                                        <span class="inbox-sender">Marcus Williams</span>
-                                        <span class="inbox-tag inbox-tag-update">Rescheduled</span>
-                                        <span class="inbox-time">1:15 PM</span>
-                                    </div>
-                                    <div class="inbox-subject">Appointment Moved to Tuesday</div>
-                                    <div class="inbox-preview">Rescheduled from Friday to Tuesday at 11am. Updated confirmation sent...</div>
-                                </div>
-                            </div>
-                            <div class="inbox-email" data-index="2">
-                                <div class="inbox-avatar" style="background:#f59e0b;">R</div>
-                                <div class="inbox-email-content">
-                                    <div class="inbox-email-header">
-                                        <span class="inbox-sender">Rachel Kim</span>
-                                        <span class="inbox-tag inbox-tag-fyi">Voicemail</span>
-                                        <span class="inbox-time">11:42 AM</span>
-                                    </div>
-                                    <div class="inbox-subject">Pricing enquiry — wedding package</div>
-                                    <div class="inbox-preview">Left a voicemail asking about bridal hair and makeup pricing for August...</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Floating labels -->
-                        <div class="inbox-float inbox-float-right" data-index="0">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                            Instant categorisation
-                        </div>
-                        <div class="inbox-float inbox-float-left" data-index="1">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                            Summaries in seconds
-                        </div>
-                    </div>
+                <div class="feature-card-image">
+                    <img src="inbox-screenshot.png" alt="Entry inbox showing calls, emails, and enquiries with AI summaries" style="width: 100%; border-radius: 12px;">
                 </div>
             </div>
 
@@ -595,6 +473,70 @@
                 </div>
                 <h3>Your business knowledge stays private</h3>
                 <p>The FAQs, services, and pricing you teach Entry are never used to train AI models or shared with anyone outside your account.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Industries We Serve Section ========== -->
+    <section class="industries-section">
+        <div class="industries-inner">
+            <h2>Industries we serve</h2>
+            <p class="industries-subtitle">Tailored AI receptionist solutions for Australian businesses</p>
+
+            <div class="industries-grid">
+                <a href="/ai-receptionist-medical" class="industry-card">
+                    <div class="industry-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Medical Practices</h3>
+                    <p>Answer patient calls 24/7, book appointments, handle prescription refills, and manage Medicare enquiries.</p>
+                </a>
+
+                <a href="/ai-receptionist-dental" class="industry-card">
+                    <div class="industry-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Dental Clinics</h3>
+                    <p>Schedule cleanings and check-ups, answer questions about treatments, and send appointment reminders.</p>
+                </a>
+
+                <a href="/ai-receptionist-physiotherapy" class="industry-card">
+                    <div class="industry-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <line x1="19" y1="8" x2="19" y2="14"/>
+                            <line x1="22" y1="11" x2="16" y2="11"/>
+                        </svg>
+                    </div>
+                    <h3>Physiotherapy</h3>
+                    <p>Book injury assessments, handle bulk billing questions, and manage client appointments seamlessly.</p>
+                </a>
+
+                <a href="/ai-receptionist-trades" class="industry-card">
+                    <div class="industry-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3>Trades & Services</h3>
+                    <p>Capture job enquiries, schedule site visits, provide quotes, and never miss a customer call again.</p>
+                </a>
+
+                <a href="/ai-receptionist-real-estate" class="industry-card">
+                    <div class="industry-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3>Real Estate</h3>
+                    <p>Book property inspections, answer buyer questions, schedule open homes, and qualify leads automatically.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -681,11 +623,14 @@
             Entry
         </div>
         <nav class="footer-nav">
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#demo">Demo</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/blog">Blog</a>
+            <a href="/ai-receptionist-medical">Medical</a>
+            <a href="/ai-receptionist-dental">Dental</a>
+            <a href="/ai-receptionist-physiotherapy">Physiotherapy</a>
+            <a href="/ai-receptionist-trades">Trades</a>
+            <a href="/ai-receptionist-real-estate">Real Estate</a>
         </nav>
         <div class="footer-copyright">
             © 2026 Entry. All rights reserved.<br>

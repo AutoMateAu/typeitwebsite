@@ -1401,7 +1401,91 @@ main {
    ========================================================================== */
 
 /* ==========================================================================
-   19. FAQ Section
+   19. Industries We Serve Section
+   ========================================================================== */
+
+.industries-section {
+    padding: 100px 80px;
+    background: #fff;
+}
+
+.industries-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.industries-inner h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.industries-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.industry-card {
+    padding: 32px;
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.industry-card:hover {
+    background: #fff;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+}
+
+.industry-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.industry-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+.industry-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   20. FAQ Section
    ========================================================================== */
 
 .faq-section {
