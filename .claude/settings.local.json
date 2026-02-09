@@ -33,7 +33,11 @@
       "Bash(npx http-server:*)",
       "Bash(git pull:*)",
       "Bash(git rebase:*)",
+<<<<<<< HEAD
       "Bash(git config:*)"
+=======
+      "WebFetch(domain:www.askentry.com)"
+>>>>>>> 93d8295 (Add Google Analytics 4 tracking to all pages)
     ],
     "deny": [],
     "ask": []
