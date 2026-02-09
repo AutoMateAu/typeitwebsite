@@ -32,7 +32,8 @@
       "Bash(findstr:*)",
       "Bash(npx http-server:*)",
       "Bash(git pull:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": []

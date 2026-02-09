@@ -1,0 +1,11 @@
+# robots.txt for askentry.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.askentry.com/sitemap.xml
+
+# Disallow admin/internal paths (if any)
+# Disallow: /admin/
+# Disallow: /_internal/
