@@ -1485,6 +1485,200 @@ main {
 }
 
 /* ==========================================================================
+   19. Pricing Section
+   ========================================================================== */
+
+.pricing-section {
+    padding: 100px 80px;
+    background: #fff;
+}
+
+.pricing-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-inner h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.pricing-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.pricing-card {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+    transform: translateY(-4px);
+}
+
+.pricing-card-featured {
+    border-color: #3b82f6;
+    border-width: 2px;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.pricing-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.pricing-price {
+    margin-bottom: 12px;
+}
+
+.price-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1;
+}
+
+.price-period {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #64748b;
+    margin-left: 4px;
+}
+
+.pricing-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #64748b;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #475569;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.pricing-btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    border: none;
+}
+
+.pricing-btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.pricing-btn-outline {
+    background: transparent;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+}
+
+.pricing-btn-outline:hover {
+    background: #3b82f6;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 48px auto 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-section {
+        padding: 80px 24px;
+    }
+
+    .pricing-inner h2 {
+        font-size: 32px;
+    }
+
+    .pricing-subtitle {
+        font-size: 16px;
+    }
+}
+
+/* ==========================================================================
    20. FAQ Section
    ========================================================================== */
 
