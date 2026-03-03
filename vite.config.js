@@ -30,6 +30,7 @@ export default defineConfig({
         onboarding: resolve(__dirname, 'onboarding.html'),
         building: resolve(__dirname, 'building.html'),
         pricing: resolve(__dirname, 'pricing.html'),
+        contact: resolve(__dirname, 'contact.html'),
         enterprise: resolve(__dirname, 'enterprise.html'),
         demo: resolve(__dirname, 'demo.html'),
         details: resolve(__dirname, 'details.html'),

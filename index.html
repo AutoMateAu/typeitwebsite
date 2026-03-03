@@ -28,8 +28,7 @@
     <meta name="twitter:description" content="Stop spending hours organizing construction drawings. AI-powered document processing for certifiers, architects, and engineers.">
     <meta name="twitter:image" content="https://www.typeit.com/typeit-logo.png">
 
-    <link rel="icon" type="image/png" href="notextlogo.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,133 +47,53 @@
             <feBlend in="SourceGraphic" mode="multiply"/>
         </filter>
     </svg>
-
-    <!-- ========== LAUNCH BANNER (Remove this section when ready) ========== -->
-    <div class="launch-banner">
-        LAUNCHING SOON - EMAIL <a href="mailto:hello@typeit.com">hello@typeit.com</a> FOR EARLY ACCESS
-    </div>
-    <!-- ========== END LAUNCH BANNER ========== -->
-
     <!-- ========== Header ========== -->
     <header>
         <div class="nav-logo">
             <img src="typeit-logo.png" alt="Type It">
         </div>
         <nav class="nav-links">
-            <a href="#how-it-works">How It Works</a>
             <a href="typeit-pricing.html">Pricing</a>
-            <a href="#faq">FAQ</a>
+            <a href="/blog/index.html">Blog</a>
         </nav>
         <div class="nav-actions">
-            <a href="mailto:hello@typeit.com" class="download-btn">Join Beta</a>
+            <a href="/contact" class="download-btn">Contact Us</a>
         </div>
     </header>
 
     <!-- ========== Main / Hero Section ========== -->
     <main>
-        <canvas id="gradient-canvas"></canvas>
-        <div class="hero-section">
-            <div class="hero-text">
-                <h1>Turn Drawing Chaos Into <span>Organized Schedules</span></h1>
-                <p class="hero-subtext">Stop spending hours manually sorting construction drawings.<br>Upload your documents, and get professionally formatted drawing schedules in minutes.</p>
+        <div class="hero-split">
+            <div class="hero-split-text">
+                <span class="hero-badge">CONSTRUCTION DOCUMENT PROCESSING</span>
+                <h1>Simplify Your<br>Drawing Schedule<br>Processing</h1>
+                <p>The complete document processing platform built for construction professionals. Generates Occupancy Certificates, Construction Certificates, and Complying Development Certificates in minutes.</p>
+                <div class="hero-buttons">
+                    <a href="/contact" class="hero-btn-primary">Book a Demo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    <button onclick="openVideoModal()" class="hero-btn-secondary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg> Play Video</button>
+                </div>
             </div>
-            <div class="email-form">
-                <button onclick="window.location.href='/onboarding'" style="display: block; margin: 0 auto;">Upload Documents & Try Free</button>
+            <div class="hero-split-visual" id="hero-video">
+                <div class="hero-video-embed">
+                    <div class="loom-video-container">
+                        <iframe src="https://www.loom.com/embed/c0bc91968ad74f9f82e91371072709fd?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <div class="video-click-overlay" onclick="openVideoModal()"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Glass Backgrounds (hidden) -->
-        <div class="glass-background-2"></div>
-        <div class="glass-background"></div>
-
-        <!-- Dashboard Preview Card -->
-        <div class="glass-wrapper">
-            <div class="floating-badge">
-                <div class="badge-pill">
-                    <span class="badge-label">ON TRACK</span>
-                    <span class="badge-value">0.8</span>
-                </div>
-                <div class="badge-lines">
-                    <svg viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 8 L20 2" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                        <path d="M6 16 L22 12" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                        <path d="M5 25 L24 25" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                        <path d="M6 34 L22 38" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                        <path d="M8 42 L20 48" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="box">
-                <img src="hero-image.webp" alt="Type It document processing interface showing organized drawing schedules" class="dashboard-img">
-            </div>
-        </div>
-
-        <!-- Bottom CTA (hidden) -->
-        <div class="bottom-cta">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
-                </svg>
-            </div>
-            <span>Create your business voice agent instantly</span>
-            <div class="arrow-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
+        <!-- Video Fullscreen Modal -->
+        <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
+            <div class="video-modal-inner">
+                <button class="video-modal-close" onclick="closeVideoModal(event)" aria-label="Close">&times;</button>
+                <div class="video-modal-container" id="videoModalContainer"></div>
             </div>
         </div>
     </main>
 
-    <!-- ========== Problem Section ========== -->
-    <section class="listen-live">
-        <div class="listen-live-inner">
-            <div class="listen-live-header">
-                <h2>Stop wasting hours on document admin</h2>
-                <p style="font-family: 'Inter', sans-serif; font-size: 18px; color: #64748b; max-width: 700px; margin: 16px auto 0;">You didn't get into construction to spend your day organizing paperwork. Yet here you are, manually typing drawing numbers, dates, and revision codes into spreadsheets.</p>
-            </div>
-
-            <!-- Stats Grid -->
-            <div class="voice-showcase-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto;">
-                <div class="voice-card">
-                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 16px;">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
-                    <h3 class="voice-card-name" style="font-size: 32px; color: #1e293b;">2-4 hours</h3>
-                    <span class="voice-card-industry">Average time spent per package manually</span>
-                </div>
-
-                <div class="voice-card">
-                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 16px;">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                            <line x1="12" y1="9" x2="12" y2="13"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                    </div>
-                    <h3 class="voice-card-name" style="font-size: 32px; color: #1e293b;">23%</h3>
-                    <span class="voice-card-industry">Error rate in manual data entry</span>
-                </div>
-
-                <div class="voice-card">
-                    <div class="voice-card-logo" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 16px;">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="3" y1="9" x2="21" y2="9"/>
-                            <line x1="9" y1="21" x2="9" y2="9"/>
-                        </svg>
-                    </div>
-                    <h3 class="voice-card-name" style="font-size: 32px; color: #1e293b;">20-50</h3>
-                    <span class="voice-card-industry">Drawings in a typical package</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ========== How It Works Section ========== -->
-    <section class="setup-timeline" id="how-it-works">
+    <section class="setup-timeline">
         <div class="setup-timeline-inner">
             <h2>From chaos to organized in 3 simple steps</h2>
 
@@ -224,88 +143,23 @@
             <div class="roadmap-cta">
                 <div class="roadmap-cta-text">
                     <span class="roadmap-cta-line">Process your first</span>
-                    <span class="roadmap-cta-line">package <a href="/onboarding" class="roadmap-pill"><span>Try it free</span><span class="roadmap-pill-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></span>
+                    <span class="roadmap-cta-line">package <a href="/contact" class="roadmap-pill"><span>Try it free</span><span class="roadmap-pill-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></span>
                     <span class="roadmap-cta-line">in under 5 minutes</span>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- ========== What It Does ========== -->
-    <section class="section-two">
-        <div class="section-two-inner">
-            <!-- Row 1 -->
-            <div class="feature-card-box">
-                <div class="feature-card-text">
-                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #60a5fa, #2563eb);"></span> Reads any drawing format</h3>
-                    <p class="feature-row-desc">Title blocks in different locations? Handwritten notes? Multiple consultants? Our AI understands them all and extracts the information you need—drawing numbers, dates, revisions, and who prepared them.</p>
-                </div>
-                <div class="feature-card-image" style="background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%); padding: 40px;">
-                    <div style="background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-                        <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #94a3b8; margin-bottom: 16px;">Sample Drawing Title Block</p>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-                            <div><strong style="color: #1e293b;">Drawing No:</strong> <span style="color: #3b82f6;">A-101</span></div>
-                            <div><strong style="color: #1e293b;">Date:</strong> <span style="color: #3b82f6;">15/01/2024</span></div>
-                            <div><strong style="color: #1e293b;">Name:</strong> <span style="color: #3b82f6;">Ground Floor Plan</span></div>
-                            <div><strong style="color: #1e293b;">Revision:</strong> <span style="color: #3b82f6;">Rev C</span></div>
-                        </div>
-                        <p style="margin-top: 20px; font-size: 13px; color: #64748b; font-style: italic;">✓ Automatically extracted in seconds</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="feature-card-box">
-                <div class="feature-card-text">
-                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #f472b6, #db2777);"></span> Organizes by discipline automatically</h3>
-                    <p class="feature-row-desc">No more manually sorting through hundreds of pages. Architectural, structural, hydraulic, electrical—everything automatically grouped into the right tables, ready for your CC or OC submission.</p>
-                </div>
-                <div class="feature-card-image" style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); padding: 40px;">
-                    <div style="background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-                        <div style="margin-bottom: 16px; padding: 12px; background: #dbeafe; border-radius: 8px; border-left: 4px solid #3b82f6;">
-                            <strong style="color: #1e293b;">Endorsed Architectural Plans</strong>
-                            <p style="font-size: 13px; color: #64748b; margin-top: 4px;">12 drawings sorted</p>
-                        </div>
-                        <div style="margin-bottom: 16px; padding: 12px; background: #dbeafe; border-radius: 8px; border-left: 4px solid #3b82f6;">
-                            <strong style="color: #1e293b;">Endorsed Structural Plans</strong>
-                            <p style="font-size: 13px; color: #64748b; margin-top: 4px;">8 drawings sorted</p>
-                        </div>
-                        <div style="padding: 12px; background: #dbeafe; border-radius: 8px; border-left: 4px solid #3b82f6;">
-                            <strong style="color: #1e293b;">Endorsed Hydraulic Plans</strong>
-                            <p style="font-size: 13px; color: #64748b; margin-top: 4px;">6 drawings sorted</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="feature-card-box">
-                <div class="feature-card-text">
-                    <h3><span class="feature-row-dot" style="background: linear-gradient(135deg, #a78bfa, #7c3aed);"></span> Creates submission-ready documents</h3>
-                    <p class="feature-row-desc">Get professionally formatted Word documents with correct margins, properly sized columns, and organized tables. Just download, review, and submit. No reformatting needed.</p>
-                </div>
-                <div class="feature-card-image" style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); padding: 40px;">
-                    <div style="background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: left;">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                                <polyline points="10 9 9 9 8 9"/>
-                            </svg>
-                            <div>
-                                <strong style="color: #1e293b;">Drawing_Schedule_CC.docx</strong>
-                                <p style="font-size: 13px; color: #64748b; margin-top: 2px;">Ready to submit • 2.4 MB</p>
-                            </div>
-                        </div>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb; color: #64748b; font-size: 14px;">✓ Correct A4 margins</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb; color: #64748b; font-size: 14px;">✓ Organized by discipline</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb; color: #64748b; font-size: 14px;">✓ Duplicates removed</li>
-                            <li style="padding: 8px 0; color: #64748b; font-size: 14px;">✓ Professional formatting</li>
-                        </ul>
-                    </div>
+    <!-- ========== Organise Your Documents ========== -->
+    <section class="organise-section">
+        <div class="organise-inner">
+            <span class="organise-eyebrow">How It Works</span>
+            <h2 class="organise-heading">Organise Your Documents</h2>
+            <p class="organise-desc">Upload your construction drawings and let AI sort, extract, and format everything into submission-ready schedules, automatically grouped by discipline.</p>
+            <div class="organise-video">
+                <div class="loom-video-container">
+                    <iframe src="https://www.loom.com/embed/a315a55d6e0b4a698c3f356b9b6c27fd?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -334,148 +188,77 @@
         </div>
     </section>
 
-    <!-- ========== Who Uses It Section ========== -->
-    <section class="industries-section">
-        <div class="industries-inner">
-            <h2>Built for construction professionals</h2>
-            <p class="industries-subtitle">Save time on every project, regardless of your role</p>
-
-            <div class="industries-grid">
-                <div class="industry-card">
-                    <div class="industry-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                    </div>
-                    <h3>Private Certifiers</h3>
-                    <p>Quickly compile drawing schedules for DA, CDC, and CC applications. Verify drawing completeness and track revisions with confidence.</p>
-                </div>
-
-                <div class="industry-card">
-                    <div class="industry-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                    </div>
-                    <h3>Architects</h3>
-                    <p>Auto-generate drawing registers before submission. Compile transmittal lists in seconds and ensure nothing is missing from your package.</p>
-                </div>
-
-                <div class="industry-card">
-                    <div class="industry-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
-                    <h3>Engineers & Consultants</h3>
-                    <p>Extract schedules from multi-discipline packages. Handle structural, hydraulic, mechanical, and electrical drawings in one upload.</p>
-                </div>
-
-                <div class="industry-card">
-                    <div class="industry-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <line x1="3" y1="9" x2="21" y2="9"/>
-                            <line x1="9" y1="21" x2="9" y2="9"/>
-                        </svg>
-                    </div>
-                    <h3>Council & Approval Bodies</h3>
-                    <p>Process submitted documentation efficiently. Extract structured data for record-keeping and audit submitted drawing packages quickly.</p>
-                </div>
-
-                <div class="industry-card">
-                    <div class="industry-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 010 7.75"/>
-                        </svg>
-                    </div>
-                    <h3>Project Managers</h3>
-                    <p>Keep track of drawing versions across trades. Maintain organized records and verify that all consultants have submitted current drawings.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ========== FAQ Section ========== -->
     <section class="faq-section" id="faq">
         <div class="faq-inner">
             <h2>Frequently asked questions</h2>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What file formats do you accept?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What types of documents does Type It process?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
                     </button>
                     <div class="faq-answer">
-                        <p>We accept ZIP files containing PDFs, or individual PDF uploads. Whether your drawings are scanned or digitally created, our AI can read them. Most construction document packages work perfectly—just upload and let us handle the rest.</p>
+                        <p>Type It processes construction drawing packages including architectural, structural, hydraulic, electrical, and mechanical plans. We support PDF files of any size and can read title blocks in various formats and layouts.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What certificates can Type It generate?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Type It generates drawing schedules for Occupancy Certificates (OC), Construction Certificates (CC), and Complying Development Certificates (CDC). Documents are formatted and organized by discipline, ready for submission.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
                         <span>How accurate is the AI extraction?</span>
-                        <span class="faq-icon">+</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Our AI achieves 95%+ accuracy on standard construction drawings. It's trained to handle different title block layouts, handwriting, and inconsistent formats. We recommend a quick manual review before final submission, but most data is extracted perfectly on the first try.</p>
+                        <p>Our AI achieves high accuracy across a wide range of drawing formats. You can always review and edit extracted data before downloading the final document, so you stay in full control of the output.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How long does processing take?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How long does it take to process a package?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Most packages are processed in 2-5 minutes, depending on the number of drawings. A typical 20-30 drawing package is ready in under 3 minutes. You'll receive an email when your document is ready to download.</p>
+                        <p>Most packages are processed in under 5 minutes, regardless of size. A typical 20–50 drawing package that would take 2–4 hours manually is done in minutes with Type It.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Can I edit the output before downloading?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Are my documents secure?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! You can review and edit all extracted data in our web interface before generating the final Word document. Fix any errors, add missing information, or rearrange tables—then download when you're happy with everything.</p>
+                        <p>Yes. All documents are encrypted during upload and processing. Only you can access your files and extracted data. We never share your documents with third parties.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What happens to my files after processing?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Can I change plans at any time?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Files are automatically deleted after 30 days. You can also delete them immediately after downloading your output. We use end-to-end encryption and never use your documents for AI training or share them with third parties.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Do you support other document types?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Currently, we specialize in construction drawings and compliance certificates. We're expanding to support specifications, reports, and other construction documentation. Email us if there's a specific document type you need—your feedback shapes our roadmap.</p>
+                        <p>Absolutely. You can upgrade or downgrade your plan at any time. If you need more than 45 jobs per month, contact our sales team for a custom Enterprise plan.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- ========== Final CTA ========== -->
     <section class="cta-banner cta-banner-bottom">
         <canvas id="cta-gradient-canvas"></canvas>
         <div class="cta-banner-inner">
             <h2>Stop wasting time on manual data entry</h2>
-            <p>Process your first construction package in under 5 minutes. No credit card required.</p>
-            <div class="email-form">
-                <div class="email-form-wrapper">
-                    <button onclick="window.location.href='/onboarding'" style="width: 100%; max-width: 280px; margin: 0 auto;">Upload Documents & Try Free</button>
-                </div>
-                <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #64748b; margin-top: 16px;">First package free • No subscription required</p>
+            <p>Process your first construction package in under 5 minutes.</p>
+            <div style="margin-top: 24px;">
+                <a href="/contact" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: #fff; background: #3b82f6; padding: 14px 32px; border-radius: 100px; text-decoration: none; box-shadow: 0 4px 14px rgba(59,130,246,0.3); transition: background 0.2s;">Book a Demo</a>
             </div>
         </div>
     </section>
@@ -491,9 +274,8 @@
             Type It
         </div>
         <nav class="footer-nav">
-            <a href="#how-it-works">How It Works</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
+            <a href="typeit-pricing.html">Pricing</a>
+            <a href="/blog/index.html">Blog</a>
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Service</a>
         </nav>
@@ -986,82 +768,6 @@
       }
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What file formats do you accept?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We accept ZIP files containing PDFs, or individual PDF uploads. Whether your drawings are scanned or digitally created, our AI can read them. Most construction document packages work perfectly—just upload and let us handle the rest."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate is the AI extraction?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our AI achieves 95%+ accuracy on standard construction drawings. It's trained to handle different title block layouts, handwriting, and inconsistent formats. We recommend a quick manual review before final submission, but most data is extracted perfectly on the first try."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does processing take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most packages are processed in 2-5 minutes, depending on the number of drawings. A typical 20-30 drawing package is ready in under 3 minutes. You'll receive an email when your document is ready to download."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I edit the output before downloading?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! You can review and edit all extracted data in our web interface before generating the final Word document. Fix any errors, add missing information, or rearrange tables—then download when you're happy with everything."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens to my files after processing?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Files are automatically deleted after 30 days. You can also delete them immediately after downloading your output. We use end-to-end encryption and never use your documents for AI training or share them with third parties."
-          }
-        }
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Process Construction Documents with Type It",
-      "description": "Process construction drawing schedules in 3 simple steps",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Upload your documents",
-          "text": "Drag and drop your ZIP file or folder containing all your construction drawings, certificates, and plans. We handle PDFs of any size.",
-          "position": 1
-        },
-        {
-          "@type": "HowToStep",
-          "name": "AI extracts everything",
-          "text": "Our AI reads each drawing, pulling out numbers, names, dates, and revisions from title blocks—even when formats are inconsistent.",
-          "position": 2
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download formatted schedules",
-          "text": "Get professionally formatted Word documents, organized by discipline, ready to submit or print. Duplicates removed, tables sorted, margins perfect.",
-          "position": 3
-        }
-      ]
-    }
-    </script>
 
     <!-- Call simulation 2 typing animation -->
     <script>
@@ -1194,6 +900,28 @@
 
         observer.observe(sim);
     })();
+    </script>
+
+    <!-- Video Modal Script -->
+    <script>
+    function openVideoModal() {
+        var modal = document.getElementById('videoModal');
+        var container = document.getElementById('videoModalContainer');
+        container.innerHTML = '<iframe src="https://www.loom.com/embed/c0bc91968ad74f9f82e91371072709fd?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeVideoModal(e) {
+        if (e && e.target !== e.currentTarget && !e.target.classList.contains('video-modal-close')) return;
+        var modal = document.getElementById('videoModal');
+        var container = document.getElementById('videoModalContainer');
+        modal.classList.remove('active');
+        container.innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVideoModal({ target: document.getElementById('videoModal'), currentTarget: document.getElementById('videoModal') });
+    });
     </script>
 </body>
 </html>

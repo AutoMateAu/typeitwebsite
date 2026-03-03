@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-749CVTK2QL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-749CVTK2QL');
+    </script>
+
+    <title>Contact Us — Type It</title>
+    <meta name="description" content="Get in touch with the Type It team. Tell us about your document processing needs and we'll get back to you within 1 business day.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .contact-page {
+            min-height: 100vh;
+            padding: 140px 0 0;
+            background: #fff;
+        }
+
+        .contact-card {
+            width: 100%;
+        }
+
+        .contact-card-inner {
+            position: relative;
+            z-index: 1;
+            padding: 60px 24px 80px;
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.6);
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #334155;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-badge span:first-child {
+            opacity: 0.7;
+        }
+
+        .contact-badge span:last-child {
+            color: #0f172a;
+        }
+
+        .contact-heading {
+            margin-top: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: clamp(36px, 6vw, 64px);
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+        }
+
+        .contact-subtext {
+            margin-top: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: rgba(15, 23, 42, 0.75);
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            margin-top: 36px;
+            text-align: left;
+        }
+
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(241, 245, 249, 0.8);
+            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.2);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #0f172a;
+            transition: box-shadow 0.15s ease;
+            outline: none;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            box-shadow: 0 0 0 2px #2563eb;
+        }
+
+        .contact-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .contact-form-message {
+            margin-top: 20px;
+        }
+
+        .contact-form-footer {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-form-footer .reply-note {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .contact-submit-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            background: #2563eb;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        .contact-submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .contact-submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .contact-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .contact-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .contact-success.show {
+            display: block;
+        }
+
+        .contact-success-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-success-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #16a34a;
+        }
+
+        .contact-success h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .contact-success p {
+            margin-top: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #64748b;
+        }
+
+        /* Animations */
+        .contact-card-inner > * {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: contactReveal 0.6s ease forwards;
+        }
+        .contact-card-inner > *:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card-inner > *:nth-child(2) { animation-delay: 0.2s; }
+        .contact-card-inner > *:nth-child(3) { animation-delay: 0.3s; }
+        .contact-card-inner > *:nth-child(4) { animation-delay: 0.4s; }
+        .contact-card-inner > *:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes contactReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contact-card-inner {
+                padding: 40px 20px 60px;
+            }
+            .contact-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form-footer {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .contact-form-footer .reply-note {
+                order: 2;
+            }
+            .contact-submit-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== Header ========== -->
+    <header>
+        <div class="nav-logo">
+            <a href="/"><img src="typeit-logo.png" alt="Type It"></a>
+        </div>
+        <nav class="nav-links">
+            <a href="typeit-pricing.html">Pricing</a>
+            <a href="/blog/index.html">Blog</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="/contact" class="download-btn">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- ========== Contact Section ========== -->
+    <div class="contact-page">
+        <div class="contact-card">
+            <div class="contact-card-inner">
+                <div class="contact-badge">
+                    <span>Avg. first reply</span>
+                    <span>&lt; 1 business day</span>
+                </div>
+
+                <h1 class="contact-heading">Contact our team</h1>
+
+                <p class="contact-subtext">Tell us about your document processing needs and goals. We'll scope opportunities and recommend the best path forward.</p>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="contact-form-grid">
+                        <div>
+                            <label>Name</label>
+                            <input name="name" required placeholder="Your name">
+                        </div>
+                        <div>
+                            <label>Work email</label>
+                            <input name="email" type="email" required placeholder="you@company.com">
+                        </div>
+                        <div>
+                            <label>Company</label>
+                            <input name="company" placeholder="Company name">
+                        </div>
+                        <div>
+                            <label>Use case</label>
+                            <input name="usecase" placeholder="Drawing schedules, CC processing, ...">
+                        </div>
+                    </div>
+                    <div class="contact-form-message">
+                        <label>Message</label>
+                        <textarea name="message" rows="6" placeholder="Tell us a bit about your workflows and goals"></textarea>
+                    </div>
+                    <div class="contact-form-footer">
+                        <span class="reply-note">We'll respond within 1 business day.</span>
+                        <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">Send message</button>
+                    </div>
+                </form>
+
+                <div class="contact-success" id="contactSuccess">
+                    <div class="contact-success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h3>Message sent!</h3>
+                    <p>Thanks for reaching out. We'll get back to you within 1 business day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('contactSubmitBtn');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            // Send to mailto as fallback — replace with API endpoint when ready
+            const subject = encodeURIComponent('Contact from ' + (data.name || 'Website'));
+            const body = encodeURIComponent(
+                'Name: ' + data.name + '\n' +
+                'Email: ' + data.email + '\n' +
+                'Company: ' + (data.company || 'N/A') + '\n' +
+                'Use case: ' + (data.usecase || 'N/A') + '\n\n' +
+                'Message:\n' + (data.message || 'N/A')
+            );
+            window.location.href = 'mailto:hello@typeit.com?subject=' + subject + '&body=' + body;
+
+            // Show success state
+            document.getElementById('contactForm').style.display = 'none';
+            document.querySelector('.contact-badge').style.display = 'none';
+            document.querySelector('.contact-heading').style.display = 'none';
+            document.querySelector('.contact-subtext').style.display = 'none';
+            document.getElementById('contactSuccess').classList.add('show');
+        } catch (err) {
+            btn.disabled = false;
+            btn.textContent = 'Send message';
+        }
+    });
+    </script>
+</body>
+</html>

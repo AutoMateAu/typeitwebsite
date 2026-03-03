@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-749CVTK2QL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-749CVTK2QL');
+    </script>
+
+    <title>How Type It Saves Private Certifiers Hours Every Week | Type It</title>
+    <meta name="description" content="Private certifiers spend up to 4 hours per package manually creating drawing schedules. Here's how AI-powered document processing cuts that to minutes.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.typeit.com/blog/how-type-it-saves-certifiers-time">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="How Type It Saves Private Certifiers Hours Every Week">
+    <meta property="og:description" content="Private certifiers spend up to 4 hours per package manually creating drawing schedules. Here's how AI-powered document processing cuts that to minutes.">
+    <meta property="og:image" content="https://www.typeit.com/typeit-logo.png">
+    <meta property="og:url" content="https://www.typeit.com/blog/how-type-it-saves-certifiers-time">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-03-03">
+    <meta property="article:modified_time" content="2026-03-03">
+    <meta property="article:author" content="Type It Team">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Type It Saves Private Certifiers Hours Every Week">
+    <meta name="twitter:description" content="AI-powered document processing that cuts drawing schedule creation from hours to minutes.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: #fff;
+        }
+
+        header {
+            height: 56px;
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding-top: 6px;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #42526e;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #3b82f6;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-actions .download-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            background: #3b82f6;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+
+        .nav-actions .download-btn:hover {
+            background: #2563eb;
+        }
+
+        /* Article Hero */
+        .article-hero {
+            padding: 120px 80px 40px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .article-category {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3b82f6;
+        }
+
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .article-meta-divider {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        .article-hero h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .article-hero .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .author-byline {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .author-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .author-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 80px 80px;
+        }
+
+        .article-content h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f0f0f;
+            margin: 56px 0 20px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .article-content h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 40px 0 14px;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .article-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .article-content ul, .article-content ol {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .article-content a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid #3b82f6;
+            padding-left: 20px;
+            margin: 28px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .article-content hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 48px 0;
+        }
+
+        .article-cta {
+            background: #f5f5f0;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .article-cta p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .article-cta a {
+            font-weight: 600;
+            color: #3b82f6;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3b82f6;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+
+        .toc {
+            background: #f9f9f6;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+        }
+
+        .toc p {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 6px;
+        }
+
+        .toc a {
+            font-size: 15px;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Author box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 32px;
+            background: #fafafa;
+            border-radius: 16px;
+            margin-top: 48px;
+            border: 1px solid #eee;
+        }
+
+        .author-box .author-avatar {
+            width: 64px;
+            height: 64px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .author-box-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .author-box-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .author-box-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .author-box-bio {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: 30px 80px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-decoration: none;
+        }
+
+        .footer-nav a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #42526e;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .article-hero {
+                padding: 100px 20px 24px;
+            }
+            .article-hero h1 {
+                font-size: 32px;
+            }
+            .article-content {
+                padding: 0 20px 40px;
+            }
+            .article-content h2 {
+                font-size: 28px;
+            }
+            .article-content h3 {
+                font-size: 22px;
+            }
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .site-footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How Type It Saves Private Certifiers Hours Every Week",
+      "description": "Private certifiers spend up to 4 hours per package manually creating drawing schedules. Here's how AI-powered document processing cuts that to minutes.",
+      "image": "https://www.typeit.com/typeit-logo.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Type It Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Type It",
+        "url": "https://www.typeit.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.typeit.com/typeit-logo.png"
+        }
+      },
+      "datePublished": "2026-03-03",
+      "dateModified": "2026-03-03",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.typeit.com/blog/how-type-it-saves-certifiers-time"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.typeit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.typeit.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How Type It Saves Private Certifiers Hours Every Week",
+          "item": "https://www.typeit.com/blog/how-type-it-saves-certifiers-time"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="/" class="nav-logo">
+            <img src="/typeit-logo.png" alt="Type It">
+        </a>
+        <nav class="nav-links">
+            <a href="/typeit-pricing.html">Pricing</a>
+            <a href="/blog/index.html" class="active">Blog</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="/contact" class="download-btn">Contact Us</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
+    </header>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <a href="/blog/index.html" class="back-to-blog">&larr; Back to Blog</a>
+
+        <div class="article-meta">
+            <span class="article-category">Knowledge</span>
+            <div class="article-meta-divider"></div>
+            <span class="article-date">March 3, 2026</span>
+        </div>
+
+        <h1>How Type It Saves Private Certifiers Hours Every Week</h1>
+
+        <p class="subtitle">Private certifiers spend up to 4 hours per package manually creating drawing schedules. Here's how AI-powered document processing cuts that to minutes &mdash; and lets you focus on what actually matters.</p>
+
+        <div class="author-byline">
+            <div class="author-avatar">TI</div>
+            <div class="author-info">
+                <span class="author-name">Type It Team</span>
+                <span class="author-title">Construction Document Processing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <div class="article-content">
+        <div class="toc">
+            <p>In this article</p>
+            <ul>
+                <li><a href="#the-problem">The drawing schedule problem</a></li>
+                <li><a href="#manual-process">What the manual process actually looks like</a></li>
+                <li><a href="#how-type-it-works">How Type It processes your documents</a></li>
+                <li><a href="#time-savings">Real time savings: the numbers</a></li>
+                <li><a href="#certificates">OC, CC, and CDC processing</a></li>
+                <li><a href="#getting-started">Getting started</a></li>
+            </ul>
+        </div>
+
+        <h2 id="the-problem">The drawing schedule problem</h2>
+
+        <p>If you're a private certifier in Australia, you already know the pain. Every development application, every construction certificate, every complying development certificate comes with a stack of drawings. And for every stack, you need a drawing schedule.</p>
+
+        <p>Drawing schedules aren't optional. They're a critical compliance document that records every drawing in a package &mdash; the drawing number, revision, title, date, and status. Council needs them. Your records need them. Your clients expect them.</p>
+
+        <p>The problem? <strong>Creating them manually is tedious, time-consuming, and error-prone.</strong></p>
+
+        <p>Most certifiers we've spoken to spend between 30 minutes and 2 hours per package just on drawing schedules alone. For firms processing 20+ jobs per month, that's 10&ndash;40 hours of admin work that adds zero value to the actual certification process.</p>
+
+        <h2 id="manual-process">What the manual process actually looks like</h2>
+
+        <p>Let's break down what happens when a certifier receives a new package today:</p>
+
+        <ol>
+            <li><strong>Download the documents</strong> &mdash; PDFs arrive via email, portal, or USB. Sometimes it's one combined file, sometimes it's 30 separate documents.</li>
+            <li><strong>Open each drawing</strong> &mdash; You need to check the title block on every single page to find the drawing number, title, revision, and date.</li>
+            <li><strong>Create a spreadsheet or table</strong> &mdash; Most certifiers use Excel or Word to list out every drawing with its details.</li>
+            <li><strong>Cross-reference and verify</strong> &mdash; Check that nothing's been missed, revision numbers match, and dates are consistent.</li>
+            <li><strong>Format for the certificate</strong> &mdash; The schedule needs to be formatted properly for attachment to the CC, OC, or CDC.</li>
+        </ol>
+
+        <p>This process is repeated for every single job. And when drawings get revised mid-assessment (which happens constantly), you're updating the schedule again.</p>
+
+        <blockquote>
+            <p>"I was spending my evenings catching up on drawing schedules. It's not the certification work that bogs you down &mdash; it's the paperwork around it."</p>
+        </blockquote>
+
+        <h2 id="how-type-it-works">How Type It processes your documents</h2>
+
+        <p>Type It uses AI-powered document processing to read, extract, and organise drawing information automatically. Here's how it works:</p>
+
+        <h3>1. Upload your drawings</h3>
+        <p>Drop your PDF package into Type It. It handles single combined files or multiple separate documents &mdash; doesn't matter how they're structured.</p>
+
+        <h3>2. AI reads every title block</h3>
+        <p>Type It's AI scans each page, identifies the title block, and extracts the drawing number, title, revision, date, scale, and any other relevant information. It handles different title block formats across architects, engineers, and draftspeople.</p>
+
+        <h3>3. Drawing schedule generated</h3>
+        <p>Within minutes, you have a complete, formatted drawing schedule ready for attachment to your certificate. Drawing numbers are sorted, revisions are tracked, and everything is laid out in the format councils expect.</p>
+
+        <h3>4. Review and export</h3>
+        <p>You review the generated schedule, make any adjustments if needed, and export it as a PDF ready to attach to your OC, CC, or CDC.</p>
+
+        <p>The entire process takes <strong>minutes instead of hours</strong>.</p>
+
+        <h2 id="time-savings">Real time savings: the numbers</h2>
+
+        <p>Let's do the maths for a typical private certifier or small certification firm:</p>
+
+        <ul>
+            <li><strong>Average time per drawing schedule (manual):</strong> 45 minutes &ndash; 2 hours</li>
+            <li><strong>Average time per drawing schedule (Type It):</strong> 3 &ndash; 5 minutes</li>
+            <li><strong>Jobs per month:</strong> 20 &ndash; 45</li>
+        </ul>
+
+        <p>At 20 jobs per month, saving an average of 1 hour per schedule means <strong>20 hours saved per month</strong>. That's half a working week.</p>
+
+        <p>At 45 jobs per month, you're looking at <strong>45+ hours saved</strong> &mdash; more than a full working week reclaimed every single month.</p>
+
+        <p>That's time you can spend on actual assessment work, site inspections, or simply finishing your day at a reasonable hour.</p>
+
+        <h2 id="certificates">OC, CC, and CDC processing</h2>
+
+        <p>Type It isn't just for drawing schedules. The platform is built specifically for the documents that private certifiers deal with every day:</p>
+
+        <ul>
+            <li><strong>Construction Certificates (CC)</strong> &mdash; Generate drawing schedules for CC applications with all drawings properly catalogued and referenced.</li>
+            <li><strong>Occupancy Certificates (OC)</strong> &mdash; Process as-built drawings and final documentation packages for OC issuance, with schedules that match the approved drawings.</li>
+            <li><strong>Complying Development Certificates (CDC)</strong> &mdash; Handle the complete drawing package for CDC applications, including all consultant drawings and specifications.</li>
+        </ul>
+
+        <p>Each certificate type has its own requirements for how drawings need to be scheduled and referenced. Type It understands these differences and formats the output accordingly.</p>
+
+        <h2 id="getting-started">Getting started</h2>
+
+        <p>Type It is designed to slot into your existing workflow without disruption. There's no complex onboarding, no IT setup, and no learning curve.</p>
+
+        <ol>
+            <li><strong>Book a demo</strong> &mdash; We'll walk you through the platform with your own documents so you can see exactly how it handles your typical packages.</li>
+            <li><strong>Choose your plan</strong> &mdash; Starter for 1&ndash;2 person teams (up to 20 jobs/month) or Professional for busier firms (up to 45 jobs/month).</li>
+            <li><strong>Start processing</strong> &mdash; Upload your first package and have a drawing schedule ready in minutes.</li>
+        </ol>
+
+        <div class="article-cta">
+            <p>Ready to stop spending hours on drawing schedules?</p>
+            <p><a href="/contact">Book a demo</a> and see Type It process your documents in real time.</p>
+        </div>
+
+        <hr>
+
+        <!-- Author Box -->
+        <div class="author-box">
+            <div class="author-avatar">TI</div>
+            <div class="author-box-info">
+                <div class="author-box-name">Type It Team</div>
+                <div class="author-box-title">Construction Document Processing</div>
+                <div class="author-box-bio">Type It builds AI-powered document processing tools for Australian construction professionals. We help private certifiers, councils, and construction firms automate drawing schedules and certificate documentation.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="/typeit-logo.png" alt="Type It">
+        </div>
+        <nav class="footer-nav">
+            <a href="/typeit-pricing.html">Pricing</a>
+            <a href="/blog/index.html">Blog</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div class="footer-copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Type It. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

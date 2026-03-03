@@ -15,6 +15,7 @@
 
     <title>Type It Pricing — Affordable Construction Document Processing | Type It</title>
     <meta name="description" content="See Type It's pricing. Affordable plans for construction professionals. Start free, scale as you grow. No credit card required.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.typeit.com/pricing">
 
     <!-- Open Graph Tags -->
@@ -25,10 +26,9 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" type="image/png" href="notextlogo.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -113,6 +113,20 @@
             background: #2563eb;
         }
 
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: #42526e;
+        }
+
         /* Pricing Hero Section */
         .pricing-hero {
             padding: 120px 80px 60px;
@@ -121,9 +135,9 @@
         }
 
         .pricing-hero h1 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'DM Serif Display', serif;
             font-size: 56px;
-            font-weight: 600;
+            font-weight: 400;
             color: #1a1a1a;
             margin-bottom: 16px;
             line-height: 1.1;
@@ -139,44 +153,58 @@
         /* Pricing Page */
         .pricing-page {
             padding: 0 80px 60px;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* Plans Grid Container */
+        .plans-grid-container {
+            position: relative;
+            padding-top: 32px;
         }
 
         /* Plans Grid */
         .plans-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 0;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: visible;
             position: relative;
         }
 
         .plan-card {
             background: #fff;
-            border: 2px solid #e5e5e5;
-            border-radius: 16px;
-            padding: 40px 32px;
+            border-right: 2px solid #e5e5e5;
+            padding: 32px 28px;
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: all 0.3s ease;
         }
 
-        .plan-card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+        .plan-card:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .plan-card:last-child {
+            border-right: none;
+            border-radius: 0 10px 10px 0;
         }
 
         .plan-card.featured {
             background: #fff;
             border: 2px solid #3b82f6;
-            border-radius: 16px;
-            margin: -24px 0 0 0;
-            padding-top: 64px;
-            padding-bottom: 40px;
+            border-radius: 12px;
+            margin: -34px -2px 0 -2px;
+            padding-top: 52px;
+            padding-bottom: 32px;
             z-index: 2;
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+        }
+
+        .plan-card.featured .plan-name {
+            margin-top: 0;
         }
 
         .popular-badge {
@@ -187,39 +215,42 @@
             background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: #fff;
             font-family: 'Inter', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             text-align: center;
-            padding: 10px;
-            border-radius: 14px 14px 0 0;
+            padding: 8px;
+            border-radius: 10px 10px 0 0;
         }
 
         .plan-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 12px;
+            height: 29px;
         }
 
         .plan-description {
             font-family: 'Inter', sans-serif;
             font-size: 15px;
             color: #666;
-            margin-bottom: 32px;
-            line-height: 1.6;
-            min-height: 48px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+            height: 48px;
+            overflow: hidden;
         }
 
         .plan-price {
             margin-bottom: 8px;
+            height: 48px;
         }
 
         .price-amount {
-            font-family: 'Poppins', sans-serif;
-            font-size: 52px;
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
             font-weight: 700;
             color: #1a1a1a;
             line-height: 1;
@@ -227,21 +258,24 @@
 
         .price-subtext {
             font-family: 'Inter', sans-serif;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 400;
             color: #666;
             display: block;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
+            height: 21px;
         }
 
         .plan-btn {
             font-family: 'Inter', sans-serif;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
-            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #1a1a1a;
             background: #fff;
-            border: 2px solid #3b82f6;
-            padding: 14px 28px;
+            border: 2px solid #e5e5e5;
+            padding: 14px 24px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -251,60 +285,60 @@
         }
 
         .plan-btn:hover {
-            background: #3b82f6;
-            color: #fff;
+            background: #f5f5f5;
+            border-color: #ccc;
         }
 
         .plan-btn.primary {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: #3b82f6;
             color: #fff;
             border-color: #3b82f6;
         }
 
         .plan-btn.primary:hover {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            background: #2563eb;
         }
 
         .plan-features {
             list-style: none;
-            margin-top: 32px;
-            padding-top: 32px;
+            margin-top: 24px;
+            padding-top: 24px;
             border-top: 1px solid #e5e5e5;
             flex: 1;
         }
 
         .plan-features li {
             font-family: 'Inter', sans-serif;
-            font-size: 15px;
+            font-size: 14px;
             color: #1a1a1a;
-            padding: 10px 0;
+            padding: 8px 0;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 10px;
+            height: 38px;
         }
 
         .plan-features li::before {
-            content: '✓';
+            content: '\2713';
             color: #10b981;
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 600;
             flex-shrink: 0;
         }
 
         /* Comparison Table */
         .compare-section {
-            margin-top: 100px;
+            margin-top: 80px;
             padding-top: 60px;
             border-top: 1px solid #e5e5e5;
         }
 
         .compare-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 36px;
+            font-family: 'Inter', sans-serif;
+            font-size: 32px;
             font-weight: 600;
             color: #1a1a1a;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             line-height: 1.3;
         }
 
@@ -317,19 +351,19 @@
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            border: 2px solid #e5e5e5;
+            border: 2px solid #d1d5db;
             border-radius: 12px;
         }
 
         .compare-table thead th {
             font-family: 'Inter', sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             color: #1a1a1a;
             text-align: left;
-            padding: 24px 20px;
-            border-bottom: 2px solid #e5e5e5;
-            border-right: 2px solid #e5e5e5;
+            padding: 16px 20px;
+            border-bottom: 2px solid #d1d5db;
+            border-right: 2px solid #d1d5db;
             background: #fafafa;
             vertical-align: top;
         }
@@ -349,17 +383,16 @@
         .compare-table thead th .plan-header {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 4px;
         }
 
         .compare-table thead th .plan-header .price {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-size: 20px;
+            font-weight: 600;
         }
 
         .compare-table thead th .plan-header .price span {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 400;
             color: #666;
         }
@@ -370,7 +403,7 @@
         }
 
         .compare-table thead th.featured .price span {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .table-btn {
@@ -378,15 +411,14 @@
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 10px 20px;
+            letter-spacing: 0.3px;
+            padding: 10px 16px;
             border-radius: 6px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-top: 8px;
+            margin-top: 12px;
             transition: all 0.2s;
-            text-align: center;
         }
 
         .table-btn.outline {
@@ -414,7 +446,7 @@
             font-size: 14px;
             color: #1a1a1a;
             padding: 16px 20px;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 2px solid #e5e5e5;
             border-right: 2px solid #e5e5e5;
             vertical-align: middle;
         }
@@ -426,7 +458,6 @@
         .compare-table tbody td:first-child {
             font-weight: 500;
             color: #666;
-            background: #fafafa;
         }
 
         .compare-table tbody td.featured {
@@ -447,23 +478,21 @@
 
         .check-icon {
             color: #10b981;
-            font-size: 18px;
         }
 
         .x-icon {
             color: #d1d5db;
-            font-size: 18px;
         }
 
         /* Footer */
         .site-footer {
-            padding: 40px 80px;
+            padding: 30px 80px;
             background: #fff;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-top: 1px solid #e5e7eb;
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
         .footer-logo {
@@ -478,9 +507,10 @@
 
         .footer-copyright {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             color: #64748b;
             text-align: center;
+            line-height: 1.5;
         }
 
         .footer-social {
@@ -504,43 +534,104 @@
 
         @media (max-width: 1024px) {
             .plans-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-                margin: 0 auto;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .plan-card:first-child {
+                border-radius: 10px 0 0 0;
+            }
+            .plan-card:nth-child(2) {
+                border-right: none;
+            }
+            .plan-card:last-child {
+                border-radius: 0 0 10px 0;
             }
             .plan-card.featured {
-                margin: 0;
+                margin: -2px -2px 0 -2px;
+            }
+            .compare-table {
+                min-width: 700px;
             }
         }
 
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
             .pricing-hero {
-                padding: 100px 24px 40px;
+                padding: 100px 20px 40px;
             }
             .pricing-hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
             .pricing-hero .subtitle {
                 font-size: 16px;
             }
             .pricing-page {
-                padding: 0 24px 40px;
+                padding: 0 20px 40px;
+            }
+            .plans-grid {
+                grid-template-columns: 1fr;
+                border: none;
+                gap: 16px;
+            }
+            .plan-card {
+                border: 2px solid #e5e5e5;
+                border-radius: 12px !important;
+                border-right: 2px solid #e5e5e5;
+            }
+            .plan-card.featured {
+                margin: 0;
+                padding-top: 52px;
+            }
+            .plan-features li {
+                height: auto;
+            }
+            .plan-description {
+                height: auto;
+            }
+            .compare-section h2 {
+                font-size: 24px;
+            }
+            .site-footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
             }
             header {
                 padding: 0 24px;
             }
-            .nav-links {
-                display: none;
+        }
+
+        @media (max-width: 480px) {
+            .pricing-hero {
+                padding: 80px 16px 32px;
             }
-            .compare-section {
-                margin-top: 60px;
-                padding-top: 40px;
-            }
-            .compare-section h2 {
+            .pricing-hero h1 {
                 font-size: 28px;
             }
-            .compare-table {
-                min-width: 700px;
+            .pricing-page {
+                padding: 0 16px 32px;
+            }
+            .plan-card {
+                padding: 24px 20px;
+            }
+            .plan-name {
+                font-size: 20px;
+                height: auto;
+            }
+            .price-amount {
+                font-size: 36px;
+            }
+            .compare-section {
+                margin-top: 40px;
+                padding-top: 40px;
+            }
+            .site-footer {
+                padding: 20px 16px;
             }
         }
     </style>
@@ -551,80 +642,86 @@
             <img src="typeit-logo.png" alt="Type It">
         </a>
         <nav class="nav-links">
-            <a href="/#how-it-works">How It Works</a>
-            <a href="/pricing" class="active">Pricing</a>
-            <a href="/#faq">FAQ</a>
+            <a href="/typeit-pricing.html" class="active">Pricing</a>
+            <a href="/blog/index.html">Blog</a>
         </nav>
         <div class="nav-actions">
-            <a href="mailto:hello@typeit.com" class="download-btn">Join Beta</a>
+            <a href="/contact" class="download-btn">Contact Us</a>
         </div>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
     </header>
 
     <!-- Pricing Hero -->
     <section class="pricing-hero">
         <h1>Simple, transparent pricing</h1>
-        <p class="subtitle">Start free. Scale as you grow. No hidden fees.</p>
+        <p class="subtitle">Plans for every team size. Scale as you grow.</p>
     </section>
 
     <main class="pricing-page">
         <!-- Plans Grid -->
-        <div class="plans-grid">
-            <!-- Starter -->
-            <div class="plan-card">
-                <h3 class="plan-name">Starter</h3>
-                <p class="plan-description">Perfect for trying it out</p>
-                <div class="plan-price">
-                    <span class="price-amount">Free</span>
+        <div class="plans-grid-container">
+            <div class="plans-grid">
+                <!-- Starter -->
+                <div class="plan-card">
+                    <h2 class="plan-name">Starter</h2>
+                    <p class="plan-description">For 1–2 person teams running up to 20 jobs a month.</p>
+                    <div class="plan-price">
+                        <span class="price-amount">$150</span>
+                    </div>
+                    <span class="price-subtext">per month</span>
+                    <a href="/contact" class="plan-btn">Get Started</a>
+                    <ul class="plan-features">
+                        <li>Up to 20 jobs per month</li>
+                        <li>All file formats supported</li>
+                        <li>Word document export</li>
+                        <li>Edit before download</li>
+                        <li>Email support</li>
+                        <li>90-day file storage</li>
+                    </ul>
                 </div>
-                <span class="price-subtext">Your first package</span>
-                <a href="mailto:hello@typeit.com" class="plan-btn">Join Beta</a>
-                <ul class="plan-features">
-                    <li>First package free</li>
-                    <li>Up to 50 drawings</li>
-                    <li>All file formats supported</li>
-                    <li>Word document export</li>
-                    <li>30-day file storage</li>
-                </ul>
-            </div>
 
-            <!-- Pay As You Go (Featured) -->
-            <div class="plan-card featured">
-                <div class="popular-badge">Most Popular</div>
-                <h3 class="plan-name">Pay As You Go</h3>
-                <p class="plan-description">No subscription needed</p>
-                <div class="plan-price">
-                    <span class="price-amount">$15</span>
+                <!-- Professional (Featured) -->
+                <div class="plan-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h2 class="plan-name">Professional</h2>
+                    <p class="plan-description">For growing teams processing up to 45 jobs a month.</p>
+                    <div class="plan-price">
+                        <span class="price-amount">$300</span>
+                    </div>
+                    <span class="price-subtext">per month</span>
+                    <a href="/contact" class="plan-btn primary">Get Started</a>
+                    <ul class="plan-features">
+                        <li>Up to 45 jobs per month</li>
+                        <li>Everything in Starter</li>
+                        <li>Priority processing</li>
+                        <li>Custom templates</li>
+                        <li>Unlimited file storage</li>
+                        <li>Priority support</li>
+                    </ul>
                 </div>
-                <span class="price-subtext">per package</span>
-                <a href="mailto:hello@typeit.com" class="plan-btn primary">Join Beta</a>
-                <ul class="plan-features">
-                    <li>Process unlimited packages</li>
-                    <li>Up to 100 drawings per package</li>
-                    <li>Priority processing</li>
-                    <li>Edit before download</li>
-                    <li>90-day file storage</li>
-                    <li>Email support</li>
-                </ul>
-            </div>
 
-            <!-- Professional -->
-            <div class="plan-card">
-                <h3 class="plan-name">Professional</h3>
-                <p class="plan-description">For high-volume users</p>
-                <div class="plan-price">
-                    <span class="price-amount">$99</span>
+                <!-- Enterprise -->
+                <div class="plan-card">
+                    <h2 class="plan-name">Enterprise</h2>
+                    <p class="plan-description">For large teams with high-volume or custom needs.</p>
+                    <div class="plan-price">
+                        <span class="price-amount">Custom</span>
+                    </div>
+                    <span class="price-subtext">tailored to your business</span>
+                    <a href="/contact" class="plan-btn">Contact Sales</a>
+                    <ul class="plan-features">
+                        <li>Unlimited jobs per month</li>
+                        <li>Everything in Professional</li>
+                        <li>Dedicated account manager</li>
+                        <li>Custom integrations</li>
+                        <li>SLA &amp; onboarding support</li>
+                        <li>API access</li>
+                    </ul>
                 </div>
-                <span class="price-subtext">per month</span>
-                <a href="mailto:hello@typeit.com" class="plan-btn">Join Beta</a>
-                <ul class="plan-features">
-                    <li>10 packages per month</li>
-                    <li>Unlimited drawings per package</li>
-                    <li>Fastest processing</li>
-                    <li>Custom templates</li>
-                    <li>Unlimited file storage</li>
-                    <li>Priority support</li>
-                    <li>API access (coming soon)</li>
-                </ul>
             </div>
         </div>
 
@@ -640,86 +737,133 @@
                             <th>
                                 <div class="plan-header">
                                     <span>Starter</span>
-                                    <span class="price">Free</span>
-                                    <a href="mailto:hello@typeit.com" class="table-btn outline">Join Beta</a>
+                                    <span class="price">$150<span>/mo</span></span>
+                                    <a href="/contact" class="table-btn outline">Get Started</a>
                                 </div>
                             </th>
                             <th class="featured">
                                 <div class="plan-header">
-                                    <span>Pay As You Go</span>
-                                    <span class="price">$15<span>/package</span></span>
-                                    <a href="mailto:hello@typeit.com" class="table-btn primary">Join Beta</a>
+                                    <span>Professional</span>
+                                    <span class="price">$300<span>/mo</span></span>
+                                    <a href="/contact" class="table-btn primary">Get Started</a>
                                 </div>
                             </th>
                             <th>
                                 <div class="plan-header">
-                                    <span>Professional</span>
-                                    <span class="price">$99<span>/mo</span></span>
-                                    <a href="mailto:hello@typeit.com" class="table-btn outline">Join Beta</a>
+                                    <span>Enterprise</span>
+                                    <span class="price">Custom</span>
+                                    <a href="/contact" class="table-btn outline">Contact Sales</a>
                                 </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Packages included</td>
-                            <td>1 free</td>
-                            <td class="featured">Pay per use</td>
-                            <td>10/month</td>
+                            <td>Jobs per month</td>
+                            <td>Up to 20</td>
+                            <td class="featured">Up to 45</td>
+                            <td>Unlimited</td>
                         </tr>
                         <tr>
-                            <td>Max drawings per package</td>
-                            <td>50</td>
-                            <td class="featured">100</td>
-                            <td>Unlimited</td>
+                            <td>File formats</td>
+                            <td>All supported</td>
+                            <td class="featured">All supported</td>
+                            <td>All supported</td>
                         </tr>
                         <tr>
                             <td>Processing speed</td>
                             <td>Standard</td>
                             <td class="featured">Priority</td>
-                            <td>Fastest</td>
+                            <td>Priority</td>
                         </tr>
                         <tr>
                             <td>Edit before download</td>
-                            <td class="x-icon">✕</td>
-                            <td class="featured check-icon">✓</td>
-                            <td class="check-icon">✓</td>
-                        </tr>
-                        <tr>
-                            <td>File storage duration</td>
-                            <td>30 days</td>
-                            <td class="featured">90 days</td>
-                            <td>Unlimited</td>
+                            <td class="check-icon">&#10003;</td>
+                            <td class="featured check-icon">&#10003;</td>
+                            <td class="check-icon">&#10003;</td>
                         </tr>
                         <tr>
                             <td>Custom templates</td>
-                            <td class="x-icon">✕</td>
-                            <td class="featured x-icon">✕</td>
-                            <td class="check-icon">✓</td>
+                            <td class="x-icon">&#10005;</td>
+                            <td class="featured check-icon">&#10003;</td>
+                            <td class="check-icon">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>File storage</td>
+                            <td>90 days</td>
+                            <td class="featured">Unlimited</td>
+                            <td>Unlimited</td>
                         </tr>
                         <tr>
                             <td>Email support</td>
-                            <td class="x-icon">✕</td>
-                            <td class="featured check-icon">✓</td>
-                            <td class="check-icon">✓</td>
+                            <td class="check-icon">&#10003;</td>
+                            <td class="featured check-icon">&#10003;</td>
+                            <td class="check-icon">&#10003;</td>
                         </tr>
                         <tr>
                             <td>Priority support</td>
-                            <td class="x-icon">✕</td>
-                            <td class="featured x-icon">✕</td>
-                            <td class="check-icon">✓</td>
+                            <td class="x-icon">&#10005;</td>
+                            <td class="featured check-icon">&#10003;</td>
+                            <td class="check-icon">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated account manager</td>
+                            <td class="x-icon">&#10005;</td>
+                            <td class="featured x-icon">&#10005;</td>
+                            <td class="check-icon">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Custom integrations</td>
+                            <td class="x-icon">&#10005;</td>
+                            <td class="featured x-icon">&#10005;</td>
+                            <td class="check-icon">&#10003;</td>
                         </tr>
                         <tr>
                             <td>API access</td>
-                            <td class="x-icon">✕</td>
-                            <td class="featured x-icon">✕</td>
-                            <td>Coming soon</td>
+                            <td class="x-icon">&#10005;</td>
+                            <td class="featured x-icon">&#10005;</td>
+                            <td class="check-icon">&#10003;</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
     </main>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Type It Document Processing",
+      "description": "AI-powered construction document processing. Extract drawing schedules, CC lists, and more from construction documents automatically.",
+      "brand": {
+        "@type": "Organization",
+        "name": "Type It"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "price": "150",
+          "priceCurrency": "AUD",
+          "description": "Up to 20 jobs/month, all file formats, Word export, edit before download, email support, 90-day storage",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.typeit.com/pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Professional",
+          "price": "300",
+          "priceCurrency": "AUD",
+          "priceValidUntil": "2026-12-31",
+          "description": "Up to 45 jobs/month, priority processing, custom templates, unlimited storage, priority support",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.typeit.com/pricing"
+        }
+      ]
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -732,7 +876,8 @@
             Type It
         </div>
         <div class="footer-copyright">
-            © 2026 Type It. All rights reserved.
+            &copy; <script>document.write(new Date().getFullYear())</script> Type It. All rights reserved.<br>
+            <a href="/privacy" style="color: inherit; text-decoration: underline;">Privacy Policy</a> &middot; <a href="/terms" style="color: inherit; text-decoration: underline;">Terms of Service</a>
         </div>
         <div class="footer-social">
             <a href="#" aria-label="Twitter">
